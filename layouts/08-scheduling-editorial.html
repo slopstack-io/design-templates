@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminbuchung — Editorial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+    body { font-family: 'Lora', serif; background-color: #faf6f0; }
+    h1, h2, h3, .heading { font-family: 'Playfair Display', serif; }
+    .date-section { border-left: 3px solid #c4956a; }
+    .date-section.selected { border-left-color: #b85c38; background: rgba(184,92,56,0.06); }
+    .time-prose { font-style: italic; }
+    .time-prose:hover { color: #b85c38; }
+    .time-prose.selected { color: #b85c38; font-weight: 600; }
+    .underline-input {
+      border: none;
+      border-bottom: 1.5px solid #c4956a;
+      background: transparent;
+      padding: 0.75rem 0;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      color: #3d2b1f;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .underline-input:focus {
+      border-bottom-color: #b85c38;
+    }
+    .underline-input::placeholder {
+      color: #b8a898;
+      font-style: italic;
+    }
+    .divider-ornament {
+      text-align: center;
+      color: #c4956a;
+      font-size: 1.2rem;
+      letter-spacing: 0.5rem;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Masthead -->
+  <header class="max-w-3xl mx-auto pt-16 pb-8 px-6 text-center">
+    <p class="text-sm tracking-[0.4em] uppercase text-[#b85c38] mb-4">Terminplaner · Mai 2026</p>
+    <h1 class="text-5xl md:text-6xl font-bold text-[#3d2b1f] leading-tight">
+      Ihr persönlicher<br><em class="text-[#b85c38]">Terminkalender</em>
+    </h1>
+    <div class="w-24 h-px bg-[#c4956a] mx-auto mt-8 mb-4"></div>
+    <p class="text-[#7a6555] text-lg italic max-w-xl mx-auto">
+      Wählen Sie ein Datum und eine Uhrzeit für Ihre nächste Beratung. Wir freuen uns auf Sie.
+    </p>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 pb-20">
+
+    <!-- Editorial Date Sections -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-[#3d2b1f] mb-2 heading">Die Woche im Überblick</h2>
+      <p class="text-[#7a6555] italic mb-10">Freitag, 29. Mai bis Sonntag, 31. Mai 2026</p>
+
+      <!-- Freitag 29. — Today / Selected -->
+      <div class="date-section selected pl-8 py-6 mb-8 rounded-r-sm transition-all cursor-pointer" onclick="selectDay(this)">
+        <div class="flex items-baseline justify-between mb-3">
+          <h3 class="text-2xl font-bold text-[#3d2b1f] heading">Freitag, 29. Mai</h3>
+          <span class="text-xs tracking-[0.3em] uppercase text-[#b85c38] font-semibold">Heute</span>
+        </div>
+        <p class="text-[#7a6555] mb-5 leading-relaxed">
+          Ein produktiver Tag steht bevor. Drei Beratungen sind noch verfügbar, darunter auch ein Zeitfenster am späten Vormittag. Ideal für ein erstes Kennenlernen.
+        </p>
+        <div class="space-y-3">
+          <p class="time-prose text-[#5a4636] cursor-pointer hover:text-[#b85c38] selected" onclick="event.stopPropagation(); selectTime(this)">
+            9:00 Uhr — <span class="text-[#b85c38]">Verfügbar · Erstberatung empfohlen</span>
+          </p>
+          <p class="time-prose text-[#5a4636] cursor-pointer hover:text-[#b85c38]" onclick="event.stopPropagation(); selectTime(this)">
+            11:00 Uhr — <span class="text-[#b85c38]">Verfügbar · Folgetermin möglich</span>
+          </p>
+          <p class="time-prose text-[#5a4636] cursor-pointer hover:text-[#b85c38]" onclick="event.stopPropagation(); selectTime(this)">
+            14:00 Uhr — Verfügbar
+          </p>
+          <p class="time-prose text-[#b8a898] line-through">
+            16:00 Uhr — Belegt
+          </p>
+        </div>
+      </div>
+
+      <div class="divider-ornament my-6">— ✦ —</div>
+
+      <!-- Samstag 30. -->
+      <div class="date-section pl-8 py-6 mb-8 rounded-r-sm transition-all cursor-pointer" onclick="selectDay(this)">
+        <div class="flex items-baseline justify-between mb-3">
+          <h3 class="text-2xl font-bold text-[#3d2b1f] heading">Samstag, 30. Mai</h3>
+          <span class="text-xs tracking-[0.3em] uppercase text-[#7a6555]">Wochenende</span>
+        </div>
+        <p class="text-[#7a6555] mb-5 leading-relaxed">
+          Samstagvormittag — ruhig und entspannt. Perfekt für ausführliche Beratungen ohne Zeitdruck.
+        </p>
+        <div class="space-y-3">
+          <p class="time-prose text-[#5a4636] cursor-pointer hover:text-[#b85c38]" onclick="event.stopPropagation(); selectTime(this)">
+            10:00 Uhr — Verfügbar
+          </p>
+          <p class="time-prose text-[#5a4636] cursor-pointer hover:text-[#b85c38]" onclick="event.stopPropagation(); selectTime(this)">
+            11:30 Uhr — Verfügbar
+          </p>
+          <p class="time-prose text-[#b8a898] line-through">
+            13:00 Uhr — Belegt
+          </p>
+        </div>
+      </div>
+
+      <div class="divider-ornament my-6">— ✦ —</div>
+
+      <!-- Sonntag 31. -->
+      <div class="date-section pl-8 py-6 mb-8 rounded-r-sm transition-all cursor-pointer" onclick="selectDay(this)">
+        <div class="flex items-baseline justify-between mb-3">
+          <h3 class="text-2xl font-bold text-[#3d2b1f] heading">Sonntag, 31. Mai</h3>
+          <span class="text-xs tracking-[0.3em] uppercase text-[#7a6555]">Ruhetag</span>
+        </div>
+        <p class="text-[#7a6555] leading-relaxed">
+          Am Sonntag bieten wir lediglich ein einziges Zeitfenster an — für diejenigen, die es im Ruhestand bevorzugen.
+        </p>
+        <div class="space-y-3 mt-5">
+          <p class="time-prose text-[#5a4636] cursor-pointer hover:text-[#b85c38]" onclick="event.stopPropagation(); selectTime(this)">
+            11:00 Uhr — Verfügbar · Letzter Termin des Monats
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="w-full h-px bg-[#c4956a] mb-16"></div>
+
+    <!-- Booking Form — Editorial Style -->
+    <section>
+      <h2 class="text-3xl font-bold text-[#3d2b1f] mb-2 heading">Ihre Buchung</h2>
+      <p class="text-[#7a6555] italic mb-10">
+        Tragen Sie sich bitte in das untenstehende Formular ein. Wir bestätigen Ihren Termin umgehend.
+      </p>
+
+      <form class="max-w-xl">
+        <div class="mb-10">
+          <label class="heading text-[#3d2b1f] text-sm tracking-[0.15em] uppercase block mb-1">Vollständiger Name</label>
+          <input type="text" placeholder="z. B. Dr. Anna Müller" class="underline-input w-full">
+        </div>
+
+        <div class="mb-10">
+          <label class="heading text-[#3d2b1f] text-sm tracking-[0.15em] uppercase block mb-1">Elektronische Adresse</label>
+          <input type="email" placeholder="anna@beispiel.de" class="underline-input w-full">
+        </div>
+
+        <div class="mb-10">
+          <label class="heading text-[#3d2b1f] text-sm tracking-[0.15em] uppercase block mb-1">Telefonnummer</label>
+          <input type="tel" placeholder="+49 30 1234 5678" class="underline-input w-full">
+        </div>
+
+        <div class="mb-10">
+          <label class="heading text-[#3d2b1f] text-sm tracking-[0.15em] uppercase block mb-1">Art der Beratung</label>
+          <select class="underline-input w-full bg-transparent cursor-pointer">
+            <option>Erstberatung — kostenloses Kennenlernen</option>
+            <option>Folgetermin — weitere Besprechung</option>
+            <option>Behandlungstermin</option>
+            <option>Telefonische Beratung</option>
+          </select>
+        </div>
+
+        <div class="mb-12">
+          <label class="heading text-[#3d2b1f] text-sm tracking-[0.15em] uppercase block mb-1">Ihre Anmerkungen</label>
+          <textarea rows="4" placeholder="Optional: Teilen Sie uns mit, worum es geht…" class="underline-input w-full resize-none"></textarea>
+        </div>
+
+        <button type="button" class="w-full py-4 bg-[#b85c38] hover:bg-[#a04e2f] text-white heading text-lg tracking-wider uppercase transition-colors duration-300">
+          Termin verbindlich anfragen
+        </button>
+
+        <p class="text-center text-[#b8a898] text-sm italic mt-4">
+          Sie erhalten innerhalb von 24 Stunden eine Bestätigung.
+        </p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-3xl mx-auto px-6 pb-12 text-center">
+    <div class="w-24 h-px bg-[#c4956a] mx-auto mb-6"></div>
+    <p class="text-[#b8a898] text-sm italic">
+      Terminplaner · Ausgabe Mai 2026 · Alle Zeiten in MEZ
+    </p>
+  </footer>
+
+  <script>
+    function selectDay(el) {
+      document.querySelectorAll('.date-section').forEach(d => d.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+    function selectTime(el) {
+      document.querySelectorAll('.time-prose').forEach(t => t.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+  </script>
+
+</body>
+</html>

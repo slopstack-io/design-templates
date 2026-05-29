@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzen — Bento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white min-h-screen p-6">
+
+    <!-- Header -->
+    <header class="max-w-7xl mx-auto mb-8">
+        <div class="flex items-center gap-3 mb-2">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-400 flex items-center justify-center text-white text-lg">💰</div>
+            <h1 class="text-3xl font-extrabold text-gray-800">Finanzübersicht</h1>
+            <span class="ml-auto bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-1.5 rounded-full">Mai 2026</span>
+        </div>
+        <p class="text-gray-400 text-sm ml-14">Portfolio &middot; Transaktionen &middot; Entwicklungen</p>
+    </header>
+
+    <!-- Bento Grid -->
+    <div class="max-w-7xl mx-auto grid grid-cols-4 gap-4 auto-rows-min">
+
+        <!-- Big Total Card (2 cols) -->
+        <div class="col-span-2 rounded-3xl p-8 shadow-sm text-white relative overflow-hidden" style="background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+            <p class="text-sm font-medium text-white/70 mb-1">Gesamtportfolio</p>
+            <p class="text-5xl font-extrabold mb-2">127.450<span class="text-2xl">,00 €</span></p>
+            <div class="flex items-center gap-2 mt-4">
+                <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">↑ +3,2% heute</span>
+                <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">↑ +12,8% MTD</span>
+            </div>
+        </div>
+
+        <!-- Cash Card -->
+        <div class="col-span-1 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-6 shadow-sm border border-emerald-100">
+            <p class="text-sm font-semibold text-emerald-700 mb-1">💵 Barvermögen</p>
+            <p class="text-2xl font-extrabold text-emerald-900">23.450 €</p>
+            <div class="mt-4 bg-white/70 rounded-xl p-3">
+                <p class="text-xs text-emerald-600">+450 € diese Woche</p>
+            </div>
+        </div>
+
+        <!-- Performance Card -->
+        <div class="col-span-1 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-6 shadow-sm border border-amber-100">
+            <p class="text-sm font-semibold text-amber-700 mb-1">📈 Performance</p>
+            <p class="text-2xl font-extrabold text-amber-900">+12,8%</p>
+            <p class="text-xs text-amber-600 mt-1">Seit Jahresbeginn</p>
+            <div class="mt-4">
+                <!-- Mini sparkline -->
+                <svg viewBox="0 0 100 30" class="w-full h-10">
+                    <polyline points="0,25 15,22 30,18 45,20 60,12 75,14 90,8 100,5" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+                    <polyline points="0,25 15,22 30,18 45,20 60,12 75,14 90,8 100,5 100,30 0,30" fill="url(#amberGrad)" stroke="none"/>
+                    <defs><linearGradient id="amberGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient></defs>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Apple Stock Card -->
+        <div class="col-span-1 bg-gradient-to-br from-rose-50 to-pink-50 rounded-3xl p-5 shadow-sm border border-rose-100">
+            <div class="flex items-center gap-2 mb-3">
+                <span class="w-8 h-8 bg-white rounded-xl flex items-center justify-center text-sm font-bold text-gray-800 shadow-sm">A</span>
+                <div>
+                    <p class="text-sm font-bold text-gray-800">Apple Inc.</p>
+                    <p class="text-xs text-gray-400">AAPL</p>
+                </div>
+            </div>
+            <p class="text-xl font-extrabold text-gray-800">23.450 €</p>
+            <p class="text-xs text-emerald-600 font-medium mt-1">↑ +2,4%</p>
+            <svg viewBox="0 0 100 25" class="w-full h-8 mt-3">
+                <polyline points="0,20 20,15 40,18 60,10 80,12 100,6" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <!-- Tesla Stock Card -->
+        <div class="col-span-1 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-5 shadow-sm border border-blue-100">
+            <div class="flex items-center gap-2 mb-3">
+                <span class="w-8 h-8 bg-white rounded-xl flex items-center justify-center text-sm font-bold text-gray-800 shadow-sm">T</span>
+                <div>
+                    <p class="text-sm font-bold text-gray-800">Tesla Inc.</p>
+                    <p class="text-xs text-gray-400">TSLA</p>
+                </div>
+            </div>
+            <p class="text-xl font-extrabold text-gray-800">31.200 €</p>
+            <p class="text-xs text-red-500 font-medium mt-1">↓ -1,2%</p>
+            <svg viewBox="0 0 100 25" class="w-full h-8 mt-3">
+                <polyline points="0,8 20,10 40,6 60,15 80,18 100,20" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <!-- SAP Stock Card -->
+        <div class="col-span-1 bg-gradient-to-br from-cyan-50 to-sky-50 rounded-3xl p-5 shadow-sm border border-cyan-100">
+            <div class="flex items-center gap-2 mb-3">
+                <span class="w-8 h-8 bg-white rounded-xl flex items-center justify-center text-sm font-bold text-gray-800 shadow-sm">S</span>
+                <div>
+                    <p class="text-sm font-bold text-gray-800">SAP SE</p>
+                    <p class="text-xs text-gray-400">SAP</p>
+                </div>
+            </div>
+            <p class="text-xl font-extrabold text-gray-800">18.900 €</p>
+            <p class="text-xs text-emerald-600 font-medium mt-1">↑ +1,8%</p>
+            <svg viewBox="0 0 100 25" class="w-full h-8 mt-3">
+                <polyline points="0,18 20,16 40,14 60,12 80,10 100,7" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <!-- Allianz Stock Card -->
+        <div class="col-span-1 bg-gradient-to-br from-violet-50 to-purple-50 rounded-3xl p-5 shadow-sm border border-violet-100">
+            <div class="flex items-center gap-2 mb-3">
+                <span class="w-8 h-8 bg-white rounded-xl flex items-center justify-center text-sm font-bold text-gray-800 shadow-sm">AZ</span>
+                <div>
+                    <p class="text-sm font-bold text-gray-800">Allianz SE</p>
+                    <p class="text-xs text-gray-400">ALV</p>
+                </div>
+            </div>
+            <p class="text-xl font-extrabold text-gray-800">15.200 €</p>
+            <p class="text-xs text-emerald-600 font-medium mt-1">↑ +0,9%</p>
+            <svg viewBox="0 0 100 25" class="w-full h-8 mt-3">
+                <polyline points="0,15 20,12 40,16 60,10 80,8 100,6" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <!-- Recent Transactions (2 cols) -->
+        <div class="col-span-2 bg-gradient-to-br from-gray-50 to-slate-50 rounded-3xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center gap-2 mb-5">
+                <span class="text-xl">🔄</span>
+                <h2 class="font-bold text-gray-800 text-lg">Letzte Transaktionen</h2>
+            </div>
+            <div class="space-y-3">
+                <div class="bg-white/80 rounded-2xl p-4 flex items-center gap-4">
+                    <span class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-lg">📥</span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-800">Apple Inc. — Kauf</p>
+                        <p class="text-xs text-gray-400">29. Mai 2026</p>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">Kauf</span>
+                    <p class="text-sm font-bold text-gray-800">-2.450 €</p>
+                </div>
+                <div class="bg-white/80 rounded-2xl p-4 flex items-center gap-4">
+                    <span class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center text-lg">📤</span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-800">Tesla Inc. — Verkauf</p>
+                        <p class="text-xs text-gray-400">28. Mai 2026</p>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700">Verkauf</span>
+                    <p class="text-sm font-bold text-emerald-600">+8.320 €</p>
+                </div>
+                <div class="bg-white/80 rounded-2xl p-4 flex items-center gap-4">
+                    <span class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-lg">💳</span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-800">Dividende — SAP SE</p>
+                        <p class="text-xs text-gray-400">25. Mai 2026</p>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700">Dividende</span>
+                    <p class="text-sm font-bold text-emerald-600">+189 €</p>
+                </div>
+                <div class="bg-white/80 rounded-2xl p-4 flex items-center gap-4">
+                    <span class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-lg">🏦</span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-800">Einzahlung Verrechnungskonto</p>
+                        <p class="text-xs text-gray-400">22. Mai 2026</p>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700">Einzahlung</span>
+                    <p class="text-sm font-bold text-emerald-600">+5.000 €</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Allocation Card (2 cols) -->
+        <div class="col-span-2 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-3xl p-6 shadow-sm border border-teal-100">
+            <div class="flex items-center gap-2 mb-5">
+                <span class="text-xl">🥧</span>
+                <h2 class="font-bold text-gray-800 text-lg">Aufteilung</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1">
+                            <span class="text-gray-600">Aktien</span>
+                            <span class="text-teal-700">69,4%</span>
+                        </div>
+                        <div class="h-3 bg-teal-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-teal-400 to-teal-500 rounded-full" style="width:69.4%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1">
+                            <span class="text-gray-600">ETFs</span>
+                            <span class="text-indigo-700">12,2%</span>
+                        </div>
+                        <div class="h-3 bg-indigo-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-indigo-400 to-indigo-500 rounded-full" style="width:12.2%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1">
+                            <span class="text-gray-600">Barvermögen</span>
+                            <span class="text-amber-700">18,4%</span>
+                        </div>
+                        <div class="h-3 bg-amber-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full" style="width:18.4%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <svg viewBox="0 0 120 120" class="w-32 h-32">
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="#e0f2fe" stroke-width="20"/>
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="#14b8a6" stroke-width="20" stroke-dasharray="217.8 314.16" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="#818cf8" stroke-width="20" stroke-dasharray="38.3 314.16" stroke-dashoffset="-217.8" transform="rotate(-90 60 60)"/>
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="#fbbf24" stroke-width="20" stroke-dasharray="57.8 314.16" stroke-dashoffset="-256.1" transform="rotate(-90 60 60)"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Smart Home — Premium</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+  * { font-family: 'Inter', sans-serif; }
+  body { max-width: 430px; margin: 0 auto; background-color: #0a0a0a; }
+  .gold { color: #c9a96e; }
+  .gold-bg { background-color: #c9a96e; }
+  .gold-border { border-color: #c9a96e; }
+  .dim { color: #3a3a3a; }
+  .subtle { color: #666666; }
+  .thin-slider { appearance: none; width: 100%; height: 1px; outline: none; background: #2a2a2a; }
+  .thin-slider::-webkit-slider-thumb {
+    appearance: none; width: 10px; height: 10px; border-radius: 50%;
+    background: #c9a96e; cursor: pointer;
+  }
+</style>
+</head>
+<body class="min-h-screen pb-16">
+
+  <!-- Header -->
+  <div class="px-8 pt-10 pb-2">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-[10px] tracking-[0.3em] uppercase dim">Residenz</p>
+        <h1 class="text-xl font-light tracking-wide text-white mt-1">Zuhause</h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-xs dim">22°C</span>
+        <div class="w-px h-4" style="background-color: #2a2a2a;"></div>
+        <span class="text-xs dim">9 aktiv</span>
+      </div>
+    </div>
+    <div class="w-full h-px mt-6" style="background-color: #1a1a1a;"></div>
+  </div>
+
+  <!-- Room Cards -->
+  <div class="px-8 mt-4 space-y-1">
+
+    <!-- Wohnzimmer -->
+    <div class="py-6">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-sm font-light gold tracking-wider">Wohnzimmer</h2>
+        <span class="text-[10px] dim tracking-widest">24°C</span>
+      </div>
+      <div class="space-y-5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Beleuchtung</span>
+          <div class="flex items-center gap-3">
+            <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+            <span class="text-[10px] dim">75%</span>
+          </div>
+        </div>
+        <input type="range" min="0" max="100" value="75" class="thin-slider">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Fernseher</span>
+          <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Musikanlage</span>
+          <div class="w-1.5 h-1.5 rounded-full" style="background-color: #2a2a2a;"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Heizung</span>
+          <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Rolladen</span>
+          <div class="w-1.5 h-1.5 rounded-full" style="background-color: #2a2a2a;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-px" style="background-color: #141414;"></div>
+
+    <!-- Schlafzimmer -->
+    <div class="py-6">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-sm font-light gold tracking-wider">Schlafzimmer</h2>
+        <span class="text-[10px] dim tracking-widest">21°C</span>
+      </div>
+      <div class="space-y-5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Lampe</span>
+          <div class="flex items-center gap-3">
+            <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+            <span class="text-[10px] dim">30%</span>
+          </div>
+        </div>
+        <input type="range" min="0" max="100" value="30" class="thin-slider">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Ventilator</span>
+          <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Wecker</span>
+          <div class="w-1.5 h-1.5 rounded-full" style="background-color: #2a2a2a;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-px" style="background-color: #141414;"></div>
+
+    <!-- Küche -->
+    <div class="py-6">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-sm font-light gold tracking-wider">Küche</h2>
+        <span class="text-[10px] dim tracking-widest">22°C</span>
+      </div>
+      <div class="space-y-5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Licht</span>
+          <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Herd</span>
+          <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Kühlschrank</span>
+          <div class="w-1.5 h-1.5 rounded-full" style="background-color: #2a2a2a;"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Kaffeemaschine</span>
+          <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-px" style="background-color: #141414;"></div>
+
+    <!-- Badezimmer -->
+    <div class="py-6">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-sm font-light gold tracking-wider">Badezimmer</h2>
+        <span class="text-[10px] dim tracking-widest">23°C</span>
+      </div>
+      <div class="space-y-5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Spiegellicht</span>
+          <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Heizung</span>
+          <div class="w-1.5 h-1.5 rounded-full" style="background-color: #2a2a2a;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-px" style="background-color: #141414;"></div>
+
+    <!-- Flur -->
+    <div class="py-6">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-sm font-light gold tracking-wider">Flur</h2>
+        <span class="text-[10px] dim tracking-widest">20°C</span>
+      </div>
+      <div class="space-y-5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Licht</span>
+          <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-px" style="background-color: #141414;"></div>
+
+    <!-- Büro -->
+    <div class="py-6">
+      <div class="flex items-baseline justify-between mb-6">
+        <h2 class="text-sm font-light gold tracking-wider">Büro</h2>
+        <span class="text-[10px] dim tracking-widest">21°C</span>
+      </div>
+      <div class="space-y-5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Schreibtischlampe</span>
+          <div class="flex items-center gap-3">
+            <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+            <span class="text-[10px] dim">90%</span>
+          </div>
+        </div>
+        <input type="range" min="0" max="100" value="90" class="thin-slider">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Monitor</span>
+          <div class="w-1.5 h-1.5 rounded-full gold-bg"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-neutral-500 font-light">Kaffeemaschine</span>
+          <div class="w-1.5 h-1.5 rounded-full" style="background-color: #2a2a2a;"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="px-8 mt-6">
+    <div class="w-full h-px" style="background-color: #1a1a1a;"></div>
+    <div class="flex justify-between items-center py-4">
+      <span class="text-[10px] tracking-[0.3em] uppercase dim">Energieverbrauch</span>
+      <span class="text-[10px] gold">1.2 kW</span>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Reisen — Premium</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+  * { font-family: 'Inter', sans-serif; }
+  body { max-width: 430px; margin: 0 auto; background-color: #0a0a0a; }
+  .gold { color: #c9a96e; }
+  .gold-bg { background-color: #c9a96e; }
+  .dim { color: #3a3a3a; }
+  .subtle { color: #555555; }
+</style>
+</head>
+<body class="min-h-screen pb-12">
+
+  <!-- Header -->
+  <div class="px-8 pt-10 pb-2">
+    <p class="text-[10px] tracking-[0.3em] uppercase dim">Reisen</p>
+    <h1 class="text-xl font-light tracking-wide text-white mt-1">Entdeckungen</h1>
+    <div class="w-full h-px mt-6" style="background-color: #1a1a1a;"></div>
+  </div>
+
+  <!-- Minimal Map -->
+  <div class="px-8 mt-6">
+    <div class="relative rounded-sm p-8 flex items-center justify-center" style="background-color: #111111; min-height: 120px;">
+      <!-- Minimal line -->
+      <div class="absolute top-1/2 left-6 right-6 h-px" style="background-color: #1a1a1a;"></div>
+      <!-- Gold pin only -->
+      <div class="relative flex items-center justify-center">
+        <div class="w-2 h-2 rounded-full gold-bg"></div>
+        <div class="absolute -top-1 -left-1 w-4 h-4 rounded-full border gold-border opacity-30 animate-pulse"></div>
+      </div>
+      <p class="absolute bottom-2 text-[9px] tracking-[0.3em] uppercase dim">4 Ziele ausgewählt</p>
+    </div>
+  </div>
+
+  <!-- Destination Cards -->
+  <div class="px-8 mt-6 space-y-0">
+
+    <!-- Barcelona -->
+    <div class="py-6 border-t" style="border-color: #151515;">
+      <div class="flex items-baseline justify-between mb-4">
+        <h2 class="text-sm font-light gold tracking-wider">Barcelona</h2>
+        <span class="text-[10px] dim tracking-widest">Spanien</span>
+      </div>
+      <p class="text-xs text-neutral-600 font-light leading-relaxed mb-4">
+        Mittelmeer · Architektur · Tapaskultur
+      </p>
+      <div class="flex items-baseline justify-between">
+        <div>
+          <span class="text-[10px] dim">ab</span>
+          <span class="text-sm font-light text-white ml-1">€89</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs gold">4.8</span>
+          <span class="text-[10px] gold">Buchen →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Santorini -->
+    <div class="py-6 border-t" style="border-color: #151515;">
+      <div class="flex items-baseline justify-between mb-4">
+        <h2 class="text-sm font-light gold tracking-wider">Santorini</h2>
+        <span class="text-[10px] dim tracking-widest">Griechenland</span>
+      </div>
+      <p class="text-xs text-neutral-600 font-light leading-relaxed mb-4">
+        Ägäis · Sonnenuntergänge · Kykladen
+      </p>
+      <div class="flex items-baseline justify-between">
+        <div>
+          <span class="text-[10px] dim">ab</span>
+          <span class="text-sm font-light text-white ml-1">€145</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs gold">4.9</span>
+          <span class="text-[10px] gold">Buchen →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kyoto -->
+    <div class="py-6 border-t" style="border-color: #151515;">
+      <div class="flex items-baseline justify-between mb-4">
+        <h2 class="text-sm font-light gold tracking-wider">Kyoto</h2>
+        <span class="text-[10px] dim tracking-widest">Japan</span>
+      </div>
+      <p class="text-xs text-neutral-600 font-light leading-relaxed mb-4">
+        Tempel · Bambushaine · Teezeremonie
+      </p>
+      <div class="flex items-baseline justify-between">
+        <div>
+          <span class="text-[10px] dim">ab</span>
+          <span class="text-sm font-light text-white ml-1">€120</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs gold">4.7</span>
+          <span class="text-[10px] gold">Buchen →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marrakesch -->
+    <div class="py-6 border-t" style="border-color: #151515;">
+      <div class="flex items-baseline justify-between mb-4">
+        <h2 class="text-sm font-light gold tracking-wider">Marrakesch</h2>
+        <span class="text-[10px] dim tracking-widest">Marokko</span>
+      </div>
+      <p class="text-xs text-neutral-600 font-light leading-relaxed mb-4">
+        Souks · Riads · Atlasgebirge
+      </p>
+      <div class="flex items-baseline justify-between">
+        <div>
+          <span class="text-[10px] dim">ab</span>
+          <span class="text-sm font-light text-white ml-1">€65</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs gold">4.5</span>
+          <span class="text-[10px] gold">Buchen →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lissabon -->
+    <div class="py-6 border-t" style="border-color: #151515;">
+      <div class="flex items-baseline justify-between mb-4">
+        <h2 class="text-sm font-light gold tracking-wider">Lissabon</h2>
+        <span class="text-[10px] dim tracking-widest">Portugal</span>
+      </div>
+      <p class="text-xs text-neutral-600 font-light leading-relaxed mb-4">
+        Atlantik · Straßenbahnen · Fado
+      </p>
+      <div class="flex items-baseline justify-between">
+        <div>
+          <span class="text-[10px] dim">ab</span>
+          <span class="text-sm font-light text-white ml-1">€72</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs gold">4.6</span>
+          <span class="text-[10px] gold">Buchen →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reykjavik -->
+    <div class="py-6 border-t border-b" style="border-color: #151515;">
+      <div class="flex items-baseline justify-between mb-4">
+        <h2 class="text-sm font-light gold tracking-wider">Reykjavik</h2>
+        <span class="text-[10px] dim tracking-widest">Island</span>
+      </div>
+      <p class="text-xs text-neutral-600 font-light leading-relaxed mb-4">
+        Nordlichter · Geysire · Vulkane
+      </p>
+      <div class="flex items-baseline justify-between">
+        <div>
+          <span class="text-[10px] dim">ab</span>
+          <span class="text-sm font-light text-white ml-1">€198</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs gold">4.6</span>
+          <span class="text-[10px] gold">Buchen →</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="px-8 mt-8">
+    <div class="w-full h-px" style="background-color: #1a1a1a;"></div>
+    <div class="flex justify-between items-center py-4">
+      <span class="text-[10px] tracking-[0.3em] uppercase dim">Alle Preise pro Nacht</span>
+      <span class="text-[10px] gold">Alle anzeigen →</span>
+    </div>
+  </div>
+
+</body>
+</html>

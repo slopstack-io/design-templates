@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopBento — Entdecke unsere Welt</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Nunito', sans-serif; background: #f8f9fc; color: #2d2d3a; }
+
+.pill-nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.pill-nav a {
+  padding: 10px 22px; border-radius: 50px; background: #fff;
+  text-decoration: none; color: #555; font-weight: 600; font-size: 14px;
+  transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.pill-nav a:hover, .pill-nav a.active {
+  background: #6c5ce7; color: #fff; transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(108,92,231,0.3);
+}
+
+.search-pill {
+  width: 100%; max-width: 500px; padding: 14px 28px;
+  border-radius: 50px; border: 2px solid #e8e8f0; background: #fff;
+  font-size: 15px; outline: none; transition: all 0.3s;
+  font-family: 'Nunito', sans-serif;
+}
+.search-pill:focus { border-color: #6c5ce7; box-shadow: 0 0 0 4px rgba(108,92,231,0.15); }
+
+.filter-pills { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.filter-pill {
+  padding: 8px 20px; border-radius: 50px; border: 2px solid #e0e0ea;
+  background: transparent; cursor: pointer; font-weight: 600;
+  font-size: 13px; transition: all 0.3s; font-family: 'Nunito', sans-serif; color: #666;
+}
+.filter-pill:hover, .filter-pill.active {
+  background: #ffecd2; border-color: #fcb69f; color: #e17055;
+}
+
+/* Bento Masonry Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 16px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.bento-card {
+  border-radius: 24px; padding: 24px; position: relative;
+  overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;
+}
+.bento-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+
+.card-mint { background: linear-gradient(135deg, #c8f7dc 0%, #a8edce 50%, #7fdbad 100%); }
+.card-peach { background: linear-gradient(135deg, #ffe5d9 0%, #ffcab7 50%, #fca99a 100%); }
+.card-lavender { background: linear-gradient(135deg, #e0d4f5 0%, #c9b8f0 50%, #b49de8 100%); }
+.card-blue { background: linear-gradient(135deg, #d4eeff 0%, #b0d9ff 50%, #8ac7ff 100%); }
+.card-yellow { background: linear-gradient(135deg, #fff5cc 0%, #ffe799 50%, #ffd966 100%); }
+.card-rose { background: linear-gradient(135deg, #ffd4e0 0%, #ffb8cc 50%, #ff99b8 100%); }
+
+.span-col2 { grid-column: span 2; }
+.span-row2 { grid-row: span 2; }
+.span-col2-row2 { grid-column: span 2; grid-row: span 2; }
+
+.add-to-cart {
+  padding: 10px 24px; border-radius: 50px; border: none;
+  background: #fff; font-weight: 700; font-size: 13px;
+  cursor: pointer; transition: all 0.3s; font-family: 'Nunito', sans-serif;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); align-self: flex-start;
+}
+.add-to-cart:hover { background: #2d2d3a; color: #fff; transform: scale(1.08); }
+
+.emoji-label { font-size: 28px; margin-bottom: 4px; }
+.card-title { font-size: 18px; font-weight: 800; line-height: 1.2; }
+.card-price { font-size: 22px; font-weight: 800; }
+.card-desc { font-size: 13px; opacity: 0.7; line-height: 1.4; }
+
+.accent-card {
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; font-size: 42px;
+}
+.accent-card span { font-size: 16px; font-weight: 800; display: block; margin-top: 8px; }
+
+.cart-badge {
+  position: fixed; bottom: 30px; right: 30px;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; box-shadow: 0 8px 30px rgba(108,92,231,0.4);
+  cursor: pointer; z-index: 100; transition: transform 0.3s;
+}
+.cart-badge:hover { transform: scale(1.15); }
+.cart-count {
+  position: absolute; top: -4px; right: -4px;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #ff6b6b; color: #fff; font-size: 12px;
+  font-weight: 800; display: flex; align-items: center; justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+  .span-col2 { grid-column: span 2; }
+}
+@media (max-width: 500px) {
+  .bento-grid { grid-template-columns: 1fr; grid-auto-rows: 180px; }
+  .span-col2, .span-col2-row2 { grid-column: span 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="py-6 px-6 text-center">
+  <div class="flex items-center justify-center gap-3 mb-5">
+    <span class="text-3xl">🛍️</span>
+    <h1 class="text-2xl font-extrabold tracking-tight">ShopBento</h1>
+  </div>
+
+  <!-- Pill Navigation -->
+  <nav class="pill-nav mb-5">
+    <a href="#" class="active">Alle</a>
+    <a href="#">Kleidung</a>
+    <a href="#">Schuhe</a>
+    <a href="#">Accessoires</a>
+    <a href="#">Wohnen</a>
+    <a href="#">Elektronik</a>
+    <a href="#">Beauty</a>
+  </nav>
+
+  <!-- Search -->
+  <div class="flex justify-center mb-5">
+    <input type="text" class="search-pill" placeholder="🔍  Was suchst du heute?">
+  </div>
+
+  <!-- Filter Pills -->
+  <div class="filter-pills">
+    <button class="filter-pill active">✨ Neuheiten</button>
+    <button class="filter-pill">🔥 Beliebt</button>
+    <button class="filter-pill">💰 Angebote</button>
+    <button class="filter-pill">🌿 Bio</button>
+    <button class="filter-pill">⭐ Bewertungen</button>
+    <button class="filter-pill">🚚 Schnell</button>
+  </div>
+</header>
+
+<!-- Bento Product Grid -->
+<main class="bento-grid">
+
+  <!-- Featured Tall Card -->
+  <div class="bento-card card-mint span-row2">
+    <div>
+      <div class="emoji-label">👗</div>
+      <div class="card-title">Leinen- Sommerkleid</div>
+      <div class="card-desc">Handgefertigt aus italienischem Leinen. Perfekt für warme Tage im Freien.</div>
+    </div>
+    <div>
+      <div class="card-price">€ 89,90</div>
+      <button class="add-to-cart">🛒 In den Warenkorb</button>
+    </div>
+  </div>
+
+  <!-- Wide Card -->
+  <div class="bento-card card-peach span-col2">
+    <div>
+      <div class="emoji-label">👟</div>
+      <div class="card-title">Cloud Runner — Limitierte Edition</div>
+    </div>
+    <div class="flex items-end justify-between">
+      <div class="card-price">€ 149,00</div>
+      <button class="add-to-cart">🛒 In den Warenkorb</button>
+    </div>
+  </div>
+
+  <!-- Small Card -->
+  <div class="bento-card card-lavender">
+    <div>
+      <div class="emoji-label">👜</div>
+      <div class="card-title">Mini Handtasche</div>
+    </div>
+    <div class="card-price">€ 45,00</div>
+  </div>
+
+  <!-- Small Accent Card -->
+  <div class="bento-card card-yellow accent-card">
+    <div>
+      <div>🎉</div>
+      <span>-20% auf alles</span>
+    </div>
+  </div>
+
+  <!-- Wide Card 2 -->
+  <div class="bento-card card-blue span-col2">
+    <div>
+      <div class="emoji-label">🎧</div>
+      <div class="card-title">Kabellose Noise-Cancelling Kopfhörer</div>
+      <div class="card-desc">40 Stunden Akkulaufzeit · Raumschall · Adaptive Geräuschunterdrückung</div>
+    </div>
+    <div class="flex items-end justify-between">
+      <div class="card-price">€ 279,00</div>
+      <button class="add-to-cart">🛒 In den Warenkorb</button>
+    </div>
+  </div>
+
+  <!-- Tall Card -->
+  <div class="bento-card card-rose span-row2">
+    <div>
+      <div class="emoji-label">🌿</div>
+      <div class="card-title">Bio- Hautpflege Set</div>
+      <div class="card-desc">5-teiliges Set mit Reinigungsgel, Serum, Feuchtigkeitscreme, Augengel und Gesichtsöl.</div>
+    </div>
+    <div>
+      <div class="card-price">€ 64,50</div>
+      <button class="add-to-cart">🛒 In den Warenkorb</button>
+    </div>
+  </div>
+
+  <!-- Small Card -->
+  <div class="bento-card card-mint">
+    <div>
+      <div class="emoji-label">🕯️</div>
+      <div class="card-title">Sojakerze „Abendruhe"</div>
+    </div>
+    <div class="card-price">€ 18,90</div>
+  </div>
+
+  <!-- Small Card -->
+  <div class="bento-card card-lavender">
+    <div>
+      <div class="emoji-label">📖</div>
+      <div class="card-title">Tagebuch Leder</div>
+    </div>
+    <div class="card-price">€ 29,00</div>
+  </div>
+
+  <!-- Large Featured -->
+  <div class="bento-card card-peach span-col2-row2">
+    <div>
+      <div class="emoji-label">🛋️</div>
+      <div class="card-title" style="font-size:24px;">Modulares Sofasystem „Nordwind"</div>
+      <div class="card-desc" style="font-size:14px;">
+        Skandinavisches Design trifft auf Modularität. Konfiguriere dein perfektes Sofa aus über 20 Elementen.
+        Bezug waschbar, bezugswechselbar.
+      </div>
+    </div>
+    <div>
+      <div class="card-price" style="font-size:28px;">ab € 1.290</div>
+      <button class="add-to-cart" style="padding:12px 32px;font-size:15px;">🛒 In den Warenkorb</button>
+    </div>
+  </div>
+
+  <!-- Small Card -->
+  <div class="bento-card card-blue">
+    <div>
+      <div class="emoji-label">⌚</div>
+      <div class="card-title">Smartwatch Pro</div>
+    </div>
+    <div class="card-price">€ 349,00</div>
+  </div>
+
+  <!-- Small Card -->
+  <div class="bento-card card-yellow">
+    <div>
+      <div class="emoji-label">☕</div>
+      <div class="card-title">Kaffeemaschine</div>
+    </div>
+    <div class="card-price">€ 199,00</div>
+  </div>
+
+  <!-- Small Accent -->
+  <div class="bento-card card-rose accent-card">
+    <div>
+      <div>🚚</div>
+      <span>Gratis Versand</span>
+    </div>
+  </div>
+
+  <!-- Wide -->
+  <div class="bento-card card-mint span-col2">
+    <div>
+      <div class="emoji-label">🎨</div>
+      <div class="card-title">Wandkunst- Kollektion „Abstrakt"</div>
+    </div>
+    <div class="flex items-end justify-between">
+      <div class="card-price">€ 79,00</div>
+      <button class="add-to-cart">🛒 In den Warenkorb</button>
+    </div>
+  </div>
+
+  <div class="bento-card card-lavender span-col2">
+    <div>
+      <div class="emoji-label">🎸</div>
+      <div class="card-title">Akustikgitarre „Anfänger-Set"</div>
+      <div class="card-desc">Inkl. Tasche, Stimmer, Plektren und Lernheft</div>
+    </div>
+    <div class="flex items-end justify-between">
+      <div class="card-price">€ 189,00</div>
+      <button class="add-to-cart">🛒 In den Warenkorb</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="text-center py-12 px-6" style="color:#999;">
+  <p class="text-sm font-semibold mb-2">ShopBento © 2026 — Alle Rechte vorbehalten</p>
+  <p class="text-xs">Impressum · AGB · Datenschutz · Kontakt</p>
+</footer>
+
+<!-- Floating Cart -->
+<div class="cart-badge">
+  🛒
+  <div class="cart-count">3</div>
+</div>
+
+<script>
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+document.querySelectorAll('.pill-nav a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelectorAll('.pill-nav a').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fragebogen — Editorial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Crimson Text', Georgia, serif;
+  background: #faf6f0;
+  color: #3b2314;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 60px 32px;
+}
+
+.magazine-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  color: #3b2314;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.magazine-subtitle {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  text-align: center;
+  color: #8b6f5e;
+  font-size: 1.15rem;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.progress-bar {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  color: #8b6f5e;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.thin-rule {
+  border: none;
+  border-top: 1px solid #c9a98c;
+  margin: 0 auto 48px;
+  width: 120px;
+}
+
+.section-header {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b2314;
+  margin-bottom: 28px;
+  padding-bottom: 0;
+}
+
+.section-rule {
+  border: none;
+  border-top: 1px solid #d4c4b0;
+  margin: 48px 0 40px;
+}
+
+.question {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #5a3e2b;
+  margin-bottom: 10px;
+}
+
+.input-line {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #c9a98c;
+  background: transparent;
+  padding: 10px 0;
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  color: #3b2314;
+  outline: none;
+  transition: border-color 0.3s;
+  margin-bottom: 28px;
+}
+
+.input-line:focus {
+  border-bottom-color: #b85c38;
+}
+
+.input-line::placeholder {
+  color: #c4a882;
+  font-style: italic;
+}
+
+.radio-group {
+  margin-bottom: 28px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 1.05rem;
+  color: #5a3e2b;
+  transition: color 0.2s;
+}
+
+.radio-option:hover {
+  color: #b85c38;
+}
+
+.radio-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid #c9a98c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.radio-circle.selected {
+  border-color: #b85c38;
+}
+
+.radio-circle.selected::after {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #b85c38;
+}
+
+.textarea-line {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #c9a98c;
+  background: transparent;
+  padding: 10px 0;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #3b2314;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.3s;
+}
+
+.textarea-line:focus {
+  border-bottom-color: #b85c38;
+}
+
+.textarea-line::placeholder {
+  color: #c4a882;
+}
+
+.submit-wrap {
+  text-align: center;
+  margin-top: 56px;
+}
+
+.submit-btn {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #faf6f0;
+  background: #3b2314;
+  border: none;
+  padding: 16px 56px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #b85c38;
+  transition: bottom 0.3s;
+}
+
+.submit-btn:hover {
+  background: #b85c38;
+}
+
+.submit-btn:hover::after {
+  bottom: -8px;
+}
+
+.ornament {
+  text-align: center;
+  color: #c9a98c;
+  font-size: 1.2rem;
+  margin: 16px 0;
+  letter-spacing: 8px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="magazine-title">Der große<br>Fragebogen</div>
+  <div class="magazine-subtitle">Eine persönliche Annäherung — für Sie, von uns</div>
+
+  <!-- Progress -->
+  <div class="progress-bar">Schritt 1 von 4</div>
+  <hr class="thin-rule">
+
+  <!-- Section 1: Persönliche Daten -->
+  <div class="section-header">I. Persönliche Daten</div>
+
+  <div class="question">Wie lautet Ihr vollständiger Name?</div>
+  <input class="input-line" type="text" placeholder="Vor- und Nachname">
+
+  <div class="question">Unter welcher E-Mail-Adresse dürfen wir Sie erreichen?</div>
+  <input class="input-line" type="email" placeholder="ihre.email@beispiel.de">
+
+  <div class="question">Ihre Telefonnummer, falls Sie kontaktiert werden möchten?</div>
+  <input class="input-line" type="tel" placeholder="+49 …">
+
+  <hr class="section-rule">
+
+  <!-- Section 2: Anliegen -->
+  <div class="section-header">II. Ihr Anliegen</div>
+
+  <div class="question">Womit können wir Ihnen behilflich sein?</div>
+  <div class="radio-group">
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Ich suche eine Immobilie</span>
+    </div>
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Ich möchte eine Immobilie verkaufen</span>
+    </div>
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Ich habe eine allgemeine Frage</span>
+    </div>
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Etwas anderes</span>
+    </div>
+  </div>
+
+  <div class="question">Seit wann beschäftigt Sie dieses Vorhaben?</div>
+  <div class="radio-group">
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Erst seit Kurzem</span>
+    </div>
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Seit einigen Monaten</span>
+    </div>
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Schon länger als ein Jahr</span>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- Section 3: Vorstellungen -->
+  <div class="section-header">III. Ihre Vorstellungen</div>
+
+  <div class="question">Beschreiben Sie kurz, was Sie sich vorstellen:</div>
+  <textarea class="textarea-line" placeholder="Teilen Sie Ihre Gedanken, Wünsche und Ideen mit uns…"></textarea>
+
+  <div class="question">Wie hoch ist Ihr verfügbares Budget?</div>
+  <input class="input-line" type="text" placeholder="z. B. 300.000 – 500.000 €">
+
+  <hr class="section-rule">
+
+  <!-- Section 4: Abschließend -->
+  <div class="section-header">IV. Abschließend</div>
+
+  <div class="question">Wie sind Sie auf uns aufmerksam geworden?</div>
+  <div class="radio-group">
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Empfehlung</span>
+    </div>
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Online-Suche</span>
+    </div>
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Social Media</span>
+    </div>
+    <div class="radio-option" onclick="selectRadio(this)">
+      <div class="radio-circle"></div>
+      <span>Print / Werbung</span>
+    </div>
+  </div>
+
+  <div class="question">Gibt es noch etwas, das Sie uns mitteilen möchten?</div>
+  <textarea class="textarea-line" placeholder="Weitere Anmerkungen, Fragen oder Wünsche…"></textarea>
+
+  <div class="ornament">— ❧ —</div>
+
+  <!-- Submit -->
+  <div class="submit-wrap">
+    <button class="submit-btn">Absenden</button>
+  </div>
+
+</div>
+
+<script>
+function selectRadio(el) {
+  const group = el.parentElement;
+  group.querySelectorAll('.radio-option').forEach(o => {
+    o.querySelector('.radio-circle').classList.remove('selected');
+  });
+  el.querySelector('.radio-circle').classList.add('selected');
+}
+</script>
+
+</body>
+</html>

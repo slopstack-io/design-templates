@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werkzeugkasten — Editorial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+        body { font-family: 'Source Serif 4', Georgia, serif; }
+        h1, h2, h3, .headline { font-family: 'Playfair Display', Georgia, serif; }
+        code, .mono { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+    </style>
+</head>
+<body class="bg-amber-50 min-h-screen" style="background-color: #faf6f0;">
+
+    <div class="max-w-3xl mx-auto px-8 py-16">
+
+        <!-- Masthead -->
+        <div class="border-b-2 border-amber-900 pb-6 mb-12">
+            <div class="flex items-end justify-between">
+                <div>
+                    <p class="text-xs uppercase tracking-[0.3em] text-amber-700 mb-1">Entwickler-Magazin</p>
+                    <h1 class="text-5xl font-black text-amber-950 leading-none">Werkzeug&shy;kasten</h1>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-amber-700">Ausgabe 42</p>
+                    <p class="text-xs text-amber-600">Mai 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lead Article -->
+        <article class="mb-16">
+            <p class="text-xs uppercase tracking-[0.3em] text-amber-600 mb-4">Hauptartikel — Technische Dokumentation</p>
+            <h2 class="text-3xl font-bold text-amber-950 leading-tight mb-6">Eine ausführliche Betrachtung der serverseitigen Konfiguration und ihrer Auswirkungen auf die Systemperformance</h2>
+            <div class="w-16 h-0.5 bg-amber-800 mb-6"></div>
+            <p class="text-lg text-amber-900 leading-relaxed mb-6 italic">Die Grundlage jeder modernen Anwendung liegt in ihrer Konfiguration. Im Folgenden betrachten wir die zentralen Parameter unserer Serverarchitektur und erläutern deren Bedeutung für den Betrieb.</p>
+
+            <!-- Code Block with Callouts -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-amber-950 mb-4">I. Die Serverkonfiguration</h3>
+                <div class="bg-amber-100/60 border border-amber-200 rounded-sm p-6 mb-4 relative" style="background-color: #f3ede3;">
+                    <div class="absolute top-3 right-4 text-xs text-amber-500 uppercase tracking-widest">config.ts</div>
+                    <div class="mono text-sm text-amber-950 leading-loose mt-4">
+                        <div class="flex"><span class="text-amber-400 w-8 text-right mr-4 select-none">1</span><span class="text-stone-500">import</span> { <span class="text-amber-800 font-medium">defineConfig</span> } <span class="text-stone-500">from</span> <span class="text-emerald-700">'vite'</span>;</div>
+                        <div class="flex"><span class="text-amber-400 w-8 text-right mr-4 select-none">2</span></div>
+                        <div class="flex"><span class="text-amber-400 w-8 text-right mr-4 select-none">3</span><span class="text-stone-500">export default</span> <span class="text-amber-800 font-medium">defineConfig</span>({</div>
+                        <div class="flex"><span class="text-amber-400 w-8 text-right mr-4 select-none">4</span>&nbsp;&nbsp;<span class="text-amber-700">port</span>: <span class="text-emerald-700">8080</span>,<span class="text-amber-600"> ← Standard-Port</span></div>
+                        <div class="flex"><span class="text-amber-400 w-8 text-right mr-4 select-none">5</span>&nbsp;&nbsp;<span class="text-amber-700">host</span>: <span class="text-emerald-700">'0.0.0.0'</span>,</div>
+                        <div class="flex"><span class="text-amber-400 w-8 text-right mr-4 select-none">6</span>&nbsp;&nbsp;<span class="text-amber-700">debug</span>: <span class="text-stone-500 font-medium">true</span>,<span class="text-amber-600"> ← ⚠ Produktiv: false</span></div>
+                        <div class="flex"><span class="text-amber-400 w-8 text-right mr-4 select-none">7</span>&nbsp;&nbsp;<span class="text-amber-700">logLevel</span>: <span class="text-emerald-700">'verbose'</span>,</div>
+                        <div class="flex"><span class="text-amber-400 w-8 text-right mr-4 select-none">8</span>});</div>
+                    </div>
+                </div>
+                <p class="text-sm text-amber-800 leading-relaxed">Die Konfigurationsdatei definiert vier wesentliche Parameter. Besondere Beachtung verdient die Einstellung <code class="bg-amber-100 px-1.5 py-0.5 text-xs rounded">debug: true</code>, die im Produktivbetrieb zwingend deaktiviert werden sollte, um Sicherheitsrisiken zu vermeiden.</p>
+            </div>
+
+            <!-- Pull Quote -->
+            <div class="border-l-4 border-amber-800 pl-6 my-12">
+                <p class="text-2xl italic text-amber-900 font-serif leading-relaxed">„Die Feature-Flags bilden das Rückgrat unserer schrittweisen Ausrollung — kein Deployment ohne sie."</p>
+                <p class="text-sm text-amber-600 mt-3">— Leitender Entwickler, Mai 2026</p>
+            </div>
+
+            <!-- Config as Prose -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-amber-950 mb-4">II. Feature-Flags im Überblick</h3>
+                <div class="text-amber-900 space-y-4 leading-relaxed">
+                    <p>Das System kennt derzeit <strong>vier aktive Feature-Flags</strong>, von denen zwei im regulären Betrieb aktiviert sind:</p>
+                    <div class="bg-white/60 border border-amber-200 rounded p-5 my-6">
+                        <p class="text-sm leading-relaxed"><strong class="text-amber-800">Neues Login-System</strong> — Seit dem 15. Mai aktiviert, ersetzt es die bisherige Authentifizierung durch eine OAuth2-kompatible Lösung. Status: <span class="text-emerald-700 font-medium">✓ Aktiv</span></p>
+                    </div>
+                    <div class="bg-white/60 border border-amber-200 rounded p-5 my-6">
+                        <p class="text-sm leading-relaxed"><strong class="text-amber-800">Dashboard v2</strong> — Das überarbeitete Benutzerinterface schrittweise eingeführt. Status: <span class="text-emerald-700 font-medium">✓ Aktiv</span></p>
+                    </div>
+                    <div class="bg-white/60 border border-amber-200 rounded p-5 my-6">
+                        <p class="text-sm leading-relaxed"><strong class="text-amber-800">Push-Benachrichtigungen</strong> — Befindet sich in der Testphase und ist nur für interne Benutzer zugänglich. Status: <span class="text-amber-600 font-medium">◷ Testphase</span></p>
+                    </div>
+                    <div class="bg-white/60 border border-amber-200 rounded p-5 my-6">
+                        <p class="text-sm leading-relaxed"><strong class="text-amber-800">KI-Assistent</strong> — Noch in der Entwicklung. Vorerst nicht für Benutzer verfügbar. Status: <span class="text-stone-500 font-medium">✗ Inaktiv</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Report -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-amber-950 mb-4">III. Statusbericht</h3>
+                <div class="border-t border-amber-200 pt-6">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-amber-200">
+                                <th class="text-left py-3 text-amber-600 uppercase tracking-wider text-xs font-medium">Komponente</th>
+                                <th class="text-left py-3 text-amber-600 uppercase tracking-wider text-xs font-medium">Status</th>
+                                <th class="text-right py-3 text-amber-600 uppercase tracking-wider text-xs font-medium">Letzte Prüfung</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-amber-900">
+                            <tr class="border-b border-amber-100">
+                                <td class="py-3">API-Server</td>
+                                <td class="py-3"><span class="text-emerald-700">● Online</span> — Antwortzeit 12ms</td>
+                                <td class="py-3 text-right text-amber-600 mono text-xs">29.05.2026, 23:32</td>
+                            </tr>
+                            <tr class="border-b border-amber-100">
+                                <td class="py-3">Datenbank (PostgreSQL)</td>
+                                <td class="py-3"><span class="text-emerald-700">● Verbunden</span> — Latenz 3ms</td>
+                                <td class="py-3 text-right text-amber-600 mono text-xs">29.05.2026, 23:32</td>
+                            </tr>
+                            <tr class="border-b border-amber-100">
+                                <td class="py-3">Redis Cache</td>
+                                <td class="py-3"><span class="text-amber-600">● Warnung</span> — Auslastung 87%</td>
+                                <td class="py-3 text-right text-amber-600 mono text-xs">29.05.2026, 23:30</td>
+                            </tr>
+                            <tr class="border-b border-amber-100">
+                                <td class="py-3">CDN (Cloudflare)</td>
+                                <td class="py-3"><span class="text-emerald-700">● Online</span> — Cache-Hit 94%</td>
+                                <td class="py-3 text-right text-amber-600 mono text-xs">29.05.2026, 23:31</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Build Log as Editorial -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-amber-950 mb-4">IV. Letzte Build-Protokolle</h3>
+                <div class="text-amber-900 text-sm space-y-4 leading-relaxed">
+                    <p>Der letzte erfolgreiche Build wurde am 29. Mai um 23:15 Uhr UTC durchgeführt. Der Kompilierungsvorgang dauerte insgesamt <strong>1,2 Sekunden</strong>, wobei die Bundle-Größe nach Gzip-Kompression bei <strong>42 Kilobyte</strong> liegt.</p>
+                    <p>Zwei Warnungen wurden identifiziert: Eine veraltete Abhängigkeit im Auth-Modul sowie ein fehlender Typ in der API-Schnittstelle. Beide werden im nächsten Sprint behoben.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Footer -->
+        <div class="border-t-2 border-amber-900 pt-6 flex justify-between text-xs text-amber-600">
+            <span>© 2026 Entwickler-Magazin</span>
+            <span>Seite 1 von 1</span>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anfrage — Premium</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: 80px 60px;
+  max-width: 560px;
+  width: 100%;
+  backdrop-filter: blur(20px);
+  position: relative;
+}
+
+.step-container {
+  display: none;
+  flex-direction: column;
+  min-height: 280px;
+}
+
+.step-container.active {
+  display: flex;
+}
+
+.progress-text {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  color: #c9a84c;
+  font-weight: 300;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+}
+
+.question-text {
+  font-size: 1.6rem;
+  font-weight: 200;
+  color: #e5e5e5;
+  margin-bottom: 48px;
+  line-height: 1.5;
+  letter-spacing: -0.3px;
+}
+
+.input-field {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  background: transparent;
+  padding: 16px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.4s;
+  letter-spacing: 0.5px;
+}
+
+.input-field:focus {
+  border-bottom-color: #c9a84c;
+}
+
+.input-field::placeholder {
+  color: rgba(255,255,255,0.2);
+  font-weight: 200;
+}
+
+.radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.radio-item {
+  padding: 14px 0;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.45);
+  transition: all 0.3s;
+  border-bottom: 1px solid transparent;
+  letter-spacing: 0.3px;
+}
+
+.radio-item:hover {
+  color: rgba(255,255,255,0.7);
+}
+
+.radio-item.selected {
+  color: #c9a84c;
+  border-bottom-color: rgba(201,168,76,0.3);
+}
+
+.nav-area {
+  margin-top: auto;
+  padding-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-next {
+  color: #c9a84c;
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.nav-next:hover {
+  letter-spacing: 4px;
+  color: #e0c878;
+}
+
+.nav-back {
+  color: rgba(255,255,255,0.2);
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: color 0.3s;
+  text-transform: uppercase;
+}
+
+.nav-back:hover {
+  color: rgba(255,255,255,0.4);
+}
+
+.textarea-field {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  background: transparent;
+  padding: 16px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #ffffff;
+  outline: none;
+  resize: none;
+  min-height: 100px;
+  transition: border-color 0.4s;
+}
+
+.textarea-field:focus {
+  border-bottom-color: #c9a84c;
+}
+
+.textarea-field::placeholder {
+  color: rgba(255,255,255,0.2);
+  font-weight: 200;
+}
+
+@media (max-width: 640px) {
+  .glass-card {
+    margin: 20px;
+    padding: 48px 28px;
+  }
+  .question-text {
+    font-size: 1.3rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="glass-card">
+
+  <!-- Step 1 -->
+  <div class="step-container active" id="step1">
+    <div class="progress-text">01 / 04</div>
+    <div class="question-text">Wie lautet<br>Ihr Name?</div>
+    <input class="input-field" type="text" placeholder="Vor- und Nachname" autofocus>
+    <div class="nav-area">
+      <span></span>
+      <button class="nav-next" onclick="goStep(2)">Weiter →</button>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step-container" id="step2">
+    <div class="progress-text">02 / 04</div>
+    <div class="question-text">Wie dürfen wir<br>Sie erreichen?</div>
+    <input class="input-field" type="email" placeholder="E-Mail-Adresse">
+    <div style="height: 24px;"></div>
+    <input class="input-field" type="tel" placeholder="Telefonnummer">
+    <div class="nav-area">
+      <button class="nav-back" onclick="goStep(1)">← Zurück</button>
+      <button class="nav-next" onclick="goStep(3)">Weiter →</button>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step-container" id="step3">
+    <div class="progress-text">03 / 04</div>
+    <div class="question-text">Was ist<br>Ihr Anliegen?</div>
+    <div class="radio-options">
+      <div class="radio-item" onclick="selectItem(this)">Immobilienkauf</div>
+      <div class="radio-item" onclick="selectItem(this)">Immobilienverkauf</div>
+      <div class="radio-item" onclick="selectItem(this)">Vermietung</div>
+      <div class="radio-item" onclick="selectItem(this)">Beratung</div>
+      <div class="radio-item" onclick="selectItem(this)">Sonstiges</div>
+    </div>
+    <div class="nav-area">
+      <button class="nav-back" onclick="goStep(2)">← Zurück</button>
+      <button class="nav-next" onclick="goStep(4)">Weiter →</button>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="step-container" id="step4">
+    <div class="progress-text">04 / 04</div>
+    <div class="question-text">Haben Sie noch<br>eine Nachricht?</div>
+    <textarea class="textarea-field" placeholder="Ihre Nachricht an uns…"></textarea>
+    <div class="nav-area">
+      <button class="nav-back" onclick="goStep(3)">← Zurück</button>
+      <button class="nav-next" onclick="submitForm()">Absenden →</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function goStep(n) {
+  document.querySelectorAll('.step-container').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+}
+
+function selectItem(el) {
+  el.parentElement.querySelectorAll('.radio-item').forEach(i => i.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function submitForm() {
+  const card = document.querySelector('.glass-card');
+  card.innerHTML = '<div style="text-align:center; padding: 60px 0;"><div class="progress-text" style="margin-bottom:32px;">✓</div><div class="question-text" style="text-align:center;">Vielen Dank für<br>Ihre Anfrage.</div><p style="color:rgba(255,255,255,0.3); font-weight:300; font-size:0.9rem; margin-top:16px;">Wir melden uns in Kürze.</p></div>';
+}
+</script>
+
+</body>
+</html>

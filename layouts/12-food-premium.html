@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rezepte — Premium</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+  body { font-family: 'Cormorant Garamond', serif; background: #0a0a0a; color: #d4c9b8; }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+  .gold { color: #c9a96e; }
+  .gold-border { border-color: rgba(201, 169, 110, 0.3); }
+  .gold-divider { background: linear-gradient(to right, transparent, rgba(201,169,110,0.15), transparent); height: 1px; }
+  .gold-dot::before { content: ''; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #c9a96e; margin-right: 12px; vertical-align: middle; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- Subtle top line -->
+<div class="gold-divider"></div>
+
+<!-- Minimal Header -->
+<header class="max-w-2xl mx-auto px-12 pt-16 pb-4 text-center">
+  <p class="text-xs tracking-[0.5em] uppercase gold font-light">Kollektion</p>
+</header>
+
+<!-- Recipe Title -->
+<section class="max-w-2xl mx-auto px-12 mt-8">
+  <h1 class="text-5xl font-light gold leading-tight text-center">
+    Foie Gras<br>
+    <span class="text-2xl font-light text-[#d4c9b8]/60">mit Quitten-Chutney und Brioche</span>
+  </h1>
+  <p class="text-center text-sm text-[#d4c9b8]/30 mt-6 tracking-wide">Saison 2026 · Vorspeise · 4 Personen</p>
+</section>
+
+<!-- Gold divider -->
+<div class="max-w-xs mx-auto mt-12 gold-divider"></div>
+
+<!-- Image -->
+<section class="max-w-2xl mx-auto px-12 mt-12">
+  <div class="border border-[#c9a96e]/20 p-1">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&h=450&fit=crop" 
+         alt="Foie Gras"
+         class="w-full h-72 object-cover">
+  </div>
+  <p class="text-xs text-[#d4c9b8]/20 text-center mt-4 italic">Küche: Maison Laurent, Straßburg</p>
+</section>
+
+<!-- Spacer -->
+<div class="h-20"></div>
+
+<!-- Ingredients -->
+<section class="max-w-2xl mx-auto px-12">
+  <h2 class="text-xs tracking-[0.4em] uppercase gold font-light mb-10 text-center">Zutaten</h2>
+  
+  <div class="space-y-5">
+    <div class="flex items-center gap-4">
+      <span class="gold-dot"></span>
+      <span class="text-lg font-light flex-1">Gänsestopfleber, frisch</span>
+      <span class="text-sm text-[#d4c9b8]/40 font-light">400g</span>
+    </div>
+    
+    <div class="gold-divider"></div>
+    
+    <div class="flex items-center gap-4">
+      <span class="gold-dot"></span>
+      <span class="text-lg font-light flex-1">Quitten</span>
+      <span class="text-sm text-[#d4c9b8]/40 font-light">3 Stück</span>
+    </div>
+    
+    <div class="gold-divider"></div>
+    
+    <div class="flex items-center gap-4">
+      <span class="gold-dot"></span>
+      <span class="text-lg font-light flex-1">Brioche-Toast</span>
+      <span class="text-sm text-[#d4c9b8]/40 font-light">8 Scheiben</span>
+    </div>
+    
+    <div class="gold-divider"></div>
+    
+    <div class="flex items-center gap-4">
+      <span class="gold-dot"></span>
+      <span class="text-lg font-light flex-1">Rohrzucker</span>
+      <span class="text-sm text-[#d4c9b8]/40 font-light">150g</span>
+    </div>
+    
+    <div class="gold-divider"></div>
+    
+    <div class="flex items-center gap-4">
+      <span class="gold-dot"></span>
+      <span class="text-lg font-light flex-1">Weißweinessig</span>
+      <span class="text-sm text-[#d4c9b8]/40 font-light">80ml</span>
+    </div>
+    
+    <div class="gold-divider"></div>
+    
+    <div class="flex items-center gap-4">
+      <span class="gold-dot"></span>
+      <span class="text-lg font-light flex-1">Fleur de Sel</span>
+      <span class="text-sm text-[#d4c9b8]/40 font-light">&nbsp;</span>
+    </div>
+    
+    <div class="gold-divider"></div>
+    
+    <div class="flex items-center gap-4">
+      <span class="gold-dot"></span>
+      <span class="text-lg font-light flex-1">Szechuan-Pfeffer, gemahlen</span>
+      <span class="text-sm text-[#d4c9b8]/40 font-light">&nbsp;</span>
+    </div>
+  </div>
+</section>
+
+<!-- Spacer -->
+<div class="h-24"></div>
+<div class="max-w-xs mx-auto gold-divider"></div>
+<div class="h-16"></div>
+
+<!-- Instructions -->
+<section class="max-w-2xl mx-auto px-12">
+  <h2 class="text-xs tracking-[0.4em] uppercase gold font-light mb-12 text-center">Zubereitung</h2>
+  
+  <div class="space-y-16 text-lg font-light leading-relaxed text-[#d4c9b8]/70">
+    <p>
+      Die Quitten werden geschält, entkernt und in feine Würfel geschnitten. Mit Rohrzucker und 
+      Weißweinessig in einem Kupfertopf langsamReduciert, bis eine dicke, bernsteinfarbene Masse entsteht. 
+      Dies erfordert Geduld — gute zwei Stunden bei niedriger Hitze, gelegentlich gerührt.
+    </p>
+
+    <div class="max-w-12 mx-auto gold-divider"></div>
+
+    <p>
+      Die Stopfleber wird in Scheiben von anderthalb Zentimeter Dicke geschnitten, bei starker Hitze 
+      in einer trockenen Pfanne von beiden Seiten kurz angebraten — dreißig Sekunden pro Seite genügen. 
+      Das Innere soll sanft und cremig bleiben, das Außen eine hauchdünne, goldbraune Kruste bilden.
+    </p>
+
+    <div class="max-w-12 mx-auto gold-divider"></div>
+
+    <p>
+      Die Brioche wird in feine Scheiben geschnitten und ohne Fett in einer Pfanne geröstet, bis sie 
+      eine blasse Goldfarbe annehmen. Jeder Teller wird mit einem Löffel Chutney angerichtet, darauf 
+      die Leber, darauf das Toast. Ein paar Körner Szechuan-Pfeffer, eine Prise Fleur de Sel. 
+      Nichts weiter.
+    </p>
+  </div>
+</section>
+
+<!-- Spacer -->
+<div class="h-32"></div>
+
+<!-- Pairing Note -->
+<section class="max-w-2xl mx-auto px-12 pb-20">
+  <div class="text-center">
+    <p class="text-xs tracking-[0.4em] uppercase gold font-light mb-4">Begleitung</p>
+    <p class="text-lg font-light italic text-[#d4c9b8]/50">
+      Sauternes, Château d'Yquem 2018<br>
+      Serviert bei zehn Grad
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<div class="gold-divider"></div>
+<footer class="py-10 text-center text-xs text-[#d4c9b8]/15 tracking-widest">
+  KULINARISCHE KOLLEKTION
+</footer>
+
+</body>
+</html>

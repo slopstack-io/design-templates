@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Krypto – Premium</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>*{font-family:-apple-system,'Helvetica Neue',sans-serif;box-sizing:border-box}body{margin:0;max-width:430px;margin:0 auto;background:#0a0a0a;color:#fff}</style>
+</head>
+<body class="min-h-screen pb-20">
+
+<!-- Header -->
+<div class="px-8 pt-12 pb-2">
+  <p class="text-[11px] uppercase tracking-[0.35em] text-neutral-500">Portfolio</p>
+</div>
+
+<!-- Balance -->
+<div class="mx-8 mt-6 rounded-2xl p-8 border" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.06);backdrop-filter:blur(20px)">
+  <p class="text-[11px] uppercase tracking-[0.3em] text-neutral-500 mb-2">Gesamtguthaben</p>
+  <p class="text-5xl font-extralight" style="color:#c9a96e">€24.831</p>
+  <p class="text-[13px] text-neutral-600 mt-1 font-light">+3,2% heute</p>
+</div>
+
+<!-- Holdings -->
+<div class="px-8 mt-14">
+  <p class="text-[11px] uppercase tracking-[0.35em] text-neutral-500 mb-6">Bestand</p>
+
+  <div class="py-4">
+    <div class="flex justify-between items-baseline">
+      <span class="text-[15px] font-light text-neutral-300">Bitcoin</span>
+      <span class="text-[14px] font-light" style="color:#c9a96e">€15.240</span>
+    </div>
+    <p class="text-[11px] text-neutral-700 mt-0.5">0,1524 BTC</p>
+  </div>
+  <div class="h-px" style="background:rgba(255,255,255,0.04)"></div>
+
+  <div class="py-4">
+    <div class="flex justify-between items-baseline">
+      <span class="text-[15px] font-light text-neutral-300">Ethereum</span>
+      <span class="text-[14px] font-light" style="color:#c9a96e">€5.420</span>
+    </div>
+    <p class="text-[11px] text-neutral-700 mt-0.5">1,42 ETH</p>
+  </div>
+  <div class="h-px" style="background:rgba(255,255,255,0.04)"></div>
+
+  <div class="py-4">
+    <div class="flex justify-between items-baseline">
+      <span class="text-[15px] font-light text-neutral-300">Solana</span>
+      <span class="text-[14px] font-light" style="color:#c9a96e">€2.180</span>
+    </div>
+    <p class="text-[11px] text-neutral-700 mt-0.5">12,5 SOL</p>
+  </div>
+  <div class="h-px" style="background:rgba(255,255,255,0.04)"></div>
+
+  <div class="py-4">
+    <div class="flex justify-between items-baseline">
+      <span class="text-[15px] font-light text-neutral-300">Cardano</span>
+      <span class="text-[14px] font-light" style="color:#c9a96e">€1.230</span>
+    </div>
+  </div>
+  <div class="h-px" style="background:rgba(255,255,255,0.04)"></div>
+
+  <div class="py-4">
+    <div class="flex justify-between items-baseline">
+      <span class="text-[15px] font-light text-neutral-300">Dash</span>
+      <span class="text-[14px] font-light" style="color:#c9a96e">€761</span>
+    </div>
+  </div>
+</div>
+
+<!-- Chart -->
+<div class="px-8 mt-14">
+  <p class="text-[11px] uppercase tracking-[0.35em] text-neutral-500 mb-4">7 Tage</p>
+  <svg viewBox="0 0 380 80" class="w-full" style="overflow:visible">
+    <polyline points="0,65 54,55 108,60 162,38 216,42 270,30 324,22 380,12" fill="none" stroke="#c9a96e" stroke-width="1" opacity="0.5"/>
+  </svg>
+</div>
+
+<!-- Transactions -->
+<div class="px-8 mt-14">
+  <p class="text-[11px] uppercase tracking-[0.35em] text-neutral-500 mb-6">Transaktionen</p>
+
+  <div class="py-3">
+    <div class="flex justify-between">
+      <div>
+        <p class="text-[14px] font-light text-neutral-400">Kauf · Bitcoin</p>
+        <p class="text-[11px] text-neutral-700">Heute</p>
+      </div>
+      <span class="text-[13px] font-light" style="color:#c9a96e">+€500</span>
+    </div>
+  </div>
+
+  <div class="py-3">
+    <div class="flex justify-between">
+      <div>
+        <p class="text-[14px] font-light text-neutral-400">Send · Ethereum</p>
+        <p class="text-[11px] text-neutral-700">Gestern</p>
+      </div>
+      <span class="text-[13px] font-light text-neutral-600">−0,5 ETH</span>
+    </div>
+  </div>
+
+  <div class="py-3">
+    <div class="flex justify-between">
+      <div>
+        <p class="text-[14px] font-light text-neutral-400">Tausch · Solana</p>
+        <p class="text-[11px] text-neutral-700">26. Mai</p>
+      </div>
+      <span class="text-[13px] font-light text-neutral-600">−5 SOL</span>
+    </div>
+  </div>
+
+  <div class="py-3">
+    <div class="flex justify-between">
+      <div>
+        <p class="text-[14px] font-light text-neutral-400">Reward · Cardano</p>
+        <p class="text-[11px] text-neutral-700">24. Mai</p>
+      </div>
+      <span class="text-[13px] font-light" style="color:#c9a96e">+200 ADA</span>
+    </div>
+  </div>
+
+  <div class="py-3">
+    <div class="flex justify-between">
+      <div>
+        <p class="text-[14px] font-light text-neutral-400">Verkauf · Dash</p>
+        <p class="text-[11px] text-neutral-700">22. Mai</p>
+      </div>
+      <span class="text-[13px] font-light" style="color:#c9a96e">+€120</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

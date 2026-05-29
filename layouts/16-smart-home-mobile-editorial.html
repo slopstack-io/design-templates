@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Smart Home — Editorial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+  * { font-family: 'Source Serif 4', serif; }
+  body { max-width: 430px; margin: 0 auto; background-color: #faf6f0; }
+  h1, h2, h3, .heading { font-family: 'Playfair Display', serif; }
+  .divider { width: 40px; height: 2px; background-color: #c47a5a; }
+</style>
+</head>
+<body class="min-h-screen pb-20" style="background-color: #faf6f0;">
+
+  <!-- Header -->
+  <div class="px-6 pt-8 pb-2">
+    <div class="flex items-end justify-between">
+      <div>
+        <p class="text-xs tracking-widest uppercase text-amber-800/50" style="font-family: 'Source Serif 4', serif;">Hausbericht • 29. Mai 2026</p>
+        <h1 class="heading text-3xl font-semibold mt-1" style="color: #3d2b1f;">Hausnotizen</h1>
+        <div class="divider mt-2"></div>
+      </div>
+      <div class="text-right">
+        <p class="text-sm" style="color: #8b6f5e;">22°C</p>
+        <p class="text-xs italic" style="color: #b8956e;">behaglich</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lead paragraph -->
+  <div class="px-6 mt-4 mb-6">
+    <p class="text-sm leading-relaxed" style="color: #5c4033;">
+      Ihr Zuhause ruht in angenehmer Stille. Von den vierzehn verbundenen Geräten arbeiten derzeit neun im Hintergrund, während fünf in wohliger Ruhe verharren. Die Raumtemperatur bewegt sich zwischen 20 und 24 Grad — ein gleichmäßig warmes Bild an diesem Spätabend.
+    </p>
+  </div>
+
+  <!-- Room Reports -->
+  <div class="px-6 space-y-6">
+
+    <!-- Wohnzimmer -->
+    <div class="border-t" style="border-color: #e0d5c8;">
+      <div class="pt-4">
+        <div class="flex items-baseline justify-between mb-2">
+          <h2 class="heading text-lg font-semibold" style="color: #3d2b1f;">Wohnzimmer</h2>
+          <span class="text-xs tracking-wider uppercase" style="color: #c47a5a;">3 von 5 aktiv</span>
+        </div>
+        <p class="text-sm leading-relaxed mb-3" style="color: #5c4033;">
+          Im Wohnzimmer sind drei von fünf Lampen aktiv und tauchen den Raum in ein warmes, einladendes Licht. Der Fernseher läuft auf einem leisen Kanal, während die Musikanlage derzeit schweigt. Die Heizung hält eine angenehme Temperatur von 24 Grad — wohlige Wärme für einen gemütlichen Abend.
+        </p>
+        <div class="flex flex-col gap-2.5 ml-1">
+          <div class="flex items-center justify-between">
+            <span class="text-sm" style="color: #7a5c4f;">Deckenbeleuchtung</span>
+            <span class="text-sm font-semibold" style="color: #c47a5a;">eingeschaltet</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm" style="color: #7a5c4f;">Stehlampe</span>
+            <span class="text-sm font-semibold" style="color: #c47a5a;">eingeschaltet</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm" style="color: #7a5c4f;">Wandlicht</span>
+            <span class="text-sm font-semibold" style="color: #c47a5a;">eingeschaltet</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm" style="color: #7a5c4f;">Fernseher</span>
+            <span class="text-sm" style="color: #a89080;">ausgeschaltet — ruht</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm" style="color: #7a5c4f;">Musikanlage</span>
+            <span class="text-sm" style="color: #a89080;">ausgeschaltet — ruht</span>
+          </div>
+        </div>
+        <!-- Slider as editorial text -->
+        <div class="mt-3 pt-3 border-t" style="border-color: #e0d5c8;">
+          <div class="flex justify-between items-center">
+            <span class="text-xs italic" style="color: #8b6f5e;">Helligkeit</span>
+            <span class="text-xs" style="color: #c47a5a;">drei Viertel — hell und klar</span>
+          </div>
+          <div class="w-full h-1 rounded-full mt-1.5" style="background-color: #e0d5c8;">
+            <div class="h-1 rounded-full" style="width: 75%; background-color: #c47a5a;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schlafzimmer -->
+    <div class="border-t" style="border-color: #e0d5c8;">
+      <div class="pt-4">
+        <div class="flex items-baseline justify-between mb-2">
+          <h2 class="heading text-lg font-semibold" style="color: #3d2b1f;">Schlafzimmer</h2>
+          <span class="text-xs tracking-wider uppercase" style="color: #c47a5a;">2 von 3 aktiv</span>
+        </div>
+        <p class="text-sm leading-relaxed mb-3" style="color: #5c4033;">
+          Das Schlafzimmer ist in gedämpftes Licht getaucht. Die Nachttischlampe brennt auf niedrigster Stufe, und der Ventilator dreht leise seine Runden. Der Wecker ist für morgen früh gestellt, ruht aber noch.
+        </p>
+        <div class="flex flex-col gap-2.5 ml-1">
+          <div class="flex items-center justify-between">
+            <span class="text-sm" style="color: #7a5c4f;">Nachttischlampe</span>
+            <span class="text-sm font-semibold" style="color: #c47a5a;">gedimmt — 30%</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm" style="color: #7a5c4f;">Ventilator</span>
+            <span class="text-sm font-semibold" style="color: #c47a5a;">läuft leise</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm" style="color: #7a5c4f;">Wecker</span>
+            <span class="text-sm" style="color: #a89080;">gestellt, noch inaktiv</span>
+          </div>
+        </div>
+        <div class="mt-3 pt-3 border-t" style="border-color: #e0d5c8;">
+          <div class="flex justify-between items-center">
+            <span class="text-xs italic" style="color: #8b6f5e;">Lichtstärke</span>
+            <span class="text-xs" style="color: #c47a5a;">sanft gedimmt — zum Lesen</span>
+          </div>
+          <div class="w-full h-1 rounded-full mt-1.5" style="background-color: #e0d5c8;">
+            <div class="h-1 rounded-full" style="width: 30%; background-color: #c47a5a;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Küche -->
+    <div class="border-t" style="border-color: #e0d5c8;">
+      <div class="pt-4">
+        <div class="flex items-baseline justify-between mb-2">
+          <h2 class="heading text-lg font-semibold" style="color: #3d2b1f;">Küche</h2>
+          <span class="text-xs tracking-wider uppercase" style="color: #c47a5a;">2 von 4 aktiv</span>
+        </div>
+        <p class="text-sm leading-relaxed" style="color: #5c4033;">
+          In der Küche arbeitet der Herd noch auf kleiner Stufe, während die Kaffeemaschine soeben ihren Dienst beendet hat. Der Kühlschrank summt wie stets im Hintergrund, und die Spülmaschine hat ihren Gang beendet.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bad -->
+    <div class="border-t" style="border-color: #e0d5c8;">
+      <div class="pt-4">
+        <div class="flex items-baseline justify-between mb-2">
+          <h2 class="heading text-lg font-semibold" style="color: #3d2b1f;">Badezimmer</h2>
+          <span class="text-xs tracking-wider uppercase" style="color: #c47a5a;">1 von 2 aktiv</span>
+        </div>
+        <p class="text-sm leading-relaxed" style="color: #5c4033;">
+          Das Badezimmer ist still. Nur die Spiegelbeleuchtung brennt noch, während die Heizung längst abgeschaltet wurde. Die Raumtemperatur hält sich bei angenehmen 23 Grad.
+        </p>
+      </div>
+    </div>
+
+    <!-- Flur -->
+    <div class="border-t" style="border-color: #e0d5c8;">
+      <div class="pt-4">
+        <div class="flex items-baseline justify-between mb-2">
+          <h2 class="heading text-lg font-semibold" style="color: #3d2b1f;">Flur & Eingang</h2>
+          <span class="text-xs tracking-wider uppercase" style="color: #c47a5a;">1 von 1 aktiv</span>
+        </div>
+        <p class="text-sm leading-relaxed" style="color: #5c4033;">
+          Die Diele wird von einer einzigen Lichtquelle erhellt. Die Bewegungsmelder haben sich beruhigt, die Haustür ist verschlossen.
+        </p>
+      </div>
+    </div>
+
+    <!-- Büro -->
+    <div class="border-t" style="border-color: #e0d5c8;">
+      <div class="pt-4 pb-2">
+        <div class="flex items-baseline justify-between mb-2">
+          <h2 class="heading text-lg font-semibold" style="color: #3d2b1f;">Arbeitszimmer</h2>
+          <span class="text-xs tracking-wider uppercase" style="color: #c47a5a;">2 von 3 aktiv</span>
+        </div>
+        <p class="text-sm leading-relaxed" style="color: #5c4033;">
+          Im Arbeitszimmer leuchtet die Schreibtischlampe auf volle Stärke. Der Monitor steht im Bereitschaftsmodus. Eine Kanne Kaffee wartet noch unberührt in der Maschine.
+        </p>
+        <div class="mt-3 pt-3 border-t" style="border-color: #e0d5c8;">
+          <div class="flex justify-between items-center">
+            <span class="text-xs italic" style="color: #8b6f5e;">Lichtstärke</span>
+            <span class="text-xs" style="color: #c47a5a;">fast vollständig — konzentriert</span>
+          </div>
+          <div class="w-full h-1 rounded-full mt-1.5" style="background-color: #e0d5c8;">
+            <div class="h-1 rounded-full" style="width: 90%; background-color: #c47a5a;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer quote -->
+  <div class="px-6 mt-8 pb-8 text-center">
+    <div class="divider mx-auto mb-3"></div>
+    <p class="text-xs italic" style="color: #8b6f5e;">«Ein Haus ist dann ein Zuhause, wenn es weiß, wann es sprechen und wann es schweigen soll.»</p>
+    <p class="text-[10px] mt-2 tracking-widest uppercase" style="color: #b8956e;">Ende des Berichts</p>
+  </div>
+
+</body>
+</html>

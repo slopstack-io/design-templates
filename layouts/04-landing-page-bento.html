@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowwerk — Kreativität Neuentdecken</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+* { font-family: 'Nunito', sans-serif; }
+body { background: #faf8f5; }
+.bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(160px, auto); gap: 16px; }
+.pill-nav { display: flex; gap: 8px; background: #fff; border-radius: 50px; padding: 6px 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.pill-nav a { padding: 8px 20px; border-radius: 50px; font-weight: 700; font-size: 14px; color: #555; transition: all 0.3s; }
+.pill-nav a:hover, .pill-nav a.active { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); color: #fff; }
+.card { border-radius: 28px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); transition: transform 0.3s, box-shadow 0.3s; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.grad-1 { background: linear-gradient(135deg, #fbc2eb, #f8a4d0); }
+.grad-2 { background: linear-gradient(135deg, #a6c1ee, #89b4e8); }
+.grad-3 { background: linear-gradient(135deg, #84fab0, #6fe4a0); }
+.grad-4 { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+.grad-5 { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+.grad-6 { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
+.grad-cta { background: linear-gradient(135deg, #f093fb, #f5576c, #fda085); }
+.pricing-card { border-radius: 28px; padding: 40px 32px; text-align: center; }
+.emoji-avatar { font-size: 48px; line-height: 1; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- Pill Navigation -->
+<nav class="flex justify-center pt-6 pb-4 sticky top-0 z-50" style="background: #faf8f5cc; backdrop-filter: blur(12px);">
+  <div class="pill-nav">
+    <a href="#" class="active">Startseite</a>
+    <a href="#">Funktionen</a>
+    <a href="#">Stimmen</a>
+    <a href="#">Preise</a>
+    <a href="#">Kontakt</a>
+  </div>
+</nav>
+
+<!-- Bento Hero Grid -->
+<section class="max-w-6xl mx-auto px-4 py-8">
+  <div class="bento-grid">
+    <!-- Large hero card -->
+    <div class="card grad-5 col-span-2 row-span-2 flex flex-col justify-end text-white">
+      <span class="text-sm font-bold uppercase tracking-wider opacity-80 mb-2">Willkommen bei Flowwerk</span>
+      <h1 class="text-5xl font-extrabold leading-tight mb-3">Kreativität <br>ohne Grenzen</h1>
+      <p class="text-lg opacity-90">Die Plattform für moderne Teams — gestalten, teilen, wachsen.</p>
+    </div>
+    <!-- Small stat card -->
+    <div class="card grad-1 flex flex-col justify-between text-white">
+      <span class="text-4xl font-extrabold">12K+</span>
+      <span class="text-sm font-bold opacity-90">Aktive Nutzer weltweit</span>
+    </div>
+    <!-- Small badge card -->
+    <div class="card grad-3 flex flex-col justify-center text-white text-center">
+      <span class="text-5xl mb-2">🚀</span>
+      <span class="font-bold text-sm">Sofort starten</span>
+    </div>
+    <!-- Medium card -->
+    <div class="card bg-white col-span-1 flex flex-col justify-center">
+      <span class="text-3xl mb-2">🎨</span>
+      <h3 class="font-extrabold text-gray-800 text-lg">Design-Tools</h3>
+      <p class="text-gray-500 text-sm">Intuitive Werkzeuge für jede Vision.</p>
+    </div>
+    <!-- Medium card -->
+    <div class="card bg-white col-span-1 flex flex-col justify-center">
+      <span class="text-3xl mb-2">⚡</span>
+      <h3 class="font-extrabold text-gray-800 text-lg">Blitzschnell</h3>
+      <p class="text-gray-500 text-sm">Echtzeit-Zusammenarbeit ohne Verzögerung.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features Bento Grid -->
+<section class="max-w-6xl mx-auto px-4 py-12">
+  <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-10">Alles was du brauchst</h2>
+  <div class="bento-grid">
+    <div class="card grad-2 col-span-2 row-span-1 text-white flex flex-col justify-center">
+      <span class="text-4xl mb-3">📊</span>
+      <h3 class="text-2xl font-extrabold mb-2">Echtzeit-Analytik</h3>
+      <p class="opacity-90">Verstehe dein Publikum mit live Dashboards und intelligenten Insights — alles auf einen Blick.</p>
+    </div>
+    <div class="card grad-4 col-span-1 row-span-2 text-white flex flex-col justify-center">
+      <span class="text-5xl mb-4">🤝</span>
+      <h3 class="text-xl font-extrabold mb-2">Teamarbeit</h3>
+      <p class="opacity-90 text-sm">Arbeite gleichzeitig an Projekten. Kommentiere, teile und entwickle gemeinsam.</p>
+    </div>
+    <div class="card grad-6 col-span-1 row-span-2 text-white flex flex-col justify-center">
+      <span class="text-5xl mb-4">🔒</span>
+      <h3 class="text-xl font-extrabold mb-2">Sicherheit</h3>
+      <p class="opacity-90 text-sm">Ende-zu-Ende Verschlüsselung. Deine Daten gehören dir — immer.</p>
+    </div>
+    <div class="card grad-1 col-span-2 row-span-1 text-white flex flex-col justify-center">
+      <span class="text-4xl mb-3">🌍</span>
+      <h3 class="text-2xl font-extrabold mb-2">Überall verfügbar</h3>
+      <p class="opacity-90">Desktop, Tablet oder Smartphone — deine Arbeit ist immer dabei.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="max-w-6xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-10">Was Nutzer sagen</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="card bg-white text-center">
+      <div class="emoji-avatar mb-3">👩‍💻</div>
+      <p class="text-gray-600 italic mb-4">„Flowwerk hat unser Design-Workflow komplett verändert. Wir sind doppelt so schnell!"</p>
+      <span class="font-extrabold text-gray-800">Lena M.</span>
+      <span class="block text-xs text-gray-400">UX-Lead, Berlin</span>
+    </div>
+    <div class="card bg-white text-center">
+      <div class="emoji-avatar mb-3">🧑‍🎨</div>
+      <p class="text-gray-600 italic mb-4">„Endlich eine Plattform, die Kreativität nicht bremst sondern beschleunigt."</p>
+      <span class="font-extrabold text-gray-800">Maximilian K.</span>
+      <span class="block text-xs text-gray-400">Art Director, München</span>
+    </div>
+    <div class="card bg-white text-center">
+      <div class="emoji-avatar mb-3">👩‍🔬</div>
+      <p class="text-gray-600 italic mb-4">„Die Analyse-Funktionen sind unglaublich. Wir verstehen unsere Kunden jetzt viel besser."</p>
+      <span class="font-extrabold text-gray-800">Sarah B.</span>
+      <span class="block text-xs text-gray-400">Marketing, Hamburg</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="max-w-6xl mx-auto px-4 py-12">
+  <div class="card grad-cta text-white text-center py-16 px-8">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Bereit loszulegen?</h2>
+    <p class="text-xl opacity-90 mb-8 max-w-xl mx-auto">Schließe dich über 12.000 Kreativen an und bring deine Projekte auf das nächste Level.</p>
+    <button class="bg-white text-pink-500 font-extrabold px-10 py-4 rounded-full text-lg hover:shadow-xl transition-all hover:scale-105">Kostenlos starten →</button>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="max-w-6xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-10">Wähle deinen Plan</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="pricing-card" style="background: linear-gradient(160deg, #fff1f5, #ffe8f0);">
+      <span class="text-4xl">🌱</span>
+      <h3 class="text-2xl font-extrabold text-gray-800 mt-3">Starter</h3>
+      <p class="text-4xl font-extrabold text-gray-800 mt-4">0€</p>
+      <p class="text-gray-500 text-sm mb-6">Für immer kostenlos</p>
+      <ul class="text-left text-gray-600 text-sm space-y-2 mb-8">
+        <li>✓ 3 Projekte</li>
+        <li>✓ Basis-Analytik</li>
+        <li>✓ Community-Support</li>
+      </ul>
+      <button class="w-full py-3 rounded-full bg-white font-bold text-gray-700 hover:shadow-lg transition">Loslegen</button>
+    </div>
+    <div class="pricing-card relative" style="background: linear-gradient(160deg, #e8f4fd, #d6ecfa); box-shadow: 0 8px 32px rgba(166,193,238,0.3);">
+      <span class="absolute top-4 right-4 bg-white text-xs font-bold px-3 py-1 rounded-full text-blue-500">Beliebt</span>
+      <span class="text-4xl">⚡</span>
+      <h3 class="text-2xl font-extrabold text-gray-800 mt-3">Profi</h3>
+      <p class="text-4xl font-extrabold text-gray-800 mt-4">19€<span class="text-base font-normal text-gray-500">/Monat</span></p>
+      <p class="text-gray-500 text-sm mb-6">Für wachsende Teams</p>
+      <ul class="text-left text-gray-600 text-sm space-y-2 mb-8">
+        <li>✓ Unbegrenzte Projekte</li>
+        <li>✓ Erweiterte Analytik</li>
+        <li>✓ Prioritäts-Support</li>
+        <li>✓ Team-Zusammenarbeit</li>
+      </ul>
+      <button class="w-full py-3 rounded-full font-bold text-white hover:shadow-lg transition" style="background: linear-gradient(135deg, #a6c1ee, #7ba3e0);">Profi wählen</button>
+    </div>
+    <div class="pricing-card" style="background: linear-gradient(160deg, #edf7ed, #dff0df);">
+      <span class="text-4xl">🏢</span>
+      <h3 class="text-2xl font-extrabold text-gray-800 mt-3">Enterprise</h3>
+      <p class="text-4xl font-extrabold text-gray-800 mt-4">49€<span class="text-base font-normal text-gray-500">/Monat</span></p>
+      <p class="text-gray-500 text-sm mb-6">Für große Organisationen</p>
+      <ul class="text-left text-gray-600 text-sm space-y-2 mb-8">
+        <li>✓ Alles in Profi</li>
+        <li>✓ Dedizierter Manager</li>
+        <li>✓ SSO & Audit-Logs</li>
+        <li>✓ SLA-Garantie</li>
+      </ul>
+      <button class="w-full py-3 rounded-full bg-white font-bold text-gray-700 hover:shadow-lg transition">Kontakt aufnehmen</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-12 text-gray-400 text-sm">
+  <p>© 2026 Flowwerk — Mit 💜 aus Deutschland</p>
+</footer>
+
+</body>
+</html>

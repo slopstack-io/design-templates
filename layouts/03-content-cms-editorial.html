@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tagespost — Unabhängige Zeitung</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: #faf8f5; color: #2a2118;
+  line-height: 1.8;
+}
+
+.masthead {
+  text-align: center; padding: 20px 0;
+  border-bottom: 3px double #3a2e28;
+}
+.masthead h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 48px; font-weight: 900; letter-spacing: 4px;
+}
+.masthead-meta {
+  font-size: 11px; letter-spacing: 2px; color: #8a7a6e;
+  text-transform: uppercase; margin-top: 4px;
+}
+
+.nav-links {
+  display: flex; gap: 24px; justify-content: center;
+  padding: 12px 0; border-bottom: 1px solid #d4c5b9;
+}
+.nav-links a {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: #5a4e48; text-decoration: none; transition: color 0.3s;
+}
+.nav-links a:hover { color: #c0653a; }
+
+/* Drop cap */
+.drop-cap::first-letter {
+  float: left; font-size: 64px; line-height: 0.8;
+  padding-right: 8px; padding-top: 4px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900; color: #c0653a;
+}
+
+.article-body { font-size: 16px; line-height: 1.9; color: #3a2e28; }
+
+.headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900; line-height: 1.1;
+}
+.headline-xl { font-size: clamp(32px, 5vw, 56px); }
+.headline-md { font-size: clamp(24px, 3vw, 36px); }
+
+.byline {
+  font-size: 12px; color: #8a7a6e; letter-spacing: 1px;
+  font-style: italic;
+}
+.dateline {
+  font-size: 11px; color: #a09080; letter-spacing: 2px; text-transform: uppercase;
+}
+
+.pull-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic; font-size: 22px; line-height: 1.5;
+  color: #c0653a; border-top: 2px solid #c0653a; border-bottom: 2px solid #c0653a;
+  padding: 20px 0; margin: 30px 0; text-align: center;
+}
+
+.section-header {
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: #c0653a; border-top: 3px solid #c0653a;
+  padding-top: 8px; margin-bottom: 20px; font-weight: 700;
+}
+
+hr.editorial { border: none; border-top: 1px solid #d4c5b9; margin: 40px 0; }
+
+/* Multi-column */
+.cols-3 { columns: 3; column-gap: 30px; column-rule: 1px solid #e8ddd4; }
+.cols-2 { columns: 2; column-gap: 30px; column-rule: 1px solid #e8ddd4; }
+
+.tag-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: #c0653a; font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+}
+
+.article-link {
+  color: #c0653a; text-decoration: none;
+  border-bottom: 1px solid rgba(192,101,58,0.3);
+  transition: border-color 0.3s;
+}
+.article-link:hover { border-color: #c0653a; }
+
+.img-placeholder {
+  background: linear-gradient(135deg, #e8ddd4, #d4c5b9);
+  display: flex; align-items: center; justify-content: center;
+  color: #8a7a6e; font-style: italic; font-size: 14px;
+  border-radius: 1px;
+}
+
+@media (max-width: 768px) {
+  .cols-3, .cols-2 { columns: 1; }
+  .masthead h1 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Masthead -->
+<header class="masthead" style="max-width:1000px;margin:0 auto;padding-left:20px;padding-right:20px;">
+  <div style="font-size:10px;letter-spacing:3px;color:#a09080;text-transform:uppercase;margin-bottom:4px;">Unabhängig seit 1897</div>
+  <h1>Tagespost</h1>
+  <div class="masthead-meta">Freitag, 29. Mai 2026 · Nr. 147 · Jahrgang 129</div>
+</header>
+
+<nav class="nav-links">
+  <a href="#">Politik</a>
+  <a href="#">Wirtschaft</a>
+  <a href="#">Kultur</a>
+  <a href="#">Wissen</a>
+  <a href="#">Feuilleton</a>
+  <a href="#">Sport</a>
+  <a href="#">Meining</a>
+</nav>
+
+<!-- Main Content -->
+<main style="max-width:1000px;margin:0 auto;padding:30px 20px;">
+
+  <!-- Lead Story -->
+  <article style="margin-bottom:50px;">
+    <div style="display:flex;gap:30px;flex-wrap:wrap;">
+      <div style="flex:2;min-width:300px;">
+        <p class="tag-label">Titelgeschichte</p>
+        <h2 class="headline headline-xl" style="margin-bottom:12px;">
+          Die stille Revolution: Wie Deutschlands Mittelschicht die Politik neu erfindet
+        </h2>
+        <p class="byline">Von Heinrich Richter und Sarah Baumgarten</p>
+        <p class="dateline" style="margin-top:4px;">Berlin · 29. Mai 2026</p>
+        <hr class="editorial" style="margin:20px 0;">
+        <div class="article-body drop-cap" style="columns:2;column-gap:30px;column-rule:1px solid #e8ddd4;">
+          Es beginnt nicht mit einem Knall, sondern mit einem Flüstern. In Hunderten 
+          von Bürgervereinen, Stadtteilinitiativen und Online-Foren formiert sich eine 
+          Bewegung, die keiner Partei angehört und doch politisch ist wie selten eine. 
+          Die Deutschen entdecken die direkte Demokratie wieder — und verändern dabei das 
+          Gefüge der etablierten Parteienlandschaft grundlegend.
+        </div>
+        <div class="pull-quote" style="break-inside:avoid;">
+          „Wir wollen nicht regiert werden — wir wollen mitreden, mitentscheiden, mitverantworten."
+        </div>
+        <div class="article-body" style="columns:2;column-gap:30px;column-rule:1px solid #e8ddd4;">
+          <p style="margin-bottom:16px;">
+            Die Bewegung begann in kleinen Städten wie Tübingen und Görlitz, wo Bürger 
+            begannen, kommunale Haushalte gemeinsam mit der Verwaltung zu planen. Heute 
+            sind es über 340 Gemeinden, die_partizipative Modelle erproben. Die Ergebnisse 
+            sind bemerkenswert: Die Zufriedenheit mit lokaler Politik ist um 40 Prozent 
+            gestiegen, die Wahlbeteiligung liegt bei über 75 Prozent.
+          </p>
+          <p>
+            Kritiker warnen vor der langsamen Entscheidungsfindung. Befürworter entgegnen: 
+            „Langsam heißt nicht ineffizient — es heißt durchdacht." 
+            <a href="#" class="article-link">Weiterlesen →</a>
+          </p>
+        </div>
+      </div>
+      <div style="flex:1;min-width:250px;">
+        <div class="img-placeholder" style="height:300px;margin-bottom:20px;">
+          [Foto: Bürgerdialog in Tübingen]
+        </div>
+        <p style="font-size:12px;color:#8a7a6e;line-height:1.5;">
+          <em>Bürgerinnen und Bürger erarbeiten gemeinsam den kommunalen Haushalt — ein Modell, 
+          das Schule machen könnte.</em> <span style="color:#a09080;">Foto: dpa</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <hr class="editorial">
+
+  <!-- Section: Wissen -->
+  <div class="section-header">Wissen & Forschung</div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-bottom:40px;">
+    <!-- Article 2 -->
+    <article>
+      <div class="img-placeholder" style="height:180px;margin-bottom:12px;">
+        [Foto: Quantencomputer-Labor]
+      </div>
+      <h3 class="headline" style="font-size:22px;margin-bottom:8px;">
+        Quanten-Supremazie: Deutsches Team bricht Rekord
+      </h3>
+      <p class="byline">Von Prof. Dr. Klaus Weiß · 14 Min. Lesezeit</p>
+      <p class="article-body" style="font-size:14px;margin-top:8px;">
+        Forscher der TU München haben einen Quantenprozessor mit 1.024 Qubits stabil 
+        betrieben — ein Meilenstein, der die Tür zu praktischen Anwendungen in der 
+        Materialforschung und Kryptografie weit aufstößt.
+      </p>
+      <a href="#" class="article-link" style="font-size:13px;">Weiterlesen →</a>
+    </article>
+
+    <!-- Article 3 -->
+    <article>
+      <div class="img-placeholder" style="height:180px;margin-bottom:12px;">
+        [Foto: Tiefsee-Roboter]
+      </div>
+      <h3 class="headline" style="font-size:22px;margin-bottom:8px;">
+        Geheimnisse der Tiefsee: Neue Arten vor Helgoland entdeckt
+      </h3>
+      <p class="byline">Von Dr. Anna Nordseek · 8 Min. Lesezeit</p>
+      <p class="article-body" style="font-size:14px;margin-top:8px;">
+        Ein autonomes Tauchfahrzeug hat in 2.000 Metern Tiefe zwölf bisher unbekannte 
+        Organismen identifiziert, darunter einen leuchtenden Wurm, der noch nie 
+        wissenschaftlich beschrieben wurde.
+      </p>
+      <a href="#" class="article-link" style="font-size:13px;">Weiterlesen →</a>
+    </article>
+
+    <!-- Article 4 -->
+    <article>
+      <div class="img-placeholder" style="height:180px;margin-bottom:12px;">
+        [Foto: Alpenpanorama]
+      </div>
+      <h3 class="headline" style="font-size:22px;margin-bottom:8px;">
+        Klimawandel in den Alpen: Gletscher schmelzen schneller als prognostiziert
+      </h3>
+      <p class="byline">Von Michael Erden · 10 Min. Lesezeit</p>
+      <p class="article-body" style="font-size:14px;margin-top:8px;">
+        Neue Satellitendaten zeigen, dass die Alpengletscher seit 2020 doppelt so schnell 
+        schrinken wie in den vorherigen Jahrzehnten. Was bedeutet das für die Wasserversorgung 
+        Süddeutschlands?
+      </p>
+      <a href="#" class="article-link" style="font-size:13px;">Weiterlesen →</a>
+    </article>
+  </div>
+
+  <hr class="editorial">
+
+  <!-- Pull Quote Section -->
+  <div class="pull-quote" style="margin:50px 0;">
+    „Die Aufgabe der Presse ist es nicht, die Menschen zu unterhalten, sondern sie aufzuklären, 
+    damit sie fähig werden, sich selbst zu regieren."
+    <div style="font-size:13px;margin-top:12px;color:#8a7a6e;font-style:normal;">
+      — Thomas Jefferson, in einem Brief an Edward Carrington, 1787
+    </div>
+  </div>
+
+  <hr class="editorial">
+
+  <!-- Section: Feuilleton -->
+  <div class="section-header">Feuilleton</div>
+
+  <div style="display:flex;gap:40px;flex-wrap:wrap;">
+    <article style="flex:2;min-width:300px;">
+      <h2 class="headline headline-md" style="margin-bottom:12px;">
+        Warum wir wieder Briefe schreiben sollten
+      </h2>
+      <p class="byline">Ein Essay von Karoline Schwarz</p>
+      <p class="dateline" style="margin-top:4px;">29. Mai 2026</p>
+      <hr class="editorial" style="margin:16px 0;">
+      <div class="article-body drop-cap">
+        In einer Zeit, in der Nachrichten in Sekundenbruchteilen um die Welt reisen, 
+        erscheint der Brief als Anachronismus — eine Reliquie aus einer langsameren Epoche. 
+        Doch genau diese Langsamkeit ist es, die den Brief so wertvoll macht. Wer einen 
+        Brief schreibt, nimmt sich Zeit. Und Zeit, so scheint es, ist die knappste 
+        Ressource unserer Gegenwart geworden.
+      </div>
+      <div class="article-body" style="margin-top:16px;">
+        <p style="margin-bottom:12px;">
+          Die Gegenbewegung ist bereits im Gange. In Berlin, Hamburg und München entstehen 
+          Brief-Salons — Orte, an denen Menschen zusammenkommen, um mit der Hand zu schreiben. 
+          Keine E-Mails, keine Nachrichten, keine Emojis. Sondern Worte, die auf Papier 
+          ein Leben lang bleiben.
+        </p>
+        <p>
+          Die Soziologin Prof. Dr. Renate Voss sieht darin mehr als Nostalgie: 
+          „Handgeschriebene Briefe aktivieren andere Gehirnregionen als digitales Tippen. 
+          Sie fördern Empathie, Reflexion und emotionale Tiefe." 
+          <a href="#" class="article-link">Den ganzen Essay lesen →</a>
+        </p>
+      </div>
+    </article>
+    <aside style="flex:1;min-width:220px;">
+      <div class="section-header">Meistgelesen</div>
+      <ol style="list-style:none;padding:0;">
+        <li style="padding:12px 0;border-bottom:1px solid #e8ddd4;">
+          <span style="color:#c0653a;font-weight:700;font-size:24px;">1.</span>
+          <a href="#" class="article-link" style="font-size:14px;">Die stille Revolution: Bürgerbewegung verändert Politik</a>
+        </li>
+        <li style="padding:12px 0;border-bottom:1px solid #e8ddd4;">
+          <span style="color:#c0653a;font-weight:700;font-size:24px;">2.</span>
+          <a href="#" class="article-link" style="font-size:14px;">Quanten-Supremazie: TU München bricht Rekord</a>
+        </li>
+        <li style="padding:12px 0;border-bottom:1px solid #e8ddd4;">
+          <span style="color:#c0653a;font-weight:700;font-size:24px;">3.</span>
+          <a href="#" class="article-link" style="font-size:14px;">Alpen-Gletscher schmelzen doppelt so schnell</a>
+        </li>
+        <li style="padding:12px 0;border-bottom:1px solid #e8ddd4;">
+          <span style="color:#c0653a;font-weight:700;font-size:24px;">4.</span>
+          <a href="#" class="article-link" style="font-size:14px;">Briefkultur erlebt Renaissance</a>
+        </li>
+        <li style="padding:12px 0;">
+          <span style="color:#c0653a;font-weight:700;font-size:24px;">5.</span>
+          <a href="#" class="article-link" style="font-size:14px;">Tiefsee-Entdeckungen vor Helgoland</a>
+        </li>
+      </ol>
+    </aside>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer style="border-top:3px double #3a2e28;margin-top:40px;padding:30px 20px;text-align:center;">
+  <div style="max-width:800px;margin:0 auto;">
+    <div style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:900;letter-spacing:4px;margin-bottom:12px;">Tagespost</div>
+    <p style="font-size:12px;color:#8a7a6e;line-height:1.8;">
+      Herausgeber: Tagespost GmbH & Co. KG · Chefredaktion: Heinrich Richter · 
+      Impressum · AGB · Datenschutz · Kontakt · Abonnement
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

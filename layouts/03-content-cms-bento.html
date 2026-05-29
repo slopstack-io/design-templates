@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeseBento — Dein Magazin</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Nunito', sans-serif; background: #fff; color: #2d2d3a; }
+
+/* Pill Tabs */
+.pill-tabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.pill-tab {
+  padding: 10px 22px; border-radius: 50px; background: #f4f4f8;
+  text-decoration: none; color: #555; font-weight: 700; font-size: 14px;
+  transition: all 0.3s; cursor: pointer; border: none;
+  font-family: 'Nunito', sans-serif;
+}
+.pill-tab:hover, .pill-tab.active {
+  background: #6c5ce7; color: #fff;
+  box-shadow: 0 4px 15px rgba(108,92,231,0.25);
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 16px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-card {
+  border-radius: 24px; overflow: hidden; position: relative;
+  background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  display: flex; flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
+}
+.bento-card:hover {
+  transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+.accent-strip { height: 6px; width: 100%; flex-shrink: 0; }
+.strip-purple { background: linear-gradient(90deg, #6c5ce7, #a29bfe); }
+.strip-teal { background: linear-gradient(90deg, #00b894, #55efc4); }
+.strip-orange { background: linear-gradient(90deg, #e17055, #fab1a0); }
+.strip-blue { background: linear-gradient(90deg, #0984e3, #74b9ff); }
+.strip-pink { background: linear-gradient(90deg, #e84393, #fd79a8); }
+.strip-yellow { background: linear-gradient(90deg, #fdcb6e, #ffeaa7); }
+
+.card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+
+.emoji-cat { font-size: 24px; margin-bottom: 6px; }
+.card-title { font-size: 17px; font-weight: 800; line-height: 1.3; margin-bottom: 6px; }
+.card-excerpt { font-size: 13px; color: #888; line-height: 1.5; flex: 1; }
+.card-meta { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+
+.reading-badge {
+  padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 700;
+  background: #f0eeff; color: #6c5ce7;
+}
+.reading-badge.teal { background: #e8faf4; color: #00b894; }
+.reading-badge.orange { background: #fff0eb; color: #e17055; }
+.reading-badge.blue { background: #eaf4ff; color: #0984e3; }
+.reading-badge.pink { background: #ffe4f0; color: #e84393; }
+.reading-badge.yellow { background: #fff9e6; color: #d4a017; }
+
+.tag-pill {
+  padding: 4px 10px; border-radius: 50px; font-size: 11px;
+  background: #f4f4f8; color: #888; font-weight: 600;
+}
+
+.span-col2 { grid-column: span 2; }
+.span-row2 { grid-row: span 2; }
+.span-col2-row2 { grid-column: span 2; grid-row: span 2; }
+
+.featured-card .card-title { font-size: 22px; }
+.featured-card .card-excerpt { font-size: 14px; }
+
+.author-line { font-size: 12px; color: #aaa; font-weight: 600; }
+
+.search-pill {
+  padding: 12px 24px; border-radius: 50px; border: 2px solid #eee;
+  font-size: 14px; outline: none; font-family: 'Nunito', sans-serif;
+  width: 100%; max-width: 400px; transition: border-color 0.3s;
+}
+.search-pill:focus { border-color: #6c5ce7; }
+
+/* Small stat card */
+.stat-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+}
+.stat-num { font-size: 36px; font-weight: 800; }
+.stat-label { font-size: 12px; color: #888; font-weight: 600; }
+
+@media (max-width: 900px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+}
+@media (max-width: 500px) {
+  .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .span-col2, .span-col2-row2 { grid-column: span 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="py-8 px-6 text-center">
+  <div class="flex items-center justify-center gap-3 mb-6">
+    <span class="text-3xl">📰</span>
+    <h1 class="text-2xl font-extrabold tracking-tight">LeseBento</h1>
+  </div>
+
+  <!-- Pill Tabs -->
+  <div class="pill-tabs mb-5">
+    <button class="pill-tab active">Alle Artikel</button>
+    <button class="pill-tab">Technologie</button>
+    <button class="pill-tab">Wissenschaft</button>
+    <button class="pill-tab">Kultur</button>
+    <button class="pill-tab">Reisen</button>
+    <button class="pill-tab">Gesundheit</button>
+    <button class="pill-tab">Kochen</button>
+  </div>
+
+  <!-- Search -->
+  <input type="text" class="search-pill" placeholder="🔍  Artikel suchen...">
+</header>
+
+<!-- Bento Grid -->
+<main class="bento-grid">
+
+  <!-- Featured Wide+Tall -->
+  <div class="bento-card featured-card span-col2-row2">
+    <div class="accent-strip strip-purple"></div>
+    <div class="card-body">
+      <div class="emoji-cat">🚀</div>
+      <div class="card-title">KI-Revolution 2026: Wie künstliche Intelligenz unseren Alltag grundlegend verändert</div>
+      <p class="card-excerpt">
+        Von autonomen Fahrzeugen bis zur personalisierten Medizin — die jüngsten Durchbrüche in der KI-Forschung
+        versprechen eine Zukunft, die noch vor fünf Jahren unvorstellbar schien. Unsere mehrteilige Reportage
+        beleuchtet die wichtigsten Entwicklungen und ihre Auswirkungen auf die Gesellschaft.
+      </p>
+      <div class="card-meta">
+        <span class="reading-badge">12 Min. Lesezeit</span>
+        <span class="tag-pill">Technologie</span>
+      </div>
+      <p class="author-line" style="margin-top:8px;">Von Dr. Maria Hoffmann · 28. Mai 2026</p>
+    </div>
+  </div>
+
+  <!-- Normal Card -->
+  <div class="bento-card">
+    <div class="accent-strip strip-teal"></div>
+    <div class="card-body">
+      <div class="emoji-cat">🧬</div>
+      <div class="card-title">Neue Gentherapie heilt seltene Krankheit</div>
+      <p class="card-excerpt">Europäische Forscher erreichen Durchbruch bei der Behandlung von Mukoviszidose.</p>
+      <div class="card-meta">
+        <span class="reading-badge teal">7 Min.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Normal Card -->
+  <div class="bento-card">
+    <div class="accent-strip strip-orange"></div>
+    <div class="card-body">
+      <div class="emoji-cat">🎭</div>
+      <div class="card-title">Berliner Theater- Saison: Die Highlights</div>
+      <p class="card-excerpt">Von Brecht bis Neuprojekt — was die Spielzeit 2026 besonders macht.</p>
+      <div class="card-meta">
+        <span class="reading-badge orange">5 Min.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wide Card -->
+  <div class="bento-card featured-card span-col2">
+    <div class="accent-strip strip-blue"></div>
+    <div class="card-body">
+      <div class="emoji-cat">🌊</div>
+      <div class="card-title">Die Wiederentdeckung der Ostsee: Nachhaltiger Tourismus an der Küste</div>
+      <p class="card-excerpt">
+        Rügen, Usedom und die Halbinsel Fischland-Darß-Zingst erleben eine Renaissance. 
+        Neue Öko-Resorts und sanfte Mobilitätskonzepte ziehen bewusste Reisende an.
+      </p>
+      <div class="card-meta">
+        <span class="reading-badge blue">9 Min. Lesezeit</span>
+        <span class="tag-pill">Reisen</span>
+      </div>
+      <p class="author-line" style="margin-top:6px;">Von Thomas Klein · 25. Mai 2026</p>
+    </div>
+  </div>
+
+  <!-- Normal Card -->
+  <div class="bento-card">
+    <div class="accent-strip strip-pink"></div>
+    <div class="card-body">
+      <div class="emoji-cat">🧘</div>
+      <div class="card-title">Atemarbeit: Die Wissenschaft hinter der Heilung</div>
+      <p class="card-excerpt">Warum bewusstes Atmen mehr als nur Entspannung bewirkt.</p>
+      <div class="card-meta">
+        <span class="reading-badge pink">4 Min.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat Card -->
+  <div class="bento-card stat-card">
+    <div class="accent-strip strip-yellow"></div>
+    <div style="padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;">
+      <div style="font-size:42px;">📚</div>
+      <div class="stat-num" style="color:#6c5ce7;">847</div>
+      <div class="stat-label">Artikel diesen Monat</div>
+    </div>
+  </div>
+
+  <!-- Normal Card -->
+  <div class="bento-card">
+    <div class="accent-strip strip-yellow"></div>
+    <div class="card-body">
+      <div class="emoji-cat">🍳</div>
+      <div class="card-title">Fermentation für Anfänger: 5 einfache Rezepte</div>
+      <p class="card-excerpt">Kimchi, Kombucha und mehr — deine Einstieg in die Fermentationsküche.</p>
+      <div class="card-meta">
+        <span class="reading-badge yellow">6 Min.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tall Card -->
+  <div class="bento-card span-row2">
+    <div class="accent-strip strip-teal"></div>
+    <div class="card-body">
+      <div class="emoji-cat">🌱</div>
+      <div class="card-title">Urban Farming: Eigenes Gemüse auf dem Balkon</div>
+      <p class="card-excerpt">
+        Tomaten, Kräuter und sogar Erdbeeren — mit den richtigen Techniken 
+        wächst auf wenigen Quadratmetern Erstaunliches. Unser Leitfaden für 
+        Stadtbewohner zeigt, wie auch ohne Garten eine reiche Ernte gelingt.
+      </p>
+      <div class="card-meta">
+        <span class="reading-badge teal">8 Min.</span>
+        <span class="tag-pill">Nachhaltigkeit</span>
+      </div>
+      <p class="author-line" style="margin-top:6px;">Von Lisa Berger · 22. Mai 2026</p>
+    </div>
+  </div>
+
+  <!-- Wide Card -->
+  <div class="bento-card featured-card span-col2">
+    <div class="accent-strip strip-purple"></div>
+    <div class="card-body">
+      <div class="emoji-cat">🏛️</div>
+      <div class="card-title">Deutsche Museen im Wandel: Digital und barrierefrei</div>
+      <p class="card-excerpt">
+        Wie das Germanische Nationalmuseum und die Hamburger Kunsthalle mit 
+        neuen Technologien Besuchern ganz neue Zugänge zu ihren Sammlungen eröffnen.
+      </p>
+      <div class="card-meta">
+        <span class="reading-badge">10 Min. Lesezeit</span>
+        <span class="tag-pill">Kultur</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Small Card -->
+  <div class="bento-card">
+    <div class="accent-strip strip-orange"></div>
+    <div class="card-body">
+      <div class="emoji-cat">📱</div>
+      <div class="card-title">Die besten Produktivitäts- Apps 2026</div>
+      <p class="card-excerpt">Unser jährlicher Überblick über die effektivsten Tools.</p>
+      <div class="card-meta">
+        <span class="reading-badge orange">5 Min.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Small Card -->
+  <div class="bento-card">
+    <div class="accent-strip strip-blue"></div>
+    <div class="card-body">
+      <div class="emoji-cat">🧠</div>
+      <div class="card-title">Neuroplastizität: Dein Gehirn kann sich verändern</div>
+      <p class="card-excerpt">Warum es nie zu spät ist, Neues zu lernen.</p>
+      <div class="card-meta">
+        <span class="reading-badge blue">6 Min.</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="text-center py-12 px-6" style="color:#bbb;">
+  <p class="text-sm font-bold mb-2">LeseBento © 2026</p>
+  <p class="text-xs">Über uns · Redaktion · Kontakt · Datenschutz · Impressum</p>
+</footer>
+
+<script>
+document.querySelectorAll('.pill-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.pill-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

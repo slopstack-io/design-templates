@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Reisen — Editorial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+  * { font-family: 'Lora', serif; }
+  body { max-width: 430px; margin: 0 auto; background-color: #faf5ee; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+  .drop-cap::first-letter {
+    font-family: 'Playfair Display', serif;
+    float: left; font-size: 3em; line-height: 0.8;
+    padding-right: 6px; padding-top: 4px;
+    color: #8b6f4e;
+  }
+  .ornament { color: #c4a882; letter-spacing: 0.5em; }
+</style>
+</head>
+<body class="min-h-screen pb-12" style="background-color: #faf5ee;">
+
+  <!-- Masthead -->
+  <div class="text-center pt-8 pb-4 px-6">
+    <p class="text-[9px] tracking-[0.4em] uppercase" style="color: #b8a080;">Reisebeilage • Sommer 2026</p>
+    <div class="w-12 h-px mx-auto mt-2 mb-3" style="background-color: #c4a882;"></div>
+    <h1 class="text-3xl font-medium" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">Ferne Welten</h1>
+    <p class="text-xs italic mt-1" style="color: #8b6f4e;">Sechs Orte, die man gesehen haben muss</p>
+    <div class="w-12 h-px mx-auto mt-3" style="background-color: #c4a882;"></div>
+  </div>
+
+  <!-- Line Map Illustration -->
+  <div class="px-6 mt-2 mb-6">
+    <div class="relative rounded-2xl p-6 overflow-hidden" style="background-color: #f5ede0;">
+      <svg viewBox="0 0 380 120" class="w-full" fill="none" stroke="#c4a882" stroke-width="1">
+        <!-- Abstract line paths -->
+        <path d="M 20 60 Q 60 20, 100 50 T 180 40 T 260 65 T 360 30" stroke-dasharray="4,4"/>
+        <path d="M 30 90 Q 80 60, 140 80 T 240 55 T 340 75" stroke-dasharray="3,6" opacity="0.5"/>
+        <!-- Location dots -->
+        <circle cx="80" cy="45" r="4" fill="#8b6f4e" stroke="#8b6f4e"/>
+        <circle cx="170" cy="38" r="4" fill="#8b6f4e" stroke="#8b6f4e"/>
+        <circle cx="250" cy="62" r="4" fill="#8b6f4e" stroke="#8b6f4e"/>
+        <circle cx="320" cy="35" r="4" fill="#8b6f4e" stroke="#8b6f4e"/>
+        <!-- Labels -->
+        <text x="80" y="28" text-anchor="middle" fill="#8b6f4e" font-size="8" font-style="italic">Barcelona</text>
+        <text x="170" y="24" text-anchor="middle" fill="#8b6f4e" font-size="8" font-style="italic">Santorini</text>
+        <text x="250" y="78" text-anchor="middle" fill="#8b6f4e" font-size="8" font-style="italic">Kyoto</text>
+        <text x="320" y="22" text-anchor="middle" fill="#8b6f4e" font-size="8" font-style="italic">Marrakesch</text>
+      </svg>
+      <p class="text-center text-[9px] italic mt-2" style="color: #b8a080;">Unsere Route durch vier Kontinente</p>
+    </div>
+  </div>
+
+  <!-- Barcelona -->
+  <div class="px-6 mb-8">
+    <div class="flex items-baseline justify-between mb-1">
+      <h2 class="text-xl font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">Barcelona</h2>
+      <span class="text-xs italic" style="color: #c47a5a;">⭐ 4.8</span>
+    </div>
+    <p class="text-[10px] tracking-wider uppercase mb-3" style="color: #b8a080;">Spanien • Mittelmeerküste</p>
+    <p class="text-sm leading-relaxed drop-cap" style="color: #5c4033;">
+      An der katalanischen Küste liegt eine Stadt, die stets zwischen Tradition und Avantgarde pendelt. Barcelonas von Gaudí geformte Silhouette trifft auf verborgene Tapas-Bars in engen Gassen der Gotischen Viertel. Die Ramblas laden zum Flanieren, und vom Montjuïc aus erschließt sich ein Panorama, das das Herz jedes Reisenden höher schlagen lässt.
+    </p>
+    <div class="mt-3 pt-3 border-t" style="border-color: #e8ddd0;">
+      <div class="flex items-baseline justify-between">
+        <span class="text-xs italic" style="color: #8b6f4e;">Übernachtung ab</span>
+        <span class="text-lg font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">€89</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-8 h-px mx-auto mb-8" style="background-color: #c4a882;"></div>
+
+  <!-- Santorini -->
+  <div class="px-6 mb-8">
+    <div class="flex items-baseline justify-between mb-1">
+      <h2 class="text-xl font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">Santorini</h2>
+      <span class="text-xs italic" style="color: #c47a5a;">⭐ 4.9</span>
+    </div>
+    <p class="text-[10px] tracking-wider uppercase mb-3" style="color: #b8a080;">Griechenland • Kykladen</p>
+    <p class="text-sm leading-relaxed drop-cap" style="color: #5c4033;">
+      Weiß und Blau — diese beiden Farben definieren die Ägäis-Insel wie kein anderer Ort auf der Welt. Die kalderimi genannten Pfade schlängeln sich zwischen kuppelgekrönten Kapellen hinab zum Meer, wo sich der Sonnenuntergang in einem Schauspiel vollendet, das schon seit Jahrtausenden Dichter inspiriert.
+    </p>
+    <div class="mt-3 pt-3 border-t" style="border-color: #e8ddd0;">
+      <div class="flex items-baseline justify-between">
+        <span class="text-xs italic" style="color: #8b6f4e;">Übernachtung ab</span>
+        <span class="text-lg font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">€145</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-8 h-px mx-auto mb-8" style="background-color: #c4a882;"></div>
+
+  <!-- Kyoto -->
+  <div class="px-6 mb-8">
+    <div class="flex items-baseline justify-between mb-1">
+      <h2 class="text-xl font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">Kyoto</h2>
+      <span class="text-xs italic" style="color: #c47a5a;">⭐ 4.7</span>
+    </div>
+    <p class="text-[10px] tracking-wider uppercase mb-3" style="color: #b8a080;">Japan • Kansai-Region</p>
+    <p class="text-sm leading-relaxed drop-cap" style="color: #5c4033;">
+      Wo Tempelglocken durch Bambushaine klingen und Geishas noch durch die Hanamachi gleiten, dort pulsiert eine Jahrhunderte alte Kultur. Kyotos über zweitausend Tempel und Schreine bilden einen Kosmos der Stille — ein Ort, an dem die Zeit einen anderen Takt schlägt. Die Kirschblüte im April verwandelt die Stadt in ein rosa Wunder.
+    </p>
+    <div class="mt-3 pt-3 border-t" style="border-color: #e8ddd0;">
+      <div class="flex items-baseline justify-between">
+        <span class="text-xs italic" style="color: #8b6f4e;">Übernachtung ab</span>
+        <span class="text-lg font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">€120</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-8 h-px mx-auto mb-8" style="background-color: #c4a882;"></div>
+
+  <!-- Marrakesch -->
+  <div class="px-6 mb-8">
+    <div class="flex items-baseline justify-between mb-1">
+      <h2 class="text-xl font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">Marrakesch</h2>
+      <span class="text-xs italic" style="color: #c47a5a;">⭐ 4.5</span>
+    </div>
+    <p class="text-[10px] tracking-wider uppercase mb-3" style="color: #b8a080;">Marokko • Nordafrika</p>
+    <p class="text-sm leading-relaxed drop-cap" style="color: #5c4033;">
+      Die rote Stadt am Fuße des Atlasgebirges betört die Sinne. Gewürzdüfte ziehen durch die Souks, Mosaiken blitzen in den Riads, und der Ruf des Muezzins mischt sich mit dem Lärm der Medinas. Der Jemaa-el-Fna-Platz verwandelt sich jeden Abend in ein offenes Spektakel aus Geschichten, Musik und Dämpfen.
+    </p>
+    <div class="mt-3 pt-3 border-t" style="border-color: #e8ddd0;">
+      <div class="flex items-baseline justify-between">
+        <span class="text-xs italic" style="color: #8b6f4e;">Übernachtung ab</span>
+        <span class="text-lg font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">€65</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-8 h-px mx-auto mb-8" style="background-color: #c4a882;"></div>
+
+  <!-- Lissabon -->
+  <div class="px-6 mb-8">
+    <div class="flex items-baseline justify-between mb-1">
+      <h2 class="text-xl font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">Lissabon</h2>
+      <span class="text-xs italic" style="color: #c47a5a;">⭐ 4.6</span>
+    </div>
+    <p class="text-[10px] tracking-wider uppercase mb-3" style="color: #b8a080;">Portugal • Atlantikküste</p>
+    <p class="text-sm leading-relaxed drop-cap" style="color: #5c4033;">
+      Die Stadt der sieben Hügle liebt ihre Melancholie und verwandelt sie in Schönheit. Die gelben Straßenbahnen rattern durch die Alfama, Pastéis de Nata duften aus jeder Bäckerei, und der Tejo leuchtet im Abendgold. Eine Hauptstadt, die nicht prunkt, sondern verzaubert — mit Fado im Ohr und Wein auf den Lippen.
+    </p>
+    <div class="mt-3 pt-3 border-t" style="border-color: #e8ddd0;">
+      <div class="flex items-baseline justify-between">
+        <span class="text-xs italic" style="color: #8b6f4e;">Übernachtung ab</span>
+        <span class="text-lg font-semibold" style="color: #3d2b1f; font-family: 'Playfair Display', serif;">€72</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="text-center px-6 pb-8">
+    <div class="w-12 h-px mx-auto mb-3" style="background-color: #c4a882;"></div>
+    <p class="text-[9px] tracking-[0.4em] uppercase" style="color: #b8a080;">Nächste Ausgabe: Reiseführer Bali</p>
+    <p class="ornament text-xs mt-2">— ✦ —</p>
+  </div>
+
+</body>
+</html>

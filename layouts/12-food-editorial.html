@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rezepte — Editorial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+  body { font-family: 'Lora', serif; background: #faf6f0; color: #3d2c1e; }
+  h1, h2, h3, .serif-heading { font-family: 'Playfair Display', serif; }
+  .terracotta { color: #c0623a; }
+  .terracotta-bg { background-color: #c0623a; }
+  .divider-ornament::after {
+    content: '✦';
+    display: block;
+    text-align: center;
+    color: #c0623a;
+    font-size: 12px;
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- Masthead -->
+<header class="border-b border-amber-900/10 py-6 px-8 max-w-4xl mx-auto flex items-center justify-between">
+  <h2 class="serif-heading text-sm tracking-[0.3em] uppercase terracotta font-bold">Die Küche</h2>
+  <nav class="flex gap-6 text-sm text-amber-900/60">
+    <a href="#" class="hover:terracotta">Rezepte</a>
+    <a href="#" class="hover:terracotta">Saisonal</a>
+    <a href="#" class="hover:terracotta">Über uns</a>
+  </nav>
+</header>
+
+<!-- Hero Image -->
+<div class="max-w-4xl mx-auto px-8 mt-10">
+  <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=900&h=500&fit=crop" 
+       alt="Risotto mit Steinpilzen" 
+       class="w-full h-80 object-cover rounded-sm shadow-md">
+  <p class="text-xs text-amber-900/40 italic mt-2 text-center">Fotografie: Elena Moretti — Herbstausgabe 2026</p>
+</div>
+
+<!-- Title Block -->
+<article class="max-w-3xl mx-auto px-8 mt-10">
+  <h1 class="serif-heading text-5xl font-bold leading-tight terracotta">Risotto mit Steinpilzen und frischem Thymian</h1>
+  <p class="italic text-lg text-amber-900/60 mt-4 leading-relaxed">
+    <em>Eine Hymne an den Herbst — cremiges Risotto, das die Seele wärmt, gekrönt von aromatischen Steinpilzen 
+    und einem Hauch von weißem Trüffel. Für vier Personen als Hauptgericht, oder sechs als Vorspeise.</em>
+  </p>
+</article>
+
+<!-- Divider -->
+<div class="max-w-3xl mx-auto px-8 mt-8 divider-ornament"></div>
+
+<!-- Ingredients — Two Column -->
+<section class="max-w-3xl mx-auto px-8 mt-8">
+  <h2 class="serif-heading text-2xl font-bold mb-6 terracotta">Zutaten</h2>
+  <div class="grid grid-cols-2 gap-x-12 gap-y-2">
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">300g</span>
+      <span class="text-amber-900/80">Arborio-Reis</span>
+    </div>
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">200g</span>
+      <span class="text-amber-900/80">Steinpilze, frisch</span>
+    </div>
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">1.2L</span>
+      <span class="text-amber-900/80">Gemüsebrühe, heiß</span>
+    </div>
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">150ml</span>
+      <span class="text-amber-900/80">Trockener Weißwein</span>
+    </div>
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">80g</span>
+      <span class="text-amber-900/80">Parmigiano Reggiano</span>
+    </div>
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">60g</span>
+      <span class="text-amber-900/80">Butter, kalt</span>
+    </div>
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">2</span>
+      <span class="text-amber-900/80">Schalotten</span>
+    </div>
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">3 Zweige</span>
+      <span class="text-amber-900/80">Frischer Thymian</span>
+    </div>
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">1 EL</span>
+      <span class="text-amber-900/80">Weißes Trüffelöl</span>
+    </div>
+    <div class="flex items-baseline gap-2 py-1 border-b border-amber-900/8">
+      <span class="text-sm font-medium">&nbsp;</span>
+      <span class="text-amber-900/80">Meersalz, schwarzer Pfeffer</span>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-3xl mx-auto px-8 mt-10 divider-ornament"></div>
+
+<!-- Instructions as Editorial Prose -->
+<section class="max-w-3xl mx-auto px-8 mt-10">
+  <h2 class="serif-heading text-2xl font-bold mb-6 terracotta">Zubereitung</h2>
+  
+  <div class="space-y-6 leading-relaxed text-amber-900/85">
+    <p>
+      <span class="first-letter:text-5xl first-letter:serif-heading first-letter:terracotta first-letter:float-left first-letter:mr-2 first-letter:mt-1">D</span>
+      ie Steinpilze verlangen nach besonderer Aufmerksamkeit. Mit einem feuchten Tuch behutsam gereinigt — niemals unter fließendem Wasser, 
+      denn sie saugen Feuchtigkeit wie ein Schwamm auf — werden sie in gleichmäßige, daumendicke Scheiben geschnitten. 
+      In einer weiten Pfanne schäumt man zwei Esslöffel Butter auf und gibt die Pilze bei mittlerer Hitze hinein. 
+      Sie dürfen Zeit haben, Farbe anzunehmen; erst dann wendet man sie. Ein Spritzer Thymian, eine Prise Salz.
+    </p>
+
+    <p>
+      Parallel dazu erwärmt man die Brühe in einem Topf neben dem Risottokessel. Die Schalotten werden fein gewürfelt 
+      und in der restlichen Butter glasig gedünstet, bevor der Reis hinzukommt. Er muss in der Butter tanzen, bis jedes 
+      Korn von einem hauchdünnen, durchsichtigen Mantel umhüllt ist — die Italianer nern diesen Moment <em>„toccare il fondo"</em>. 
+      Dann gießt man den Weißwein an und rührt, bis die Flüssigkeit vollständig aufgesogen ist.
+    </p>
+
+    <p>
+      Nun beginnt die Meditation des Rührens. Schöpfkelle für Schöpfkelle wird die heiße Brühe zum Reis gegeben, 
+      stets gerührt, stets mit Geduld. Zwanzig Minuten dauert dieses Ritual — zwanzig Minuten, in denen die Küche 
+      mit einem Duft erfüllt wird, der an herbstliche Waldwege und ländliche Trattorien erinnert.
+    </p>
+
+    <p>
+      Wenn der Reis noch einen leichten Biss hat — <em>al dente</em>, wie es sein soll — nimmt man den Topf vom Feuer. 
+      Nun kommt die sogenannte <em>„mantecatura"</em>: Die kalte Butter und der frisch geriebene Parmigiano werden mit 
+      schwungvollen Bewegungen untergerührt, bis das Risotto eine samtige, fließende Konsistenz annimmt. 
+      Die Steinpilze werden behutsam untergehoben, ein Faden Trüffelöl darüber, und alles auf vorgewärmten Tellern 
+      angerichtet. Ein paar Thymianblättchen zum Abschluss, und das Gericht ist vollendet.
+    </p>
+  </div>
+</section>
+
+<!-- Serving Suggestion -->
+<section class="max-w-3xl mx-auto px-8 mt-12 mb-16">
+  <div class="bg-amber-900/5 rounded-sm p-6 border-l-4 border-[#c0623a]">
+    <p class="serif-heading italic text-lg terracotta">Unsere Empfehlung</p>
+    <p class="text-amber-900/70 mt-2 text-sm leading-relaxed">
+      Dazu ein Glas Verdicchio dei Castelli di Jesi, leicht gekühlt bei etwa zwölf Grad. 
+      Wer keinen Weißwein bevorzugt, findet in einem handwerklichen Birnen-Secco einen ebenbürtigen Begleiter.
+      Als Vorspeise gereicht, genügen die hier angegebenen Mengen für sechs Personen.
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-amber-900/10 py-8 text-center text-sm text-amber-900/40">
+  <p class="serif-heading italic">Die Küche — Herbst 2026</p>
+</footer>
+
+</body>
+</html>

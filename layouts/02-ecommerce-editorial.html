@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAISON — Redaktions-Einkauf</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: #faf8f5; color: #3a2e28;
+  line-height: 1.8;
+}
+
+.sans { font-family: -apple-system, 'Helvetica Neue', sans-serif; }
+
+nav a {
+  text-decoration: none; color: #3a2e28;
+  font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+  transition: color 0.3s;
+}
+nav a:hover { color: #c0653a; }
+
+.divider {
+  text-align: center; padding: 60px 0 40px; position: relative;
+}
+.divider::before {
+  content: ''; position: absolute; top: 50%; left: 10%;
+  width: 80%; height: 1px; background: #d4c5b9;
+}
+.divider span {
+  background: #faf8f5; padding: 0 30px; position: relative;
+  font-size: 32px; color: #c0653a; letter-spacing: 4px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(48px, 8vw, 120px); line-height: 1;
+  font-weight: 900; letter-spacing: -2px;
+}
+.hero-subtitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(20px, 3vw, 36px); font-weight: 400;
+  font-style: italic; color: #c0653a;
+}
+
+.price-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(40px, 5vw, 72px); font-weight: 700;
+  color: #c0653a; line-height: 1;
+}
+.price-quote::before { content: '„'; font-size: 1.2em; }
+.price-quote::after { content: '"'; font-size: 1.2em; }
+
+.product-feature { max-width: 800px; margin: 0 auto; }
+.product-feature h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 4vw, 48px); font-weight: 900;
+  line-height: 1.1; margin-bottom: 20px;
+}
+.product-feature .body-text {
+  font-size: 17px; line-height: 1.9; color: #5a4e48;
+  max-width: 600px;
+}
+
+.cta-link {
+  display: inline-block; margin-top: 20px;
+  font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+  color: #c0653a; text-decoration: none; border-bottom: 1px solid #c0653a;
+  padding-bottom: 4px; transition: all 0.3s;
+}
+.cta-link:hover { color: #3a2e28; border-color: #3a2e28; }
+
+.editorial-img {
+  width: 100%; border-radius: 2px;
+  filter: sepia(15%) contrast(1.02);
+}
+
+.tag-label {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: #c0653a; font-family: -apple-system, 'Helvetica Neue', sans-serif;
+}
+
+.pull-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic; font-size: 24px; line-height: 1.5;
+  color: #c0653a; border-left: 3px solid #c0653a;
+  padding-left: 24px; margin: 40px 0;
+}
+
+.sep { width: 60px; height: 1px; background: #d4c5b9; margin: 20px 0; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<header style="border-bottom:1px solid #e8ddd4;" class="py-6 px-8">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:900;letter-spacing:3px;">MAISON</div>
+    </div>
+    <nav class="flex gap-8">
+      <a href="#">Kollektion</a>
+      <a href="#">Geschichte</a>
+      <a href="#">Katalog</a>
+      <a href="#">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Editorial Spread -->
+<section class="py-20 px-8 text-center" style="background:#f2ece5;">
+  <div class="max-w-5xl mx-auto">
+    <p class="tag-label mb-6">Herbst/Winter 2026 — Das Editorial</p>
+    <div class="hero-title mb-4">Zeitlose<br>Eleganz</div>
+    <p class="hero-subtitle mb-8">Kuratorische Ausstattung für den bewussten Lebensstil</p>
+    <div style="width:80%;max-width:700px;margin:0 auto;">
+      <div style="background:linear-gradient(135deg,#d4c5b9 0%,#c9b8a8 50%,#b8a898 100%);height:400px;border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-style:italic;letter-spacing:1px;">
+        [Editorial Hero-Bild — Modell trägt Mantel „Alpina"]
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section I -->
+<div class="divider"><span>I</span></div>
+
+<section class="px-8 pb-16">
+  <div class="product-feature">
+    <p class="tag-label">Hauptstickstück</p>
+    <h2>Der Alpina- Mantel</h2>
+    <div class="price-quote">€ 420</div>
+    <div class="sep"></div>
+    <p class="body-text">
+      Ein Mantel, der Geschichten erzählt. Gefertigt aus handverlesenem italienischem Kaschmirwoll-Gemisch, 
+      vereint der „Alpina" die Wärme der Alpen mit der Raffinesse der Mailänder Modewelt. Jeder Mantel 
+      durchläuft 47 Arbeitsschritte — von der Rohstoffauswahl bis zur letzten Naht.
+    </p>
+    <p class="body-text" style="margin-top:16px;">
+      Die Doppelreiher-Knöpfe aus gehämmertem Messing sind ein.detail, das erst beim zweiten Blick 
+      zur Geltung kommt. Wie alles Wahre Schöne.
+    </p>
+    <a href="#" class="cta-link">Jetzt entdecken →</a>
+  </div>
+</section>
+
+<!-- Product Image -->
+<section class="px-8 pb-8">
+  <div class="max-w-4xl mx-auto">
+    <div style="background:linear-gradient(160deg,#e8ddd4,#d4c5b9);height:350px;border-radius:2px;display:flex;align-items:center;justify-content:center;color:#8a7a6e;font-style:italic;font-size:16px;">
+      [Produktbild — Alpina Mantel, Detailansicht]
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>II</span></div>
+
+<!-- Second Product -->
+<section class="px-8 pb-16">
+  <div class="product-feature">
+    <p class="tag-label">Accessoires</p>
+    <h2>Die Toskana- Tasche</h2>
+    <div class="price-quote">€ 195</div>
+    <div class="sep"></div>
+    <p class="body-text">
+      In einer kleinen Werkstatt zwischen Florenz und Siena werden diese Taschen aus pflanzengegerbtem 
+      Leder gefertigt. Das Leder stammt von Weidekühen, die ihr Leben auf toskanischen Hügeln verbracht haben. 
+      Keine zwei Taschen sind gleich — jede trägt die individuellen Narben und Maserungen des Leders.
+    </p>
+    <div class="pull-quote">
+      „Wahrer Luxus ist nicht die Perfektion der Oberfläche, sondern die Ehrlichkeit des Materials."
+    </div>
+    <p class="body-text">
+      Die Messingschließe patiniert mit der Zeit und erzählt damit die Geschichte ihrer Besitzerin.
+    </p>
+    <a href="#" class="cta-link">Zur Kollektion →</a>
+  </div>
+</section>
+
+<div class="divider"><span>III</span></div>
+
+<!-- Third Product -->
+<section class="px-8 pb-16">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+    <div>
+      <div style="background:linear-gradient(160deg,#d4c5b9,#c9b8a8);height:450px;border-radius:2px;display:flex;align-items:center;justify-content:center;color:#8a7a6e;font-style:italic;font-size:16px;">
+        [Doppelbild — Schuh-Detail]
+      </div>
+    </div>
+    <div class="flex flex-col justify-center">
+      <p class="tag-label">Schuhwerk</p>
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:900;line-height:1.1;margin-bottom:16px;">
+        Wanderschuh „Silvretta"
+      </h2>
+      <div class="price-quote" style="font-size:48px;">€ 285</div>
+      <div class="sep"></div>
+      <p class="body-text">
+        Handgenäht in der Schweizer Werkstatt von Gebhard & Söhne. Der Silvretta ist 
+        kein Wanderschuh — er ist ein Bekenntnis zur Langsamkeit. Das Kälberleder wird 
+        drei Monate in Eichenrinde gegerbt. Die Sohle aus Naturkautschuk dämpft jeden 
+        Schritt auf dem Weg zur Hütte.
+      </p>
+      <a href="#" class="cta-link">Ansehen →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>IV</span></div>
+
+<!-- Closing -->
+<section class="px-8 py-20 text-center" style="background:#f2ece5;">
+  <div class="max-w-2xl mx-auto">
+    <p class="tag-label mb-4">Das Letzte</p>
+    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:900;line-height:1.2;margin-bottom:20px;">
+      Ein Haus. Ein Versprechen.
+    </h2>
+    <p class="body-text" style="max-width:none;text-align:center;">
+      Jedes Stück in unserem Haus wird von Menschen gemacht, die ihre Handwerk lieben. 
+      Wir kennen sie beim Namen. Wir kennen ihre Familien. Das ist kein Marketing — das ist unsere Art, 
+      Wirtschaft zu betreiben.
+    </p>
+    <div class="price-quote" style="font-size:28px;margin-top:24px;">
+      MAISON — Seit 2018
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="border-top:1px solid #e8ddd4;" class="py-12 px-8">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:900;letter-spacing:3px;">MAISON</div>
+    <div class="flex gap-8">
+      <a href="#" class="cta-link" style="border:none;font-size:11px;">Impressum</a>
+      <a href="#" class="cta-link" style="border:none;font-size:11px;">AGB</a>
+      <a href="#" class="cta-link" style="border:none;font-size:11px;">Datenschutz</a>
+      <a href="#" class="cta-link" style="border:none;font-size:11px;">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

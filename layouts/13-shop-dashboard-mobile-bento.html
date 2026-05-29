@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Shop Dashboard — Bento Mobile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+  body { font-family: 'Nunito', sans-serif; max-width: 430px; margin: 0 auto; background: #ffffff; }
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(120px, auto);
+    gap: 14px;
+  }
+  .stat-mint { background: linear-gradient(135deg, #d1fae5, #6ee7b7); }
+  .stat-peach { background: linear-gradient(135deg, #fed7aa, #fdba74); }
+  .stat-lavender { background: linear-gradient(135deg, #e9d5ff, #c4b5fd); }
+  .stat-butter { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+  .stat-rose { background: linear-gradient(135deg, #fecdd3, #fda4af); }
+  .stat-sky { background: linear-gradient(135deg, #bae6fd, #7dd3fc); }
+  .bottom-nav {
+    position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 430px; max-width: 100%;
+  }
+</style>
+</head>
+<body class="min-h-screen pb-24">
+
+<!-- Header -->
+<header class="px-5 pt-6 pb-2 flex items-center justify-between">
+  <div>
+    <h1 class="text-xl font-extrabold text-gray-800">Mein Shop ✨</h1>
+    <p class="text-sm text-gray-400">Willkommen zurück, Anna!</p>
+  </div>
+  <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-bold text-sm">A</div>
+</header>
+
+<!-- Bento Dashboard Grid -->
+<div class="px-5 pt-4 pb-4">
+  <div class="bento-grid">
+
+    <!-- Revenue — Wide (2 cols) -->
+    <div class="stat-mint rounded-[20px] p-5 col-span-2 shadow-sm">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-bold text-emerald-800/60">💰 Tagesumsatz</p>
+          <p class="text-3xl font-extrabold text-emerald-900 mt-1">€ 2.847,50</p>
+        </div>
+        <div class="text-right">
+          <span class="inline-block bg-white/60 px-3 py-1 rounded-full text-xs font-bold text-emerald-700">+12,4%</span>
+          <p class="text-xs text-emerald-800/50 mt-1">vs. gestern</p>
+        </div>
+      </div>
+      <!-- Mini sparkline -->
+      <div class="flex items-end gap-1 mt-3 h-8">
+        <div class="flex-1 bg-emerald-700/20 rounded-full" style="height:40%"></div>
+        <div class="flex-1 bg-emerald-700/20 rounded-full" style="height:55%"></div>
+        <div class="flex-1 bg-emerald-700/20 rounded-full" style="height:35%"></div>
+        <div class="flex-1 bg-emerald-700/20 rounded-full" style="height:70%"></div>
+        <div class="flex-1 bg-emerald-700/20 rounded-full" style="height:60%"></div>
+        <div class="flex-1 bg-emerald-700/30 rounded-full" style="height:80%"></div>
+        <div class="flex-1 bg-emerald-700/40 rounded-full" style="height:95%"></div>
+      </div>
+    </div>
+
+    <!-- Orders -->
+    <div class="stat-peach rounded-[20px] p-5 shadow-sm">
+      <p class="text-sm font-bold text-orange-800/60">📦 Bestellungen</p>
+      <p class="text-3xl font-extrabold text-orange-900 mt-1">47</p>
+      <p class="text-xs text-orange-700/50 mt-1">+8 heute</p>
+    </div>
+
+    <!-- Visitors -->
+    <div class="stat-lavender rounded-[20px] p-5 shadow-sm">
+      <p class="text-sm font-bold text-purple-800/60">👥 Besucher</p>
+      <p class="text-3xl font-extrabold text-purple-900 mt-1">312</p>
+      <p class="text-xs text-purple-700/50 mt-1"> aktuell online: 24</p>
+    </div>
+
+    <!-- Products — Tall card -->
+    <div class="stat-butter rounded-[20px] p-5 row-span-2 shadow-sm flex flex-col justify-between">
+      <div>
+        <p class="text-sm font-bold text-yellow-800/60">🏷️ Produkte</p>
+        <p class="text-3xl font-extrabold text-yellow-900 mt-1">184</p>
+      </div>
+      <div class="mt-4 space-y-2">
+        <div class="bg-white/50 rounded-xl px-3 py-2">
+          <p class="text-xs font-bold text-yellow-800">Neue hinzugefügt</p>
+          <p class="text-lg font-extrabold text-yellow-900">6</p>
+        </div>
+        <div class="bg-white/50 rounded-xl px-3 py-2">
+          <p class="text-xs font-bold text-yellow-800">Ausverkauft</p>
+          <p class="text-lg font-extrabold text-yellow-900">3</p>
+        </div>
+        <div class="bg-white/50 rounded-xl px-3 py-2">
+          <p class="text-xs font-bold text-yellow-800">Niedriger Bestand</p>
+          <p class="text-lg font-extrabold text-yellow-900">11</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="stat-rose rounded-[20px] p-5 shadow-sm">
+      <p class="text-sm font-bold text-pink-800/60">⭐ Bewertungen</p>
+      <p class="text-3xl font-extrabold text-pink-900 mt-1">4.8</p>
+      <div class="flex gap-0.5 mt-1">
+        <span class="text-sm">⭐</span><span class="text-sm">⭐</span><span class="text-sm">⭐</span><span class="text-sm">⭐</span><span class="text-sm">⭐</span>
+      </div>
+    </div>
+
+    <!-- Conversion -->
+    <div class="stat-sky rounded-[20px] p-5 col-span-2 shadow-sm">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-bold text-sky-800/60">🎯 Conversion-Rate</p>
+          <p class="text-2xl font-extrabold text-sky-900 mt-1">15,1%</p>
+        </div>
+        <span class="inline-block bg-white/60 px-3 py-1 rounded-full text-xs font-bold text-sky-700">+2,3%</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="px-5 pt-2 pb-4">
+  <p class="text-sm font-bold text-gray-500 mb-3">Schnellaktionen</p>
+  <div class="flex flex-wrap gap-3">
+    <button class="px-5 py-3 rounded-full bg-gradient-to-r from-emerald-400 to-emerald-500 text-white font-bold text-sm shadow-sm">
+      ➕ Neues Produkt
+    </button>
+    <button class="px-5 py-3 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold text-sm shadow-sm">
+      📦 Bestellung
+    </button>
+    <button class="px-5 py-3 rounded-full bg-gradient-to-r from-purple-400 to-purple-500 text-white font-bold text-sm shadow-sm">
+      📊 Bericht
+    </button>
+    <button class="px-5 py-3 rounded-full bg-gradient-to-r from-pink-400 to-pink-500 text-white font-bold text-sm shadow-sm">
+      💬 Nachrichten
+    </button>
+  </div>
+</div>
+
+<!-- Recent Orders -->
+<div class="px-5 pt-2 pb-6">
+  <p class="text-sm font-bold text-gray-500 mb-3">Letzte Bestellungen</p>
+  <div class="space-y-3">
+    <div class="bg-emerald-50 rounded-2xl p-4 flex items-center justify-between">
+      <div>
+        <p class="font-bold text-gray-800 text-sm">#1247 — Maria S.</p>
+        <p class="text-xs text-gray-500 mt-0.5">Handgemachte Kerze · 2 Stück</p>
+      </div>
+      <div class="text-right">
+        <p class="font-extrabold text-emerald-700 text-sm">€ 48,00</p>
+        <span class="inline-block bg-emerald-100 px-2 py-0.5 rounded-full text-xs font-bold text-emerald-700">Versandt</span>
+      </div>
+    </div>
+    <div class="bg-orange-50 rounded-2xl p-4 flex items-center justify-between">
+      <div>
+        <p class="font-bold text-gray-800 text-sm">#1246 — Thomas K.</p>
+        <p class="text-xs text-gray-500 mt-0.5">Bio-Seife · Lavendel</p>
+      </div>
+      <div class="text-right">
+        <p class="font-extrabold text-orange-700 text-sm">€ 18,90</p>
+        <span class="inline-block bg-orange-100 px-2 py-0.5 rounded-full text-xs font-bold text-orange-700">In Bearbeitung</span>
+      </div>
+    </div>
+    <div class="bg-purple-50 rounded-2xl p-4 flex items-center justify-between">
+      <div>
+        <p class="font-bold text-gray-800 text-sm">#1245 — Lisa M.</p>
+        <p class="text-xs text-gray-500 mt-0.5">Keramik-Tasse · Set</p>
+      </div>
+      <div class="text-right">
+        <p class="font-extrabold text-purple-700 text-sm">€ 34,50</p>
+        <span class="inline-block bg-purple-100 px-2 py-0.5 rounded-full text-xs font-bold text-purple-700">Delivered</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav bg-white border-t border-gray-100 px-4 py-3 flex justify-around items-center">
+  <div class="flex flex-col items-center">
+    <span class="text-xl">🏠</span>
+    <span class="text-[10px] font-bold text-gray-800 mt-0.5">Start</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <span class="text-xl">📦</span>
+    <span class="text-[10px] font-bold text-gray-400 mt-0.5">Bestellungen</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <span class="text-xl">➕</span>
+    <span class="text-[10px] font-bold text-gray-400 mt-0.5">Neu</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <span class="text-xl">📊</span>
+    <span class="text-[10px] font-bold text-gray-400 mt-0.5">Statistik</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <span class="text-xl">⚙️</span>
+    <span class="text-[10px] font-bold text-gray-400 mt-0.5">Einstellungen</span>
+  </div>
+</nav>
+
+</body>
+</html>

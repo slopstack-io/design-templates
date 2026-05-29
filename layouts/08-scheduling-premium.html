@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminbuchung — Premium</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+    body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; }
+    .gold { color: #c9a96e; }
+    .gold-border { border-color: rgba(201,169,110,0.3); }
+    .gold-bg { background-color: #c9a96e; }
+    .glass {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(201,169,110,0.15);
+    }
+    .glass-input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,169,110,0.15);
+      color: #e8e0d4;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .glass-input:focus {
+      border-color: rgba(201,169,110,0.5);
+    }
+    .glass-input::placeholder {
+      color: rgba(201,169,110,0.3);
+      font-weight: 200;
+    }
+    .date-cell {
+      transition: all 0.3s ease;
+    }
+    .date-cell:hover {
+      background: rgba(201,169,110,0.06);
+    }
+    .date-cell.selected {
+      border-color: #c9a96e;
+      background: rgba(201,169,110,0.08);
+    }
+    .today-cell {
+      border-color: #c9a96e;
+      color: #c9a96e;
+      background: rgba(201,169,110,0.06);
+    }
+    .time-pill {
+      transition: all 0.3s ease;
+    }
+    .time-pill:hover {
+      border-color: rgba(201,169,110,0.5);
+    }
+    .time-pill.selected {
+      background: #c9a96e;
+      color: #0a0a0a;
+      border-color: #c9a96e;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-[#8a8078]">
+
+  <!-- Ultra-minimal header -->
+  <header class="max-w-5xl mx-auto pt-20 pb-16 px-8">
+    <p class="text-xs tracking-[0.5em] uppercase gold mb-6 font-light">Privatpraxis</p>
+    <h1 class="text-4xl md:text-5xl font-extralight text-[#e8e0d4] tracking-wide">
+      Terminbuchung
+    </h1>
+    <div class="w-16 h-px bg-gradient-to-r from-[#c9a96e] to-transparent mt-8"></div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-8 pb-32">
+
+    <!-- Calendar — Sparse Grid -->
+    <section class="mb-24">
+      <p class="text-xs tracking-[0.4em] uppercase gold mb-8 font-light">Mai 2026</p>
+
+      <div class="grid grid-cols-7 gap-px mb-px">
+        <!-- Weekday headers -->
+        <div class="text-center py-4 text-[10px] tracking-[0.3em] uppercase gold font-light">Mo</div>
+        <div class="text-center py-4 text-[10px] tracking-[0.3em] uppercase gold font-light">Di</div>
+        <div class="text-center py-4 text-[10px] tracking-[0.3em] uppercase gold font-light">Mi</div>
+        <div class="text-center py-4 text-[10px] tracking-[0.3em] uppercase gold font-light">Do</div>
+        <div class="text-center py-4 text-[10px] tracking-[0.3em] uppercase gold font-light">Fr</div>
+        <div class="text-center py-4 text-[10px] tracking-[0.3em] uppercase gold font-light">Sa</div>
+        <div class="text-center py-4 text-[10px] tracking-[0.3em] uppercase gold font-light">So</div>
+      </div>
+
+      <div class="grid grid-cols-7 gap-px">
+        <!-- Empty offset cells -->
+        <div class="aspect-square"></div>
+        <div class="aspect-square"></div>
+        <div class="aspect-square"></div>
+        <div class="aspect-square"></div>
+
+        <!-- Active dates -->
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">1</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">2</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">3</span>
+        </div>
+
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">4</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">5</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">6</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">7</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">8</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">9</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">10</span>
+        </div>
+
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">11</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">12</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">13</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">14</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">15</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">16</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">17</span>
+        </div>
+
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">18</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">19</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">20</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">21</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">22</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">23</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">24</span>
+        </div>
+
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">25</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">26</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">27</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">28</span>
+        </div>
+
+        <!-- TODAY — 29th -->
+        <div class="today-cell date-cell selected aspect-square flex items-center justify-center border rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light gold">29</span>
+        </div>
+
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">30</span>
+        </div>
+        <div class="date-cell aspect-square flex items-center justify-center border border-transparent rounded-sm cursor-pointer" onclick="selectDate(this)">
+          <span class="text-sm font-light">31</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Time Slots -->
+    <section class="mb-24">
+      <p class="text-xs tracking-[0.4em] uppercase gold mb-8 font-light">Verfügbare Zeiten · Freitag, 29. Mai</p>
+      <div class="flex flex-wrap gap-4">
+        <button class="time-pill border border-[rgba(201,169,110,0.2)] text-sm font-light px-8 py-3 rounded-full cursor-pointer" onclick="selectSlot(this)">09:00</button>
+        <button class="time-pill selected border border-[rgba(201,169,110,0.2)] text-sm font-light px-8 py-3 rounded-full cursor-pointer" onclick="selectSlot(this)">10:00</button>
+        <button class="time-pill border border-[rgba(201,169,110,0.2)] text-sm font-light px-8 py-3 rounded-full cursor-pointer" onclick="selectSlot(this)">11:00</button>
+        <button class="time-pill border border-[rgba(201,169,110,0.2)] text-sm font-light px-8 py-3 rounded-full cursor-pointer" onclick="selectSlot(this)">14:00</button>
+        <button class="time-pill border border-[rgba(201,169,110,0.2)] text-sm font-light px-8 py-3 rounded-full cursor-pointer" onclick="selectSlot(this)">15:00</button>
+        <button class="time-pill border border-[rgba(201,169,110,0.08)] text-sm font-light px-8 py-3 rounded-full cursor-not-allowed opacity-30" disabled>16:00</button>
+      </div>
+    </section>
+
+    <!-- Booking Form — Glass Card -->
+    <section>
+      <div class="glass rounded-lg p-12 max-w-2xl">
+        <p class="text-xs tracking-[0.4em] uppercase gold mb-10 font-light">Buchungsdetails</p>
+
+        <div class="space-y-8">
+          <div>
+            <label class="text-xs tracking-[0.3em] uppercase gold font-light block mb-3">Name</label>
+            <input type="text" placeholder="Ihr vollständiger Name" class="glass-input w-full px-4 py-3 rounded text-sm font-light">
+          </div>
+
+          <div>
+            <label class="text-xs tracking-[0.3em] uppercase gold font-light block mb-3">E-Mail</label>
+            <input type="email" placeholder="ihre@email.de" class="glass-input w-full px-4 py-3 rounded text-sm font-light">
+          </div>
+
+          <div>
+            <label class="text-xs tracking-[0.3em] uppercase gold font-light block mb-3">Telefon</label>
+            <input type="tel" placeholder="+49 ..." class="glass-input w-full px-4 py-3 rounded text-sm font-light">
+          </div>
+
+          <div>
+            <label class="text-xs tracking-[0.3em] uppercase gold font-light block mb-3">Anliegen</label>
+            <textarea rows="3" placeholder="Kurze Beschreibung" class="glass-input w-full px-4 py-3 rounded text-sm font-light resize-none"></textarea>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-[rgba(201,169,110,0.1)]">
+          <button class="gold-bg text-[#0a0a0a] px-10 py-3 text-xs tracking-[0.3em] uppercase font-medium rounded-sm hover:opacity-90 transition-opacity">
+            Termin bestätigen
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function selectDate(el) {
+      document.querySelectorAll('.date-cell').forEach(c => {
+        c.classList.remove('selected');
+        if (!c.classList.contains('today-cell')) {
+          c.style.borderColor = 'transparent';
+        }
+      });
+      el.classList.add('selected');
+      el.style.borderColor = '#c9a96e';
+    }
+    function selectSlot(el) {
+      document.querySelectorAll('.time-pill:not([disabled])').forEach(s => s.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+  </script>
+
+</body>
+</html>

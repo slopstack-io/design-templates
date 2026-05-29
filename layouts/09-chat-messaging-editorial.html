@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Korrespondenz — Editorial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+    body { font-family: 'Lora', serif; background-color: #faf6f0; }
+    h1, h2, h3, .heading { font-family: 'Playfair Display', serif; }
+    .dateline {
+      font-variant: small-caps;
+      font-style: italic;
+      letter-spacing: 0.05em;
+    }
+    .letter-incoming {
+      border-left: 2px solid #c4956a;
+      background: linear-gradient(to right, rgba(196,149,106,0.04), transparent);
+    }
+    .letter-outgoing {
+      border-right: 2px solid #3d2b1f;
+      background: linear-gradient(to left, rgba(61,43,31,0.03), transparent);
+    }
+    .rolodex-card {
+      transition: all 0.3s ease;
+    }
+    .rolodex-card:hover {
+      background: rgba(184,92,56,0.04);
+    }
+    .rolodex-card.active {
+      border-left-color: #b85c38;
+      background: rgba(184,92,56,0.06);
+    }
+    .ornament {
+      color: #c4956a;
+      text-align: center;
+      letter-spacing: 1rem;
+    }
+    textarea, input {
+      font-family: 'Lora', serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Masthead -->
+  <header class="max-w-5xl mx-auto pt-16 pb-8 px-6">
+    <div class="flex items-end justify-between border-b border-[#c4956a] pb-6">
+      <div>
+        <p class="text-xs tracking-[0.5em] uppercase text-[#b85c38] mb-2">Persönliche Korrespondenz</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-[#3d2b1f] heading">Briefwechsel</h1>
+      </div>
+      <p class="dateline text-[#7a6555] text-sm">Freitag, den 29. Mai 2026</p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 pb-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+      <!-- Sidebar — Rolodex -->
+      <aside class="md:col-span-1">
+        <h2 class="text-xl font-bold text-[#3d2b1f] heading mb-6 flex items-center gap-2">
+          Adressbuch
+        </h2>
+
+        <div class="space-y-1">
+
+          <div class="rolodex-card active border-l-2 border-[#c4956a] pl-5 py-4 cursor-pointer" onclick="selectContact(this)">
+            <p class="heading text-[#3d2b1f] font-semibold">Fräulein Lisa Maier</p>
+            <p class="text-[#7a6555] text-sm italic">Gestern gelesen · 4 Briefe</p>
+            <div class="flex gap-1 mt-2">
+              <span class="w-2 h-2 rounded-full bg-[#b85c38]"></span>
+              <span class="text-[#b85c38] text-xs italic">Online</span>
+            </div>
+          </div>
+
+          <div class="rolodex-card border-l-2 border-transparent pl-5 py-4 cursor-pointer" onclick="selectContact(this)">
+            <p class="heading text-[#3d2b1f] font-semibold">Herr Thomas Weber</p>
+            <p class="text-[#7a6555] text-sm italic">Vor 3 Tagen · 12 Briefe</p>
+          </div>
+
+          <div class="rolodex-card border-l-2 border-transparent pl-5 py-4 cursor-pointer" onclick="selectContact(this)">
+            <p class="heading text-[#3d2b1f] font-semibold">Frau Sofia Klein</p>
+            <p class="text-[#7a6555] text-sm italic">Letzte Woche · 7 Briefe</p>
+          </div>
+
+          <div class="rolodex-card border-l-2 border-transparent pl-5 py-4 cursor-pointer" onclick="selectContact(this)">
+            <p class="heading text-[#3d2b1f] font-semibold">Frau Dr. Julia Roth</p>
+            <p class="text-[#7a6555] text-sm italic">13. Mai · 2 Briefe</p>
+          </div>
+
+          <div class="rolodex-card border-l-2 border-transparent pl-5 py-4 cursor-pointer" onclick="selectContact(this)">
+            <p class="heading text-[#3d2b1f] font-semibold">Herr Marc Braun</p>
+            <p class="text-[#7a6555] text-sm italic">5. Mai · 1 Brief</p>
+          </div>
+
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-[#c4956a]/30">
+          <h3 class="heading text-[#3d2b1f] text-sm font-semibold tracking-wide uppercase mb-4">Neuer Brief</h3>
+          <button class="w-full py-3 border border-[#b85c38] text-[#b85c38] heading text-sm tracking-wider hover:bg-[#b85c38] hover:text-white transition-colors">
+            Verfassen
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main — Correspondence -->
+      <section class="md:col-span-2">
+
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold text-[#3d2b1f] heading">Lisa Maier</h2>
+          <p class="dateline text-[#7a6555] text-sm mt-1">Korrespondenz begonnen am 15. März 2026</p>
+        </div>
+
+        <div class="space-y-10">
+
+          <!-- Letter 1 — Incoming -->
+          <article class="letter-incoming pl-8 py-6 rounded-r-sm">
+            <p class="dateline text-[#c4956a] text-xs mb-3">Donnerstag, den 28. Mai 2026 — 10:23 Uhr</p>
+            <p class="text-[#3d2b1f] italic text-sm mb-4">Liebe/r,</p>
+            <p class="text-[#5a4636] leading-relaxed">
+              ich hoffe, diese Zeilen finden Sie wohl. Ich möchte mich erkundigen, ob Ihnen morgen für ein kurzes Meeting Zeit zur Verfügung stünde? Es geht um die Präsentation der neuen Entwürfe, die ich in den vergangenen Tagen fertiggestellt habe.
+            </p>
+            <p class="text-[#5a4636] leading-relaxed mt-4">
+              Bitte lassen Sie mich wissen, welcher Zeitpunkt Ihnen genehm wäre.
+            </p>
+            <p class="text-[#5a4636] leading-relaxed mt-4 italic">
+              Mit herzlichen Grüßen,<br>
+              <span class="heading font-semibold">Lisa Maier</span>
+            </p>
+          </article>
+
+          <p class="ornament">— ✦ —</p>
+
+          <!-- Letter 2 — Outgoing -->
+          <article class="letter-outgoing pr-8 py-6 rounded-l-sm text-right">
+            <p class="dateline text-[#5a4636] text-xs mb-3">Donnerstag, den 28. Mai 2026 — 10:25 Uhr</p>
+            <p class="text-[#3d2b1f] italic text-sm mb-4">Liebe Lisa,</p>
+            <p class="text-[#5a4636] leading-relaxed">
+              vielen Dank für Ihre Nachricht. Gerne stehe ich Ihnen morgen zur Verfügung. Wie wäre es um 14 Uhr? Ich bin den gesamten Nachmittag im Büro anzutreffen.
+            </p>
+            <p class="text-[#5a4636] leading-relaxed mt-4">
+              Ich freue mich auf die Präsentation.
+            </p>
+            <p class="text-[#5a4636] leading-relaxed mt-4 italic">
+              Beste Grüße
+            </p>
+          </article>
+
+          <p class="ornament">— ✦ —</p>
+
+          <!-- Letter 3 — Incoming -->
+          <article class="letter-incoming pl-8 py-6 rounded-r-sm">
+            <p class="dateline text-[#c4956a] text-xs mb-3">Donnerstag, den 28. Mai 2026 — 10:28 Uhr</p>
+            <p class="text-[#3d2b1f] italic text-sm mb-4">Liebe/r,</p>
+            <p class="text-[#5a4636] leading-relaxed">
+              ausgezeichnet! 14 Uhr passt mir ebenfalls. Ich sende Ihnen hiermit vorab die ersten Entwürfe, damit Sie sich einen Eindruck verschaffen können:
+            </p>
+            <div class="mt-4 bg-[#f0ebe3] rounded p-6 text-center border border-[#c4956a]/20">
+              <p class="text-[#7a6555] italic">📎 Anhang: <span class="heading font-semibold text-[#3d2b1f]">Entwuerfe_Mai_2026.pdf</span></p>
+            </div>
+            <p class="text-[#5a4636] leading-relaxed mt-4 italic">
+              Bis morgen,<br>
+              <span class="heading font-semibold">Lisa Maier</span>
+            </p>
+          </article>
+
+          <p class="ornament">— ✦ —</p>
+
+          <!-- Letter 4 — Outgoing -->
+          <article class="letter-outgoing pr-8 py-6 rounded-l-sm text-right">
+            <p class="dateline text-[#5a4636] text-xs mb-3">Donnerstag, den 28. Mai 2026 — 10:30 Uhr</p>
+            <p class="text-[#3d2b1f] italic text-sm mb-4">Liebe Lisa,</p>
+            <p class="text-[#5a4636] leading-relaxed">
+              die Entwürfe sehen wunderbar aus! Ich bin beeindruckt. Bis morgen um 14 Uhr.
+            </p>
+            <p class="text-[#5a4636] leading-relaxed mt-4 italic">
+              Herzlichst
+            </p>
+          </article>
+
+        </div>
+
+        <!-- Compose Letter -->
+        <div class="mt-14 pt-10 border-t border-[#c4956a]/30">
+          <h3 class="heading text-xl font-bold text-[#3d2b1f] mb-6">Antwort verfassen</h3>
+
+          <div class="border border-[#c4956a]/20 rounded p-8 bg-[#fdfaf5]">
+            <p class="text-[#7a6555] italic text-sm mb-4">Liebe Lisa,</p>
+            <textarea rows="5" placeholder="Ihre Nachricht…" class="w-full bg-transparent text-[#3d2b1f] leading-relaxed resize-none focus:outline-none placeholder-[#b8a898] italic"></textarea>
+            <div class="flex justify-between items-center mt-6 pt-4 border-t border-[#c4956a]/15">
+              <button class="text-[#7a6555] text-sm italic hover:text-[#b85c38] transition-colors flex items-center gap-2">
+                📎 Anlage beifügen
+              </button>
+              <button class="bg-[#b85c38] hover:bg-[#a04e2f] text-white heading text-sm tracking-wider px-8 py-3 transition-colors">
+                Absenden
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <footer class="max-w-5xl mx-auto px-6 pb-12 text-center">
+    <div class="w-24 h-px bg-[#c4956a] mx-auto mb-6"></div>
+    <p class="text-[#b8a898] text-sm italic">
+      Persönlicher Briefwechsel · Vertraulich · Mai 2026
+    </p>
+  </footer>
+
+  <script>
+    function selectContact(el) {
+      document.querySelectorAll('.rolodex-card').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

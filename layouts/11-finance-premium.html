@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzen — Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen" style="background-color: #0a0a0a; color: #444;">
+
+    <div class="max-w-5xl mx-auto px-16 py-24">
+
+        <!-- Minimal Header -->
+        <div class="mb-40">
+            <p class="text-xs tracking-[0.4em] uppercase mb-6" style="color: #2a2a2a;">Portfolio</p>
+            <p class="text-7xl font-extralight tracking-tight" style="color: #c9a96e;">127.450<span class="text-3xl"> €</span></p>
+            <div class="flex gap-8 mt-6 text-xs" style="color: #333;">
+                <span>+12,8% YTD</span>
+                <span>+3,2% heute</span>
+            </div>
+        </div>
+
+        <!-- Minimal SVG Chart -->
+        <div class="mb-40">
+            <svg viewBox="0 0 600 120" class="w-full" style="height: 120px;">
+                <polyline points="0,100 50,92 100,88 150,90 200,78 250,72 300,65 350,60 400,52 450,45 500,38 550,32 600,25" fill="none" stroke="#c9a96e" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+        </div>
+
+        <!-- Holdings — Sparse List -->
+        <div class="mb-40">
+            <p class="text-xs tracking-[0.3em] uppercase mb-16" style="color: #2a2a2a;">Bestände</p>
+
+            <div class="space-y-0">
+                <div class="flex items-baseline justify-between py-8" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <div>
+                        <p class="text-sm font-light" style="color: #444;">Apple Inc.</p>
+                    </div>
+                    <p class="text-lg font-extralight" style="color: #c9a96e;">23.450 €</p>
+                </div>
+                <div class="flex items-baseline justify-between py-8" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <div>
+                        <p class="text-sm font-light" style="color: #444;">Tesla Inc.</p>
+                    </div>
+                    <p class="text-lg font-extralight" style="color: #c9a96e;">31.200 €</p>
+                </div>
+                <div class="flex items-baseline justify-between py-8" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <div>
+                        <p class="text-sm font-light" style="color: #444;">SAP SE</p>
+                    </div>
+                    <p class="text-lg font-extralight" style="color: #c9a96e;">18.900 €</p>
+                </div>
+                <div class="flex items-baseline justify-between py-8" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <div>
+                        <p class="text-sm font-light" style="color: #444;">Allianz SE</p>
+                    </div>
+                    <p class="text-lg font-extralight" style="color: #c9a96e;">15.200 €</p>
+                </div>
+                <div class="flex items-baseline justify-between py-8" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <div>
+                        <p class="text-sm font-light" style="color: #444;">Barvermögen</p>
+                    </div>
+                    <p class="text-lg font-extralight" style="color: #c9a96e;">23.450 €</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Allocation -->
+        <div class="mb-40">
+            <p class="text-xs tracking-[0.3em] uppercase mb-16" style="color: #2a2a2a;">Aufteilung</p>
+            <div class="space-y-12">
+                <div>
+                    <div class="flex justify-between text-xs mb-3" style="color: #333;">
+                        <span>Aktien</span>
+                        <span style="color: #c9a96e;">69,4%</span>
+                    </div>
+                    <div class="h-px w-full" style="background: rgba(255,255,255,0.06);">
+                        <div class="h-full" style="width: 69.4%; background: rgba(201,169,110,0.3);"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs mb-3" style="color: #333;">
+                        <span>ETFs</span>
+                        <span style="color: #c9a96e;">12,2%</span>
+                    </div>
+                    <div class="h-px w-full" style="background: rgba(255,255,255,0.06);">
+                        <div class="h-full" style="width: 12.2%; background: rgba(201,169,110,0.3);"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs mb-3" style="color: #333;">
+                        <span>Barvermögen</span>
+                        <span style="color: #c9a96e;">18,4%</span>
+                    </div>
+                    <div class="h-px w-full" style="background: rgba(255,255,255,0.06);">
+                        <div class="h-full" style="width: 18.4%; background: rgba(201,169,110,0.3);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transactions — Ultra Minimal -->
+        <div class="mb-24">
+            <p class="text-xs tracking-[0.3em] uppercase mb-16" style="color: #2a2a2a;">Transaktionen</p>
+
+            <div>
+                <div class="py-5 px-4" style="background: rgba(255,255,255,0.015);">
+                    <div class="flex justify-between items-baseline">
+                        <div class="flex items-baseline gap-6">
+                            <span class="text-xs" style="color: #333;">29.05</span>
+                            <span class="text-sm font-light" style="color: #444;">Apple Inc. — Kauf</span>
+                        </div>
+                        <span class="text-sm font-light" style="color: #c9a96e;">−2.450 €</span>
+                    </div>
+                </div>
+                <div class="py-5 px-4">
+                    <div class="flex justify-between items-baseline">
+                        <div class="flex items-baseline gap-6">
+                            <span class="text-xs" style="color: #333;">28.05</span>
+                            <span class="text-sm font-light" style="color: #444;">Tesla Inc. — Verkauf</span>
+                        </div>
+                        <span class="text-sm font-light" style="color: #c9a96e;">+8.320 €</span>
+                    </div>
+                </div>
+                <div class="py-5 px-4" style="background: rgba(255,255,255,0.015);">
+                    <div class="flex justify-between items-baseline">
+                        <div class="flex items-baseline gap-6">
+                            <span class="text-xs" style="color: #333;">25.05</span>
+                            <span class="text-sm font-light" style="color: #444;">SAP SE — Dividende</span>
+                        </div>
+                        <span class="text-sm font-light" style="color: #c9a96e;">+189 €</span>
+                    </div>
+                </div>
+                <div class="py-5 px-4">
+                    <div class="flex justify-between items-baseline">
+                        <div class="flex items-baseline gap-6">
+                            <span class="text-xs" style="color: #333;">22.05</span>
+                            <span class="text-sm font-light" style="color: #444;">Einzahlung</span>
+                        </div>
+                        <span class="text-sm font-light" style="color: #c9a96e;">+5.000 €</span>
+                    </div>
+                </div>
+                <div class="py-5 px-4" style="background: rgba(255,255,255,0.015);">
+                    <div class="flex justify-between items-baseline">
+                        <div class="flex items-baseline gap-6">
+                            <span class="text-xs" style="color: #333;">15.05</span>
+                            <span class="text-sm font-light" style="color: #444;">Allianz SE — Kauf</span>
+                        </div>
+                        <span class="text-sm font-light" style="color: #c9a96e;">−7.600 €</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer dot -->
+        <div class="flex justify-center mt-32">
+            <span class="w-1 h-1 rounded-full" style="background: #c9a96e; opacity: 0.4;"></span>
+        </div>
+
+    </div>
+
+</body>
+</html>

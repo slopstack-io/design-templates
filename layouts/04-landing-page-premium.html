@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurum — Exklusivität Neu Definiert</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0a; color: #e8e4de; font-family: 'Cormorant Garamond', Georgia, serif; }
+.gold { color: #c9a96e; }
+.gold-line { width: 40px; height: 1px; background: #c9a96e; display: inline-block; }
+::selection { background: #c9a96e; color: #0a0a0a; }
+section { padding: 120px 24px; }
+.feature-row { display: flex; align-items: baseline; gap: 40px; padding: 48px 0; border-bottom: 1px solid rgba(201,169,110,0.08); }
+.feature-row:last-child { border-bottom: none; }
+.glow { position: relative; }
+.glow::after { content: ''; position: absolute; top: 50%; left: 50%; width: 600px; height: 600px; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(201,169,110,0.03) 0%, transparent 70%); pointer-events: none; }
+</style>
+</head>
+<body>
+
+<!-- Minimal Nav -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-12 py-8" style="background: linear-gradient(180deg, #0a0a0a 60%, transparent);">
+  <span class="text-lg tracking-[0.3em] uppercase gold" style="font-weight: 200;">Aurum</span>
+  <div class="flex gap-10 text-sm tracking-[0.15em] uppercase" style="color: #666; font-weight: 300;">
+    <a href="#" class="hover:text-white transition-colors">Vision</a>
+    <a href="#" class="hover:text-white transition-colors">Stimmen</a>
+    <a href="#" class="hover:text-white transition-colors">Mitgliedschaft</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center glow" style="padding-top: 200px;">
+  <h1 class="text-6xl md:text-8xl lg:text-9xl leading-none tracking-tight mb-8" style="font-weight: 200; color: #e8e4de;">
+    Perfektion<br>ist Stille
+  </h1>
+  <p class="text-lg md:text-xl max-w-md leading-relaxed" style="font-weight: 300; color: #555; letter-spacing: 0.05em;">
+    Ein Raum für die, die nichts beweisen müssen.
+  </p>
+</section>
+
+<!-- Features — Ultra Sparse -->
+<section class="max-w-3xl mx-auto">
+  <div class="text-center mb-24">
+    <div class="gold-line mx-auto mb-8"></div>
+  </div>
+
+  <div class="feature-row">
+    <div class="gold-line flex-shrink-0"></div>
+    <div>
+      <h3 class="text-2xl mb-3" style="font-weight: 300; letter-spacing: 0.08em;">Harmonie</h3>
+      <p style="font-weight: 300; color: #555; line-height: 1.8; font-size: 1.1rem;">Alle Werkzeuge. Ein Erlebnis. Keine Kompromisse zwischen Leistung und Einfachheit.</p>
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div class="gold-line flex-shrink-0"></div>
+    <div>
+      <h3 class="text-2xl mb-3" style="font-weight: 300; letter-spacing: 0.08em;">Diskretion</h3>
+      <p style="font-weight: 300; color: #555; line-height: 1.8; font-size: 1.1rem;">Ihre Daten gehören Ihnen. Ende-zu-Ende verschlüsselt. Keine Ausnahmen. Keine Diskussionen.</p>
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div class="gold-line flex-shrink-0"></div>
+    <div>
+      <h3 class="text-2xl mb-3" style="font-weight: 300; letter-spacing: 0.08em;">Präsenz</h3>
+      <p style="font-weight: 300; color: #555; line-height: 1.8; font-size: 1.1rem;">Weltweit verfügbar. Immer erreichbar. Niemals aufdringlich. Technologie, die weiß, wann sie schweigt.</p>
+    </div>
+  </div>
+
+  <div class="feature-row">
+    <div class="gold-line flex-shrink-0"></div>
+    <div>
+      <h3 class="text-2xl mb-3" style="font-weight: 300; letter-spacing: 0.08em;">Klarheit</h3>
+      <p style="font-weight: 300; color: #555; line-height: 1.8; font-size: 1.1rem;">Echtzeit-Einblicke, die nicht überladen, sondern leiten. Drei Zahlen, die alles sagen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial — Single Quote -->
+<section class="max-w-3xl mx-auto text-center py-32">
+  <div class="gold-line mx-auto mb-16"></div>
+  <blockquote class="text-3xl md:text-4xl leading-relaxed italic" style="font-weight: 300; color: #999;">
+    „Einfachheit ist die höchste Form der Raffinesse."
+  </blockquote>
+  <div class="mt-12 text-sm tracking-[0.2em] uppercase" style="color: #444;">
+    — Viktoria Gräfin von Stein, Vorsitzende, Zürich
+  </div>
+</section>
+
+<!-- CTA — Minimal -->
+<section class="text-center py-32">
+  <a href="#" class="gold text-3xl italic relative inline-block" style="font-weight: 300; text-decoration: none; letter-spacing: 0.1em;">
+    Beginnen
+    <span class="absolute bottom-0 left-0 w-full" style="height: 1px; background: #c9a96e;"></span>
+  </a>
+</section>
+
+<!-- Pricing — Ultra Minimal -->
+<section class="max-w-3xl mx-auto pb-32">
+  <div class="text-center mb-20">
+    <div class="gold-line mx-auto mb-8"></div>
+    <p class="text-sm tracking-[0.3em] uppercase" style="color: #444;">Mitgliedschaft</p>
+  </div>
+
+  <div class="flex flex-col gap-20">
+    <div class="flex justify-between items-baseline border-b pb-8" style="border-color: rgba(201,169,110,0.08);">
+      <div>
+        <span class="text-xl" style="font-weight: 300; letter-spacing: 0.1em;">Entdecker</span>
+        <p class="text-xs mt-2" style="color: #444;">3 Projekte · Grundlegend</p>
+      </div>
+      <span class="text-2xl" style="font-weight: 200; color: #666;">Kostenfrei</span>
+    </div>
+
+    <div class="flex justify-between items-baseline border-b pb-8" style="border-color: rgba(201,169,110,0.15);">
+      <div>
+        <span class="text-xl gold" style="font-weight: 300; letter-spacing: 0.1em;">Kenner</span>
+        <p class="text-xs mt-2" style="color: #444;">Unbegrenzt · Analytik · Priorität</p>
+      </div>
+      <span class="text-2xl gold" style="font-weight: 200;">19 €</span>
+    </div>
+
+    <div class="flex justify-between items-baseline pb-8">
+      <div>
+        <span class="text-xl" style="font-weight: 300; letter-spacing: 0.1em;">Mäzen</span>
+        <p class="text-xs mt-2" style="color: #444;">Alles · Dediziert · SLA</p>
+      </div>
+      <span class="text-2xl" style="font-weight: 200; color: #666;">49 €</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center pb-16 text-xs tracking-[0.2em]" style="color: #333;">
+  © 2026 Aurum
+</footer>
+
+</body>
+</html>

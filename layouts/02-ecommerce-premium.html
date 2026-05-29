@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURUM — Exklusive Auswahl</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a0a; color: #e8e4df;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-weight: 200; letter-spacing: 1px;
+}
+h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+.glow-bg {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(201,169,110,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(201,169,110,0.04) 0%, transparent 50%);
+  pointer-events: none; z-index: 0;
+}
+
+.gold { color: #c9a96e; }
+.gold-border { border: 1px solid rgba(201,169,110,0.3); }
+
+nav a {
+  text-decoration: none; color: rgba(255,255,255,0.4);
+  font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+  font-weight: 300; transition: color 0.5s;
+}
+nav a:hover { color: #c9a96e; }
+
+.glass-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 2px; transition: all 0.6s;
+}
+.glass-card:hover {
+  border-color: rgba(201,169,110,0.3);
+  background: rgba(255,255,255,0.05);
+}
+
+.product-img {
+  width: 100%; background: linear-gradient(135deg, #1a1a1a, #222);
+  border: 1px solid rgba(201,169,110,0.2); padding: 4px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(201,169,110,0.3); font-size: 14px; letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.label-sm {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); font-weight: 300;
+}
+
+.price-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px; font-weight: 300; color: #c9a96e;
+}
+
+.cta-btn {
+  display: inline-block; padding: 14px 40px;
+  border: 1px solid rgba(201,169,110,0.4);
+  color: #c9a96e; font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; text-decoration: none;
+  transition: all 0.5s; font-weight: 300;
+}
+.cta-btn:hover { background: rgba(201,169,110,0.1); border-color: #c9a96e; }
+
+.thin-line { width: 100%; height: 1px; background: rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+<div class="glow-bg"></div>
+
+<!-- Navigation -->
+<header class="relative z-10 py-10 px-12">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <div>
+      <h1 style="font-size:22px;letter-spacing:8px;font-weight:300;">AURUM</h1>
+    </div>
+    <nav class="flex gap-12">
+      <a href="#">Kollektion</a>
+      <a href="#">Haus</a>
+      <a href="#">Handwerk</a>
+      <a href="#">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative z-10 py-32 px-12 text-center">
+  <div class="max-w-3xl mx-auto">
+    <p class="label-sm mb-8">Herbst · Winter 2026</p>
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.1;margin-bottom:24px;">
+      Weniger ist<br><em style="color:#c9a96e;">mehr</em>
+    </h2>
+    <p style="color:rgba(255,255,255,0.35);font-size:15px;font-weight:200;line-height:1.8;max-width:420px;margin:0 auto;">
+      Jedes Stück in unserer Kollektion wurde ausgewählt, nicht hergestellt. 
+      Wir kuratieren, was Bestand hat.
+    </p>
+  </div>
+</section>
+
+<div class="thin-line max-w-7xl mx-auto"></div>
+
+<!-- Product 1 -->
+<section class="relative z-10 py-32 px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="glass-card p-12" style="max-width:1100px;margin:0 auto;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div>
+          <div class="product-img" style="height:500px;">
+            [Produktbild — Kaschmirmantel]
+          </div>
+        </div>
+        <div class="flex flex-col justify-center gap-6">
+          <p class="label-sm">Bekleidung</p>
+          <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:300;line-height:1.2;">
+            Kaschmir- Überwurf<br><span class="gold">„Stille"</span>
+          </h2>
+          <p style="color:rgba(255,255,255,0.35);font-size:14px;font-weight:200;line-height:1.9;">
+            Doppellagiger Kaschmir aus der Inneren Mongolei. Handgewebt, naturbelassen. 
+            Der Überwurf fällt wie Wasser und wärmt wie ein Versprechen. 
+            Nur 24 Stück weltweit.
+          </p>
+          <div class="price-display">€ 2.800</div>
+          <div>
+            <a href="#" class="cta-btn">Entdecken</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="thin-line max-w-5xl mx-auto"></div>
+
+<!-- Product 2 -->
+<section class="relative z-10 py-32 px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="glass-card p-12" style="max-width:1100px;margin:0 auto;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="flex flex-col justify-center gap-6">
+          <p class="label-sm">Accessoires</p>
+          <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:300;line-height:1.2;">
+            Handgefertigte<br><span class="gold">Ledertasche</span>
+          </h2>
+          <p style="color:rgba(255,255,255,0.35);font-size:14px;font-weight:200;line-height:1.9;">
+            Vollnarbenleder, pflanzlich gegerbt. Die Patina entwickelt sich über Jahre. 
+            Die Messingschließe ist einzeln nummeriert. Gefertigt in einer Pariser 
+            Werkstatt, die seit 1847 besteht.
+          </p>
+          <div class="price-display">€ 1.450</div>
+          <div>
+            <a href="#" class="cta-btn">Entdecken</a>
+          </div>
+        </div>
+        <div>
+          <div class="product-img" style="height:500px;">
+            [Produktbild — Ledertasche]
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="thin-line max-w-5xl mx-auto"></div>
+
+<!-- Product 3 -->
+<section class="relative z-10 py-32 px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="glass-card p-12" style="max-width:1100px;margin:0 auto;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div>
+          <div class="product-img" style="height:500px;">
+            [Produktbild — Chronograph]
+          </div>
+        </div>
+        <div class="flex flex-col justify-center gap-6">
+          <p class="label-sm">Horlogerie</p>
+          <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:300;line-height:1.2;">
+            Chronograph<br><span class="gold">„Nachtblau"</span>
+          </h2>
+          <p style="color:rgba(255,255,255,0.35);font-size:14px;font-weight:200;line-height:1.9;">
+            Schweizer Manufakturwerk, Saphirglas, Gehäuse aus 18 Karat Roségold. 
+            Das Zifferblatt ist aus echtem Meteorit. Ein Zeitmesser, der Generationen überdauert. 
+            Limitiert auf 50 Exemplare.
+          </p>
+          <div class="price-display">€ 8.900</div>
+          <div>
+            <a href="#" class="cta-btn">Entdecken</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="thin-line max-w-5xl mx-auto"></div>
+
+<!-- Closing -->
+<section class="relative z-10 py-32 px-12 text-center">
+  <div class="max-w-xl mx-auto">
+    <p class="label-sm mb-6">Ein Versprechen</p>
+    <p style="color:rgba(255,255,255,0.3);font-size:14px;font-weight:200;line-height:2;">
+      AURUM kuratiert Objekte von bleibendem Wert. Jedes Stück wird 
+      auf Bestellung geliefert. Kein Lager, kein Überfluss — nur das Wesentliche.
+    </p>
+    <div style="margin-top:40px;">
+      <a href="#" class="cta-btn">Katalog anfordern</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 py-16 px-12" style="border-top:1px solid rgba(255,255,255,0.05);">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div style="font-size:16px;letter-spacing:6px;font-weight:300;">AURUM</div>
+    <div class="flex gap-10">
+      <a href="#" style="color:rgba(255,255,255,0.25);text-decoration:none;font-size:11px;letter-spacing:2px;">Impressum</a>
+      <a href="#" style="color:rgba(255,255,255,0.25);text-decoration:none;font-size:11px;letter-spacing:2px;">Kontakt</a>
+      <a href="#" style="color:rgba(255,255,255,0.25);text-decoration:none;font-size:11px;letter-spacing:2px;">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

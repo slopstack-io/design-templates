@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie — Editorial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Crimson Text', Georgia, serif;
+  background: #faf6f0;
+  color: #3b2314;
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  padding: 72px 24px 16px;
+}
+
+.magazine-eyebrow {
+  font-family: 'Crimson Text', serif;
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8b6f5e;
+  margin-bottom: 16px;
+}
+
+.magazine-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #3b2314;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.magazine-subtitle {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #8b6f5e;
+  margin-top: 12px;
+}
+
+.header-rule {
+  border: none;
+  border-top: 1px solid #c9a98c;
+  width: 80px;
+  margin: 32px auto 0;
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* Artist Bio */
+.artist-section {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 56px;
+}
+
+.artist-portrait {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.artist-bio h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.artist-bio p {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.05rem;
+  color: #5a3e2b;
+  line-height: 1.7;
+}
+
+.pull-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #b85c38;
+  margin-top: 16px;
+  padding-left: 20px;
+  border-left: 2px solid #c9a98c;
+  line-height: 1.6;
+}
+
+.section-rule {
+  border: none;
+  border-top: 1px solid #d4c4b0;
+  margin: 48px 0;
+}
+
+/* Gallery Spread */
+.gallery-spread {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.spread-row {
+  display: grid;
+  gap: 24px;
+}
+
+.spread-2 { grid-template-columns: 1fr 1fr; }
+.spread-3 { grid-template-columns: 2fr 1fr; }
+.spread-hero { grid-template-columns: 1fr; }
+.spread-asym { grid-template-columns: 1fr 2fr; }
+
+.gallery-item {
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover { opacity: 0.9; }
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.item-caption {
+  margin-top: 10px;
+}
+
+.caption-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3b2314;
+}
+
+.caption-desc {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: #8b6f5e;
+  margin-top: 2px;
+}
+
+/* Section heading */
+.section-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #3b2314;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #c9a98c;
+}
+
+.ornament {
+  text-align: center;
+  color: #c9a98c;
+  font-size: 1rem;
+  letter-spacing: 8px;
+  margin: 24px 0;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid #d4c4b0;
+  margin-top: 32px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-family: 'Crimson Text', serif;
+  font-size: 0.95rem;
+  color: #8b6f5e;
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: #b85c38; }
+
+@media (max-width: 640px) {
+  .artist-section { flex-direction: column; align-items: center; text-align: center; }
+  .pull-quote { padding-left: 0; border-left: none; text-align: center; }
+  .spread-2, .spread-3, .spread-asym { grid-template-columns: 1fr; }
+  .magazine-title { font-size: 2.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="page-header">
+  <div class="magazine-eyebrow">Ausstellung · Sommer 2025</div>
+  <div class="magazine-title">Licht & Schatten</div>
+  <div class="magazine-subtitle">Eine fotografische Reise durch Deutschland</div>
+  <hr class="header-rule">
+</div>
+
+<div class="container">
+
+  <!-- Artist Bio -->
+  <div class="artist-section">
+    <img class="artist-portrait" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Künstler">
+    <div class="artist-bio">
+      <h3>Maximilian Berger</h3>
+      <p>Fotograf und visueller Geschichtenerzähler aus München. Seit über zwölf Jahren fängt er die stille Poesie urbaner Landschaften und die großartige Natur der Alpen ein.</p>
+      <div class="pull-quote">„Jedes Bild ist ein flüchtiger Moment, der nie wiederkehrt — und genau deshalb für immer festgehalten werden muss."</div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- Section: Landschaften -->
+  <div class="section-label">Landschaften</div>
+
+  <div class="gallery-spread">
+    <div class="spread-row spread-hero">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900&h=500&fit=crop" alt="Alpen">
+        <div class="item-caption">
+          <div class="caption-title">Morgenrot über dem Wetterstein</div>
+          <div class="caption-desc">Bayerische Alpen, Juli 2025 · Digitale Fotografie</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spread-row spread-2">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=500&h=400&fit=crop" alt="Wald">
+        <div class="item-caption">
+          <div class="caption-title">Nebelwald</div>
+          <div class="caption-desc">Schwarzwald, Mai 2025</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=500&h=400&fit=crop" alt="Berge">
+        <div class="item-caption">
+          <div class="caption-title">Gipfelsilhouetten</div>
+          <div class="caption-desc">Allgäu, August 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <!-- Section: Urban -->
+  <div class="section-label">Stadtbilder</div>
+
+  <div class="gallery-spread">
+    <div class="spread-row spread-3">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=500&fit=crop" alt="Architektur">
+        <div class="item-caption">
+          <div class="caption-title">Beton & Glas</div>
+          <div class="caption-desc">Berlin-Mitte, März 2025</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=500&fit=crop" alt="Licht">
+        <div class="item-caption">
+          <div class="caption-title">Lichtspiel</div>
+          <div class="caption-desc">Hamburg, April 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spread-row spread-asym">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=400&h=350&fit=crop" alt="Himmel">
+        <div class="item-caption">
+          <div class="caption-title">Dämmerung</div>
+          <div class="caption-desc">Köln, Juni 2025</div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=700&h=350&fit=crop" alt="Farben">
+        <div class="item-caption">
+          <div class="caption-title">Farbkomposition II</div>
+          <div class="caption-desc">München, Serie 2024–2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ornament">— ❧ —</div>
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <div class="footer-links">
+      <a href="#">Alle Arbeiten</a>
+      <a href="#">Über den Künstler</a>
+      <a href="#">Ausstellungen</a>
+      <a href="#">Kontakt</a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

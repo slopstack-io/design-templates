@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werkzeugkasten — Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen" style="background-color: #0a0a0a; color: #555;">
+
+    <div class="max-w-5xl mx-auto px-16 py-24">
+
+        <!-- Minimal Header -->
+        <div class="mb-32">
+            <p class="text-xs tracking-[0.4em] uppercase mb-4" style="color: #333;">Werkzeugkasten</p>
+            <div class="flex items-center gap-6">
+                <div class="flex gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span class="w-1.5 h-1.5 rounded-full" style="background: #c9a96e;"></span>
+                </div>
+                <span class="text-xs font-light" style="color: #333;">Alle Systeme betriebsbereit</span>
+            </div>
+        </div>
+
+        <!-- Code Editor — Glass Card -->
+        <div class="mb-24">
+            <p class="text-xs tracking-[0.3em] uppercase mb-8" style="color: #333;">Code-Editor</p>
+            <div class="rounded-lg p-8" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+                <div class="font-mono text-sm leading-loose" style="color: #444;">
+                    <div class="flex">
+                        <span class="w-8 text-right mr-6 select-none" style="color: #c9a96e; opacity: 0.5;">1</span>
+                        <span style="color: #555;">import</span> <span style="color: #666;">{ Configuration }</span> <span style="color: #555;">from</span> <span style="color: #5a7a5a;">'./config'</span>
+                    </div>
+                    <div class="flex">
+                        <span class="w-8 text-right mr-6 select-none" style="color: #c9a96e; opacity: 0.5;">2</span>
+                    </div>
+                    <div class="flex">
+                        <span class="w-8 text-right mr-6 select-none" style="color: #c9a96e; opacity: 0.5;">3</span>
+                        <span style="color: #555;">export const</span> <span style="color: #777;">app</span> <span style="color: #555;">=</span> <span style="color: #666;">createApp</span><span style="color: #444;">({</span>
+                    </div>
+                    <div class="flex">
+                        <span class="w-8 text-right mr-6 select-none" style="color: #c9a96e; opacity: 0.5;">4</span>
+                        <span class="ml-4" style="color: #666;">port</span><span style="color: #333;">:</span> <span style="color: #5a7a5a;">8080</span><span style="color: #333;">,</span>
+                    </div>
+                    <div class="flex">
+                        <span class="w-8 text-right mr-6 select-none" style="color: #c9a96e; opacity: 0.5;">5</span>
+                        <span class="ml-4" style="color: #666;">debug</span><span style="color: #333;">:</span> <span style="color: #555;">true</span><span style="color: #333;">,</span>
+                    </div>
+                    <div class="flex">
+                        <span class="w-8 text-right mr-6 select-none" style="color: #c9a96e; opacity: 0.5;">6</span>
+                        <span class="ml-4" style="color: #666;">modules</span><span style="color: #333;">:</span> <span style="color: #333;">[</span><span style="color: #5a7a5a;">'auth'</span><span style="color: #333;">,</span> <span style="color: #5a7a5a;">'api'</span><span style="color: #333;">]</span><span style="color: #333;">,</span>
+                    </div>
+                    <div class="flex">
+                        <span class="w-8 text-right mr-6 select-none" style="color: #c9a96e; opacity: 0.5;">7</span>
+                        <span style="color: #444;">})</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-8 mt-6 text-xs" style="color: #333;">
+                <span>0 Fehler</span>
+                <span>2 Hinweise</span>
+            </div>
+        </div>
+
+        <!-- Configuration — Minimal -->
+        <div class="mb-24">
+            <p class="text-xs tracking-[0.3em] uppercase mb-10" style="color: #333;">Konfiguration</p>
+            <div class="space-y-0">
+                <div class="flex items-center justify-between py-5" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">Dark Mode</span>
+                    <div class="w-8 h-4 rounded-full flex items-center px-0.5" style="background: rgba(201,169,110,0.3);">
+                        <div class="w-3 h-3 rounded-full" style="background: #c9a96e; transform: translateX(16px);"></div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between py-5" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">Benachrichtigungen</span>
+                    <div class="w-8 h-4 rounded-full flex items-center px-0.5" style="background: rgba(201,169,110,0.3);">
+                        <div class="w-3 h-3 rounded-full" style="background: #c9a96e; transform: translateX(16px);"></div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between py-5" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">Auto-Save</span>
+                    <div class="w-8 h-4 rounded-full flex items-center px-0.5" style="background: rgba(255,255,255,0.08);">
+                        <div class="w-3 h-3 rounded-full" style="background: #333;"></div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between py-5" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">Telemetrie</span>
+                    <div class="w-8 h-4 rounded-full flex items-center px-0.5" style="background: rgba(255,255,255,0.08);">
+                        <div class="w-3 h-3 rounded-full" style="background: #333;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Flags -->
+        <div class="mb-24">
+            <p class="text-xs tracking-[0.3em] uppercase mb-10" style="color: #333;">Feature Flags</p>
+            <div class="space-y-0">
+                <div class="flex items-center justify-between py-5" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">Neues Login</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                </div>
+                <div class="flex items-center justify-between py-5" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">Dashboard v2</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                </div>
+                <div class="flex items-center justify-between py-5" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">Push-Notifs</span>
+                    <span class="w-1.5 h-1.5 rounded-full" style="background: #c9a96e;"></span>
+                </div>
+                <div class="flex items-center justify-between py-5" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">KI-Assistent</span>
+                    <span class="w-1.5 h-1.5 rounded-full" style="background: #333;"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status -->
+        <div class="mb-24">
+            <p class="text-xs tracking-[0.3em] uppercase mb-10" style="color: #333;">Status</p>
+            <div class="space-y-0">
+                <div class="flex items-center justify-between py-4" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">API-Server</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                </div>
+                <div class="flex items-center justify-between py-4" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">Datenbank</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                </div>
+                <div class="flex items-center justify-between py-4" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">Cache</span>
+                    <span class="w-1.5 h-1.5 rounded-full" style="background: #c9a96e;"></span>
+                </div>
+                <div class="flex items-center justify-between py-4" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                    <span class="text-sm font-light" style="color: #444;">CDN</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terminal -->
+        <div class="mb-24">
+            <p class="text-xs tracking-[0.3em] uppercase mb-8" style="color: #333;">Terminal</p>
+            <div class="font-mono text-xs leading-loose" style="color: #333;">
+                <p>$ npm run build</p>
+                <p style="color: #2a2a2a;">Kompiliere... Bundle... Fertig.</p>
+                <p style="color: #c9a96e;">1.2s · 42kb</p>
+                <p class="mt-2">$ <span class="inline-block w-1.5 h-3.5 ml-1" style="background: #333; animation: blink 1s infinite;"></span></p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Kartenmanager — Bento</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+* { font-family: 'Nunito', sans-serif; -webkit-font-smoothing: antialiased; }
+body { max-width: 430px; margin: 0 auto; background: #ffffff; overflow-x: hidden; }
+.bento-card { border-radius: 24px; }
+.pill { border-radius: 50px; }
+</style>
+</head>
+<body class="bg-white min-h-screen pb-28">
+
+<!-- Header -->
+<div class="px-6 pt-12 pb-4">
+  <div class="flex items-center justify-between">
+    <div>
+      <p class="text-gray-400 text-sm font-semibold">Guten Morgen 👋</p>
+      <h1 class="text-2xl font-extrabold text-gray-800 mt-1">Meine Karten</h1>
+    </div>
+    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-pink-300 to-purple-400 flex items-center justify-center text-white font-bold text-lg shadow-lg">M</div>
+  </div>
+</div>
+
+<!-- Abstract Pastel Credit Card -->
+<div class="px-6 mb-6">
+  <div class="bento-card p-6 shadow-xl relative overflow-hidden" style="background: linear-gradient(135deg, #c084fc 0%, #f9a8d4 30%, #fde68a 60%, #a7f3d0 100%); min-height: 200px;">
+    <!-- Abstract shapes -->
+    <div class="absolute top-4 right-6 w-24 h-24 rounded-full opacity-30" style="background: #fff;"></div>
+    <div class="absolute bottom-6 left-10 w-16 h-16 rounded-full opacity-20" style="background: #fff;"></div>
+    <div class="absolute top-16 right-20 w-10 h-10 rounded-full opacity-25" style="background: #f0abfc;"></div>
+    <div class="relative z-10">
+      <div class="flex items-center justify-between mb-10">
+        <div class="bg-white/40 backdrop-blur-sm rounded-2xl px-3 py-1.5">
+          <span class="text-white font-bold text-xs">PREMIUM</span>
+        </div>
+        <div class="text-3xl">💳</div>
+      </div>
+      <p class="text-white/80 text-sm font-semibold tracking-widest mb-2">•••• •••• •••• 4829</p>
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-white/60 text-xs font-semibold">Karteninhaber</p>
+          <p class="text-white font-bold text-sm">Max Müller</p>
+        </div>
+        <div>
+          <p class="text-white/60 text-xs font-semibold">Gültig bis</p>
+          <p class="text-white font-bold text-sm">09/28</p>
+        </div>
+        <div>
+          <p class="text-white/60 text-xs font-semibold">Saldo</p>
+          <p class="text-white font-extrabold text-lg">€4.280</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bento Benefits Grid -->
+<div class="px-6 mb-6">
+  <h2 class="text-lg font-extrabold text-gray-800 mb-3">Vorteile</h2>
+  <div class="grid grid-cols-2 gap-3">
+    <!-- Big card -->
+    <div class="bento-card col-span-2 p-5 shadow-md" style="background: linear-gradient(135deg, #dbeafe, #ede9fe);">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-blue-400/30 flex items-center justify-center text-2xl">✈️</div>
+        <div>
+          <p class="font-extrabold text-gray-800 text-base">Reiseversicherung</p>
+          <p class="text-gray-500 text-xs font-semibold">Weltweiter Schutz inklusive</p>
+        </div>
+      </div>
+    </div>
+    <!-- Small cards row -->
+    <div class="bento-card p-4 shadow-md" style="background: linear-gradient(135deg, #fce7f3, #fdf2f8);">
+      <div class="text-2xl mb-2">🎯</div>
+      <p class="font-bold text-gray-800 text-sm">Cashback</p>
+      <p class="text-pink-400 font-extrabold text-xl">3%</p>
+    </div>
+    <div class="bento-card p-4 shadow-md" style="background: linear-gradient(135deg, #d1fae5, #ecfdf5);">
+      <div class="text-2xl mb-2">🏦</div>
+      <p class="font-bold text-gray-800 text-sm">Gebührenfrei</p>
+      <p class="text-emerald-500 font-extrabold text-xl">0€</p>
+    </div>
+    <!-- Medium card -->
+    <div class="bento-card col-span-2 p-4 shadow-md" style="background: linear-gradient(135deg, #fef3c7, #fff7ed);">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-amber-300/40 flex items-center justify-center text-2xl">⭐</div>
+        <div>
+          <p class="font-extrabold text-gray-800 text-base">Punkte sammeln</p>
+          <p class="text-gray-500 text-xs font-semibold">1.240 Punkte dieses Monat</p>
+        </div>
+        <div class="ml-auto bg-amber-400/30 rounded-full px-3 py-1">
+          <span class="text-amber-700 font-bold text-xs">+120</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Transactions as colorful pills -->
+<div class="px-6 mb-6">
+  <div class="flex items-center justify-between mb-3">
+    <h2 class="text-lg font-extrabold text-gray-800">Umsätze</h2>
+    <span class="text-sm font-bold text-purple-400">Alle →</span>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    <div class="pill px-4 py-2.5 shadow-sm flex items-center gap-2" style="background: linear-gradient(135deg, #fecdd3, #ffe4e6);">
+      <span class="text-lg">🍕</span>
+      <div>
+        <p class="font-bold text-gray-800 text-xs">Pizzeria Roma</p>
+        <p class="text-gray-400 text-[10px] font-semibold">Heute</p>
+      </div>
+      <span class="font-extrabold text-red-400 text-sm ml-2">-€24,50</span>
+    </div>
+    <div class="pill px-4 py-2.5 shadow-sm flex items-center gap-2" style="background: linear-gradient(135deg, #bbf7d0, #dcfce7);">
+      <span class="text-lg">🛒</span>
+      <div>
+        <p class="font-bold text-gray-800 text-xs">Rewe Markt</p>
+        <p class="text-gray-400 text-[10px] font-semibold">Gestern</p>
+      </div>
+      <span class="font-extrabold text-red-400 text-sm ml-2">-€67,30</span>
+    </div>
+    <div class="pill px-4 py-2.5 shadow-sm flex items-center gap-2" style="background: linear-gradient(135deg, #bfdbfe, #dbeafe);">
+      <span class="text-lg">💼</span>
+      <div>
+        <p class="font-bold text-gray-800 text-xs">Gehalt</p>
+        <p class="text-gray-400 text-[10px] font-semibold">28. Mai</p>
+      </div>
+      <span class="font-extrabold text-emerald-500 text-sm ml-2">+€3.200</span>
+    </div>
+    <div class="pill px-4 py-2.5 shadow-sm flex items-center gap-2" style="background: linear-gradient(135deg, #e9d5ff, #f3e8ff);">
+      <span class="text-lg">⛽</span>
+      <div>
+        <p class="font-bold text-gray-800 text-xs">Shell Tankstelle</p>
+        <p class="text-gray-400 text-[10px] font-semibold">27. Mai</p>
+      </div>
+      <span class="font-extrabold text-red-400 text-sm ml-2">-€55,00</span>
+    </div>
+    <div class="pill px-4 py-2.5 shadow-sm flex items-center gap-2" style="background: linear-gradient(135deg, #fde68a, #fef3c7);">
+      <span class="text-lg">☕</span>
+      <div>
+        <p class="font-bold text-gray-800 text-xs">Starbucks</p>
+        <p class="text-gray-400 text-[10px] font-semibold">26. Mai</p>
+      </div>
+      <span class="font-extrabold text-red-400 text-sm ml-2">-€5,80</span>
+    </div>
+    <div class="pill px-4 py-2.5 shadow-sm flex items-center gap-2" style="background: linear-gradient(135deg, #a5f3fc, #cffafe);">
+      <span class="text-lg">🎵</span>
+      <div>
+        <p class="font-bold text-gray-800 text-xs">Spotify</p>
+        <p class="text-gray-400 text-[10px] font-semibold">25. Mai</p>
+      </div>
+      <span class="font-extrabold text-red-400 text-sm ml-2">-€9,99</span>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom Nav -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-gray-100 px-6 py-3 z-50">
+  <div class="flex items-center justify-around">
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-2xl">🏠</span>
+      <span class="text-[10px] font-bold text-gray-400">Start</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-2xl">📊</span>
+      <span class="text-[10px] font-bold text-gray-400">Statistik</span>
+    </div>
+    <div class="flex flex-col items-center gap-1 relative">
+      <div class="w-14 h-14 rounded-full flex items-center justify-center -mt-8 shadow-lg" style="background: linear-gradient(135deg, #c084fc, #f9a8d4);">
+        <span class="text-2xl">💳</span>
+      </div>
+      <span class="text-[10px] font-bold text-purple-500 -mt-1">Karten</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-2xl">🎁</span>
+      <span class="text-[10px] font-bold text-gray-400">Belohnungen</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-2xl">⚙️</span>
+      <span class="text-[10px] font-bold text-gray-400">Einstellungen</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzen — Editorial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+        body { font-family: 'Source Serif 4', Georgia, serif; }
+        h1, h2, h3, .headline { font-family: 'Playfair Display', Georgia, serif; }
+        .serif-num { font-family: 'Playfair Display', Georgia, serif; }
+    </style>
+</head>
+<body class="min-h-screen" style="background-color: #faf6f0; color: #3d2b1f;">
+
+    <div class="max-w-3xl mx-auto px-8 py-16">
+
+        <!-- Masthead -->
+        <div class="border-b-2 pb-6 mb-12" style="border-color: #8b4513;">
+            <div class="flex items-end justify-between">
+                <div>
+                    <p class="text-xs uppercase tracking-[0.3em] mb-1" style="color: #8b4513;">Finanz-Chronik</p>
+                    <h1 class="text-5xl font-black leading-none" style="color: #2c1810;">Portfolio&shy;bericht</h1>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm" style="color: #8b4513;">Quartal II / 2026</p>
+                    <p class="text-xs" style="color: #a0785a;">29. Mai 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lead -->
+        <article class="mb-16">
+            <p class="text-xs uppercase tracking-[0.3em] mb-4" style="color: #a0785a;">Hauptbericht — Vermögensübersicht</p>
+            <h2 class="text-3xl font-bold leading-tight mb-6" style="color: #2c1810;">Ihr Portfolio verzeichnet im zweiten Quartal ein Wachstum von 12,8 Prozent — eine detaillierte Analyse</h2>
+            <div class="w-16 h-0.5 mb-6" style="background: #c2703e;"></div>
+
+            <!-- Portfolio as Editorial Headline -->
+            <div class="border-l-4 pl-8 my-12" style="border-color: #c2703e;">
+                <p class="text-xs uppercase tracking-widest mb-2" style="color: #a0785a;">Gesamtvermögen</p>
+                <p class="serif-num text-6xl font-black" style="color: #2c1810;">127.450 <span class="text-3xl">€</span></p>
+                <p class="text-lg italic mt-2" style="color: #8b4513;">+12,8% seit Jahresbeginn · +3,2% heute</p>
+            </div>
+
+            <!-- Holdings as Prose -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-6" style="color: #2c1810;">Die Bestände im Einzelnen</h3>
+
+                <div class="text-base leading-relaxed space-y-6">
+                    <p>Ihr größter Posten ist <strong style="color: #2c1810;">Apple Inc.</strong> mit einem aktuellen Wert von <span class="serif-num font-bold" style="color: #c2703e;">23.450 €</span>. Die Aktie des kalifornischen Technologiekonzerns verzeichnete am heutigen Handelstag einen Zuwachs von 2,4 Prozent und trägt damit maßgeblich zum positiven Gesamtergebnis bei. Der Kauf erfolgte am 15. März dieses Jahres zu einem Einstiegskurs von 178,40 €.</p>
+
+                    <p>Den zweithöchsten Bestand bilden Positionen in <strong style="color: #2c1810;">Tesla Inc.</strong> mit einem Gegenwert von <span class="serif-num font-bold" style="color: #c2703e;">31.200 €</span>. Nach einem starken Jahresauftakt gab der Titel in den letzten Handelstagen um 1,2 Prozent nach. Der Gesammtgewinn seit dem Erwerb beläuft sich dennoch auf 14,6 Prozent.</p>
+
+                    <p>Mit <span class="serif-num font-bold" style="color: #c2703e;">18.900 €</span> ist <strong style="color: #2c1810;">SAP SE</strong> Ihr drittgrößtes Engagement. Der Walldorfer Softwarekonzern profitiert von der anhaltenden Nachfrage nach Unternehmenssoftware und verzeichnet ein stetiges Wachstum von 1,8 Prozent in der aktuellen Woche.</p>
+
+                    <p>Den vierten Platz belegt <strong style="color: #2c1810;">Allianz SE</strong> mit <span class="serif-num font-bold" style="color: #c2703e;">15.200 €</span>. Der Münchner Versicherungskonzern liefert solide Quartalszahlen und eine verlässliche Dividendenrendite von 4,2 Prozent.</p>
+
+                    <p>An flüssigen Mitteln stehen Ihnen derzeit <span class="serif-num font-bold" style="color: #c2703e;">23.450 €</span> zur Verfügung, was einer Barratio von 18,4 Prozent entspricht — eine vorsichtige, aber angemessene Positionierung in der aktuellen Marktphase.</p>
+                </div>
+            </div>
+
+            <!-- Chart as Annotated SVG -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-6" style="color: #2c1810;">Wertentwicklung im Jahresverlauf</h3>
+                <div class="relative p-6 rounded" style="background: #f5efe6;">
+                    <svg viewBox="0 0 500 200" class="w-full">
+                        <!-- Chart line -->
+                        <polyline points="20,170 60,155 100,145 140,150 180,130 220,120 260,105 300,95 340,85 380,70 420,55 460,40 480,30" fill="none" stroke="#c2703e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Area fill -->
+                        <polyline points="20,170 60,155 100,145 140,150 180,130 220,120 260,105 300,95 340,85 380,70 420,55 460,40 480,30 480,185 20,185" fill="url(#terraGrad)" stroke="none"/>
+                        <defs><linearGradient id="terraGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c2703e" stop-opacity="0.2"/><stop offset="100%" stop-color="#c2703e" stop-opacity="0"/></linearGradient></defs>
+
+                        <!-- Annotation callouts -->
+                        <circle cx="180" cy="130" r="4" fill="#c2703e"/>
+                        <line x1="180" y1="126" x2="180" y2="90" stroke="#8b4513" stroke-width="0.8" stroke-dasharray="3,3"/>
+                        <text x="180" y="84" text-anchor="middle" font-size="10" fill="#8b4513" font-style="italic">Q1-Abschluss</text>
+
+                        <circle cx="380" cy="70" r="4" fill="#c2703e"/>
+                        <line x1="380" y1="66" x2="380" y2="30" stroke="#8b4513" stroke-width="0.8" stroke-dasharray="3,3"/>
+                        <text x="380" y="24" text-anchor="middle" font-size="10" fill="#8b4513" font-style="italic">Allzeithoch</text>
+
+                        <!-- Month labels -->
+                        <text x="20" y="198" font-size="9" fill="#a0785a">Jan</text>
+                        <text x="100" y="198" font-size="9" fill="#a0785a">Mär</text>
+                        <text x="180" y="198" font-size="9" fill="#a0785a">Mai</text>
+                        <text x="260" y="198" font-size="9" fill="#a0785a">Jul</text>
+                        <text x="340" y="198" font-size="9" fill="#a0785a">Sep</text>
+                        <text x="420" y="198" font-size="9" fill="#a0785a">Nov</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Pull Quote -->
+            <div class="border-l-4 pl-6 my-12" style="border-color: #8b4513;">
+                <p class="text-2xl italic font-serif leading-relaxed" style="color: #3d2b1f;">„Die Diversifikation über vier Positionen und flüssige Mittel bildet ein solides Fundament für die kommende Marktphase."</p>
+                <p class="text-sm mt-3" style="color: #a0785a;">— Analyse, Mai 2026</p>
+            </div>
+
+            <!-- Transactions as Diary Entries -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-8" style="color: #2c1810;">Transaktionsprotokoll</h3>
+                <div class="space-y-8">
+                    <div class="border-l-2 pl-6" style="border-color: #c2703e;">
+                        <p class="serif-num text-sm font-semibold mb-1" style="color: #8b4513;">Freitag, 29. Mai 2026</p>
+                        <p class="text-base leading-relaxed">Kauf von weiteren Apple-Aktien im Wert von <strong style="color: #c2703e;">2.450 €</strong>. Der Erwerb wurde über das Verrechnungskonto abgerechnet. Die Position wird langfristig gehalten.</p>
+                    </div>
+                    <div class="border-l-2 pl-6" style="border-color: #c2703e;">
+                        <p class="serif-num text-sm font-semibold mb-1" style="color: #8b4513;">Donnerstag, 28. Mai 2026</p>
+                        <p class="text-base leading-relaxed">Teilverkauft: Tesla Inc. — Erlös <strong style="color: #c2703e;">8.320 €</strong>. Die Gewinne aus dieser Position wurden realisiert und stehen nun als flüssige Mittel zur Wiederanlage bereit.</p>
+                    </div>
+                    <div class="border-l-2 pl-6" style="border-color: #c2703e;">
+                        <p class="serif-num text-sm font-semibold mb-1" style="color: #8b4513;">Sonntag, 25. Mai 2026</p>
+                        <p class="text-base leading-relaxed">Quartalsdividende der SAP SE in Höhe von <strong style="color: #c2703e;">189 €</strong> erhalten. Der Betrag wurde dem Verrechnungskonto gutgeschrieben.</p>
+                    </div>
+                    <div class="border-l-2 pl-6" style="border-color: #c2703e;">
+                        <p class="serif-num text-sm font-semibold mb-1" style="color: #8b4513;">Donnerstag, 22. Mai 2026</p>
+                        <p class="text-base leading-relaxed">Einzahlung von <strong style="color: #c2703e;">5.000 €</strong> auf das Verrechnungskonto zur Stärkung der Liquiditätsreserve.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Allocation Table -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6" style="color: #2c1810;">Vermögensaufteilung</h3>
+                <div class="border-t pt-4" style="border-color: #8b4513;">
+                    <div class="flex justify-between py-3 border-b" style="border-color: #e8ddd0;">
+                        <span class="text-sm">Aktien (Einzelwerte)</span>
+                        <span class="serif-num font-bold" style="color: #c2703e;">69,4% · 88.450 €</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b" style="border-color: #e8ddd0;">
+                        <span class="text-sm">ETFs</span>
+                        <span class="serif-num font-bold" style="color: #c2703e;">12,2% · 15.550 €</span>
+                    </div>
+                    <div class="flex justify-between py-3 border-b" style="border-color: #e8ddd0;">
+                        <span class="text-sm">Barvermögen</span>
+                        <span class="serif-num font-bold" style="color: #c2703e;">18,4% · 23.450 €</span>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- Footer -->
+        <div class="border-t-2 pt-6 flex justify-between text-xs" style="border-color: #8b4513; color: #a0785a;">
+            <span>© 2026 Finanz-Chronik</span>
+            <span>Seite 1 von 1</span>
+        </div>
+
+    </div>
+
+</body>
+</html>

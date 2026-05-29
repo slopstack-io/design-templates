@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Bento Playful</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #ffffff;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  padding: 48px 24px 12px;
+}
+
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Stats */
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 28px 24px 12px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  border-radius: 20px;
+  padding: 20px 28px;
+  text-align: center;
+  min-width: 160px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.stat-card .emoji { font-size: 1.8rem; }
+.stat-card .num { font-size: 1.6rem; font-weight: 800; margin-top: 4px; }
+.stat-card .label { font-size: 0.8rem; color: #6b7280; font-weight: 600; }
+
+.stat-lavender { background: #ede9fe; }
+.stat-peach { background: #fff1e6; }
+.stat-mint { background: #dcfce7; }
+.stat-pink { background: #fce7f3; }
+
+/* Filter Chips */
+.filter-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 24px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+}
+
+.filter-chip:hover { transform: scale(1.05); }
+.filter-chip.active { color: white !important; }
+
+.chip-all { background: #ede9fe; color: #7c3aed; }
+.chip-all.active { background: #7c3aed; }
+.chip-photo { background: #e0f2fe; color: #0284c7; }
+.chip-photo.active { background: #0284c7; }
+.chip-design { background: #fce7f3; color: #db2777; }
+.chip-design.active { background: #db2777; }
+.chip-brand { background: #fef9c3; color: #ca8a04; }
+.chip-brand.active { background: #ca8a04; }
+.chip-web { background: #dcfce7; color: #16a34a; }
+.chip-web.active { background: #16a34a; }
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 16px;
+  padding: 16px 24px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bento-item {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+}
+
+.bento-item:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.bento-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bento-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.bento-item:hover .bento-overlay {
+  opacity: 1;
+}
+
+.overlay-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: white;
+}
+
+.overlay-cat {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+  margin-top: 2px;
+}
+
+.item-tall { grid-row: span 2; }
+.item-wide { grid-column: span 2; }
+.item-big { grid-column: span 2; grid-row: span 2; }
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+  .item-wide { grid-column: span 1; }
+  .item-big { grid-column: span 1; grid-row: span 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="page-header">
+  <div class="page-title">🎨 Unser Portfolio</div>
+  <div class="page-subtitle">Eine Auswahl unserer Lieblingsprojekte</div>
+</div>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-card stat-lavender">
+    <div class="emoji">📸</div>
+    <div class="num">247</div>
+    <div class="label">Fotos</div>
+  </div>
+  <div class="stat-card stat-peach">
+    <div class="emoji">❤️</div>
+    <div class="num">1.2k</div>
+    <div class="label">Likes</div>
+  </div>
+  <div class="stat-card stat-mint">
+    <div class="emoji">🏆</div>
+    <div class="num">38</div>
+    <div class="label">Projekte</div>
+  </div>
+  <div class="stat-card stat-pink">
+    <div class="emoji">⭐</div>
+    <div class="num">4.9</div>
+    <div class="label">Bewertung</div>
+  </div>
+</div>
+
+<!-- Filters -->
+<div class="filter-row">
+  <button class="filter-chip chip-all active" onclick="filter(this)">Alle</button>
+  <button class="filter-chip chip-photo" onclick="filter(this)">📸 Fotografie</button>
+  <button class="filter-chip chip-design" onclick="filter(this)">🎨 Design</button>
+  <button class="filter-chip chip-brand" onclick="filter(this)">⭐ Branding</button>
+  <button class="filter-chip chip-web" onclick="filter(this)">💻 Web</button>
+</div>
+
+<!-- Bento Grid -->
+<div class="bento-grid">
+
+  <div class="bento-item item-tall">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=800&fit=crop" alt="Landschaft">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(124,58,237,0.7));">
+      <div class="overlay-title">Alpenpanorama</div>
+      <div class="overlay-cat">📸 Fotografie</div>
+    </div>
+  </div>
+
+  <div class="bento-item item-wide">
+    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=400&fit=crop" alt="Design">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(219,39,119,0.7));">
+      <div class="overlay-title">Markenidentität „Blüte"</div>
+      <div class="overlay-cat">🎨 Design</div>
+    </div>
+  </div>
+
+  <div class="bento-item">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop" alt="Web">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(22,163,74,0.7));">
+      <div class="overlay-title">Web-Relaunch</div>
+      <div class="overlay-cat">💻 Web</div>
+    </div>
+  </div>
+
+  <div class="bento-item">
+    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400&h=400&fit=crop" alt="Kunst">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(202,138,4,0.7));">
+      <div class="overlay-title">Abstrakt Serie</div>
+      <div class="overlay-cat">⭐ Branding</div>
+    </div>
+  </div>
+
+  <div class="bento-item item-wide">
+    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=400&fit=crop" alt="Natur">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(2,132,199,0.7));">
+      <div class="overlay-title">Naturstudien</div>
+      <div class="overlay-cat">📸 Fotografie</div>
+    </div>
+  </div>
+
+  <div class="bento-item item-tall">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=800&fit=crop" alt="Architektur">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(234,88,12,0.7));">
+      <div class="overlay-title">Architektur Berlin</div>
+      <div class="overlay-cat">📸 Fotografie</div>
+    </div>
+  </div>
+
+  <div class="bento-item">
+    <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=400&fit=crop" alt="UI">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(124,58,237,0.7));">
+      <div class="overlay-title">Mobile App UI</div>
+      <div class="overlay-cat">💻 Web</div>
+    </div>
+  </div>
+
+  <div class="bento-item">
+    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop" alt="Kreativ">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(219,39,119,0.7));">
+      <div class="overlay-title">Kreativ-Workshop</div>
+      <div class="overlay-cat">🎨 Design</div>
+    </div>
+  </div>
+
+  <div class="bento-item item-big">
+    <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=800&h=800&fit=crop" alt="Berg">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(22,163,74,0.7));">
+      <div class="overlay-title">Gipfelglück Kampagne</div>
+      <div class="overlay-cat">⭐ Branding</div>
+    </div>
+  </div>
+
+  <div class="bento-item">
+    <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=400&h=400&fit=crop" alt="Sky">
+    <div class="bento-overlay" style="background: linear-gradient(transparent, rgba(202,138,4,0.7));">
+      <div class="overlay-title">Himmelsfarben</div>
+      <div class="overlay-cat">📸 Fotografie</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function filter(el) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frau Holle — Bento Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { background: #FAFBFF; }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+
+        .card {
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            pointer-events: none;
+        }
+
+        /* KPI Cards */
+        .kpi-purple { background: linear-gradient(135deg, #E8DEFF 0%, #D4C4FF 100%); }
+        .kpi-pink { background: linear-gradient(135deg, #FFD6E4 0%, #FFBCD1 100%); }
+        .kpi-mint { background: linear-gradient(135deg, #C4F5E0 0%, #A0EBCF 100%); }
+        .kpi-peach { background: linear-gradient(135deg, #FFE4D4 0%, #FFD0B5 100%); }
+
+        /* Other cards */
+        .card-blue { background: linear-gradient(135deg, #D6EAFF 0%, #B8DBFF 100%); }
+        .card-lavender { background: linear-gradient(135deg, #EDE4FF 0%, #DBCFFF 100%); }
+        .card-rose { background: linear-gradient(135deg, #FFE0E8 0%, #FFC8D8 100%); }
+        .card-sage { background: linear-gradient(135deg, #DFF0E4 0%, #C8E6D0 100%); }
+        .card-cream { background: linear-gradient(135deg, #FFF3E0 0%, #FFE8C8 100%); }
+        .card-sky { background: linear-gradient(135deg, #E0F2FF 0%, #C8E6FF 100%); }
+        .card-white { background: #FFFFFF; border: 2px solid #F0F0F5; }
+
+        /* Chart bars */
+        .chart-bar {
+            border-radius: 12px 12px 0 0;
+            transition: height 0.5s ease;
+            min-width: 36px;
+        }
+
+        /* Pill tab */
+        .pill-tab {
+            padding: 10px 28px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.02em;
+        }
+        .pill-tab.active {
+            background: #1E1B3A;
+            color: white;
+        }
+        .pill-tab:not(.active) {
+            background: transparent;
+            color: #8B8AA0;
+        }
+        .pill-tab:not(.active):hover {
+            background: #F0EFF8;
+            color: #1E1B3A;
+        }
+
+        /* Avatar circle */
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Quick action buttons */
+        .action-btn {
+            padding: 16px 32px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .action-btn:hover {
+            transform: scale(1.04);
+        }
+
+        /* Emoji header */
+        .emoji-header {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        /* Donut chart ring */
+        .donut-ring {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        /* Sparkline area */
+        .spark-bar {
+            width: 6px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.6);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E0DFF0; border-radius: 100px; }
+    </style>
+</head>
+<body class="min-h-screen p-6" style="max-width: 1340px; margin: 0 auto;">
+
+    <!-- ===== TOP BAR ===== -->
+    <header class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-4">
+            <div style="width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,#7C6AFF,#B06AFF);" class="flex items-center justify-center">
+                <span style="font-size:24px;">🏔️</span>
+            </div>
+            <div>
+                <h1 style="font-size:22px;font-weight:800;color:#1E1B3A;letter-spacing:-0.02em;">Frau Holle</h1>
+                <p style="font-size:12px;color:#8B8AA0;font-weight:600;">Design System · Dashboard</p>
+            </div>
+        </div>
+
+        <!-- Pill Tabs -->
+        <nav class="flex items-center gap-2" style="background:#F5F4FA;border-radius:100px;padding:5px;">
+            <div class="pill-tab active">Übersicht</div>
+            <div class="pill-tab">Analytik</div>
+            <div class="pill-tab">Berichte</div>
+            <div class="pill-tab">Einstellungen</div>
+        </nav>
+
+        <!-- Right side -->
+        <div class="flex items-center gap-4">
+            <div style="position:relative;">
+                <span style="font-size:22px;cursor:pointer;">🔔</span>
+                <span style="position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;background:#FF6B8A;border:2px solid #FAFBFF;"></span>
+            </div>
+            <div class="avatar" style="background:linear-gradient(135deg,#7C6AFF,#B06AFF);width:40px;height:40px;font-size:14px;">MH</div>
+        </div>
+    </header>
+
+    <!-- ===== BENTO GRID ===== -->
+    <div class="bento-grid">
+
+        <!-- KPI 1 — Umsatz (span 1 col, 1 row) -->
+        <div class="card kpi-purple">
+            <div class="emoji-header">💰</div>
+            <p style="font-size:13px;font-weight:700;color:rgba(30,27,58,0.5);text-transform:uppercase;letter-spacing:0.08em;">Umsatz</p>
+            <p style="font-size:42px;font-weight:900;color:#1E1B3A;line-height:1.1;margin-top:4px;">€84.2k</p>
+            <div class="flex items-center gap-2 mt-3">
+                <span class="badge" style="background:rgba(124,106,255,0.15);color:#6C4FE0;">↑ 12.4%</span>
+                <span style="font-size:12px;color:rgba(30,27,58,0.4);font-weight:600;">vs. letzter Monat</span>
+            </div>
+            <!-- Mini sparkline -->
+            <div class="flex items-end gap-1 mt-4" style="height:32px;">
+                <div class="spark-bar" style="height:40%;"></div>
+                <div class="spark-bar" style="height:55%;"></div>
+                <div class="spark-bar" style="height:35%;"></div>
+                <div class="spark-bar" style="height:70%;"></div>
+                <div class="spark-bar" style="height:60%;"></div>
+                <div class="spark-bar" style="height:80%;"></div>
+                <div class="spark-bar" style="height:90%;"></div>
+                <div class="spark-bar" style="height:75%;"></div>
+                <div class="spark-bar" style="height:100%;"></div>
+            </div>
+        </div>
+
+        <!-- KPI 2 — Nutzer (span 1 col, 1 row) -->
+        <div class="card kpi-pink">
+            <div class="emoji-header">👥</div>
+            <p style="font-size:13px;font-weight:700;color:rgba(30,27,58,0.5);text-transform:uppercase;letter-spacing:0.08em;">Aktive Nutzer</p>
+            <p style="font-size:42px;font-weight:900;color:#1E1B3A;line-height:1.1;margin-top:4px;">12.847</p>
+            <div class="flex items-center gap-2 mt-3">
+                <span class="badge" style="background:rgba(255,107,138,0.15);color:#E04070;">↑ 8.1%</span>
+                <span style="font-size:12px;color:rgba(30,27,58,0.4);font-weight:600;">vs. letzte Woche</span>
+            </div>
+            <div class="flex items-end gap-1 mt-4" style="height:32px;">
+                <div class="spark-bar" style="height:60%;"></div>
+                <div class="spark-bar" style="height:50%;"></div>
+                <div class="spark-bar" style="height:70%;"></div>
+                <div class="spark-bar" style="height:65%;"></div>
+                <div class="spark-bar" style="height:80%;"></div>
+                <div class="spark-bar" style="height:75%;"></div>
+                <div class="spark-bar" style="height:85%;"></div>
+                <div class="spark-bar" style="height:90%;"></div>
+                <div class="spark-bar" style="height:95%;"></div>
+            </div>
+        </div>
+
+        <!-- KPI 3 — Conversion (span 1 col, 1 row) -->
+        <div class="card kpi-mint">
+            <div class="emoji-header">🎯</div>
+            <p style="font-size:13px;font-weight:700;color:rgba(30,27,58,0.5);text-transform:uppercase;letter-spacing:0.08em;">Conversion</p>
+            <p style="font-size:42px;font-weight:900;color:#1E1B3A;line-height:1.1;margin-top:4px;">4.7%</p>
+            <div class="flex items-center gap-2 mt-3">
+                <span class="badge" style="background:rgba(52,199,134,0.15);color:#1A9A5A;">↑ 0.8%</span>
+                <span style="font-size:12px;color:rgba(30,27,58,0.4);font-weight:600;">vs. gestern</span>
+            </div>
+            <div class="flex items-end gap-1 mt-4" style="height:32px;">
+                <div class="spark-bar" style="height:30%;"></div>
+                <div class="spark-bar" style="height:45%;"></div>
+                <div class="spark-bar" style="height:50%;"></div>
+                <div class="spark-bar" style="height:55%;"></div>
+                <div class="spark-bar" style="height:48%;"></div>
+                <div class="spark-bar" style="height:60%;"></div>
+                <div class="spark-bar" style="height:70%;"></div>
+                <div class="spark-bar" style="height:85%;"></div>
+                <div class="spark-bar" style="height:90%;"></div>
+            </div>
+        </div>
+
+        <!-- KPI 4 — Kundenzufriedenheit (span 1 col, 1 row) -->
+        <div class="card kpi-peach">
+            <div class="emoji-header">⭐</div>
+            <p style="font-size:13px;font-weight:700;color:rgba(30,27,58,0.5);text-transform:uppercase;letter-spacing:0.08em;">Zufriedenheit</p>
+            <p style="font-size:42px;font-weight:900;color:#1E1B3A;line-height:1.1;margin-top:4px;">96.3%</p>
+            <div class="flex items-center gap-2 mt-3">
+                <span class="badge" style="background:rgba(255,160,70,0.15);color:#C06820;">↑ 2.1%</span>
+                <span style="font-size:12px;color:rgba(30,27,58,0.4);font-weight:600;">über Durchschnitt</span>
+            </div>
+            <div class="flex items-end gap-1 mt-4" style="height:32px;">
+                <div class="spark-bar" style="height:80%;"></div>
+                <div class="spark-bar" style="height:85%;"></div>
+                <div class="spark-bar" style="height:82%;"></div>
+                <div class="spark-bar" style="height:88%;"></div>
+                <div class="spark-bar" style="height:90%;"></div>
+                <div class="spark-bar" style="height:87%;"></div>
+                <div class="spark-bar" style="height:92%;"></div>
+                <div class="spark-bar" style="height:95%;"></div>
+                <div class="spark-bar" style="height:98%;"></div>
+            </div>
+        </div>
+
+        <!-- CHART — Full width bar chart -->
+        <div class="card card-white" style="grid-column: span 4;">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <div class="emoji-header">📊</div>
+                    <h2 style="font-size:22px;font-weight:800;color:#1E1B3A;">Monatsübersicht</h2>
+                    <p style="font-size:13px;color:#8B8AA0;font-weight:600;">Umsatz pro Monat in 2026</p>
+                </div>
+                <div class="flex gap-3">
+                    <span class="badge" style="background:#EDE4FF;color:#6C4FE0;">Umsatz</span>
+                    <span class="badge" style="background:#FFE0E8;color:#E04070;">Kosten</span>
+                    <span class="badge" style="background:#C4F5E0;color:#1A9A5A;">Gewinn</span>
+                </div>
+            </div>
+            <div class="flex items-end justify-between gap-3" style="height:200px;padding-bottom:0;">
+                <!-- Jan -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:50%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:35%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:25%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Jan</span>
+                </div>
+                <!-- Feb -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:60%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:40%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:30%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Feb</span>
+                </div>
+                <!-- Mär -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:70%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:45%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:40%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Mär</span>
+                </div>
+                <!-- Apr -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:55%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:38%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:28%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Apr</span>
+                </div>
+                <!-- Mai -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:85%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:50%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:55%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Mai</span>
+                </div>
+                <!-- Jun -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:90%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:55%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:60%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Jun</span>
+                </div>
+                <!-- Jul -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:75%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:48%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:45%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Jul</span>
+                </div>
+                <!-- Aug -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:65%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:42%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:35%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Aug</span>
+                </div>
+                <!-- Sep -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:80%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:52%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:50%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Sep</span>
+                </div>
+                <!-- Okt -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:95%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:58%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:65%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Okt</span>
+                </div>
+                <!-- Nov -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:88%;background:linear-gradient(180deg,#B8A4FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:55%;background:linear-gradient(180deg,#FFBCD1,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:58%;background:linear-gradient(180deg,#A0EBCF,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:700;color:#8B8AA0;">Nov</span>
+                </div>
+                <!-- Dez -->
+                <div class="flex flex-col items-center gap-1 flex-1">
+                    <div class="flex items-end gap-1 w-full justify-center" style="height:180px;">
+                        <div class="chart-bar" style="height:100%;background:linear-gradient(180deg,#9B82FF,#D4C4FF);flex:1;"></div>
+                        <div class="chart-bar" style="height:60%;background:linear-gradient(180deg,#FF9BB5,#FFD6E4);flex:1;"></div>
+                        <div class="chart-bar" style="height:70%;background:linear-gradient(180deg,#6DD4A8,#C4F5E0);flex:1;"></div>
+                    </div>
+                    <span style="font-size:11px;font-weight:800;color:#6C4FE0;">Dez</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACTIVITY — Span 3 cols -->
+        <div class="card card-white" style="grid-column: span 3;">
+            <div class="emoji-header">⚡</div>
+            <h2 style="font-size:20px;font-weight:800;color:#1E1B3A;margin-bottom:20px;">Letzte Aktivitäten</h2>
+
+            <div class="flex flex-col gap-4">
+                <!-- Activity 1 -->
+                <div class="flex items-center gap-4" style="background:#F8F7FC;border-radius:16px;padding:16px 20px;">
+                    <div class="avatar" style="background:linear-gradient(135deg,#7C6AFF,#A78BFA);">LK</div>
+                    <div class="flex-1">
+                        <p style="font-size:14px;font-weight:700;color:#1E1B3A;">Lukas Krause</p>
+                        <p style="font-size:12px;color:#8B8AA0;font-weight:500;">Neues Projekt „Alpenblick" erstellt</p>
+                    </div>
+                    <span class="badge" style="background:#EDE4FF;color:#6C4FE0;">Neu</span>
+                    <span style="font-size:11px;color:#8B8AA0;font-weight:600;">vor 5 Min</span>
+                </div>
+                <!-- Activity 2 -->
+                <div class="flex items-center gap-4" style="background:#FFF8F6;border-radius:16px;padding:16px 20px;">
+                    <div class="avatar" style="background:linear-gradient(135deg,#FF6B8A,#FF9BB5);">SB</div>
+                    <div class="flex-1">
+                        <p style="font-size:14px;font-weight:700;color:#1E1B3A;">Sophie Bauer</p>
+                        <p style="font-size:12px;color:#8B8AA0;font-weight:500;">Rechnung #2847 freigegeben</p>
+                    </div>
+                    <span class="badge" style="background:#FFE0E8;color:#E04070;">Genehmigt</span>
+                    <span style="font-size:11px;color:#8B8AA0;font-weight:600;">vor 12 Min</span>
+                </div>
+                <!-- Activity 3 -->
+                <div class="flex items-center gap-4" style="background:#F6FBF8;border-radius:16px;padding:16px 20px;">
+                    <div class="avatar" style="background:linear-gradient(135deg,#34C786,#6DD4A8);">MW</div>
+                    <div class="flex-1">
+                        <p style="font-size:14px;font-weight:700;color:#1E1B3A;">Max Weber</p>
+                        <p style="font-size:12px;color:#8B8AA0;font-weight:500;">Design-Entwurf hochgeladen</p>
+                    </div>
+                    <span class="badge" style="background:#C4F5E0;color:#1A9A5A;">Fertig</span>
+                    <span style="font-size:11px;color:#8B8AA0;font-weight:600;">vor 28 Min</span>
+                </div>
+                <!-- Activity 4 -->
+                <div class="flex items-center gap-4" style="background:#FFFCF6;border-radius:16px;padding:16px 20px;">
+                    <div class="avatar" style="background:linear-gradient(135deg,#FFA050,#FFC880);">AF</div>
+                    <div class="flex-1">
+                        <p style="font-size:14px;font-weight:700;color:#1E1B3A;">Anna Fischer</p>
+                        <p style="font-size:12px;color:#8B8AA0;font-weight:500;">Kundentermin verschoben auf Freitag</p>
+                    </div>
+                    <span class="badge" style="background:#FFE4D4;color:#C06820;">Aktualisiert</span>
+                    <span style="font-size:11px;color:#8B8AA0;font-weight:600;">vor 1 Std</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDE CARDS — Stack 2 cards in 1 col -->
+        <!-- Top tasks card -->
+        <div class="card card-lavender" style="grid-row: span 2;">
+            <div class="emoji-header">✅</div>
+            <h2 style="font-size:18px;font-weight:800;color:#1E1B3A;margin-bottom:16px;">Aufgaben</h2>
+
+            <div class="flex flex-col gap-3">
+                <div style="background:rgba(255,255,255,0.6);border-radius:14px;padding:14px 16px;">
+                    <div class="flex items-center gap-3">
+                        <div style="width:22px;height:22px;border-radius:8px;background:#7C6AFF;display:flex;align-items:center;justify-content:center;">
+                            <span style="color:white;font-size:11px;font-weight:800;">✓</span>
+                        </div>
+                        <span style="font-size:13px;font-weight:700;color:#1E1B3A;">Präsentation erstellen</span>
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.6);border-radius:14px;padding:14px 16px;">
+                    <div class="flex items-center gap-3">
+                        <div style="width:22px;height:22px;border-radius:8px;background:#7C6AFF;display:flex;align-items:center;justify-content:center;">
+                            <span style="color:white;font-size:11px;font-weight:800;">✓</span>
+                        </div>
+                        <span style="font-size:13px;font-weight:700;color:#1E1B3A;">Kundendaten aktualisieren</span>
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.6);border-radius:14px;padding:14px 16px;">
+                    <div class="flex items-center gap-3">
+                        <div style="width:22px;height:22px;border-radius:8px;border:2.5px solid #C4B8FF;"></div>
+                        <span style="font-size:13px;font-weight:700;color:#1E1B3A;">Angebot absenden</span>
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.6);border-radius:14px;padding:14px 16px;">
+                    <div class="flex items-center gap-3">
+                        <div style="width:22px;height:22px;border-radius:8px;border:2.5px solid #C4B8FF;"></div>
+                        <span style="font-size:13px;font-weight:700;color:#1E1B3A;">Team-Meeting vorbereiten</span>
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.6);border-radius:14px;padding:14px 16px;">
+                    <div class="flex items-center gap-3">
+                        <div style="width:22px;height:22px;border-radius:8px;border:2.5px solid #C4B8FF;"></div>
+                        <span style="font-size:13px;font-weight:700;color:#1E1B3A;">Mockups fertigstellen</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:20px;text-align:center;">
+                <p style="font-size:32px;font-weight:900;color:#6C4FE0;">2/5</p>
+                <p style="font-size:12px;color:rgba(30,27,58,0.4);font-weight:600;">erledigt heute</p>
+                <!-- Progress bar -->
+                <div style="background:rgba(255,255,255,0.5);border-radius:100px;height:10px;margin-top:12px;overflow:hidden;">
+                    <div style="background:linear-gradient(90deg,#7C6AFF,#A78BFA);border-radius:100px;height:100%;width:40%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUICK STATS ROW — 2 small cards side by side -->
+
+        <!-- Stat card: Besucher heute -->
+        <div class="card card-blue">
+            <div class="emoji-header">🌐</div>
+            <h3 style="font-size:15px;font-weight:800;color:#1E1B3A;">Besucher heute</h3>
+            <p style="font-size:36px;font-weight:900;color:#1E1B3A;margin-top:4px;">3.842</p>
+            <p style="font-size:12px;color:rgba(30,27,58,0.4);font-weight:600;margin-top:2px;">davon 68% wiederkehrend</p>
+        </div>
+
+        <!-- Stat card: Durchschn. Sitzung -->
+        <div class="card card-sage">
+            <div class="emoji-header">⏱️</div>
+            <h3 style="font-size:15px;font-weight:800;color:#1E1B3A;">Ø Sitzungsdauer</h3>
+            <p style="font-size:36px;font-weight:900;color:#1E1B3A;margin-top:4px;">4:23</p>
+            <p style="font-size:12px;color:rgba(30,27,58,0.4);font-weight:600;margin-top:2px;">Minuten pro Besuch</p>
+        </div>
+
+        <!-- Stat card: Offene Tickets -->
+        <div class="card card-rose">
+            <div class="emoji-header">🎫</div>
+            <h3 style="font-size:15px;font-weight:800;color:#1E1B3A;">Offene Tickets</h3>
+            <p style="font-size:36px;font-weight:900;color:#1E1B3A;margin-top:4px;">14</p>
+            <p style="font-size:12px;color:rgba(30,27,58,0.4);font-weight:600;margin-top:2px;">3 dringend, 11 normal</p>
+        </div>
+
+        <!-- QUICK ACTIONS — Full width -->
+        <div class="card card-white" style="grid-column: span 4;">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="emoji-header">🚀</div>
+                    <h2 style="font-size:20px;font-weight:800;color:#1E1B3A;">Schnellaktionen</h2>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 mt-5 flex-wrap">
+                <button class="action-btn" style="background:linear-gradient(135deg,#7C6AFF,#A78BFA);color:white;">
+                    <span style="font-size:20px;">📝</span> Neuer Bericht
+                </button>
+                <button class="action-btn" style="background:linear-gradient(135deg,#FF6B8A,#FF9BB5);color:white;">
+                    <span style="font-size:20px;">👤</span> Kunde anlegen
+                </button>
+                <button class="action-btn" style="background:linear-gradient(135deg,#34C786,#6DD4A8);color:white;">
+                    <span style="font-size:20px;">📧</span> E-Mail senden
+                </button>
+                <button class="action-btn" style="background:linear-gradient(135deg,#FFA050,#FFC880);color:white;">
+                    <span style="font-size:20px;">📊</span> Exportieren
+                </button>
+                <button class="action-btn" style="background:linear-gradient(135deg,#5BB8F0,#88CFFF);color:white;">
+                    <span style="font-size:20px;">🔄</span> Sync starten
+                </button>
+                <button class="action-btn" style="background:#F5F4FA;color:#1E1B3A;">
+                    <span style="font-size:20px;">⚙️</span> Einstellungen
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 text-center" style="padding-bottom:20px;">
+        <p style="font-size:12px;color:#C0BFD0;font-weight:600;">Frau Holle Design System · Dashboard Layout · Bento Variante</p>
+    </footer>
+
+</body>
+</html>

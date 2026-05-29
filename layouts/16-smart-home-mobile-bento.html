@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Smart Home — Bento</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+  * { font-family: 'Nunito', sans-serif; }
+  body { max-width: 430px; margin: 0 auto; }
+  .gradient-slider { appearance: none; width: 100%; height: 8px; border-radius: 9999px; outline: none; }
+  .gradient-slider::-webkit-slider-thumb {
+    appearance: none; width: 22px; height: 22px; border-radius: 50%;
+    background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;
+    border: 3px solid #a78bfa;
+  }
+  .slider-purple { background: linear-gradient(90deg, #c4b5fd, #8b5cf6); }
+  .slider-pink { background: linear-gradient(90deg, #fbcfe8, #ec4899); }
+  .slider-orange { background: linear-gradient(90deg, #fed7aa, #f97316); }
+  .slider-teal { background: linear-gradient(90deg, #99f6e4, #14b8a6); }
+  .toggle-pill { transition: all 0.3s ease; cursor: pointer; }
+  .toggle-pill.active { transform: scale(1.05); }
+</style>
+</head>
+<body class="bg-white min-h-screen pb-24">
+
+  <!-- Header -->
+  <div class="px-5 pt-6 pb-3">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-sm text-gray-400 font-semibold">Guten Abend 🌙</p>
+        <h1 class="text-2xl font-extrabold text-gray-800">Mein Zuhause</h1>
+      </div>
+      <div class="w-10 h-10 bg-gradient-to-br from-violet-400 to-pink-400 rounded-2xl flex items-center justify-center text-white text-lg shadow-lg shadow-violet-200">
+        🏠
+      </div>
+    </div>
+    <!-- Quick Stats -->
+    <div class="flex gap-3 mt-4">
+      <div class="flex items-center gap-1.5 bg-violet-50 rounded-full px-3 py-1.5">
+        <span class="text-sm">💡</span>
+        <span class="text-xs font-bold text-violet-600">12 Geräte an</span>
+      </div>
+      <div class="flex items-center gap-1.5 bg-emerald-50 rounded-full px-3 py-1.5">
+        <span class="text-sm">🌡️</span>
+        <span class="text-xs font-bold text-emerald-600">22°C</span>
+      </div>
+      <div class="flex items-center gap-1.5 bg-amber-50 rounded-full px-3 py-1.5">
+        <span class="text-sm">⚡</span>
+        <span class="text-xs font-bold text-amber-600">1.2 kW</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bento Grid -->
+  <div class="px-5 mt-2 grid grid-cols-4 gap-3">
+
+    <!-- Wohnzimmer — BIG (4 cols, tall) -->
+    <div class="col-span-4 bg-gradient-to-br from-violet-100 via-purple-50 to-pink-50 rounded-3xl p-5 shadow-sm">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 bg-violet-400 rounded-xl flex items-center justify-center text-lg shadow-md shadow-violet-200">🛋️</div>
+          <div>
+            <h2 class="text-base font-extrabold text-gray-800">Wohnzimmer</h2>
+            <p class="text-xs text-violet-500 font-semibold">5 Geräte • 3 aktiv</p>
+          </div>
+        </div>
+        <span class="text-xs bg-violet-500 text-white px-2.5 py-1 rounded-full font-bold">24°C</span>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-3">
+        <div class="toggle-pill active bg-violet-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md shadow-violet-200">💡 Lampen AN</div>
+        <div class="toggle-pill active bg-pink-400 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md shadow-pink-200">📺 TV AN</div>
+        <div class="toggle-pill bg-gray-100 text-gray-400 px-3 py-1.5 rounded-full text-xs font-bold">🔊 Anlage AUS</div>
+        <div class="toggle-pill active bg-orange-400 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md shadow-orange-200">🌡️ Heizung AN</div>
+        <div class="toggle-pill bg-gray-100 text-gray-400 px-3 py-1.5 rounded-full text-xs font-bold">🪟 Rolladen AUS</div>
+      </div>
+      <div class="space-y-2.5">
+        <div>
+          <div class="flex justify-between text-xs font-bold text-gray-500 mb-1"><span>Helligkeit</span><span>75%</span></div>
+          <input type="range" min="0" max="100" value="75" class="gradient-slider slider-purple">
+        </div>
+        <div>
+          <div class="flex justify-between text-xs font-bold text-gray-500 mb-1"><span>Temperatur</span><span>24°C</span></div>
+          <input type="range" min="16" max="30" value="24" class="gradient-slider slider-orange">
+        </div>
+      </div>
+    </div>
+
+    <!-- Schlafzimmer — Medium (2 cols) -->
+    <div class="col-span-2 bg-gradient-to-br from-blue-100 to-cyan-50 rounded-3xl p-4 shadow-sm">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-8 h-8 bg-blue-400 rounded-xl flex items-center justify-center text-sm shadow-md shadow-blue-200">🛏️</div>
+        <div>
+          <h2 class="text-sm font-extrabold text-gray-800">Schlafzimmer</h2>
+          <p class="text-[10px] text-blue-500 font-semibold">3 Geräte</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <div class="toggle-pill active bg-blue-500 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">💡 AN</div>
+        <div class="toggle-pill active bg-teal-400 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">🌬️ AN</div>
+        <div class="toggle-pill bg-gray-100 text-gray-400 px-2.5 py-1 rounded-full text-[10px] font-bold">⏰ AUS</div>
+      </div>
+      <div>
+        <div class="flex justify-between text-[10px] font-bold text-gray-500 mb-1"><span>Helligkeit</span><span>30%</span></div>
+        <input type="range" min="0" max="100" value="30" class="gradient-slider slider-teal">
+      </div>
+    </div>
+
+    <!-- Küche — Medium (2 cols) -->
+    <div class="col-span-2 bg-gradient-to-br from-amber-100 to-orange-50 rounded-3xl p-4 shadow-sm">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-8 h-8 bg-amber-400 rounded-xl flex items-center justify-center text-sm shadow-md shadow-amber-200">🍳</div>
+        <div>
+          <h2 class="text-sm font-extrabold text-gray-800">Küche</h2>
+          <p class="text-[10px] text-amber-600 font-semibold">4 Geräte</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <div class="toggle-pill active bg-amber-500 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">💡 AN</div>
+        <div class="toggle-pill active bg-orange-400 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">🫕 AN</div>
+        <div class="toggle-pill bg-gray-100 text-gray-400 px-2.5 py-1 rounded-full text-[10px] font-bold">🧊 AUS</div>
+        <div class="toggle-pill active bg-yellow-400 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">☕ AN</div>
+      </div>
+      <div>
+        <div class="flex justify-between text-[10px] font-bold text-gray-500 mb-1"><span>Temperatur</span><span>22°C</span></div>
+        <input type="range" min="16" max="30" value="22" class="gradient-slider slider-orange">
+      </div>
+    </div>
+
+    <!-- Bad — Small (1 col) -->
+    <div class="col-span-1 bg-gradient-to-br from-teal-100 to-emerald-50 rounded-3xl p-3 shadow-sm">
+      <div class="w-7 h-7 bg-teal-400 rounded-lg flex items-center justify-center text-xs shadow-md shadow-teal-200 mb-2">🚿</div>
+      <h2 class="text-xs font-extrabold text-gray-800">Bad</h2>
+      <p class="text-[9px] text-teal-600 font-semibold mb-2">2 Geräte</p>
+      <div class="toggle-pill active bg-teal-500 text-white px-2 py-1 rounded-full text-[8px] font-bold mb-1">💡 AN</div>
+      <div class="toggle-pill bg-gray-100 text-gray-400 px-2 py-1 rounded-full text-[8px] font-bold">🔥 AUS</div>
+      <p class="text-[10px] font-bold text-teal-500 mt-2">23°C</p>
+    </div>
+
+    <!-- Flur — Small (1 col) -->
+    <div class="col-span-1 bg-gradient-to-br from-rose-100 to-pink-50 rounded-3xl p-3 shadow-sm">
+      <div class="w-7 h-7 bg-rose-400 rounded-lg flex items-center justify-center text-xs shadow-md shadow-rose-200 mb-2">🚪</div>
+      <h2 class="text-xs font-extrabold text-gray-800">Flur</h2>
+      <p class="text-[9px] text-rose-500 font-semibold mb-2">1 Gerät</p>
+      <div class="toggle-pill active bg-rose-400 text-white px-2 py-1 rounded-full text-[8px] font-bold">💡 AN</div>
+      <p class="text-[10px] font-bold text-rose-500 mt-2">20°C</p>
+    </div>
+
+    <!-- Büro — Medium (2 cols) -->
+    <div class="col-span-2 bg-gradient-to-br from-indigo-100 to-blue-50 rounded-3xl p-4 shadow-sm">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-8 h-8 bg-indigo-400 rounded-xl flex items-center justify-center text-sm shadow-md shadow-indigo-200">💻</div>
+        <div>
+          <h2 class="text-sm font-extrabold text-gray-800">Büro</h2>
+          <p class="text-[10px] text-indigo-500 font-semibold">3 Geräte</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <div class="toggle-pill active bg-indigo-500 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">💡 AN</div>
+        <div class="toggle-pill active bg-sky-400 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">🖥️ AN</div>
+        <div class="toggle-pill bg-gray-100 text-gray-400 px-2.5 py-1 rounded-full text-[10px] font-bold">☕ AUS</div>
+      </div>
+      <div>
+        <div class="flex justify-between text-[10px] font-bold text-gray-500 mb-1"><span>Helligkeit</span><span>90%</span></div>
+        <input type="range" min="0" max="100" value="90" class="gradient-slider slider-purple">
+      </div>
+    </div>
+
+    <!-- Garten — Wide (3 cols) -->
+    <div class="col-span-3 bg-gradient-to-br from-green-100 to-lime-50 rounded-3xl p-4 shadow-sm">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-green-400 rounded-xl flex items-center justify-center text-sm shadow-md shadow-green-200">🌿</div>
+          <div>
+            <h2 class="text-sm font-extrabold text-gray-800">Garten</h2>
+            <p class="text-[10px] text-green-600 font-semibold">2 Geräte</p>
+          </div>
+        </div>
+        <span class="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full font-bold">Bewässerung aktiv</span>
+      </div>
+      <div class="flex flex-wrap gap-1.5">
+        <div class="toggle-pill active bg-green-500 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">💧 Bewässerung AN</div>
+        <div class="toggle-pill active bg-lime-400 text-white px-2.5 py-1 rounded-full text-[10px] font-bold">💡 Licht AN</div>
+      </div>
+    </div>
+
+    <!-- Weather mini (1 col) -->
+    <div class="col-span-1 bg-gradient-to-br from-sky-100 to-blue-50 rounded-3xl p-3 shadow-sm flex flex-col items-center justify-center text-center">
+      <span class="text-2xl mb-1">🌤️</span>
+      <p class="text-[10px] font-extrabold text-gray-700">Draußen</p>
+      <p class="text-sm font-extrabold text-sky-500">18°C</p>
+      <p class="text-[9px] text-gray-400 font-semibold">Leichter Wind</p>
+    </div>
+
+  </div>
+
+  <!-- Scene Quick Actions -->
+  <div class="px-5 mt-5">
+    <h3 class="text-sm font-extrabold text-gray-800 mb-3">⚡ Szenen</h3>
+    <div class="flex gap-2 overflow-x-auto pb-2">
+      <div class="flex-shrink-0 bg-gradient-to-br from-violet-500 to-purple-600 text-white px-4 py-2.5 rounded-2xl shadow-lg shadow-violet-200">
+        <span class="text-sm">🎬</span>
+        <span class="text-xs font-bold ml-1">Filmabend</span>
+      </div>
+      <div class="flex-shrink-0 bg-gradient-to-br from-blue-500 to-cyan-500 text-white px-4 py-2.5 rounded-2xl shadow-lg shadow-blue-200">
+        <span class="text-sm">😴</span>
+        <span class="text-xs font-bold ml-1">Gute Nacht</span>
+      </div>
+      <div class="flex-shrink-0 bg-gradient-to-br from-amber-400 to-orange-500 text-white px-4 py-2.5 rounded-2xl shadow-lg shadow-amber-200">
+        <span class="text-sm">☀️</span>
+        <span class="text-xs font-bold ml-1">Guten Morgen</span>
+      </div>
+      <div class="flex-shrink-0 bg-gradient-to-br from-rose-400 to-pink-500 text-white px-4 py-2.5 rounded-2xl shadow-lg shadow-rose-200">
+        <span class="text-sm">🎉</span>
+        <span class="text-xs font-bold ml-1">Party</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[430px] bg-white/90 backdrop-blur-lg border-t border-gray-100 px-6 py-3 flex justify-around items-center z-50">
+    <div class="flex flex-col items-center gap-0.5">
+      <span class="text-xl">🏠</span>
+      <span class="text-[9px] font-bold text-violet-500">Zuhause</span>
+    </div>
+    <div class="flex flex-col items-center gap-0.5">
+      <span class="text-xl">📍</span>
+      <span class="text-[9px] font-bold text-gray-300">Räume</span>
+    </div>
+    <div class="flex flex-col items-center gap-0.5">
+      <span class="text-xl">⚡</span>
+      <span class="text-[9px] font-bold text-gray-300">Energie</span>
+    </div>
+    <div class="flex flex-col items-center gap-0.5">
+      <span class="text-xl">⚙️</span>
+      <span class="text-[9px] font-bold text-gray-300">Einstellungen</span>
+    </div>
+  </div>
+
+</body>
+</html>

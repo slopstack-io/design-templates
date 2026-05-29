@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian — Das Magazin für moderne Arbeit</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+body { font-family: 'Lora', Georgia, serif; background: #f5f0e8; color: #3d2b1f; }
+h1, h2, h3, .headline { font-family: 'Playfair Display', Georgia, serif; }
+.roman-divider { text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 14px; letter-spacing: 8px; color: #b89a7a; margin: 48px 0; position: relative; }
+.roman-divider::before, .roman-divider::after { content: ''; position: absolute; top: 50%; width: 30%; height: 1px; background: #c9b896; }
+.roman-divider::before { left: 0; }
+.roman-divider::after { right: 0; }
+.pull-quote { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.5rem; line-height: 1.6; border-left: 3px solid #c67b5c; padding-left: 24px; margin: 40px 0; color: #5a3e2b; }
+.magazine-border { border: 1px solid #d4c5a9; }
+.q-a .question { font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: #c67b5c; font-size: 1.1rem; margin-bottom: 8px; }
+.q-a .answer { color: #5a3e2b; line-height: 1.8; margin-bottom: 32px; }
+</style>
+</head>
+<body>
+
+<!-- Magazine Masthead -->
+<header class="text-center py-16 px-4">
+  <div class="max-w-2xl mx-auto">
+    <p class="text-xs tracking-[0.4em] uppercase text-amber-800/60 mb-4">Gegründet 2026</p>
+    <h1 class="text-7xl md:text-8xl font-black tracking-tight leading-none" style="color: #3d2b1f;">Meridian</h1>
+    <div class="flex justify-center items-center gap-6 mt-6 mb-8">
+      <span class="h-px flex-1 bg-amber-800/20"></span>
+      <p class="text-sm tracking-[0.3em] uppercase text-amber-800/50">Kultur · Arbeit · Zukunft</p>
+      <span class="h-px flex-1 bg-amber-800/20"></span>
+    </div>
+    <p class="text-xl leading-relaxed max-w-lg mx-auto" style="color: #6b5344;">Wie eine neue Generation von Werkzeugen die Art und Weise verändert, wie wir kreativ arbeiten — eine Geschichte über Möglichkeiten.</p>
+  </div>
+</header>
+
+<div class="roman-divider">I</div>
+
+<!-- Editorial Story — The Opening -->
+<section class="max-w-2xl mx-auto px-6">
+  <article>
+    <p class="first-letter:text-6xl first-letter:font-black first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-none" style="font-family: 'Playfair Display', Georgia, serif; color: #3d2b1f;">Es gibt Momente in der Geschichte der Technologie, in denen sich alles wandelt. Die Art, wie wir kommunizieren, gestalten und denken — sie alle stehen an einem Wendepunkt. Was einst isolierte Aufgaben waren, wird nun zu einem fließenden Erlebnis, bei dem Kreativität und Technologie ineinander verschmelzen.</p>
+    
+    <p class="mt-6 leading-relaxed" style="color: #5a3e2b;">In den Werkstätten von Berlin bis München entstehen Ideen, die nicht mehr an Schreibtische gebunden sind. Teams arbeiten über Zeitzonen hinweg, als säßen sie im selben Raum. Die Werkzeuge haben sich verändert — und mit ihnen die Menschen, die sie nutzen.</p>
+
+    <div class="pull-quote">
+      „Die beste Technologie ist die, die man nicht bemerkt — sie verschwindet hinter der Kreativität."
+    </div>
+
+    <p class="leading-relaxed" style="color: #5a3e2b;">Dieses Prinzip steht im Zentrum einer neuen Bewegung. Plattformen, die nicht überladen sind mit Funktionen, sondern die wesentlichen Werkzeuge so intuitiv gestalten, dass Kreativität ohne Reibung fließen kann. Es ist eine Philosophie der Reduktion auf das Wesentliche.</p>
+  </article>
+</section>
+
+<div class="roman-divider">II</div>
+
+<!-- Features as Editorial -->
+<section class="max-w-2xl mx-auto px-6">
+  <h2 class="text-3xl font-bold mb-8 text-center" style="color: #3d2b1f;">Die Säulen der neuen Arbeitskultur</h2>
+
+  <article class="mb-12">
+    <h3 class="text-xl font-bold mb-3" style="color: #c67b5c;">Echtzeit-Zusammenarbeit</h3>
+    <p class="leading-relaxed" style="color: #5a3e2b;">Wenn ein Designer in Hamburg eine Linie zieht, sieht der Kollege in Wien sie sofort. Diese Gleichzeitigkeit ist kein Luxus mehr, sondern die Grundvoraussetzung für modernes Arbeiten. Die Technologie dahinter ist komplex — die Erfahrung ist es nicht.</p>
+    <div class="pull-quote">„Wir haben die Entfernung zwischen Menschen nicht verringert — wir haben sie unsichtbar gemacht."</div>
+  </article>
+
+  <article class="mb-12">
+    <h3 class="text-xl font-bold mb-3" style="color: #c67b5c;">Intelligente Analytik</h3>
+    <p class="leading-relaxed" style="color: #5a3e2b;">Zahlen erzählen Geschichten, wenn man ihnen zuhört. Moderne Analytik-Tools übersuchen nicht mit Daten, sondern liefern die drei Einblicke, die in dieser Stunde zählen. Es ist der Unterschied zwischen einem Berg von Zahlen und einem klaren Weg.</p>
+  </article>
+
+  <article class="mb-12">
+    <h3 class="text-xl font-bold mb-3" style="color: #c67b5c;">Sicherheit als Versprechen</h3>
+    <p class="leading-relaxed" style="color: #5a3e2b;">In einer Zeit, in der Daten zur Währung geworden sind, ist Vertrauen das wertvollste Gut. Ende-zu-Ende-Verschlüsselung ist kein Feature — es ist eine Haltung. Die Gewissheit, dass die eigenen Ideen geschützt sind, ermöglicht erst die Freiheit, sie zu teilen.</p>
+  </article>
+</section>
+
+<div class="roman-divider">III</div>
+
+<!-- Testimonials as Q&A -->
+<section class="max-w-2xl mx-auto px-6">
+  <h2 class="text-3xl font-bold mb-10 text-center" style="color: #3d2b1f;">Stimmen unserer Leser</h2>
+  
+  <div class="q-a">
+    <p class="question">Frau Lindenberg, wie hat Meridian Ihre Arbeitsweise verändert?</p>
+    <p class="answer">„Ich arbeite seit fünfzehn Jahren im Design. Noch nie hatte ich das Gefühl, dass ein Werkzeug wirklich mit mir denkt statt gegen mich. Bei Meridian ist das anders — es verschwindet hinter meiner Arbeit. Ich bin schneller, ohne dass ich es merke."<br><span class="text-sm text-amber-800/50">— Dr. Katharina Lindenberg, Kreativdirektorin, Stuttgart</span></p>
+
+    <p class="question">Herr Vogt, was surprised Sie am meisten?</p>
+    <p class="answer">„Die Einfachheit. Ich hatte erwartet, dass so viel Funktionalität zu Komplexität führt. Stattdessen öffne ich es am Morgen und alles ist da, wo ich es brauche. Meine Kollegen und ich haben unsere Meeting-Zeiten halbiert."<br><span class="text-sm text-amber-800/50">— Thomas Vogt, Produktmanager, Köln</span></p>
+
+    <p class="question">Frau Okonkwo, würden Sie Meridian weiterempfehlen?</p>
+    <p class="answer">„Ich habe es bereits meinem gesamten Netzwerk empfohlen. Besonders im sozialen Bereich, wo wir mit有限en Ressourcen arbeiten, macht ein Werkzeug, das Zeit spart, den Unterschied zwischen einem guten und einem hervorragenden Projekt."<br><span class="text-sm text-amber-800/50">— Amara Okonkwo, NGO-Leiterin, Frankfurt</span></p>
+  </div>
+</section>
+
+<div class="roman-divider">IV</div>
+
+<!-- CTA — Elegant -->
+<section class="max-w-2xl mx-auto px-6 py-16 text-center">
+  <p class="text-xs tracking-[0.4em] uppercase mb-6" style="color: #b89a7a;">Die Geschichte geht weiter</p>
+  <h2 class="text-4xl md:text-5xl font-bold italic mb-6" style="font-family: 'Playfair Display', Georgia, serif; color: #3d2b1f;">Werden Sie Teil<br>der Bewegung</h2>
+  <p class="text-lg leading-relaxed mb-10" style="color: #6b5344;">Kostenlos beginnen. Ohne Verpflichtung. Mit allem, was Sie brauchen, um Ihre kreative Reise zu starten.</p>
+  <a href="#" class="inline-block px-10 py-4 text-lg font-semibold tracking-wide border-2 rounded-none hover:bg-amber-900 hover:text-amber-50 transition-all" style="border-color: #3d2b1f; color: #3d2b1f;">Jetzt entdecken</a>
+</section>
+
+<div class="roman-divider">V</div>
+
+<!-- Pricing — Editorial style -->
+<section class="max-w-2xl mx-auto px-6 pb-16">
+  <h2 class="text-3xl font-bold mb-10 text-center" style="color: #3d2b1f;">Beitrag & Mitgliedschaft</h2>
+  
+  <div class="magazine-border p-8 mb-8">
+    <h3 class="text-xl font-bold mb-2" style="color: #c67b5c;">Leser — Kostenfrei</h3>
+    <p class="leading-relaxed" style="color: #5a3e2b;">Drei Projekte, Basis-Analytik und Zugang zur Community. Der perfekte Einstieg für Neugierige. Keine Kreditkarte erforderlich.</p>
+  </div>
+
+  <div class="magazine-border p-8 mb-8 relative" style="background: #f0e8d8;">
+    <span class="absolute top-0 right-0 bg-amber-900 text-amber-50 text-xs px-4 py-1">Empfohlen</span>
+    <h3 class="text-xl font-bold mb-2" style="color: #c67b5c;">Mitglied — 19 € / Monat</h3>
+    <p class="leading-relaxed" style="color: #5a3e2b;">Unbegrenzte Projekte, erweiterte Analytik und Prioritäts-Support. Für die, die ernsthaft arbeiten wollen.</p>
+  </div>
+
+  <div class="magazine-border p-8">
+    <h3 class="text-xl font-bold mb-2" style="color: #c67b5c;">Förderer — 49 € / Monat</h3>
+    <p class="leading-relaxed" style="color: #5a3e2b;">Alle Mitgliedschafts-Vorteile plus dedizierter Manager, SSO und SLA-Garantie. Für Organisationen, die das Beste erwarten.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-12 border-t" style="border-color: #d4c5a9;">
+  <p class="text-sm" style="color: #b89a7a;">© MMXXVI Meridian — Alle Rechte vorbehalten</p>
+  <p class="text-xs mt-2" style="color: #c9b896;">Impressum · Datenschutz · Kontakt</p>
+</footer>
+
+</body>
+</html>

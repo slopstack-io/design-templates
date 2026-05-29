@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formular — Bento Playful</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #ffffff;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.bento-card {
+  border-radius: 28px;
+  padding: 28px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.card-lavender { background: #ede9fe; }
+.card-peach { background: #fff1e6; }
+.card-mint { background: #dcfce7; }
+.card-sky { background: #e0f2fe; }
+.card-pink { background: #fce7f3; }
+.card-yellow { background: #fef9c3; }
+.card-rose { background: #ffe4e6; }
+.card-blue { background: #dbeafe; }
+
+.emoji-header {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  color: #1a1a2e;
+}
+
+.pill-option {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.7);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 4px;
+  transition: all 0.25s ease;
+  border: 2px solid transparent;
+  user-select: none;
+}
+
+.pill-option:hover {
+  background: rgba(255,255,255,1);
+  transform: scale(1.05);
+}
+
+.pill-option.selected {
+  background: #7c3aed;
+  color: white;
+  border-color: #7c3aed;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+}
+
+.input-card input,
+.input-card textarea {
+  width: 100%;
+  border: none;
+  background: rgba(255,255,255,0.6);
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  transition: background 0.2s;
+}
+
+.input-card input:focus,
+.input-card textarea:focus {
+  background: rgba(255,255,255,0.95);
+}
+
+.input-card textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.progress-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px 24px 8px;
+}
+
+.progress-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.progress-dot.active {
+  width: 42px;
+  border-radius: 7px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 8px auto 40px;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #7c3aed, #ec4899, #f59e0b);
+  background-size: 200% 200%;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+}
+
+.card-wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+  .card-wide { grid-column: span 1; }
+  .bento-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div style="text-align:center; padding: 40px 24px 0;">
+  <div style="font-size: 2.5rem; margin-bottom: 8px;">📋</div>
+  <h1 style="font-size: 1.8rem; font-weight: 800; color: #1a1a2e;">Tell uns über dich!</h1>
+  <p style="color: #6b7280; font-weight: 600; margin-top: 6px;">Fülle die Karten aus — ganz entspannt ✨</p>
+</div>
+
+<!-- Progress Dots -->
+<div class="progress-dots">
+  <div class="progress-dot active" style="background: linear-gradient(135deg, #7c3aed, #ec4899);"></div>
+  <div class="progress-dot" style="background: linear-gradient(135deg, #a78bfa, #c084fc);"></div>
+  <div class="progress-dot" style="background: linear-gradient(135deg, #c084fc, #f472b6);"></div>
+  <div class="progress-dot" style="background: linear-gradient(135deg, #f472b6, #fb923c);"></div>
+</div>
+
+<!-- Bento Card Grid -->
+<div class="bento-grid">
+
+  <!-- Card 1: Anrede -->
+  <div class="bento-card card-lavender">
+    <div class="emoji-header">👋</div>
+    <div class="card-title">Wie möchtest du genannt werden?</div>
+    <div class="pill-option" onclick="selectPill(this)">Frau</div>
+    <div class="pill-option" onclick="selectPill(this)">Herr</div>
+    <div class="pill-option" onclick="selectPill(this)">Divers</div>
+    <div class="pill-option" onclick="selectPill(this)">Lieber nicht sagen</div>
+  </div>
+
+  <!-- Card 2: Name -->
+  <div class="bento-card card-peach input-card">
+    <div class="emoji-header">✏️</div>
+    <div class="card-title">Dein Name</div>
+    <input type="text" placeholder="Vorname">
+    <div style="height:10px"></div>
+    <input type="text" placeholder="Nachname">
+  </div>
+
+  <!-- Card 3: Email -->
+  <div class="bento-card card-sky input-card">
+    <div class="emoji-header">📧</div>
+    <div class="card-title">Deine E-Mail</div>
+    <input type="email" placeholder="hallo@beispiel.de">
+  </div>
+
+  <!-- Card 4: Interesse -->
+  <div class="bento-card card-mint card-wide">
+    <div class="emoji-header">🎯</div>
+    <div class="card-title">Was interessiert dich am meisten?</div>
+    <div class="pill-option" onclick="selectPill(this)">🏠 Immobilien</div>
+    <div class="pill-option" onclick="selectPill(this)">🚗 Fahrzeuge</div>
+    <div class="pill-option" onclick="selectPill(this)">💼 Karriere</div>
+    <div class="pill-option" onclick="selectPill(this)">🎓 Bildung</div>
+    <div class="pill-option" onclick="selectPill(this)">🎨 Kreatives</div>
+    <div class="pill-option" onclick="selectPill(this)">💡 Technologie</div>
+  </div>
+
+  <!-- Card 5: Erfahrung -->
+  <div class="bento-card card-pink">
+    <div class="emoji-header">⭐</div>
+    <div class="card-title">Wie viel Erfahrung hast du?</div>
+    <div class="pill-option" onclick="selectPill(this)">🌟 Anfänger</div>
+    <div class="pill-option" onclick="selectPill(this)">🌟🌟 Fortgeschritten</div>
+    <div class="pill-option" onclick="selectPill(this)">🌟🌟🌟 Experte</div>
+  </div>
+
+  <!-- Card 6: Budget -->
+  <div class="bento-card card-yellow">
+    <div class="emoji-header">💰</div>
+    <div class="card-title">Dein Budget</div>
+    <div class="pill-option" onclick="selectPill(this)">Bis 500€</div>
+    <div class="pill-option" onclick="selectPill(this)">500–2000€</div>
+    <div class="pill-option" onclick="selectPill(this)">2000–5000€</div>
+    <div class="pill-option" onclick="selectPill(this)">5000€+</div>
+  </div>
+
+  <!-- Card 7: Nachricht -->
+  <div class="bento-card card-rose input-card card-wide">
+    <div class="emoji-header">💬</div>
+    <div class="card-title">Noch etwas loswerden?</div>
+    <textarea placeholder="Schreib uns alles, was uns wissen solltest..."></textarea>
+  </div>
+
+  <!-- Card 8: Kontakt -->
+  <div class="bento-card card-blue">
+    <div class="emoji-header">📱</div>
+    <div class="card-title">Telefonnummer</div>
+    <div class="pill-option" onclick="selectPill(this)">Ja, gerne!</div>
+    <div class="pill-option" onclick="selectPill(this)">Nur E-Mail</div>
+    <div class="pill-option" onclick="selectPill(this)">WhatsApp</div>
+  </div>
+
+</div>
+
+<!-- Submit -->
+<button class="submit-btn">🚀 Absenden & loslegen!</button>
+
+<script>
+function selectPill(el) {
+  const siblings = el.parentElement.querySelectorAll('.pill-option');
+  siblings.forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+}
+</script>
+
+</body>
+</html>

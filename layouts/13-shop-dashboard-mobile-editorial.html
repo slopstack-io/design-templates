@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Shop Dashboard — Editorial Mobile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+  body { font-family: 'Lora', serif; max-width: 430px; margin: 0 auto; background: #faf6f0; color: #3d2c1e; }
+  h1, h2, h3, .serif-heading { font-family: 'Playfair Display', serif; }
+  .terracotta { color: #c0623a; }
+  .nav-link { font-family: 'Playfair Display', serif; }
+</style>
+</head>
+<body class="min-h-screen pb-28">
+
+<!-- Header -->
+<header class="px-7 pt-8 pb-4 border-b border-amber-900/10">
+  <div class="flex items-center justify-between">
+    <div>
+      <p class="text-xs tracking-[0.3em] uppercase terracotta font-bold">Handelsbuch</p>
+      <h1 class="serif-heading text-2xl font-bold mt-1">Guten Tag, Anna</h1>
+    </div>
+    <p class="text-xs text-amber-900/40 italic" id="date-display">Freitag, 29. Mai 2026</p>
+  </div>
+</header>
+
+<!-- Editorial Stats -->
+<section class="px-7 pt-8 pb-6">
+  <h2 class="serif-heading text-xs tracking-[0.3em] uppercase terracotta font-bold mb-6">Tagesübersicht</h2>
+  
+  <div class="space-y-6">
+    <div class="border-b border-amber-900/8 pb-4">
+      <p class="text-sm text-amber-900/50 italic">Tagesumsatz</p>
+      <p class="serif-heading text-4xl font-bold terracotta">€ 2.847,50</p>
+      <p class="text-sm text-amber-900/40 mt-1">Zwölftausendvierhundert mehr als am vergangenen Freitag — ein steter Aufwärtstrend, der nunmehr den dritten Monat anhält.</p>
+    </div>
+
+    <div class="flex gap-8">
+      <div>
+        <p class="text-sm text-amber-900/50 italic">Bestellungen</p>
+        <p class="serif-heading text-3xl font-bold terracotta">47</p>
+      </div>
+      <div>
+        <p class="text-sm text-amber-900/50 italic">Besucher</p>
+        <p class="serif-heading text-3xl font-bold terracotta">312</p>
+      </div>
+      <div>
+        <p class="text-sm text-amber-900/50 italic">Bewertung</p>
+        <p class="serif-heading text-3xl font-bold terracotta">4.8</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="mx-7 border-t border-amber-900/8"></div>
+
+<!-- Recent Orders as Journal -->
+<section class="px-7 pt-6 pb-6">
+  <h2 class="serif-heading text-xs tracking-[0.3em] uppercase terracotta font-bold mb-6">Letzte Einträge</h2>
+  
+  <div class="space-y-0">
+    <!-- Entry 1 -->
+    <div class="py-5 border-b border-amber-900/6">
+      <div class="flex items-baseline justify-between">
+        <p class="text-xs text-amber-900/40 italic">heute, 17:42 Uhr</p>
+        <p class="serif-heading font-bold terracotta">€ 48,00</p>
+      </div>
+      <p class="serif-heading font-bold mt-1">#1247 — Maria Schneider</p>
+      <p class="text-sm text-amber-900/60 mt-1 italic">Zwei handgegossene Sojawachskerzen, Duft: Bergamotte & Sandelholz. Als Geschenk verpackt, Adresse in München-Schwabing.</p>
+      <span class="inline-block mt-2 text-xs italic text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Versandt</span>
+    </div>
+
+    <!-- Entry 2 -->
+    <div class="py-5 border-b border-amber-900/6">
+      <div class="flex items-baseline justify-between">
+        <p class="text-xs text-amber-900/40 italic">heute, 15:18 Uhr</p>
+        <p class="serif-heading font-bold terracotta">€ 18,90</p>
+      </div>
+      <p class="serif-heading font-bold mt-1">#1246 — Thomas Kaufmann</p>
+      <p class="text-sm text-amber-900/60 mt-1 italic">Bio-Olavendelseife, einzeln verpackt. Wiederholungsbestellung — Herr Kaufmann bestellt nunmehr zum fünften Mal.</p>
+      <span class="inline-block mt-2 text-xs italic text-orange-700 bg-orange-50 px-2 py-0.5 rounded">In Bearbeitung</span>
+    </div>
+
+    <!-- Entry 3 -->
+    <div class="py-5 border-b border-amber-900/6">
+      <div class="flex items-baseline justify-between">
+        <p class="text-xs text-amber-900/40 italic">heute, 12:03 Uhr</p>
+        <p class="serif-heading font-bold terracotta">€ 34,50</p>
+      </div>
+      <p class="serif-heading font-bold mt-1">#1245 — Lisa Meier</p>
+      <p class="text-sm text-amber-900/60 mt-1 italic">Handgedrehtes Keramik-Tassen-Set, Naturton. Persönliche Widmung auf dem Paket erwünscht.</p>
+      <span class="inline-block mt-2 text-xs italic text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Zugestellt</span>
+    </div>
+
+    <!-- Entry 4 -->
+    <div class="py-5">
+      <div class="flex items-baseline justify-between">
+        <p class="text-xs text-amber-900/40 italic">gestern, 22:15 Uhr</p>
+        <p class="serif-heading font-bold terracotta">€ 127,00</p>
+      </div>
+      <p class="serif-heading font-bold mt-1">#1244 — Dr. Heinrich Vogt</p>
+      <p class="text-sm text-amber-900/60 mt-1 italic">Geschenkset »Alpenbotanik« mit sechs verschiedenen Seifen, einem Lavendelkissen und handgeschöpftem Papier. Lieferung nach Zürich.</p>
+      <span class="inline-block mt-2 text-xs italic text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Zugestellt</span>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="mx-7 border-t border-amber-900/8"></div>
+
+<!-- Products Overview -->
+<section class="px-7 pt-6 pb-8">
+  <h2 class="serif-heading text-xs tracking-[0.3em] uppercase terracotta font-bold mb-4">Kurzes Inventar</h2>
+  <p class="text-sm text-amber-900/60 leading-relaxed italic">
+    Im Lager verbleiben gegenwärtig 184 Artikel. Drei Sorten sind abverkauft — die Bergamottenkerze, 
+    das Rosmarinbad und die kleine Mandelseife. Elf weitere Produkte nähern sich dem Ende ihres Bestands 
+    und bedürfen in kommenden Tagen der Nachfertigung.
+  </p>
+</section>
+
+<!-- Bottom Navigation — Text Links -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[430px] max-w-full bg-[#faf6f0] border-t border-amber-900/10 px-6 py-4">
+  <div class="flex justify-between items-center">
+    <a href="#" class="nav-link text-sm font-bold terracotta">Übersicht</a>
+    <a href="#" class="nav-link text-sm text-amber-900/40">Bestellungen</a>
+    <a href="#" class="nav-link text-sm text-amber-900/40">Waren</a>
+    <a href="#" class="nav-link text-sm text-amber-900/40">Berichte</a>
+    <a href="#" class="nav-link text-sm text-amber-900/40">Konto</a>
+  </div>
+</nav>
+
+</body>
+</html>

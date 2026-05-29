@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MERIDIAN — Kuratierte Artikel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0a0a0a; color: #d0ccc7;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  font-weight: 200; letter-spacing: 0.5px;
+  line-height: 1.8;
+}
+h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+.gold { color: #c9a96e; }
+.muted { color: rgba(255,255,255,0.25); }
+
+nav a {
+  text-decoration: none; color: rgba(255,255,255,0.3);
+  font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+  font-weight: 200; transition: color 0.5s;
+}
+nav a:hover { color: #c9a96e; }
+
+.label-sm {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: #c9a96e; font-weight: 300;
+}
+
+.article-row {
+  padding: 60px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: all 0.5s;
+}
+.article-row:hover { border-bottom-color: rgba(201,169,110,0.15); }
+.article-row:last-child { border-bottom: none; }
+
+.article-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(28px, 3.5vw, 42px); font-weight: 300;
+  line-height: 1.2; color: #e8e4df; transition: color 0.5s;
+}
+.article-row:hover .article-title { color: #fff; }
+
+.article-excerpt {
+  font-size: 15px; font-weight: 200; line-height: 1.9;
+  color: rgba(255,255,255,0.35); max-width: 600px;
+}
+
+.article-meta {
+  font-size: 12px; color: rgba(255,255,255,0.2); font-weight: 200;
+  letter-spacing: 1px;
+}
+.article-meta .gold { font-weight: 300; }
+
+.read-link {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: #c9a96e; text-decoration: none; font-weight: 300;
+  border-bottom: 1px solid rgba(201,169,110,0.3);
+  transition: border-color 0.3s; padding-bottom: 2px;
+}
+.read-link:hover { border-color: #c9a96e; }
+
+.section-line {
+  width: 40px; height: 1px; background: rgba(201,169,110,0.3);
+}
+
+.glow-bg {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.03) 0%, transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .article-row { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+<div class="glow-bg"></div>
+
+<!-- Navigation -->
+<header class="relative z-10 py-12 px-12">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;letter-spacing:8px;font-weight:300;">MERIDIAN</h1>
+    <nav class="flex gap-10">
+      <a href="#">Kuratiert</a>
+      <a href="#">Essays</a>
+      <a href="#">Rezensionen</a>
+      <a href="#">Über</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative z-10 py-28 px-12 text-center">
+  <div class="max-w-2xl mx-auto">
+    <p class="label-sm mb-6">Kuratierte Auswahl · Mai 2026</p>
+    <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,5vw,56px);font-weight:300;line-height:1.1;margin-bottom:20px;">
+      Gedanken, die<br><span class="gold">Bestand haben</span>
+    </h2>
+    <p style="color:rgba(255,255,255,0.25);font-size:14px;font-weight:200;line-height:1.9;max-width:400px;margin:0 auto;">
+      Wir veröffentlichen nicht alles. Nur das, was bleibt.
+    </p>
+  </div>
+</section>
+
+<div style="max-width:800px;margin:0 auto;padding:0 24px;">
+  <div style="height:1px;background:rgba(255,255,255,0.06);"></div>
+</div>
+
+<!-- Article Rows -->
+<main class="relative z-10 max-w-800 mx-auto px-12" style="max-width:800px;margin:0 auto;">
+
+  <!-- Article 1 -->
+  <article class="article-row">
+    <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+      <div>
+        <p class="label-sm">Essay</p>
+      </div>
+      <p class="article-meta">28. Mai 2026 · <span class="gold">12 Min. Lesezeit</span></p>
+    </div>
+    <h2 class="article-title mb-4">
+      Die Einsamkeit der digitalen Gesellschaft — und warum sie kein Problem ist
+    </h2>
+    <p class="article-excerpt mb-6">
+      In einer Welt permanenter Vernetzung sehnen sich Menschen nach Stille. Doch die Diagnose 
+      „Einsamkeits-Epidemie" greift zu kurz. Was wir empfinden, ist keine Isolation — es ist 
+      die Sehnsucht nach Tiefe in einer Zeit der Oberflächlichkeit.
+    </p>
+    <div class="flex items-center gap-6">
+      <a href="#" class="read-link">Lesen →</a>
+      <span class="article-meta">Von Dr. Eva Lindenberg</span>
+    </div>
+  </article>
+
+  <article class="article-row" style="padding-top:80px;">
+    <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+      <div>
+        <p class="label-sm">Wissenschaft</p>
+      </div>
+      <p class="article-meta">25. Mai 2026 · <span class="gold">9 Min. Lesezeit</span></p>
+    </div>
+    <h2 class="article-title mb-4">
+      Dunkle Materie: Was wir nicht sehen, bestimmt unser Universum
+    </h2>
+    <p class="article-excerpt mb-6">
+      85 Prozent der Materie im Universum sind unsichtbar. Wir kennen ihre Gravitation, 
+      aber nicht ihre Natur. Neue Experimente am CERN könnten das Blatt wenden — und unser 
+      Verständnis der Physik grundlegend umschreiben.
+    </p>
+    <div class="flex items-center gap-6">
+      <a href="#" class="read-link">Lesen →</a>
+      <span class="article-meta">Von Prof. Dr. Marcus Stein</span>
+    </div>
+  </article>
+
+  <article class="article-row" style="padding-top:80px;">
+    <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+      <div>
+        <p class="label-sm">Kultur</p>
+      </div>
+      <p class="article-meta">22. Mai 2026 · <span class="gold">7 Min. Lesezeit</span></p>
+    </div>
+    <h2 class="article-title mb-4">
+      Caspar David Friedrich und die Kunst der melancholischen Landschaft
+    </h2>
+    <p class="article-excerpt mb-6">
+      Der Rücken des Wanderers vor dem Nebelmeer — kaum ein Bild ist so sehr zur Chiffre 
+      deutschen Empfindens geworden. Doch Friedrichs Landschaften sind mehr als Romantik: 
+      Sie sind Meditationen über die Stellung des Menschen in der Natur.
+    </p>
+    <div class="flex items-center gap-6">
+      <a href="#" class="read-link">Lesen →</a>
+      <span class="article-meta">Von Dr. Henrike Vogel</span>
+    </div>
+  </article>
+
+  <article class="article-row" style="padding-top:80px;">
+    <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+      <div>
+        <p class="label-sm">Architektur</p>
+      </div>
+      <p class="article-meta">19. Mai 2026 · <span class="gold">11 Min. Lesezeit</span></p>
+    </div>
+    <h2 class="article-title mb-4">
+      Bauen für das nächste Jahrhundert: Wie Nachhaltigkeit die Architektur neu definiert
+    </h2>
+    <p class="article-excerpt mb-6">
+      Holz, Lehm, Hanf — die Baumaterialien der Zukunft kommen aus der Vergangenheit. 
+      Eine neue Generation von Architekten beweist, dass ökologisches Bauen nicht 
+      Verzicht bedeutet, sondern ästhetische Innovation.
+    </p>
+    <div class="flex items-center gap-6">
+      <a href="#" class="read-link">Lesen →</a>
+      <span class="article-meta">Von Lukas Brandt</span>
+    </div>
+  </article>
+
+  <article class="article-row" style="padding-top:80px;">
+    <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+      <div>
+        <p class="label-sm">Rezension</p>
+      </div>
+      <p class="article-meta">16. Mai 2026 · <span class="gold">8 Min. Lesezeit</span></p>
+    </div>
+    <h2 class="article-title mb-4">
+      „Die Gewichtlosen" — ein Roman, der die Grenze zwischen Traum und Wirklichkeit verwischt
+    </h2>
+    <p class="article-excerpt mb-6">
+      Die österreichische Autorin Judith Hartmann legt mit ihrem dritten Roman ihr bislang 
+      ambitioniertes Werk vor. In verschachtelten Erzählebenen erkundet sie die Frage, 
+      ob Identität eine Wahl ist oder ein Schicksal.
+    </p>
+    <div class="flex items-center gap-6">
+      <a href="#" class="read-link">Lesen →</a>
+      <span class="article-meta">Von Margarethe Kohn</span>
+    </div>
+  </article>
+
+  <article class="article-row" style="padding-top:80px;">
+    <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+      <div>
+        <p class="label-sm">Philosophie</p>
+      </div>
+      <p class="article-meta">13. Mai 2026 · <span class="gold">15 Min. Lesezeit</span></p>
+    </div>
+    <h2 class="article-title mb-4">
+      Heidegger reloaded: Sein und Zeit im Zeitalter der Künstlichen Intelligenz
+    </h2>
+    <p class="article-excerpt mb-6">
+      Was bedeutet „Sein" für eine Maschine, die spricht, lernt und erschafft? 
+      Die Frage ist nicht nur philosophisch — sie berührt den Kern unserer eigenen 
+      menschlichen Identität. Ein Versuch über die Aktualität eines alten Denkens.
+    </p>
+    <div class="flex items-center gap-6">
+      <a href="#" class="read-link">Lesen →</a>
+      <span class="article-meta">Von Prof. Dr. Friedrich Kain</span>
+    </div>
+  </article>
+
+</main>
+
+<!-- Closing -->
+<section class="relative z-10 py-28 px-12 text-center">
+  <div class="max-w-lg mx-auto">
+    <div class="section-line" style="margin:0 auto 24px;"></div>
+    <p style="color:rgba(255,255,255,0.2);font-size:13px;font-weight:200;line-height:2;">
+      MERIDIAN erscheint wöchentlich. Jeder Artikel wird von unseren Redakteuren 
+      persönlich ausgewählt. Kein Algorithmus. Kein Clickbait. Nur das Wesentliche.
+    </p>
+    <div style="margin-top:32px;">
+      <a href="#" style="display:inline-block;padding:14px 40px;border:1px solid rgba(201,169,110,0.3);color:#c9a96e;font-size:11px;letter-spacing:4px;text-transform:uppercase;text-decoration:none;font-weight:200;transition:all 0.5s;">
+        Abonnieren
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 py-16 px-12" style="border-top:1px solid rgba(255,255,255,0.04);">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;letter-spacing:6px;font-weight:300;">MERIDIAN</div>
+    <div class="flex gap-8">
+      <a href="#" style="color:rgba(255,255,255,0.2);text-decoration:none;font-size:10px;letter-spacing:2px;">Impressum</a>
+      <a href="#" style="color:rgba(255,255,255,0.2);text-decoration:none;font-size:10px;letter-spacing:2px;">Redaktion</a>
+      <a href="#" style="color:rgba(255,255,255,0.2);text-decoration:none;font-size:10px;letter-spacing:2px;">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Gesundheit – Bento</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>*{font-family:'Segoe UI',system-ui,sans-serif;box-sizing:border-box}body{margin:0;max-width:430px;margin:0 auto}</style>
+</head>
+<body class="bg-white min-h-screen pb-8">
+
+<!-- Header -->
+<div class="px-5 pt-6 pb-4">
+  <p class="text-sm text-gray-400">Hallo, Sarah 👋</p>
+  <h1 class="text-2xl font-bold text-gray-800 mt-1">Deine Gesundheit</h1>
+</div>
+
+<!-- Spending Card -->
+<div class="mx-5 rounded-3xl p-6 text-white" style="background:linear-gradient(135deg,#f472b6,#c084fc,#818cf8)">
+  <p class="text-sm opacity-90 font-medium">Gesundheitsausgaben 2026</p>
+  <p class="text-4xl font-extrabold mt-2">€ 2.847</p>
+  <div class="flex gap-3 mt-4">
+    <span class="bg-white/25 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium">Arzt €1.420</span>
+    <span class="bg-white/25 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium">Medikamente €892</span>
+    <span class="bg-white/25 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium">Therapie €535</span>
+  </div>
+</div>
+
+<!-- Section: Termine -->
+<div class="px-5 mt-7">
+  <h2 class="text-lg font-bold text-gray-800 mb-3">Kommende Termine</h2>
+  <div class="grid grid-cols-2 gap-3">
+    <!-- Card 1 -->
+    <div class="rounded-2xl p-4" style="background:linear-gradient(135deg,#fda4af,#fecdd3)">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg" style="background:linear-gradient(135deg,#e11d48,#f43f5e)">15</div>
+      <p class="text-sm font-semibold text-rose-900 mt-2">Kontrolle</p>
+      <p class="text-xs text-rose-700 mt-0.5">Dr. Müller, 09:30</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="rounded-2xl p-4" style="background:linear-gradient(135deg,#a5b4fc,#c7d2fe)">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg" style="background:linear-gradient(135deg,#4f46e5,#6366f1)">22</div>
+      <p class="text-sm font-semibold text-indigo-900 mt-2">Augenarzt</p>
+      <p class="text-xs text-indigo-700 mt-0.5">Dr. Schmidt, 14:00</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="rounded-2xl p-4" style="background:linear-gradient(135deg,#86efac,#bbf7d0)">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg" style="background:linear-gradient(135deg,#16a34a,#22c55e)">28</div>
+      <p class="text-sm font-semibold text-green-900 mt-2">Zahnreinigung</p>
+      <p class="text-xs text-green-700 mt-0.5">Dr. Weber, 11:15</p>
+    </div>
+    <!-- Card 4 -->
+    <div class="rounded-2xl p-4" style="background:linear-gradient(135deg,#fde68a,#fef3c7)">
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg" style="background:linear-gradient(135deg,#d97706,#f59e0b)">03</div>
+      <p class="text-sm font-semibold text-amber-900 mt-2">Labor</p>
+      <p class="text-xs text-amber-700 mt-0.5">Blutbild, 08:00</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section: Ärzte -->
+<div class="px-5 mt-7">
+  <h2 class="text-lg font-bold text-gray-800 mb-3">Deine Ärzte</h2>
+  <div class="flex flex-col gap-3">
+    <div class="flex items-center gap-3 bg-gradient-to-r from-pink-50 to-pink-100 rounded-2xl p-4">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-2xl">🩺</div>
+      <div>
+        <p class="font-semibold text-gray-800">Dr. Anna Müller</p>
+        <p class="text-xs text-pink-600">Allgemeinmedizin · Herz-Kreislauf</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 bg-gradient-to-r from-blue-50 to-indigo-100 rounded-2xl p-4">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-2xl">👁️</div>
+      <div>
+        <p class="font-semibold text-gray-800">Dr. Thomas Schmidt</p>
+        <p class="text-xs text-indigo-600">Augenheilkunde · Laser</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 bg-gradient-to-r from-green-50 to-emerald-100 rounded-2xl p-4">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-2xl">🦷</div>
+      <div>
+        <p class="font-semibold text-gray-800">Dr. Lisa Weber</p>
+        <p class="text-xs text-emerald-600">Zahnmedizin · Prophylaxe</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section: Nachrichten -->
+<div class="px-5 mt-7">
+  <h2 class="text-lg font-bold text-gray-800 mb-3">Nachrichten</h2>
+  <div class="flex flex-col gap-2">
+    <div class="flex items-center gap-2">
+      <div class="flex-1 bg-gradient-to-r from-violet-100 to-purple-100 rounded-full px-4 py-2.5">
+        <p class="text-sm font-medium text-violet-800">Dr. Müller: Blutwerte sind da ✅</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 justify-end">
+      <div class="flex-1 bg-gradient-to-r from-teal-100 to-cyan-100 rounded-full px-4 py-2.5">
+        <p class="text-sm font-medium text-teal-800">Apotheke: Rezept abholbereit 💊</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="flex-1 bg-gradient-to-r from-amber-100 to-orange-100 rounded-full px-4 py-2.5">
+        <p class="text-sm font-medium text-amber-800">Erinnerung: Termin morgen 09:30 ⏰</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

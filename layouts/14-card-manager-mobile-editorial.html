@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Kartenmanager — Editorial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+* { -webkit-font-smoothing: antialiased; }
+body { max-width: 430px; margin: 0 auto; background: #faf6f0; overflow-x: hidden; }
+h1, h2, h3, .heading { font-family: 'Playfair Display', serif; }
+p, span, .body-text { font-family: 'Source Serif 4', serif; }
+.divider { height: 1px; background: #c9b99a; }
+</style>
+</head>
+<body class="min-h-screen pb-20" style="background: #faf6f0;">
+
+<!-- Header -->
+<div class="px-8 pt-14 pb-2">
+  <p class="text-sm tracking-[0.3em] uppercase" style="color: #8b7355;">Kontoauszug</p>
+  <h1 class="text-3xl font-bold mt-2" style="color: #3d2b1f;">Kreditkarten­übersicht</h1>
+  <p class="italic mt-2 text-sm" style="color: #7a6b5a;">Per 29. Mai 2026 — Erstellt für Herrn Max Müller</p>
+</div>
+
+<div class="divider mx-8 my-5"></div>
+
+<!-- Card Statement Section -->
+<div class="px-8 mb-6">
+  <h2 class="text-xl font-bold mb-4" style="color: #3d2b1f;">Ihre Premiumkarte</h2>
+  <div class="border-2 rounded-sm p-6" style="border-color: #c9b99a; background: #fffdf8;">
+    <div class="flex items-start justify-between mb-4">
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase" style="color: #8b7355;">Kartennummer</p>
+        <p class="text-lg font-semibold tracking-wider" style="color: #3d2b1f;">•••• •••• •••• 4829</p>
+      </div>
+      <div class="text-right">
+        <p class="text-xs tracking-[0.2em] uppercase" style="color: #8b7355;">Kreditinstitut</p>
+        <p class="text-lg font-semibold" style="color: #3d2b1f;">Deutsche Bank</p>
+      </div>
+    </div>
+    <div class="flex items-start justify-between mb-4">
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase" style="color: #8b7355;">Inhaber</p>
+        <p class="text-base" style="color: #3d2b1f;">Herr Max Müller</p>
+      </div>
+      <div class="text-right">
+        <p class="text-xs tracking-[0.2em] uppercase" style="color: #8b7355;">Gültig bis</p>
+        <p class="text-base" style="color: #3d2b1f;">September 2028</p>
+      </div>
+    </div>
+    <div class="divider my-4"></div>
+    <div class="flex items-end justify-between">
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase" style="color: #8b7355;">Verfügungsrahmen</p>
+        <p class="text-2xl font-bold" style="color: #3d2b1f;">€10.000</p>
+      </div>
+      <div class="text-right">
+        <p class="text-xs tracking-[0.2em] uppercase" style="color: #8b7355;">Aktuelles Saldo</p>
+        <p class="text-2xl font-bold" style="color: #6b4226;">€4.280</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Benefits in prose -->
+<div class="px-8 mb-6">
+  <h2 class="text-xl font-bold mb-4" style="color: #3d2b1f;">Ihre Vorteile auf einen Blick</h2>
+  <div class="space-y-4">
+    <p class="text-sm leading-relaxed" style="color: #4a3728;">
+      Als Inhaber unserer Premiumkarte genießen Sie eine <strong>umfassende Reiseversicherung</strong>, die Sie auf allen Ihren Wegen weltweit begleitet — von der Reiserücktrittsversicherung bis hin zur Krankenversicherung im Ausland. Ihr Schutz gilt automatisch bei jeder Buchung mit dieser Karte.
+    </p>
+    <p class="text-sm leading-relaxed" style="color: #4a3728;">
+      Darüber hinaus profitieren Sie von einem <strong>dauerhaften Cashback-Programm</strong> in Höhe von drei Prozent auf alle Einkäufe. Ob im Supermarkt, beim Online-Shopping oder im Restaurant — jeder Euro gibt Ihnen etwas zurück. Die Gutschrift erfolgt automatisch monatlich.
+    </p>
+    <p class="text-sm leading-relaxed" style="color: #4a3728;">
+      Besonders erwähnenswert ist die <strong>Gebührenfreiheit</strong> im In- und Ausland. Keine versteckten Kosten, keine Auslandseinsatzgebühren, keine Jahresgebühr im ersten Jahr. Ihre Karte kostet Sie im Alltag keinen Cent extra.
+    </p>
+  </div>
+</div>
+
+<div class="divider mx-8 my-5"></div>
+
+<!-- Transaction Journal -->
+<div class="px-8 mb-8">
+  <h2 class="text-xl font-bold mb-1" style="color: #3d2b1f;">Umsatzjournal</h2>
+  <p class="italic text-sm mb-5" style="color: #7a6b5a;">Die letzten Buchungen in chronologischer Reihenfolge</p>
+  
+  <div class="space-y-5">
+    <div>
+      <p class="text-xs tracking-[0.2em] uppercase font-semibold" style="color: #8b7355;">Donnerstag, 29. Mai 2026</p>
+      <div class="mt-2 pl-4" style="border-left: 2px solid #c9b99a;">
+        <p class="text-sm font-semibold" style="color: #3d2b1f;">Pizzeria Roma — Abendessen</p>
+        <p class="text-xs italic" style="color: #7a6b5a;">Kartenzahlung vor Ort · 19:42 Uhr</p>
+        <p class="text-base font-bold mt-1" style="color: #8b2500;">-€24,50</p>
+      </div>
+    </div>
+    
+    <div>
+      <p class="text-xs tracking-[0.2em] uppercase font-semibold" style="color: #8b7355;">Mittwoch, 28. Mai 2026</p>
+      <div class="mt-2 pl-4" style="border-left: 2px solid #c9b99a;">
+        <p class="text-sm font-semibold" style="color: #3d2b1f;">Rewe Vollsortiment — Wocheneinkauf</p>
+        <p class="text-xs italic" style="color: #7a6b5a;">Kartenzahlung · 14:15 Uhr</p>
+        <p class="text-base font-bold mt-1" style="color: #8b2500;">-€67,30</p>
+      </div>
+      <div class="mt-3 pl-4" style="border-left: 2px solid #c9b99a;">
+        <p class="text-sm font-semibold" style="color: #3d2b1f;">Gehaltszahlung — Müller GmbH</p>
+        <p class="text-xs italic" style="color: #7a6b5a;">Überweisung · 08:00 Uhr</p>
+        <p class="text-base font-bold mt-1" style="color: #2d5016;">+€3.200,00</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-xs tracking-[0.2em] uppercase font-semibold" style="color: #8b7355;">Dienstag, 27. Mai 2026</p>
+      <div class="mt-2 pl-4" style="border-left: 2px solid #c9b99a;">
+        <p class="text-sm font-semibold" style="color: #3d2b1f;">Shell Tankstelle — Kraftstoff</p>
+        <p class="text-xs italic" style="color: #7a6b5a;">Kartenzahlung · 17:33 Uhr</p>
+        <p class="text-base font-bold mt-1" style="color: #8b2500;">-€55,00</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-xs tracking-[0.2em] uppercase font-semibold" style="color: #8b7355;">Montag, 26. Mai 2026</p>
+      <div class="mt-2 pl-4" style="border-left: 2px solid #c9b99a;">
+        <p class="text-sm font-semibold" style="color: #3d2b1f;">Starbucks Kaffeehaus — Heißgetränke</p>
+        <p class="text-xs italic" style="color: #7a6b5a;">Kartenzahlung · 08:12 Uhr</p>
+        <p class="text-base font-bold mt-1" style="color: #8b2500;">-€5,80</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-xs tracking-[0.2em] uppercase font-semibold" style="color: #8b7355;">Sonntag, 25. Mai 2026</p>
+      <div class="mt-2 pl-4" style="border-left: 2px solid #c9b99a;">
+        <p class="text-sm font-semibold" style="color: #3d2b1f;">Spotify AB — Musikabonnement</p>
+        <p class="text-xs italic" style="color: #7a6b5a;">Abbuchung · automatische Verlängerung</p>
+        <p class="text-base font-bold mt-1" style="color: #8b2500;">-€9,99</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider mx-8 my-5"></div>
+
+<!-- Footer -->
+<div class="px-8 pb-10 text-center">
+  <p class="text-xs" style="color: #8b7355;">Deutsche Bank AG · Vorsprung durch Erstklassigkeit</p>
+  <p class="text-xs italic mt-1" style="color: #b0a08a;">Nächster Kontoauszug: Juni 2026</p>
+</div>
+
+</body>
+</html>
