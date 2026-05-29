@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing / Marketing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #ffffff; --bg-dark: #0a0a0a; --text: #1a1a2e; --text-secondary: #64748b; --accent: #6366f1; --accent-soft: rgba(99,102,241,0.08); --border: #e2e8f0; }
+    * { font-family: 'Inter', system-ui, sans-serif; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); margin: 0; }
+    .nav { padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); z-index: 100; border-bottom: 1px solid var(--border); }
+    .hero { padding: 120px 48px 80px; text-align: center; max-width: 900px; margin: 0 auto; }
+    .hero h1 { font-size: 56px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 24px; }
+    .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .features { padding: 80px 48px; max-width: 1100px; margin: 0 auto; }
+    .feature-card { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: all 0.2s; }
+    .feature-card:hover { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .feature-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: #4f46e5; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99,102,241,0.4); }
+    .btn-ghost { background: transparent; color: var(--text); }
+    .btn-ghost:hover { background: var(--accent-soft); }
+    .testimonial { background: var(--bg-dark); color: white; padding: 80px 48px; }
+    .testimonial-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; }
+    .cta { padding: 100px 48px; text-align: center; background: linear-gradient(180deg, white 0%, var(--accent-soft) 100%); }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div style="display: flex; align-items: center; gap: 32px;">
+      <div style="font-size: 20px; font-weight: 800; color: var(--accent);">produkt<span style="color: var(--text);">.io</span></div>
+      <div style="display: flex; gap: 24px; font-size: 14px; color: var(--text-secondary);">
+        <span style="cursor: pointer;">Features</span>
+        <span style="cursor: pointer;">Preise</span>
+        <span style="cursor: pointer;">Über uns</span>
+        <span style="cursor: pointer;">Blog</span>
+      </div>
+    </div>
+    <div style="display: flex; gap: 12px;">
+      <button class="btn btn-ghost" style="padding: 10px 20px; font-size: 14px;">Anmelden</button>
+      <button class="btn btn-primary" style="padding: 10px 20px; font-size: 14px;">Kostenlos starten</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div style="display: inline-block; background: var(--accent-soft); color: var(--accent); padding: 6px 16px; border-radius: 9999px; font-size: 14px; font-weight: 500; margin-bottom: 32px;">✨ Neu: Version 2.0 ist da</div>
+    <h1>Erstelle Apps.<br><span class="gradient-text">Ohne Code.</span></h1>
+    <p style="font-size: 20px; color: var(--text-secondary); line-height: 1.6; max-width: 600px; margin: 0 auto 40px;">Von der Idee zur fertigen App in Minuten. Kein Programmieren nötig. Einfach beschreiben, was du brauchst.</p>
+    <div style="display: flex; justify-content: center; gap: 16px;">
+      <button class="btn btn-primary" style="font-size: 18px; padding: 16px 36px;">Jetzt kostenlos starten</button>
+      <button class="btn btn-ghost" style="font-size: 18px; padding: 16px 36px; border: 1px solid var(--border);">Demo ansehen →</button>
+    </div>
+    <p style="font-size: 13px; color: var(--text-secondary); margin-top: 16px;">Keine Kreditkarte nötig · 14 Tage kostenlos</p>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <h2 style="font-size: 36px; font-weight: 700; margin: 0 0 16px;">Alles was du brauchst</h2>
+      <p style="font-size: 18px; color: var(--text-secondary);">Leistungsstarke Tools, die mit dir mitdenken.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div class="feature-card">
+        <div class="feature-icon" style="background: rgba(99,102,241,0.1);">
+          <svg width="24" height="24" fill="none" stroke="#6366f1" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Blitzschnell</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Von null zur fertigen App in unter 5 Minuten. Unsere KI versteht, was du brauchst.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background: rgba(34,197,94,0.1);">
+          <svg width="24" height="24" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Sicher & Privat</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Deine Daten gehören dir. DSGVO-konform, verschlüsselt, auf deutschen Servern.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background: rgba(245,158,11,0.1);">
+          <svg width="24" height="24" fill="none" stroke="#f59e0b" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Responsive</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Perfekt auf jedem Gerät. Desktop, Tablet, Handy — automatisch.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background: rgba(168,85,247,0.1);">
+          <svg width="24" height="24" fill="none" stroke="#a855f7" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Integrationen</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Verbinde mit deinen Lieblings-Tools: Stripe, Notion, Airtable und mehr.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background: rgba(236,72,153,0.1);">
+          <svg width="24" height="24" fill="none" stroke="#ec4899" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Teamarbeit</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Arbeite zusammen in Echtzeit. Kommentare, Freigaben, Versionierung.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background: rgba(59,130,246,0.1);">
+          <svg width="24" height="24" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+        </div>
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Analytics</h3>
+        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Verstehe deine Nutzer. Echtzeit-Dashboards mit allen wichtigen Metriken.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="testimonial">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <h2 style="font-size: 36px; font-weight: 700; text-align: center; margin: 0 0 48px;">Was unsere Kunden sagen</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <div class="testimonial-card">
+          <div style="color: #f59e0b; margin-bottom: 16px;">★★★★★</div>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0 0 20px; color: rgba(255,255,255,0.8);">"Ich hätte nie gedacht, dass ich meine eigene App bauen kann. In 10 Minuten war alles fertig."</p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 36px; height: 36px; background: #6366f1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">S</div>
+            <div><p style="font-size: 14px; font-weight: 500; margin: 0;">Sarah K.</p><p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 0;">Gründerin</p></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div style="color: #f59e0b; margin-bottom: 16px;">★★★★★</div>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0 0 20px; color: rgba(255,255,255,0.8);">"Als Agentur sparen wir jetzt Stunden pro Projekt. Die Qualität der generierten Apps ist beeindruckend."</p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 36px; height: 36px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">M</div>
+            <div><p style="font-size: 14px; font-weight: 500; margin: 0;">Markus T.</p><p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 0;">Agentur-Inhaber</p></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div style="color: #f59e0b; margin-bottom: 16px;">★★★★★</div>
+          <p style="font-size: 15px; line-height: 1.6; margin: 0 0 20px; color: rgba(255,255,255,0.8);">"Endlich ein Tool das zuhört und nicht nur auf Buttons klicken lässt. Genial!"</p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 36px; height: 36px; background: #ec4899; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">L</div>
+            <div><p style="font-size: 14px; font-weight: 500; margin: 0;">Lisa M.</p><p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 0;">Freelancerin</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2 style="font-size: 40px; font-weight: 700; margin: 0 0 16px;">Bereit loszulegen?</h2>
+    <p style="font-size: 18px; color: var(--text-secondary); margin: 0 0 32px;">Starte kostenlos. Upgrade wenn du bereit bist.</p>
+    <button class="btn btn-primary" style="font-size: 18px; padding: 16px 48px;">Kostenlos starten →</button>
+  </div>
+</body>
+</html>
