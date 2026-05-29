@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Health / Telehealth — Mobile — 🎨 Vibrant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #ffffff; --bg-section: #f8f5f1; --text: #1a1a2e; --text-secondary: #6b7280; --accent: #f97316; --accent-soft: rgba(249,115,22,0.08); --success: #22c55e; --danger: #ef4444; --border: #e8e5e0; }
+    * { font-family: 'Inter', system-ui, sans-serif; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); margin: 0; max-width: 430px; margin: 0 auto; min-height: 100vh; }
+    .status-bar { padding: 8px 20px; display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; }
+    .header { padding: 20px 24px; }
+    .header h1 { font-size: 24px; font-weight: 800; margin: 0; }
+    .section { padding: 0 24px 20px; }
+    .section-title { font-size: 16px; font-weight: 700; margin: 0 0 14px; }
+    .spending-card { background: linear-gradient(135deg, #f97316, #fb923c); border-radius: 20px; padding: 24px; color: white; margin-bottom: 20px; }
+    .spending-amount { font-size: 32px; font-weight: 800; margin: 0 0 4px; }
+    .spending-label { font-size: 14px; opacity: 0.85; margin: 0 0 16px; }
+    .spending-bar { background: rgba(255,255,255,0.25); border-radius: 6px; height: 10px; }
+    .spending-fill { background: white; border-radius: 6px; height: 100%; }
+    .spending-detail { display: flex; justify-content: space-between; margin-top: 8px; font-size: 13px; opacity: 0.9; }
+    .appointment-card { background: var(--bg-section); border-radius: 16px; padding: 18px; display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+    .appointment-date { background: var(--accent); color: white; border-radius: 12px; padding: 10px 14px; text-align: center; flex-shrink: 0; }
+    .appointment-date .day { font-size: 20px; font-weight: 800; }
+    .appointment-date .month { font-size: 11px; opacity: 0.9; }
+    .appointment-info h3 { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+    .appointment-info p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+    .doctor-card { background: var(--bg-section); border-radius: 16px; padding: 18px; display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+    .doctor-avatar { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
+    .doctor-info { flex: 1; }
+    .doctor-info h3 { font-size: 15px; font-weight: 600; margin: 0 0 2px; }
+    .doctor-info p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+    .btn-meeting { background: var(--accent); color: white; padding: 10px 20px; border-radius: 10px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; }
+    .message-preview { background: var(--bg-section); border-radius: 16px; padding: 16px; margin-bottom: 10px; display: flex; gap: 12px; }
+    .msg-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .msg-content { flex: 1; }
+    .msg-content h4 { font-size: 14px; font-weight: 600; margin: 0 0 4px; }
+    .msg-content p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+    .msg-time { font-size: 11px; color: var(--text-secondary); white-space: nowrap; }
+    .msg-badge { background: var(--accent); color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+    .bottom-nav { background: white; border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 10px 0 28px; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 100; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; color: #9ca3af; cursor: pointer; padding: 4px 12px; }
+    .nav-item.active { color: var(--accent); }
+    .nav-icon { font-size: 22px; }
+  
+    @keyframes gradient-shift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    body { background: linear-gradient(135deg, #f5f3ff, #ede9fe, #fce7f3, #fef3c7) !important; background-size: 400% 400% !important; animation: gradient-shift 15s ease infinite; }
+    .card, .recipe-card, .subject-card, .control-card, .restaurant-card,
+    .doctor-card, .appointment-card, .message-preview, .place-card {
+        background: rgba(255,255,255,0.85) !important; backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.5) !important;
+        box-shadow: 0 8px 32px rgba(99,102,241,0.1) !important;
+    }
+    .nav, nav { background: rgba(255,255,255,0.7) !important; backdrop-filter: blur(16px) !important; }
+    h1, h2, h3 { background: linear-gradient(135deg, #6366f1, #ec4899, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-primary, .btn-book { background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899) !important; }
+    .bottom-nav { background: rgba(255,255,255,0.7) !important; backdrop-filter: blur(16px) !important; }
+    
+</style>
+</head>
+<body>
+  <div class="status-bar"><span>9:41</span><div style="display:flex;gap:4px;"><span>5G</span><span>📶</span><span>🔋</span></div></div>
+
+  <div class="header">
+    <h1>Hallo, Amelia! 👋</h1>
+    <p style="font-size:14px;color:var(--text-secondary);margin:4px 0 0;">Dein Gesundheitsstatus</p>
+  </div>
+
+  <!-- Health Spending -->
+  <div class="section">
+    <div class="spending-card">
+      <p class="spending-label">Gesundheitsausgaben</p>
+      <p class="spending-amount">€729,18</p>
+      <div class="spending-bar"><div class="spending-fill" style="width:76%;"></div></div>
+      <div class="spending-detail">
+        <span>Ausgegeben: €220,82</span>
+        <span>Budget: €950,00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming Appointment -->
+  <div class="section">
+    <h2 class="section-title">📅 Nächster Termin</h2>
+    <div class="appointment-card">
+      <div class="appointment-date">
+        <div class="day">5</div>
+        <div class="month">APR</div>
+      </div>
+      <div class="appointment-info" style="flex:1;">
+        <h3>Dr. Miller · Therapeut</h3>
+        <p>5. April 2026 · 9:00–10:00 Uhr</p>
+        <p style="color:var(--success);margin-top:4px;font-weight:500;">Video-Konferenz</p>
+      </div>
+      <span style="cursor:pointer;color:var(--text-secondary);font-size:18px;">✕</span>
+    </div>
+    <div style="display:flex;gap:10px;">
+      <button class="btn-meeting" style="flex:1;">🎥 Meeting starten</button>
+      <button style="flex:1;background:var(--bg-section);color:var(--text);padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;border:1px solid var(--border);cursor:pointer;">💬 Nachricht</button>
+    </div>
+  </div>
+
+  <!-- Doctors -->
+  <div class="section">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <h2 class="section-title" style="margin:0;">🩺 Deine Ärzte</h2>
+      <span style="font-size:13px;color:var(--accent);font-weight:600;cursor:pointer;">Alle →</span>
+    </div>
+    <div class="doctor-card">
+      <div class="doctor-avatar" style="background:rgba(249,115,22,0.1);">👨‍⚕️</div>
+      <div class="doctor-info">
+        <h3>Dr. Miller</h3>
+        <p>Therapeut · Letzter Besuch: 28. Mär</p>
+      </div>
+      <span style="color:var(--text-secondary);">→</span>
+    </div>
+    <div class="doctor-card">
+      <div class="doctor-avatar" style="background:rgba(34,197,94,0.1);">👩‍⚕️</div>
+      <div class="doctor-info">
+        <h3>Dr. Jennifer</h3>
+        <p>Orthopädin · Nächster Termin: 12. Apr</p>
+      </div>
+      <span style="color:var(--text-secondary);">→</span>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div class="section">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <h2 class="section-title" style="margin:0;">💬 Nachrichten</h2>
+    </div>
+    <div class="message-preview">
+      <div class="msg-avatar" style="background:rgba(249,115,22,0.1);">👨‍⚕️</div>
+      <div class="msg-content">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h4>Dr. Miller</h4>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <span class="msg-time">8:31</span>
+            <div class="msg-badge">2</div>
+          </div>
+        </div>
+        <p>Überweisung für Termin bei Dr. Davis...</p>
+      </div>
+    </div>
+    <div class="message-preview">
+      <div class="msg-avatar" style="background:rgba(34,197,94,0.1);">👩‍⚕️</div>
+      <div class="msg-content">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h4>Dr. Davis · Traumatologin</h4>
+          <span class="msg-time">9:54</span>
+        </div>
+        <p>Guten Tag! Ihr Termin ist bestätigt...</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:70px;"></div>
+
+  <div class="bottom-nav">
+    <div class="nav-item active"><span class="nav-icon">🏠</span><span>Home</span></div>
+    <div class="nav-item"><span class="nav-icon">📋</span><span>Termine</span></div>
+    <div class="nav-item"><span class="nav-icon">💬</span><span>Nachrichten</span></div>
+    <div class="nav-item"><span class="nav-icon">👤</span><span>Profil</span></div>
+  </div>
+</body>
+</html>

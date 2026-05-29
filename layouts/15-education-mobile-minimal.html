@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Education / Learning — Mobile — ◻️ Minimal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #ffffff; --bg-section: #f8f6ff; --text: #1e1b4b; --text-secondary: #6b7280; --accent: #7c3aed; --accent-soft: rgba(124,58,237,0.08); --accent-mid: rgba(124,58,237,0.15); --success: #22c55e; --border: #ede9fe; }
+    * { font-family: 'Inter', system-ui, sans-serif; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); margin: 0; max-width: 430px; margin: 0 auto; min-height: 100vh; }
+    .status-bar { padding: 8px 20px; display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; }
+    .header { padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .header h1 { font-size: 24px; font-weight: 800; margin: 0; }
+    .section { padding: 0 24px 20px; }
+    .section-title { font-size: 15px; font-weight: 700; margin: 0 0 14px; }
+    .search-bar { margin: 0 24px 20px; background: var(--bg-section); border-radius: 14px; padding: 12px 18px; display: flex; gap: 10px; align-items: center; }
+    .subject-card { background: var(--bg-section); border-radius: 18px; padding: 18px; margin-bottom: 14px; display: flex; gap: 16px; align-items: center; }
+    .subject-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
+    .subject-info { flex: 1; }
+    .subject-info h3 { font-size: 15px; font-weight: 700; margin: 0 0 4px; }
+    .subject-info p { font-size: 12px; color: var(--text-secondary); margin: 0; }
+    .progress-circle { width: 44px; height: 44px; position: relative; flex-shrink: 0; }
+    .progress-circle svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .progress-circle .value { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 11px; font-weight: 700; color: var(--accent); }
+    .cal-row { display: flex; justify-content: space-between; gap: 6px; }
+    .cal-day { flex: 1; text-align: center; padding: 8px 4px; border-radius: 10px; font-size: 12px; }
+    .cal-day .num { font-weight: 700; font-size: 15px; margin-top: 2px; }
+    .cal-day.active { background: var(--accent); color: white; }
+    .cal-day.active .label { opacity: 0.8; }
+    .bottom-nav { background: white; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-around; padding: 10px 0 28px; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 100; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; color: #9ca3af; cursor: pointer; padding: 4px 12px; }
+    .nav-item.active { color: var(--accent); }
+    .nav-icon { font-size: 22px; }
+  
+    body { background: #fafafa !important; }
+    * { border-radius: 4px !important; }
+    .card, .recipe-card, .subject-card, .control-card, .restaurant-card,
+    .doctor-card, .appointment-card, .message-preview, .place-card {
+        background: white !important; border: 1px solid #e5e5e5 !important;
+        box-shadow: none !important; padding: 20px !important;
+    }
+    .nav, nav { background: white !important; border-bottom: 1px solid #e5e5e5 !important; box-shadow: none !important; }
+    h1 { font-weight: 300 !important; letter-spacing: -0.03em !important; }
+    h2, h3 { font-weight: 400 !important; }
+    .btn-primary, .btn-book { background: #1a1a1a !important; border-radius: 4px !important; }
+    .filter-chip, .category-chip { border-radius: 4px !important; border: 1px solid #e5e5e5 !important; background: transparent !important; }
+    .filter-chip.active, .category-chip.active { background: #1a1a1a !important; color: white !important; border-color: #1a1a1a !important; }
+    .tag, .badge { border-radius: 4px !important; }
+    .bottom-nav { background: white !important; border-top: 1px solid #e5e5e5 !important; }
+    .search-bar, .compose { background: white !important; border: 1px solid #e5e5e5 !important; }
+    
+</style>
+</head>
+<body>
+  <div class="status-bar"><span>9:41</span><div style="display:flex;gap:4px;"><span>5G</span><span>📶</span><span>🔋</span></div></div>
+
+  <div class="header">
+    <div>
+      <h1>Hallo, Victoria! 👋</h1>
+      <p style="font-size:14px;color:var(--text-secondary);margin:4px 0 0;">Lass uns heute lernen</p>
+    </div>
+    <div style="width:42px;height:42px;background:var(--accent-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;">👩‍🎓</div>
+  </div>
+
+  <!-- Calendar -->
+  <div class="section">
+    <div class="cal-row">
+      <div class="cal-day"><span class="label">Mo</span><div class="num">11</div></div>
+      <div class="cal-day"><span class="label">Di</span><div class="num">12</div></div>
+      <div class="cal-day active"><span class="label">Mi</span><div class="num">13</div></div>
+      <div class="cal-day"><span class="label">Do</span><div class="num">14</div></div>
+      <div class="cal-day"><span class="label">Fr</span><div class="num">15</div></div>
+      <div class="cal-day"><span class="label">Sa</span><div class="num">16</div></div>
+      <div class="cal-day"><span class="label">So</span><div class="num">17</div></div>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-bar">
+    <svg width="18" height="18" fill="none" stroke="var(--text-secondary)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <span style="color:var(--text-secondary);font-size:14px;">Fächer oder Aufgaben suchen...</span>
+  </div>
+
+  <!-- Homework Section -->
+  <div class="section">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <h2 class="section-title" style="margin:0;">📚 Hausaufgaben</h2>
+      <span style="font-size:13px;color:var(--accent);font-weight:600;cursor:pointer;">Alle Fächer →</span>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon" style="background:rgba(124,58,237,0.1);">📖</div>
+      <div class="subject-info">
+        <h3>Literatur</h3>
+        <p>5 Aufgaben · 68% erledigt</p>
+        <div style="background:var(--border);border-radius:4px;height:6px;margin-top:8px;"><div style="background:var(--accent);border-radius:4px;height:100%;width:68%;"></div></div>
+      </div>
+      <div class="progress-circle">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="#ede9fe" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="var(--accent)" stroke-width="4" stroke-dasharray="76.9 113.1" stroke-linecap="round"/></svg>
+        <span class="value">68%</span>
+      </div>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon" style="background:rgba(59,130,246,0.1);">📐</div>
+      <div class="subject-info">
+        <h3>Mathe</h3>
+        <p>12 Aufgaben · 42% erledigt</p>
+        <div style="background:#dbeafe;border-radius:4px;height:6px;margin-top:8px;"><div style="background:#3b82f6;border-radius:4px;height:100%;width:42%;"></div></div>
+      </div>
+      <div class="progress-circle">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="#dbeafe" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="#3b82f6" stroke-width="4" stroke-dasharray="47.5 113.1" stroke-linecap="round"/></svg>
+        <span class="value" style="color:#3b82f6;">42%</span>
+      </div>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon" style="background:rgba(16,185,129,0.1);">⚗️</div>
+      <div class="subject-info">
+        <h3>Chemie</h3>
+        <p>4 Aufgaben · 50% erledigt</p>
+        <div style="background:#d1fae5;border-radius:4px;height:6px;margin-top:8px;"><div style="background:#10b981;border-radius:4px;height:100%;width:50%;"></div></div>
+      </div>
+      <div class="progress-circle">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="#d1fae5" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="#10b981" stroke-width="4" stroke-dasharray="56.5 113.1" stroke-linecap="round"/></svg>
+        <span class="value" style="color:#10b981;">50%</span>
+      </div>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-icon" style="background:rgba(245,158,11,0.1);">🎵</div>
+      <div class="subject-info">
+        <h3>Musik</h3>
+        <p>1 Aufgabe · 15% erledigt</p>
+        <div style="background:#fef3c7;border-radius:4px;height:6px;margin-top:8px;"><div style="background:#f59e0b;border-radius:4px;height:100%;width:15%;"></div></div>
+      </div>
+      <div class="progress-circle">
+        <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="#fef3c7" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="17 113.1" stroke-linecap="round"/></svg>
+        <span class="value" style="color:#f59e0b;">15%</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 70px;"></div>
+
+  <div class="bottom-nav">
+    <div class="nav-item active"><span class="nav-icon">📖</span><span>Tagebuch</span></div>
+    <div class="nav-item"><span class="nav-icon">🏆</span><span>Belohnungen</span></div>
+    <div class="nav-item"><span class="nav-icon">💬</span><span>Nachrichten</span></div>
+    <div class="nav-item"><span class="nav-icon">⚙️</span><span>Einstellungen</span></div>
+  </div>
+</body>
+</html>

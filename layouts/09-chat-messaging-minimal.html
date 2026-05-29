@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat / Messaging — ◻️ Minimal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #f0f2f5; --bg-sidebar: #ffffff; --bg-chat: #f0f2f5; --bg-msg-me: #6366f1; --bg-msg-them: #ffffff; --text: #0f172a; --text-secondary: #64748b; --accent: #6366f1; --accent-soft: rgba(99,102,241,0.08); --border: #e2e8f0; --online: #22c55e; }
+    * { font-family: 'Inter', system-ui, sans-serif; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); margin: 0; height: 100vh; display: flex; }
+    .sidebar { width: 340px; background: white; border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+    .chat-area { flex: 1; display: flex; flex-direction: column; }
+    .contact-item { display: flex; gap: 12px; padding: 14px 20px; cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.1s; }
+    .contact-item:hover { background: var(--accent-soft); }
+    .contact-item.active { background: var(--accent-soft); border-left: 3px solid var(--accent); }
+    .avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; position: relative; }
+    .online-dot { position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; background: var(--online); border-radius: 50%; border: 2px solid white; }
+    .messages { flex: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .message { max-width: 65%; padding: 12px 16px; border-radius: 16px; font-size: 14px; line-height: 1.5; position: relative; }
+    .message.me { background: var(--bg-msg-me); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .message.them { background: var(--bg-msg-them); align-self: flex-start; border-bottom-left-radius: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .message .time { font-size: 11px; opacity: 0.6; margin-top: 4px; }
+    .input-area { background: white; border-top: 1px solid var(--border); padding: 16px 24px; display: flex; gap: 12px; align-items: center; }
+    .chat-input { flex: 1; padding: 12px 18px; border: 1px solid var(--border); border-radius: 24px; font-size: 14px; outline: none; font-family: inherit; }
+    .chat-input:focus { border-color: var(--accent); }
+    .send-btn { width: 44px; height: 44px; background: var(--accent); color: white; border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .typing { display: flex; gap: 4px; padding: 8px 16px; }
+    .typing-dot { width: 8px; height: 8px; background: #94a3b8; border-radius: 50%; animation: bounce 1.4s infinite; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-8px); } }
+    .date-divider { text-align: center; font-size: 12px; color: var(--text-secondary); margin: 16px 0; }
+    .unread-badge { background: var(--accent); color: white; font-size: 11px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  
+    body { background: #fafafa !important; }
+    * { border-radius: 4px !important; }
+    .card, .recipe-card, .subject-card, .control-card, .restaurant-card,
+    .doctor-card, .appointment-card, .message-preview, .place-card {
+        background: white !important; border: 1px solid #e5e5e5 !important;
+        box-shadow: none !important; padding: 20px !important;
+    }
+    .nav, nav { background: white !important; border-bottom: 1px solid #e5e5e5 !important; box-shadow: none !important; }
+    h1 { font-weight: 300 !important; letter-spacing: -0.03em !important; }
+    h2, h3 { font-weight: 400 !important; }
+    .btn-primary, .btn-book { background: #1a1a1a !important; border-radius: 4px !important; }
+    .filter-chip, .category-chip { border-radius: 4px !important; border: 1px solid #e5e5e5 !important; background: transparent !important; }
+    .filter-chip.active, .category-chip.active { background: #1a1a1a !important; color: white !important; border-color: #1a1a1a !important; }
+    .tag, .badge { border-radius: 4px !important; }
+    .bottom-nav { background: white !important; border-top: 1px solid #e5e5e5 !important; }
+    .search-bar, .compose { background: white !important; border: 1px solid #e5e5e5 !important; }
+    
+</style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div style="padding: 20px; border-bottom: 1px solid var(--border);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h2 style="font-size: 20px; font-weight: 700; margin: 0;">Nachrichten</h2>
+        <span style="font-size: 20px; cursor: pointer;">✏️</span>
+      </div>
+      <input type="text" placeholder="Suchen..." style="width: 100%; padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border); font-size: 14px; outline: none; background: var(--bg);">
+    </div>
+    <div style="flex: 1; overflow-y: auto;">
+      <div class="contact-item active">
+        <div class="avatar" style="background: #ec4899; color: white;">L<div class="online-dot"></div></div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 600; font-size: 14px;">Lisa Morgenstern</span>
+            <span style="font-size: 11px; color: var(--text-secondary);">14:32</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin: 2px 0 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Super, das klingt gut! Lass uns am...</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="avatar" style="background: #3b82f6; color: white;">T<div class="online-dot"></div></div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 600; font-size: 14px;">Thomas Weber</span>
+            <div class="unread-badge">2</div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin: 2px 0 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Hast du die Mockups gesehen?</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="avatar" style="background: #22c55e; color: white;">M</div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 600; font-size: 14px;">Max Keller</span>
+            <span style="font-size: 11px; color: var(--text-secondary);">Gestern</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin: 2px 0 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Danke für die Zusammenfassung!</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="avatar" style="background: #f59e0b; color: white;">S</div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 600; font-size: 14px;">Sarah Hoffmann</span>
+            <span style="font-size: 11px; color: var(--text-secondary);">Mo</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin: 2px 0 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">📎 design-v3-final.fig</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="avatar" style="background: #8b5cf6; color: white;">R</div>
+        <div style="flex: 1; min-width: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 600; font-size: 14px;">Robert Chen</span>
+            <span style="font-size: 11px; color: var(--text-secondary);">Sa</span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin: 2px 0 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Ping mich wenn du da bist 👋</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Area -->
+  <div class="chat-area">
+    <!-- Chat Header -->
+    <div style="background: white; border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div class="avatar" style="background: #ec4899; color: white; width: 38px; height: 38px; font-size: 14px;">L<div class="online-dot"></div></div>
+        <div>
+          <p style="font-weight: 600; font-size: 15px; margin: 0;">Lisa Morgenstern</p>
+          <p style="font-size: 12px; color: var(--online); margin: 0;">Online</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 16px; color: var(--text-secondary); cursor: pointer;">
+        <span>📞</span>
+        <span>📹</span>
+        <span>ℹ️</span>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div class="messages">
+      <div class="date-divider">Heute</div>
+      <div class="message them">
+        <p style="margin: 0;">Hey! Hast du schon Zeit gefunden, das neue Feature anzuschauen?</p>
+        <p class="time" style="margin: 4px 0 0;">13:45</p>
+      </div>
+      <div class="message me">
+        <p style="margin: 0;">Ja! Ich hab mir die Demo angesehen. Sieht wirklich gut aus. Die Drag-and-Drop Funktion funktioniert super 👍</p>
+        <p class="time" style="margin: 4px 0 0;">13:52</p>
+      </div>
+      <div class="message them">
+        <p style="margin: 0;">Freut mich! Was denkst du über die Farben? Ich bin mir bei dem Blauton unsicher.</p>
+        <p class="time" style="margin: 4px 0 0;">13:55</p>
+      </div>
+      <div class="message me">
+        <p style="margin: 0;">Also das Blau ist vielleicht einen Tick zu dunkel. Probier mal #6366f1 — das hat mehr Energie. Ansonsten finde ich die Richtung perfekt.</p>
+        <p class="time" style="margin: 4px 0 0;">14:10</p>
+      </div>
+      <div class="message them">
+        <p style="margin: 0;">Super, das klingt gut! Lass uns am Freitag ein kurzes Call machen und die finalen Details besprechen. Passt dir 11 Uhr?</p>
+        <p class="time" style="margin: 4px 0 0;">14:32</p>
+      </div>
+      <div style="align-self: flex-start;">
+        <div class="typing">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="input-area">
+      <span style="font-size: 20px; cursor: pointer;">➕</span>
+      <input class="chat-input" type="text" placeholder="Nachricht schreiben...">
+      <span style="font-size: 20px; cursor: pointer;">😊</span>
+      <button class="send-btn">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,62 +1,85 @@
 # 🎨 Design Templates
 
-12 base app layouts for the **Frau Holle** pipeline — standalone HTML/CSS templates for rapid prototyping.
+100 base app layouts for the **Frau Holle** pipeline — 20 categories × 5 design variants each.
 
-Each layout is a self-contained HTML file with embedded CSS, responsive design, and German placeholder content. Frau Holle selects the matching layout based on the customer's intake, then Solist customizes it.
+## Design Variants
 
-## Layouts
+Each category has 5 visual directions:
 
-| # | Category | Theme | Style Reference |
-|---|----------|-------|-----------------|
-| 01 | Dashboard / Analytics | 🌙 Dark | Linear, Sentry |
-| 02 | E-Commerce / Product Catalog | ☀️ Light | Stripe, Airbnb |
-| 03 | Content / CMS / Blog | ☀️ Light | Notion, Mintlify |
-| 04 | Landing / Marketing Page | ☀️ Light | Apple, Framer |
-| 05 | Social Feed / Community | 🌙 Dark | Spotify, Pinterest |
-| 06 | Form / Intake / Survey | ☀️ Light | Cal.com, Airtable |
-| 07 | Portfolio / Gallery | ☀️ Light | Airbnb, Figma |
-| 08 | Scheduling / Booking | ☀️ Light | Cal.com |
-| 09 | Chat / Messaging | ☀️ Light | Intercom |
-| 10 | Tool / Utility | 🌙 Dark | Vercel, IDE |
-| 11 | Finance / Investing | ☀️ Light | Wise, Coinbase |
-| 12 | Food / Recipes | ☀️ Light | Food Magazine |
+| Variant | Suffix | Style |
+|---------|--------|-------|
+| **Base** | (none) | Original design — clean, professional |
+| **Dark** | `-dark` | Dark mode, glowing accents, deep backgrounds |
+| **Vibrant** | `-vibrant` | Colorful gradients, glass morphism, bold energy |
+| **Minimal** | `-minimal` | Stripped down, thin borders, maximum whitespace |
+| **Visual** | `-visual` | Image-heavy, editorial, photography-driven |
+
+## Categories
+
+| # | Category | Base Theme | Mobile |
+|---|----------|-----------|--------|
+| 01 | Dashboard / Analytics | 🌙 Dark | Desktop |
+| 02 | E-Commerce / Product Catalog | ☀️ Light | Desktop |
+| 03 | Content / CMS / Blog | ☀️ Light | Desktop |
+| 04 | Landing / Marketing Page | ☀️ Light | Desktop |
+| 05 | Social Feed / Community | 🌙 Dark | Desktop |
+| 06 | Form / Intake / Survey | ☀️ Light | Desktop |
+| 07 | Portfolio / Gallery | ☀️ Light | Desktop |
+| 08 | Scheduling / Booking | ☀️ Light | Desktop |
+| 09 | Chat / Messaging | ☀️ Light | Desktop |
+| 10 | Tool / Utility | 🌙 Dark | Desktop |
+| 11 | Finance / Investing | ☀️ Light | Desktop |
+| 12 | Food / Recipes | ☀️ Light | Desktop |
+| 13 | Shop Dashboard | ☀️ Light | Mobile |
+| 14 | Card Manager / Banking | ☀️ Light | Mobile |
+| 15 | Education / Learning | 🟣 Purple | Mobile |
+| 16 | Smart Home / IoT | 🌙 Dark Teal | Mobile |
+| 17 | Travel / Outdoor | 🌙 Dark Blue | Mobile |
+| 18 | Health / Telehealth | 🟠 Orange | Mobile |
+| 19 | Food Delivery | 🔴 Red | Mobile |
+| 20 | Crypto / Fintech | 🟣 Indigo | Mobile |
 
 ## Usage
 
-### Preview locally
+### Preview
 ```bash
 cd layouts/
 python3 -m http.server 8765
-# Open http://localhost:8765/01-dashboard.html
+# Open http://localhost:8765/01-dashboard-vibrant.html
 ```
 
-### Integrate with Solist
-1. Solist reads the customer's intake → determines app type
-2. Selects matching layout from this repo
-3. Customizes content, colors, components via shadcn/ui
-4. Deploys to Vercel
+### Frau Holle Intake Flow
+1. Customer describes their app idea
+2. Frau Holle determines the category (e.g. "E-Commerce")
+3. Shows 5 design variant previews to the customer
+4. Customer picks their preferred style
+5. Solist receives the chosen template as starting point
+6. Customizes content, branding, and features
+
+### Regenerate Variants
+```bash
+python3 generate-variants.py
+```
+
+## Naming Convention
+```
+{number}-{category}.html           → Base variant
+{number}-{category}-dark.html      → Dark mode variant
+{number}-{category}-vibrant.html   → Colorful/gradient variant
+{number}-{category}-minimal.html   → Minimal/clean variant
+{number}-{category}-visual.html    → Image-heavy/editorial variant
+```
 
 ## Tech Stack (planned)
 - Next.js + Tailwind CSS
 - shadcn/ui components
 - Each layout will have a Next.js template equivalent
 
-## Structure
-```
-layouts/
-  01-dashboard.html
-  02-ecommerce.html
-  03-content-cms.html
-  04-landing-page.html
-  05-social-feed.html
-  06-form-intake.html
-  07-portfolio-gallery.html
-  08-scheduling.html
-  09-chat-messaging.html
-  10-tool-utility.html
-  11-finance.html
-  12-food.html
-```
+## Stats
+- **100 HTML files** · **1.3MB total**
+- **20 categories** × **5 variants** each
+- **12 desktop** + **8 mobile** base layouts
+- All self-contained, responsive, German content
 
 ## License
 MIT — part of the Frau Holle project by Slopstack.

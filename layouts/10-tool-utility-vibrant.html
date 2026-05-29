@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tool / Utility — 🎨 Vibrant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #000000; --bg-secondary: #0a0a0a; --bg-card: #111111; --bg-input: #171717; --text: #ededed; --text-secondary: #888888; --accent: #ffffff; --border: #222222; --success: #22c55e; --warning: #f59e0b; --danger: #ef4444; --blue: #3b82f6; }
+    * { font-family: 'Inter', system-ui, sans-serif; box-sizing: border-box; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+    body { background: var(--bg); color: var(--text); margin: 0; height: 100vh; display: flex; flex-direction: column; }
+    .toolbar { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .tab { padding: 6px 14px; border-radius: 6px; font-size: 13px; cursor: pointer; color: var(--text-secondary); transition: all 0.1s; }
+    .tab:hover { color: var(--text); }
+    .tab.active { background: var(--bg-input); color: var(--text); }
+    .main { display: flex; flex: 1; overflow: hidden; }
+    .editor { flex: 1; display: flex; flex-direction: column; border-right: 1px solid var(--border); }
+    .editor-toolbar { background: var(--bg-secondary); padding: 8px 16px; display: flex; gap: 8px; align-items: center; border-bottom: 1px solid var(--border); font-size: 12px; color: var(--text-secondary); }
+    .code-area { flex: 1; padding: 20px; overflow: auto; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7; }
+    .line-num { color: #444; display: inline-block; width: 40px; text-align: right; margin-right: 20px; user-select: none; }
+    .keyword { color: #c678dd; }
+    .string { color: #98c379; }
+    .function { color: #61afef; }
+    .comment { color: #555; font-style: italic; }
+    .variable { color: #e5c07b; }
+    .panel { width: 340px; background: var(--bg-card); display: flex; flex-direction: column; }
+    .panel-header { padding: 16px; border-bottom: 1px solid var(--border); }
+    .panel-content { flex: 1; overflow-y: auto; padding: 16px; }
+    .panel-section { margin-bottom: 24px; }
+    .field-label { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .field-value { background: var(--bg-input); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 14px; }
+    .toggle { width: 40px; height: 22px; border-radius: 11px; background: var(--border); position: relative; cursor: pointer; transition: background 0.2s; }
+    .toggle.on { background: var(--success); }
+    .toggle::after { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: white; top: 2px; left: 2px; transition: transform 0.2s; }
+    .toggle.on::after { transform: translateX(18px); }
+    .status-bar { background: var(--bg-card); border-top: 1px solid var(--border); padding: 6px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-secondary); }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+    .btn-sm { padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--text); transition: all 0.1s; }
+    .btn-sm:hover { background: var(--bg-input); }
+  
+    @keyframes gradient-shift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    body { background: linear-gradient(135deg, #f5f3ff, #ede9fe, #fce7f3, #fef3c7) !important; background-size: 400% 400% !important; animation: gradient-shift 15s ease infinite; }
+    .card, .recipe-card, .subject-card, .control-card, .restaurant-card,
+    .doctor-card, .appointment-card, .message-preview, .place-card {
+        background: rgba(255,255,255,0.85) !important; backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.5) !important;
+        box-shadow: 0 8px 32px rgba(99,102,241,0.1) !important;
+    }
+    .nav, nav { background: rgba(255,255,255,0.7) !important; backdrop-filter: blur(16px) !important; }
+    h1, h2, h3 { background: linear-gradient(135deg, #6366f1, #ec4899, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-primary, .btn-book { background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899) !important; }
+    .bottom-nav { background: rgba(255,255,255,0.7) !important; backdrop-filter: blur(16px) !important; }
+    
+</style>
+</head>
+<body>
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <span style="font-weight: 700; font-size: 15px; letter-spacing: -0.02em;">⚙️ config<span style="color: var(--text-secondary);">.tool</span></span>
+      <div style="display: flex; gap: 2px; background: var(--bg-input); border-radius: 8px; padding: 2px;">
+        <div class="tab active">Editor</div>
+        <div class="tab">Vorschau</div>
+        <div class="tab">Terminal</div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <button class="btn-sm" style="color: var(--success); border-color: rgba(34,197,94,0.3);">▶ Ausführen</button>
+      <button class="btn-sm">Speichern</button>
+      <button class="btn-sm">Teilen</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <!-- Editor -->
+    <div class="editor">
+      <div class="editor-toolbar">
+        <span style="color: var(--blue);">📄</span>
+        <span class="mono" style="color: var(--text);">config.yaml</span>
+        <span style="color: var(--text-secondary);">·</span>
+        <span>42 Zeilen</span>
+        <span style="color: var(--text-secondary);">·</span>
+        <span>YAML</span>
+        <span style="margin-left: auto; color: var(--success);">✓ Keine Fehler</span>
+      </div>
+      <div class="code-area">
+        <div><span class="line-num">1</span><span class="comment"># App-Konfiguration</span></div>
+        <div><span class="line-num">2</span><span class="keyword">app</span><span style="color:#888;">:</span></div>
+        <div><span class="line-num">3</span>  <span class="variable">name</span><span style="color:#888;">:</span> <span class="string">"mein-projekt"</span></div>
+        <div><span class="line-num">4</span>  <span class="variable">version</span><span style="color:#888;">:</span> <span class="string">"2.1.0"</span></div>
+        <div><span class="line-num">5</span>  <span class="variable">description</span><span style="color:#888;">:</span> <span class="string">"Smart Dashboard"</span></div>
+        <div><span class="line-num">6</span></div>
+        <div><span class="line-num">7</span><span class="keyword">features</span><span style="color:#888;">:</span></div>
+        <div><span class="line-num">8</span>  <span class="variable">dark_mode</span><span style="color:#888;">:</span> <span class="keyword">true</span></div>
+        <div><span class="line-num">9</span>  <span class="variable">notifications</span><span style="color:#888;">:</span> <span class="keyword">true</span></div>
+        <div><span class="line-num">10</span>  <span class="variable">analytics</span><span style="color:#888;">:</span> <span class="keyword">false</span></div>
+        <div><span class="line-num">11</span>  <span class="variable">auto_save</span><span style="color:#888;">:</span> <span class="keyword">true</span></div>
+        <div><span class="line-num">12</span></div>
+        <div><span class="line-num">13</span><span class="keyword">database</span><span style="color:#888;">:</span></div>
+        <div><span class="line-num">14</span>  <span class="variable">type</span><span style="color:#888;">:</span> <span class="string">"postgresql"</span></div>
+        <div><span class="line-num">15</span>  <span class="variable">host</span><span style="color:#888;">:</span> <span class="string">"localhost"</span></div>
+        <div><span class="line-num">16</span>  <span class="variable">port</span><span style="color:#888;">:</span> <span style="color:#d19a66;">5432</span></div>
+        <div><span class="line-num">17</span>  <span class="variable">name</span><span style="color:#888;">:</span> <span class="string">"app_db"</span></div>
+        <div><span class="line-num">18</span></div>
+        <div><span class="line-num">19</span><span class="keyword">api</span><span style="color:#888;">:</span></div>
+        <div><span class="line-num">20</span>  <span class="variable">rate_limit</span><span style="color:#888;">:</span> <span style="color:#d19a66;">100</span></div>
+        <div><span class="line-num">21</span>  <span class="variable">timeout</span><span style="color:#888;">:</span> <span style="color:#d19a66;">30</span></div>
+        <div><span class="line-num">22</span>  <span class="variable">cors</span><span style="color:#888;">:</span></div>
+        <div><span class="line-num">23</span>    <span class="variable">origins</span><span style="color:#888;">:</span></div>
+        <div><span class="line-num">24</span>      <span style="color:#888;">-</span> <span class="string">"https://mein-projekt.de"</span></div>
+        <div><span class="line-num">25</span>      <span style="color:#888;">-</span> <span class="string">"http://localhost:3000"</span></div>
+        <div><span class="line-num">26</span></div>
+        <div><span class="line-num">27</span><span class="keyword">deploy</span><span style="color:#888;">:</span></div>
+        <div><span class="line-num">28</span>  <span class="variable">provider</span><span style="color:#888;">:</span> <span class="string">"vercel"</span></div>
+        <div><span class="line-num">29</span>  <span class="variable">region</span><span style="color:#888;">:</span> <span class="string">"eu-west-1"</span></div>
+        <div><span class="line-num">30</span>  <span class="variable">branch</span><span style="color:#888;">:</span> <span class="string">"main"</span></div>
+        <div><span class="line-num">31</span>  <span class="variable">auto_deploy</span><span style="color:#888;">:</span> <span class="keyword">true</span></div>
+      </div>
+    </div>
+
+    <!-- Config Panel -->
+    <div class="panel">
+      <div class="panel-header">
+        <h3 style="font-size: 15px; font-weight: 600; margin: 0;">Einstellungen</h3>
+      </div>
+      <div class="panel-content">
+        <div class="panel-section">
+          <div class="field-label">App-Name</div>
+          <div class="field-value">mein-projekt</div>
+        </div>
+        <div class="panel-section">
+          <div class="field-label">Version</div>
+          <div class="field-value">2.1.0</div>
+        </div>
+        <div class="panel-section">
+          <div class="field-label">Features</div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 14px;">Dark Mode</span>
+              <div class="toggle on"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 14px;">Benachrichtigungen</span>
+              <div class="toggle on"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 14px;">Analytics</span>
+              <div class="toggle"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 14px;">Auto-Save</span>
+              <div class="toggle on"></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-section">
+          <div class="field-label">Datenbank</div>
+          <div class="field-value" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>PostgreSQL</span>
+            <span style="font-size: 12px; color: var(--success);">● Verbunden</span>
+          </div>
+        </div>
+        <div class="panel-section">
+          <div class="field-label">Deployment</div>
+          <div class="field-value" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>Vercel</span>
+            <span style="font-size: 12px; color: var(--success);">● Live</span>
+          </div>
+          <div class="field-value" style="margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-secondary);">
+            mein-projekt.vercel.app
+          </div>
+        </div>
+        <div class="panel-section">
+          <div class="field-label">Letzte Aktionen</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; gap: 8px; font-size: 13px;">
+              <span style="color: var(--success);">✓</span>
+              <span>Deploy erfolgreich</span>
+              <span style="color: var(--text-secondary); margin-left: auto;">2m</span>
+            </div>
+            <div style="display: flex; gap: 8px; font-size: 13px;">
+              <span style="color: var(--blue);">↻</span>
+              <span>Config aktualisiert</span>
+              <span style="color: var(--text-secondary); margin-left: auto;">15m</span>
+            </div>
+            <div style="display: flex; gap: 8px; font-size: 13px;">
+              <span style="color: var(--warning);">⚡</span>
+              <span>DB Migration</span>
+              <span style="color: var(--text-secondary); margin-left: auto;">1h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <span><span class="status-dot" style="background: var(--success);"></span>Bereit</span>
+      <span>YAML</span>
+      <span>UTF-8</span>
+    </div>
+    <div style="display: flex; gap: 16px;">
+      <span>Ln 25, Col 8</span>
+      <span>Spaces: 2</span>
+      <span>Zoom: 100%</span>
+    </div>
+  </div>
+</body>
+</html>

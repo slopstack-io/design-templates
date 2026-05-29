@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Feed / Community — 📸 Visual</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #121212; --bg-card: #1e1e1e; --bg-input: #2a2a2a; --text: #ffffff; --text-secondary: #a0a0a0; --accent: #1DB954; --accent-soft: rgba(29,185,84,0.15); --border: #2a2a2a; --pink: #ec4899; --blue: #3b82f6; }
+    * { font-family: 'Inter', system-ui, sans-serif; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); margin: 0; }
+    .nav { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .feed { max-width: 600px; margin: 0 auto; }
+    .sidebar { width: 300px; position: fixed; right: calc(50% - 450px); top: 60px; }
+    .post { border-bottom: 1px solid var(--border); padding: 16px 20px; }
+    .post-img { width: 100%; border-radius: 12px; margin: 12px 0; background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%); height: 300px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); }
+    .avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+    .action-btn { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary); cursor: pointer; padding: 6px 12px; border-radius: 9999px; transition: all 0.15s; }
+    .action-btn:hover { background: var(--accent-soft); }
+    .compose { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; margin: 16px; padding: 16px; }
+    .trending-item { padding: 12px 0; border-bottom: 1px solid var(--border); cursor: pointer; }
+  
+    body { background: #0a0a0a !important; color: white; }
+    .card, .recipe-card, .subject-card, .restaurant-card,
+    .doctor-card, .place-card {
+        background: #111 !important; border: none !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    }
+    .nav, nav { background: rgba(10,10,10,0.9) !important; backdrop-filter: blur(16px) !important; border-color: #222 !important; }
+    h1, h2, h3 { color: white !important; -webkit-text-fill-color: white !important; }
+    p, span, td, th { color: #ccc !important; }
+    .recipe-img, .place-img, .restaurant-img, .food-img,
+    .subject-icon, .hero, .map-area, .room-card,
+    .product-img, .article-img, .gallery-img {
+        position: relative; overflow: hidden;
+    }
+    .recipe-img::after, .place-img::after, .restaurant-img::after,
+    .food-img::after, .room-card::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(transparent 50%, rgba(0,0,0,0.8));
+    }
+    .btn-primary, .btn-book { background: white !important; color: black !important; }
+    .bottom-nav { background: rgba(10,10,10,0.95) !important; border-color: #222 !important; }
+    .search-bar { background: #1a1a1a !important; border-color: #333 !important; }
+    input, textarea, select { background: #1a1a1a !important; color: white !important; border-color: #333 !important; }
+    table { border-color: #222; } th { color: #888; border-color: #222; } td { border-color: #222; }
+    
+</style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div style="font-size: 20px; font-weight: 700; color: var(--accent);">gemeinsam</div>
+    <div style="display: flex; align-items: center; gap: 24px; color: var(--text-secondary); font-size: 22px;">
+      <span style="cursor: pointer; color: var(--text);">🏠</span>
+      <span style="cursor: pointer;">🔍</span>
+      <span style="cursor: pointer;">🔔</span>
+      <span style="cursor: pointer;">💬</span>
+    </div>
+  </nav>
+
+  <div style="display: flex; max-width: 900px; margin: 0 auto;">
+    <!-- Feed -->
+    <div class="feed">
+      <!-- Compose -->
+      <div class="compose">
+        <div style="display: flex; gap: 12px;">
+          <div class="avatar" style="background: var(--accent);">N</div>
+          <div style="flex: 1;">
+            <div contenteditable="true" style="background: var(--bg-input); border-radius: 12px; padding: 12px 16px; min-height: 48px; font-size: 15px; color: var(--text-secondary); border: none; outline: none;">Was beschäftigt dich?</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+              <div style="display: flex; gap: 16px; font-size: 18px;">
+                <span style="cursor: pointer;">📷</span>
+                <span style="cursor: pointer;">🎬</span>
+                <span style="cursor: pointer;">📊</span>
+                <span style="cursor: pointer;">😊</span>
+              </div>
+              <button style="background: var(--accent); color: white; border: none; padding: 8px 24px; border-radius: 9999px; font-weight: 600; font-size: 14px; cursor: pointer;">Posten</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 1 - with image -->
+      <div class="post">
+        <div style="display: flex; gap: 12px;">
+          <div class="avatar" style="background: var(--pink);">L</div>
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-weight: 600; font-size: 15px;">Lisa Morgenstern</span>
+              <span style="color: var(--text-secondary); font-size: 13px;">@lisa_m · 2h</span>
+            </div>
+            <p style="font-size: 15px; line-height: 1.5; margin: 8px 0;">Mein neues Studio ist fertig! 🎨 Monate der Renovierung, aber es hat sich gelohnt. Endlich wieder Platz für große Formate.</p>
+            <div class="post-img">
+              <div style="text-align: center;">
+                <svg width="48" height="48" fill="none" stroke="#555" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <p style="margin-top: 8px; font-size: 13px;">Bild</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 8px;">
+              <div class="action-btn">💬 24</div>
+              <div class="action-btn">🔄 8</div>
+              <div class="action-btn" style="color: #ef4444;">❤️ 142</div>
+              <div class="action-btn">📤</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 2 - text only -->
+      <div class="post">
+        <div style="display: flex; gap: 12px;">
+          <div class="avatar" style="background: var(--blue);">T</div>
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-weight: 600; font-size: 15px;">Thomas Braun</span>
+              <span style="color: var(--text-secondary); font-size: 13px;">@t_braun · 4h</span>
+            </div>
+            <p style="font-size: 15px; line-height: 1.5; margin: 8px 0;">Tipp für alle Selbstständigen: Investiert in eine gute Zeiterfassungs-App. Hat meine Produktivität um 30% gesteigert. Welche nutzt ihr?</p>
+            <div style="display: flex; gap: 4px; margin-top: 8px;">
+              <div class="action-btn">💬 56</div>
+              <div class="action-btn">🔄 23</div>
+              <div class="action-btn" style="color: #ef4444;">❤️ 89</div>
+              <div class="action-btn">📤</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 3 - poll -->
+      <div class="post">
+        <div style="display: flex; gap: 12px;">
+          <div class="avatar" style="background: var(--accent);">M</div>
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-weight: 600; font-size: 15px;">Max Keller</span>
+              <span style="color: var(--accent); font-size: 12px; background: var(--accent-soft); padding: 2px 8px; border-radius: 4px;">Umfrage</span>
+              <span style="color: var(--text-secondary); font-size: 13px;">· 6h</span>
+            </div>
+            <p style="font-size: 15px; line-height: 1.5; margin: 8px 0;">Welches Framework nutzt ihr 2026 am meisten?</p>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+              <div style="background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 8px; padding: 10px 16px; display: flex; justify-content: space-between; font-size: 14px;">
+                <span>Next.js</span><span style="font-weight: 600;">42%</span>
+              </div>
+              <div style="background: var(--bg-input); border: 1px solid var(--border); border-radius: 8px; padding: 10px 16px; display: flex; justify-content: space-between; font-size: 14px;">
+                <span>Nuxt</span><span style="font-weight: 600;">28%</span>
+              </div>
+              <div style="background: var(--bg-input); border: 1px solid var(--border); border-radius: 8px; padding: 10px 16px; display: flex; justify-content: space-between; font-size: 14px;">
+                <span>SvelteKit</span><span style="font-weight: 600;">18%</span>
+              </div>
+              <div style="background: var(--bg-input); border: 1px solid var(--border); border-radius: 8px; padding: 10px 16px; display: flex; justify-content: space-between; font-size: 14px;">
+                <span>Astro</span><span style="font-weight: 600;">12%</span>
+              </div>
+            </div>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 8px;">387 Stimmen · 18h verbleibend</p>
+            <div style="display: flex; gap: 4px; margin-top: 8px;">
+              <div class="action-btn">💬 12</div>
+              <div class="action-btn">🔄 5</div>
+              <div class="action-btn">❤️ 67</div>
+              <div class="action-btn">📤</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" style="padding-left: 24px;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px;">
+        <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 16px;">🔥 Trending</h3>
+        <div class="trending-item">
+          <p style="font-size: 12px; color: var(--text-secondary); margin: 0;">Technologie · Trending</p>
+          <p style="font-size: 14px; font-weight: 600; margin: 4px 0 0;">#KIInDeutschland</p>
+          <p style="font-size: 12px; color: var(--text-secondary); margin: 4px 0 0;">2.4k Beiträge</p>
+        </div>
+        <div class="trending-item">
+          <p style="font-size: 12px; color: var(--text-secondary); margin: 0;">Community · Trending</p>
+          <p style="font-size: 14px; font-weight: 600; margin: 4px 0 0;">#RemoteWork2026</p>
+          <p style="font-size: 12px; color: var(--text-secondary); margin: 4px 0 0;">1.8k Beiträge</p>
+        </div>
+        <div class="trending-item" style="border-bottom: none;">
+          <p style="font-size: 12px; color: var(--text-secondary); margin: 0;">Design · Trending</p>
+          <p style="font-size: 14px; font-weight: 600; margin: 4px 0 0;">#MinimalDesign</p>
+          <p style="font-size: 12px; color: var(--text-secondary); margin: 4px 0 0;">987 Beiträge</p>
+        </div>
+      </div>
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin-top: 16px;">
+        <h3 style="font-size: 16px; font-weight: 600; margin: 0 0 16px;">Vorschläge für dich</h3>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <div class="avatar" style="width: 36px; height: 36px; background: #f59e0b; font-size: 13px;">J</div>
+              <div><p style="font-size: 14px; font-weight: 500; margin: 0;">Julia Wolf</p><p style="font-size: 12px; color: var(--text-secondary); margin: 0;">@julia_w</p></div>
+            </div>
+            <button style="background: white; color: black; border: none; padding: 6px 16px; border-radius: 9999px; font-weight: 600; font-size: 13px; cursor: pointer;">Folgen</button>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <div class="avatar" style="width: 36px; height: 36px; background: #6366f1; font-size: 13px;">R</div>
+              <div><p style="font-size: 14px; font-weight: 500; margin: 0;">Robert Chen</p><p style="font-size: 12px; color: var(--text-secondary); margin: 0;">@r_chen</p></div>
+            </div>
+            <button style="background: white; color: black; border: none; padding: 6px 16px; border-radius: 9999px; font-weight: 600; font-size: 13px; cursor: pointer;">Folgen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

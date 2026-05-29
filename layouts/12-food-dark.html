@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rezepte / Food Inspiration — Light — 🌙 Dark</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f0f14;
+      --bg-card: #0f0f14;
+      --bg-tag: #f0ede8;
+      --text: #2a2a3e;
+      --text-secondary: #8a9bb0;
+      --accent: #e85d3a;
+      --accent-soft: rgba(232,93,58,0.08);
+      --green: #4a8c5c;
+      --green-soft: rgba(74,140,92,0.1);
+      --border: #1e1e2e;
+    }
+    * { font-family: 'Inter', system-ui, sans-serif; box-sizing: border-box; }
+    h1, h2, .heading { font-family: 'Playfair Display', Georgia, serif; }
+    body { background: var(--bg); color: var(--text); margin: 0; }
+    .nav { max-width: 1200px; margin: 0 auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .hero { position: relative; border-radius: 20px; overflow: hidden; margin-bottom: 48px; height: 400px; background: linear-gradient(135deg, #e85d3a 0%, #f4a261 50%, #e9c46a 100%); display: flex; align-items: flex-end; padding: 40px; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(0,0,0,0.5)); }
+    .hero-content { position: relative; z-index: 1; color: #2a2a3e; }
+    .recipe-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: all 0.2s; }
+    .recipe-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .recipe-img { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 56px; }
+    .recipe-info { padding: 20px; }
+    .tag { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; }
+    .tag-time { background: var(--bg-tag); color: var(--text-secondary); }
+    .tag-difficulty { background: var(--green-soft); color: var(--green); }
+    .tag-diet { background: var(--accent-soft); color: var(--accent); }
+    .rating { color: #f59e0b; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; }
+    .btn-primary { background: var(--accent); color: #2a2a3e; }
+    .btn-primary:hover { background: #d14e2d; }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .ingredient { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .ingredient:last-child { border-bottom: none; }
+    .ingredient-check { width: 22px; height: 22px; border: 2px solid var(--border); border-radius: 6px; flex-shrink: 0; }
+    .filter-chip { padding: 6px 16px; border-radius: 9999px; border: 1px solid var(--border); font-size: 13px; cursor: pointer; transition: all 0.15s; background: transparent; }
+    .filter-chip:hover, .filter-chip.active { background: var(--accent); color: #2a2a3e; border-color: var(--accent); }
+    .step { display: flex; gap: 16px; padding: 16px 0; }
+    .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #2a2a3e; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .nutrition-pill { display: flex; flex-direction: column; align-items: center; padding: 12px 16px; background: var(--bg-tag); border-radius: 10px; }
+    .nutrition-pill .value { font-size: 18px; font-weight: 700; color: var(--accent); }
+    .nutrition-pill .label { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+    .saved-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s; }
+    .saved-icon:hover { background: var(--accent-soft); }
+  
+    body { background: #0f0f14 !important; color: #e2e8f0; }
+    .nav, nav { background: #0f0f14 !important; border-color: #2a2a3e !important; }
+    .card, .recipe-card, .subject-card, .control-card, .restaurant-card,
+    .doctor-card, .appointment-card, .message-preview, .place-card { background: #1a1a2e !important; border-color: #2a2a3e !important; color: #e2e8f0; }
+    .search-bar, .compose, .booking-form, .slots-panel { background: #1a1a2e !important; border-color: #2a2a3e !important; }
+    input, textarea, select { background: #14141e !important; color: #e2e8f0 !important; border-color: #2a2a3e !important; }
+    table { border-color: #2a2a3e; }
+    th { color: #8a9bb0; border-color: #2a2a3e; }
+    td { border-color: #2a2a3e; }
+    .bottom-nav { background: #0f0f14 !important; border-color: #2a2a3e !important; }
+    footer { background: #0a0a12 !important; }
+    
+</style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav class="nav">
+    <div style="display: flex; align-items: center; gap: 32px;">
+      <div style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--accent);">koch</div>
+      <div style="display: flex; gap: 20px; font-size: 14px; color: var(--text-secondary);">
+        <span style="cursor: pointer; color: var(--text); font-weight: 500;">Entdecken</span>
+        <span style="cursor: pointer;">Rezepte</span>
+        <span style="cursor: pointer;">Meal Prep</span>
+        <span style="cursor: pointer;">Wochenplan</span>
+        <span style="cursor: pointer;">Bestellungen</span>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="background: var(--bg-tag); border-radius: 10px; padding: 8px 16px; display: flex; align-items: center; gap: 8px;">
+        <svg width="16" height="16" fill="none" stroke="var(--text-secondary)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <span style="color: var(--text-secondary); font-size: 14px;">Rezept suchen...</span>
+      </div>
+      <div style="width: 36px; height: 36px; background: var(--accent-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; color: var(--accent);">N</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p style="font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.9; margin-bottom: 12px;">🔥 Rezept der Woche</p>
+        <h1 style="font-size: 42px; font-weight: 700; margin: 0 0 12px; line-height: 1.1;">Cremige Trüffel-Pasta</h1>
+        <p style="font-size: 16px; opacity: 0.9; margin-bottom: 20px;">In 25 Minuten auf dem Tisch. Einfach, elegant, unwiderstehlich.</p>
+        <div style="display: flex; gap: 12px;">
+          <button class="btn" style="background: #2a2a3e; color: var(--accent);">Zum Rezept →</button>
+          <button class="btn" style="background: rgba(255,255,255,0.2); color: #2a2a3e; border: 1px solid rgba(255,255,255,0.3);">♥ Speichern</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div style="display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap;">
+      <button class="filter-chip active">Alle</button>
+      <button class="filter-chip">🍝 Pasta</button>
+      <button class="filter-chip">🥗 Salate</button>
+      <button class="filter-chip">🍲 Suppen</button>
+      <button class="filter-chip">🍰 Desserts</button>
+      <button class="filter-chip">🥑 Vegan</button>
+      <button class="filter-chip">⚡ Schnell (<30 Min)</button>
+      <button class="filter-chip">💪 High Protein</button>
+    </div>
+
+    <!-- Recipe Grid -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px;">
+      <div class="recipe-card">
+        <div class="recipe-img" style="background: linear-gradient(135deg, #f4a261, #e9c46a);">🍜</div>
+        <div class="recipe-info">
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+              <h3 style="font-size: 16px; font-weight: 600; margin: 0;">Ramen von Null</h3>
+              <p style="font-size: 13px; color: var(--text-secondary); margin: 4px 0 12px;">Japanische Seele in einer Schüssel</p>
+            </div>
+            <div class="saved-icon" style="color: var(--accent);">♥</div>
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
+            <span class="tag tag-time">⏱ 45 Min</span>
+            <span class="tag tag-difficulty">Mittel</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="rating" style="font-size: 13px;">★★★★★ <span style="color: var(--text-secondary);">(128)</span></div>
+            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">€3,50/Port.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card">
+        <div class="recipe-img" style="background: linear-gradient(135deg, #4a8c5c, #81b29a);">🥗</div>
+        <div class="recipe-info">
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+              <h3 style="font-size: 16px; font-weight: 600; margin: 0;">Buddha Bowl</h3>
+              <p style="font-size: 13px; color: var(--text-secondary); margin: 4px 0 12px;">Bunt, gesund, satt machend</p>
+            </div>
+            <div class="saved-icon">♥</div>
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
+            <span class="tag tag-time">⏱ 20 Min</span>
+            <span class="tag tag-difficulty">Einfach</span>
+            <span class="tag tag-diet">🌱 Vegan</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="rating" style="font-size: 13px;">★★★★☆ <span style="color: var(--text-secondary);">(89)</span></div>
+            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">€4,20/Port.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card">
+        <div class="recipe-img" style="background: linear-gradient(135deg, #e85d3a, #c44536);">🍰</div>
+        <div class="recipe-info">
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+              <h3 style="font-size: 16px; font-weight: 600; margin: 0;">Salted Caramel Cheesecake</h3>
+              <p style="font-size: 13px; color: var(--text-secondary); margin: 4px 0 12px;">Ohne Backen, mit Dateien</p>
+            </div>
+            <div class="saved-icon" style="color: var(--accent);">♥</div>
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
+            <span class="tag tag-time">⏱ 30 Min</span>
+            <span class="tag tag-difficulty">Einfach</span>
+            <span class="tag tag-diet">🌾 Glutenfrei</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="rating" style="font-size: 13px;">★★★★★ <span style="color: var(--text-secondary);">(214)</span></div>
+            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">€2,80/Port.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card">
+        <div class="recipe-img" style="background: linear-gradient(135deg, #3d405b, #6b6f8e);">🍖</div>
+        <div class="recipe-info">
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+              <h3 style="font-size: 16px; font-weight: 600; margin: 0;">Pulled Jackfruit Tacos</h3>
+              <p style="font-size: 13px; color: var(--text-secondary); margin: 4px 0 12px;">Smoky, crunchy, plant-based</p>
+            </div>
+            <div class="saved-icon">♥</div>
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
+            <span class="tag tag-time">⏱ 25 Min</span>
+            <span class="tag tag-difficulty">Einfach</span>
+            <span class="tag tag-diet">🌱 Vegan</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="rating" style="font-size: 13px;">★★★★★ <span style="color: var(--text-secondary);">(76)</span></div>
+            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">€3,90/Port.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card">
+        <div class="recipe-img" style="background: linear-gradient(135deg, #f2cc8f, #e9c46a);">🍳</div>
+        <div class="recipe-info">
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+              <h3 style="font-size: 16px; font-weight: 600; margin: 0;">Shakshuka Deluxe</h3>
+              <p style="font-size: 13px; color: var(--text-secondary); margin: 4px 0 12px;">Mit Feta, Avocado & frischem Brot</p>
+            </div>
+            <div class="saved-icon" style="color: var(--accent);">♥</div>
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
+            <span class="tag tag-time">⏱ 20 Min</span>
+            <span class="tag tag-difficulty">Einfach</span>
+            <span class="tag tag-diet">💪 High Protein</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="rating" style="font-size: 13px;">★★★★★ <span style="color: var(--text-secondary);">(342)</span></div>
+            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">€3,10/Port.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="recipe-card">
+        <div class="recipe-img" style="background: linear-gradient(135deg, #81b29a, #3d8b5e);">🥑</div>
+        <div class="recipe-info">
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div>
+              <h3 style="font-size: 16px; font-weight: 600; margin: 0;">Grünes Smoothie Bowl</h3>
+              <p style="font-size: 13px; color: var(--text-secondary); margin: 4px 0 12px;">Spinat, Mango, Kokos — Frühstücksglück</p>
+            </div>
+            <div class="saved-icon">♥</div>
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;">
+            <span class="tag tag-time">⏱ 10 Min</span>
+            <span class="tag tag-difficulty">Einfach</span>
+            <span class="tag tag-diet">🌱 Vegan</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="rating" style="font-size: 13px;">★★★★☆ <span style="color: var(--text-secondary);">(57)</span></div>
+            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">€2,50/Port.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Recipe Detail Snippet -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;">
+      <!-- Left: Steps -->
+      <div>
+        <h2 class="heading" style="font-size: 24px; font-weight: 600; margin: 0 0 8px;">Cremige Trüffel-Pasta</h2>
+        <p style="font-size: 14px; color: var(--text-secondary); margin: 0 0 24px;">von Chef Marie · 25 Min · 2 Portionen</p>
+
+        <!-- Nutrition -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px;">
+          <div class="nutrition-pill"><span class="value">520</span><span class="label">kcal</span></div>
+          <div class="nutrition-pill"><span class="value">18g</span><span class="label">Protein</span></div>
+          <div class="nutrition-pill"><span class="value">24g</span><span class="label">Fett</span></div>
+          <div class="nutrition-pill"><span class="value">62g</span><span class="label">Kohlenhydrate</span></div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div><p style="font-size: 14px; line-height: 1.6; margin: 0;">Pasta in reichlich Salzwasser al dente kochen. 1 Tasse Kochwasser aufheben.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div><p style="font-size: 14px; line-height: 1.6; margin: 0;">Schalotte fein würfeln, in Butter glasig dünsten. Knoblauch dazugeben.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div><p style="font-size: 14px; line-height: 1.6; margin: 0;">Sahne angießen, Trüffelpesto einrühren. Mit Parmesan und Kochwasser cremig binden.</p></div>
+        </div>
+      </div>
+
+      <!-- Right: Ingredients -->
+      <div>
+        <div class="card" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 16px; font-weight: 600; margin: 0;">Zutaten</h3>
+            <span style="font-size: 13px; color: var(--text-secondary);">2 Portionen</span>
+          </div>
+          <div class="ingredient">
+            <div class="ingredient-check"></div>
+            <span style="font-size: 14px;">200g Spaghetti oder Tagliatelle</span>
+          </div>
+          <div class="ingredient">
+            <div class="ingredient-check"></div>
+            <span style="font-size: 14px;">2 EL Trüffelpesto</span>
+          </div>
+          <div class="ingredient">
+            <div class="ingredient-check"></div>
+            <span style="font-size: 14px;">150ml Sahne</span>
+          </div>
+          <div class="ingredient">
+            <div class="ingredient-check"></div>
+            <span style="font-size: 14px;">1 Schalotte</span>
+          </div>
+          <div class="ingredient">
+            <div class="ingredient-check"></div>
+            <span style="font-size: 14px;">40g Parmesan, gerieben</span>
+          </div>
+          <div class="ingredient">
+            <div class="ingredient-check"></div>
+            <span style="font-size: 14px;">1 EL Butter</span>
+          </div>
+          <div class="ingredient">
+            <div class="ingredient-check"></div>
+            <span style="font-size: 14px;">Salz, Pfeffer, frische Petersilie</span>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">🛒 Auf die Einkaufsliste</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
