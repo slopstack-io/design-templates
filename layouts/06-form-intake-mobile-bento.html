@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Formular Bento</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+body { font-family: 'Inter', sans-serif; }
+</style>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bento: { pink: '#FF6B9D', blue: '#4ECDC4', orange: '#FF8A5C', purple: '#A78BFA', yellow: '#FBBF24', green: '#34D399' }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen" style="max-width:430px; margin:0 auto;">
+
+  <!-- Progress Dots -->
+  <div class="px-6 pt-12 pb-4">
+    <div class="flex items-center gap-2 mb-2">
+      <div class="w-10 h-2 rounded-full bg-gradient-to-r from-bento-pink to-bento-purple"></div>
+      <div class="w-10 h-2 rounded-full bg-gradient-to-r from-bento-blue to-bento-green"></div>
+      <div class="w-10 h-2 rounded-full bg-gray-200"></div>
+      <div class="w-10 h-2 rounded-full bg-gray-200"></div>
+    </div>
+    <p class="text-xs text-gray-400">Schritt 2 von 4</p>
+  </div>
+
+  <!-- Header -->
+  <div class="px-6 pb-4">
+    <h1 class="text-2xl font-bold">Erzähl uns von dir ✨</h1>
+    <p class="text-sm text-gray-500 mt-1">Fülle die Karten aus, um fortzufahren</p>
+  </div>
+
+  <!-- Form Cards -->
+  <div class="px-4 space-y-4 pb-6">
+
+    <!-- Name Card -->
+    <div class="bg-gradient-to-br from-bento-pink/10 to-bento-purple/10 border-2 border-bento-pink/20 rounded-2xl p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-lg">👤</span>
+        <label class="text-sm font-semibold text-bento-pink">Dein Name</label>
+      </div>
+      <input type="text" placeholder="Max Mustermann" class="w-full px-4 py-3.5 text-base bg-white/80 border-2 border-bento-pink/20 rounded-xl focus:outline-none focus:border-bento-pink/50 placeholder:text-gray-300">
+    </div>
+
+    <!-- Email Card -->
+    <div class="bg-gradient-to-br from-bento-blue/10 to-bento-green/10 border-2 border-bento-blue/20 rounded-2xl p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-lg">📧</span>
+        <label class="text-sm font-semibold text-bento-blue">E-Mail</label>
+      </div>
+      <input type="email" placeholder="max@beispiel.de" class="w-full px-4 py-3.5 text-base bg-white/80 border-2 border-bento-blue/20 rounded-xl focus:outline-none focus:border-bento-blue/50 placeholder:text-gray-300">
+    </div>
+
+    <!-- Phone Card -->
+    <div class="bg-gradient-to-br from-bento-orange/10 to-bento-yellow/10 border-2 border-bento-orange/20 rounded-2xl p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-lg">📱</span>
+        <label class="text-sm font-semibold text-bento-orange">Telefon</label>
+      </div>
+      <input type="tel" placeholder="+49 170 1234567" class="w-full px-4 py-3.5 text-base bg-white/80 border-2 border-bento-orange/20 rounded-xl focus:outline-none focus:border-bento-orange/50 placeholder:text-gray-300">
+    </div>
+
+    <!-- Radio Card -->
+    <div class="bg-gradient-to-br from-bento-purple/10 to-bento-pink/10 border-2 border-bento-purple/20 rounded-2xl p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-lg">🎯</span>
+        <label class="text-sm font-semibold text-bento-purple">Was ist dein Ziel?</label>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button class="px-5 py-3 bg-bento-purple text-white text-sm font-semibold rounded-full">Abnehmen</button>
+        <button class="px-5 py-3 bg-white text-gray-600 text-sm font-medium rounded-full border-2 border-gray-100">Muskelaufbau</button>
+        <button class="px-5 py-3 bg-white text-gray-600 text-sm font-medium rounded-full border-2 border-gray-100">Ausdauer</button>
+        <button class="px-5 py-3 bg-white text-gray-600 text-sm font-medium rounded-full border-2 border-gray-100">Wellness</button>
+      </div>
+    </div>
+
+    <!-- Experience Card -->
+    <div class="bg-gradient-to-br from-bento-green/10 to-bento-blue/10 border-2 border-bento-green/20 rounded-2xl p-5">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-lg">💪</span>
+        <label class="text-sm font-semibold text-bento-green">Erfahrungslevel</label>
+      </div>
+      <div class="flex gap-2">
+        <button class="flex-1 py-3.5 bg-white text-gray-600 text-sm font-medium rounded-xl border-2 border-gray-100 text-center">Anfänger</button>
+        <button class="flex-1 py-3.5 bg-bento-green text-white text-sm font-semibold rounded-xl text-center">Mittel</button>
+        <button class="flex-1 py-3.5 bg-white text-gray-600 text-sm font-medium rounded-xl border-2 border-gray-100 text-center">Profi</button>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="w-full py-4.5 bg-gradient-to-r from-bento-pink via-bento-purple to-bento-blue text-white text-base font-bold rounded-2xl shadow-lg shadow-bento-purple/25 mt-2">
+      Weiter →
+    </button>
+
+    <p class="text-center text-xs text-gray-400 pb-4">Deine Daten sind sicher 🔒</p>
+  </div>
+</body>
+</html>

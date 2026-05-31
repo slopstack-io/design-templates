@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Terminbuchung Bento</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+body { font-family: 'Inter', sans-serif; }
+</style>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bento: { pink: '#FF6B9D', blue: '#4ECDC4', orange: '#FF8A5C', purple: '#A78BFA', yellow: '#FBBF24', green: '#34D399', rose: '#FB7185', sky: '#38BDF8' }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-white text-gray-900 min-h-screen" style="max-width:430px; margin:0 auto;">
+
+  <!-- Header -->
+  <div class="px-5 pt-10 pb-4">
+    <h1 class="text-2xl font-extrabold">Termine 📅</h1>
+    <p class="text-sm text-gray-400 mt-1">Wähle einen Tag aus</p>
+  </div>
+
+  <!-- Month Label -->
+  <div class="px-5 pb-3 flex items-center justify-between">
+    <button class="w-8 h-8 rounded-full bg-bento-purple/10 flex items-center justify-center">
+      <svg class="w-4 h-4 text-bento-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h2 class="text-sm font-bold text-bento-purple">Juni 2026 ✨</h2>
+    <button class="w-8 h-8 rounded-full bg-bento-purple/10 flex items-center justify-center">
+      <svg class="w-4 h-4 text-bento-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- Bento Date Cards -->
+  <div class="px-4 pb-4">
+    <div class="grid grid-cols-7 gap-1.5">
+      <div class="text-center text-[10px] text-gray-400 py-1">Mo</div>
+      <div class="text-center text-[10px] text-gray-400 py-1">Di</div>
+      <div class="text-center text-[10px] text-gray-400 py-1">Mi</div>
+      <div class="text-center text-[10px] text-gray-400 py-1">Do</div>
+      <div class="text-center text-[10px] text-gray-400 py-1">Fr</div>
+      <div class="text-center text-[10px] text-gray-400 py-1">Sa</div>
+      <div class="text-center text-[10px] text-gray-400 py-1">So</div>
+
+      <!-- Week 1 -->
+      <div class="bg-bento-blue/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-blue">1</span></div>
+      <div class="bg-bento-green/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-green">2</span></div>
+      <div class="bg-bento-orange/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-orange">3</span></div>
+      <div class="bg-bento-pink/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-pink">4</span></div>
+      <div class="bg-bento-purple/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-purple">5</span></div>
+      <div class="bg-bento-sky/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-sky">6</span></div>
+      <div class="bg-gray-50 rounded-xl py-3 text-center"><span class="text-sm text-gray-400">7</span></div>
+
+      <!-- Week 2 -->
+      <div class="bg-bento-yellow/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-yellow">8</span></div>
+      <div class="bg-bento-rose/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-rose">9</span></div>
+      <div class="bg-bento-blue/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-blue">10</span></div>
+      <div class="bg-bento-green/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-green">11</span></div>
+      <div class="bg-bento-orange/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-orange">12</span></div>
+      <div class="bg-bento-pink/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-pink">13</span></div>
+      <div class="bg-gray-50 rounded-xl py-3 text-center"><span class="text-sm text-gray-400">14</span></div>
+
+      <!-- Week 3 -->
+      <div class="bg-bento-purple/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-purple">15</span></div>
+      <div class="bg-bento-sky/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-sky">16</span></div>
+      <div class="bg-bento-yellow/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-yellow">17</span></div>
+      <div class="bg-gradient-to-br from-bento-pink to-bento-purple rounded-xl py-3 text-center shadow-lg shadow-bento-purple/20"><span class="text-sm font-bold text-white">18</span></div>
+      <div class="bg-bento-green/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-green">19</span></div>
+      <div class="bg-bento-blue/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-blue">20</span></div>
+      <div class="bg-gray-50 rounded-xl py-3 text-center"><span class="text-sm text-gray-400">21</span></div>
+
+      <!-- Week 4+ -->
+      <div class="bg-bento-orange/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-orange">22</span></div>
+      <div class="bg-bento-pink/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-pink">23</span></div>
+      <div class="bg-bento-purple/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-purple">24</span></div>
+      <div class="bg-bento-green/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-green">25</span></div>
+      <div class="bg-bento-blue/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-blue">26</span></div>
+      <div class="bg-bento-yellow/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-yellow">27</span></div>
+      <div class="bg-gray-50 rounded-xl py-3 text-center"><span class="text-sm text-gray-400">28</span></div>
+      <div class="bg-bento-sky/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-sky">29</span></div>
+      <div class="bg-bento-rose/10 rounded-xl py-3 text-center"><span class="text-sm font-semibold text-bento-rose">30</span></div>
+    </div>
+  </div>
+
+  <!-- Time Slots -->
+  <div class="px-5 pb-4">
+    <h3 class="text-sm font-bold mb-3">Do, 18. Juni — Verfügbare Zeiten 🕐</h3>
+    <div class="flex flex-wrap gap-2">
+      <button class="px-5 py-3 bg-bento-blue text-white text-sm font-bold rounded-2xl shadow-sm shadow-bento-blue/20">09:00</button>
+      <button class="px-5 py-3 bg-gradient-to-r from-bento-pink to-bento-purple text-white text-sm font-bold rounded-2xl shadow-sm shadow-bento-purple/20">10:00</button>
+      <button class="px-5 py-3 bg-bento-green text-white text-sm font-bold rounded-2xl shadow-sm shadow-bento-green/20">11:00</button>
+      <button class="px-5 py-3 bg-bento-orange text-white text-sm font-bold rounded-2xl shadow-sm shadow-bento-orange/20">14:00</button>
+      <button class="px-5 py-3 bg-gray-100 text-gray-400 text-sm rounded-2xl line-through">15:00</button>
+      <button class="px-5 py-3 bg-bento-purple text-white text-sm font-bold rounded-2xl shadow-sm shadow-bento-purple/20">16:00</button>
+    </div>
+  </div>
+
+  <!-- Booking Card -->
+  <div class="px-5 pb-8">
+    <div class="bg-gradient-to-br from-bento-purple/10 via-bento-pink/5 to-bento-blue/10 rounded-2xl p-5 border-2 border-bento-purple/15">
+      <h3 class="text-sm font-bold mb-3">✨ Buchung bestätigen</h3>
+      <div class="space-y-3">
+        <input type="text" placeholder="Ihr Name" class="w-full px-4 py-3 bg-white/80 rounded-xl text-sm border-2 border-bento-purple/10 focus:outline-none focus:border-bento-purple/30">
+        <textarea rows="2" placeholder="Anmerkungen..." class="w-full px-4 py-3 bg-white/80 rounded-xl text-sm border-2 border-bento-purple/10 focus:outline-none focus:border-bento-purple/30 resize-none"></textarea>
+        <button class="w-full py-3.5 bg-gradient-to-r from-bento-pink via-bento-purple to-bento-blue text-white text-sm font-bold rounded-2xl shadow-lg shadow-bento-purple/25">
+          Termin buchen 🎉
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

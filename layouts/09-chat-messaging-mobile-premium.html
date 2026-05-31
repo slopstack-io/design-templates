@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Chat Premium Mobile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; background: #0A0A0A; }
+.glass { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+.glass-msg-in { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); }
+.glass-msg-out { background: rgba(212,175,55,0.08); backdrop-filter: blur(16px); border: 1px solid rgba(212,175,55,0.12); }
+.gold { color: #D4AF37; }
+</style>
+</head>
+<body class="max-w-[430px] mx-auto min-h-screen text-white">
+
+<!-- Header -->
+<header class="px-6 pt-6 pb-4 flex items-center justify-between">
+  <div>
+    <h1 class="text-lg font-light tracking-wide text-white/90">Nachrichten</h1>
+  </div>
+  <button class="w-8 h-8 rounded-full glass flex items-center justify-center text-white/40 text-sm">+</button>
+</header>
+
+<!-- Online Contacts Strip -->
+<div class="px-6 py-3 flex gap-5 overflow-x-auto">
+  <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+    <div class="relative">
+      <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-xs text-white/50">EM</div>
+      <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#D4AF37] border-2 border-[#0A0A0A]"></div>
+    </div>
+    <span class="text-[9px] text-white/30">Elena</span>
+  </div>
+  <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+    <div class="relative">
+      <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-xs text-white/50">TK</div>
+      <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#D4AF37] border-2 border-[#0A0A0A]"></div>
+    </div>
+    <span class="text-[9px] text-white/30">Thomas</span>
+  </div>
+  <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+    <div class="relative">
+      <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-xs text-white/50">AW</div>
+      <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-white/10 border-2 border-[#0A0A0A]"></div>
+    </div>
+    <span class="text-[9px] text-white/20">Anna</span>
+  </div>
+  <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+    <div class="relative">
+      <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-xs text-white/50">MH</div>
+      <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-white/10 border-2 border-[#0A0A0A]"></div>
+    </div>
+    <span class="text-[9px] text-white/20">Max</span>
+  </div>
+  <div class="flex flex-col items-center gap-1.5 flex-shrink-0">
+    <div class="relative">
+      <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-xs text-white/50">LW</div>
+      <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#D4AF37] border-2 border-[#0A0A0A]"></div>
+    </div>
+    <span class="text-[9px] text-white/30">Lukas</span>
+  </div>
+</div>
+
+<!-- Chat Header -->
+<div class="px-6 py-4 border-t border-white/5">
+  <div class="flex items-center gap-3">
+    <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-[10px] text-white/40">EM</div>
+    <div>
+      <p class="text-sm font-light text-white/80">Elena Moretti</p>
+      <p class="text-[10px] text-[#D4AF37]/60">online</p>
+    </div>
+  </div>
+</div>
+
+<!-- Messages -->
+<section class="px-6 py-2 space-y-4">
+  <!-- Incoming -->
+  <div class="max-w-[85%]">
+    <div class="glass-msg-in rounded-2xl rounded-tl-sm px-4 py-3">
+      <p class="text-sm font-light text-white/70 leading-relaxed">Guten Abend. Ich wollte dir die Entwürfe für die Kollektion zeigen.</p>
+    </div>
+    <p class="text-[9px] text-white/15 mt-1 ml-2">19:32</p>
+  </div>
+
+  <!-- Outgoing -->
+  <div class="max-w-[85%] ml-auto">
+    <div class="glass-msg-out rounded-2xl rounded-tr-sm px-4 py-3">
+      <p class="text-sm font-light text-white/80 leading-relaxed">Sehr gerne. Kann ich morgen vorbeikommen?</p>
+    </div>
+    <p class="text-[9px] text-[#D4AF37]/25 mt-1 mr-2 text-right">19:45</p>
+  </div>
+
+  <!-- Incoming -->
+  <div class="max-w-[85%]">
+    <div class="glass-msg-in rounded-2xl rounded-tl-sm px-4 py-3">
+      <p class="text-sm font-light text-white/70 leading-relaxed">Natürlich. Gegen elf Uhr wäre perfekt. Bring bitte die Stoffproben mit.</p>
+    </div>
+    <p class="text-[9px] text-white/15 mt-1 ml-2">19:52</p>
+  </div>
+
+  <!-- Outgoing -->
+  <div class="max-w-[85%] ml-auto">
+    <div class="glass-msg-out rounded-2xl rounded-tr-sm px-4 py-3">
+      <p class="text-sm font-light text-white/80 leading-relaxed">Wunderbar, bis morgen.</p>
+    </div>
+    <p class="text-[9px] text-[#D4AF37]/25 mt-1 mr-2 text-right">19:55</p>
+  </div>
+
+  <!-- Incoming -->
+  <div class="max-w-[85%]">
+    <div class="glass-msg-in rounded-2xl rounded-tl-sm px-4 py-3">
+      <p class="text-sm font-light text-white/70 leading-relaxed">Ich freue mich darauf. Schlaf gut ✨</p>
+    </div>
+    <p class="text-[9px] text-white/15 mt-1 ml-2">20:01</p>
+  </div>
+</section>
+
+<!-- Input -->
+<div class="fixed bottom-0 w-full max-w-[430px] px-6 py-5 bg-[#0A0A0A]">
+  <div class="relative">
+    <input type="text" placeholder="Nachricht" class="w-full bg-transparent text-sm font-light text-white/80 placeholder-white/15 outline-none border-b border-white/8 focus:border-[#D4AF37]/40 transition-colors pb-2">
+  </div>
+</div>
+
+<div class="h-20"></div>
+</body>
+</html>

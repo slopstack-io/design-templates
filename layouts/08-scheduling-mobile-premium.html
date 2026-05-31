@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Terminbuchung Premium</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+body { font-family: 'Inter', sans-serif; }
+</style>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#C9A84C',
+        dark: { 900: '#0A0A0A', 800: '#111111', 700: '#1A1A1A', 600: '#222222' }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-dark-900 text-white min-h-screen" style="max-width:430px; margin:0 auto;">
+
+  <!-- Header -->
+  <div class="px-10 pt-14 pb-4">
+    <p class="text-gold text-xs tracking-[0.3em] font-light uppercase">Reservierung</p>
+    <h1 class="text-xl font-light mt-1 tracking-wide">Termin buchen</h1>
+    <div class="w-10 h-px bg-gold/30 mt-3"></div>
+  </div>
+
+  <!-- Month -->
+  <div class="px-10 pt-6 pb-3 flex items-center justify-between">
+    <button class="text-gold/40 hover:text-gold transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h2 class="text-sm font-light tracking-wider text-gray-400">Juni 2026</h2>
+    <button class="text-gold/40 hover:text-gold transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- Sparse Date Grid -->
+  <div class="px-8 pb-6">
+    <div class="grid grid-cols-7 text-center text-[10px] tracking-widest uppercase text-gray-700 mb-3">
+      <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+    </div>
+    <div class="grid grid-cols-7 text-center text-sm font-light gap-y-2">
+      <span class="py-2 text-dark-600">1</span>
+      <span class="py-2 text-gray-600">2</span>
+      <span class="py-2 text-gray-600">3</span>
+      <span class="py-2 text-gray-600">4</span>
+      <span class="py-2 text-gray-600">5</span>
+      <span class="py-2 text-gray-600">6</span>
+      <span class="py-2 text-dark-600">7</span>
+
+      <span class="py-2 text-gray-600">8</span>
+      <span class="py-2 text-gray-600">9</span>
+      <span class="py-2 text-gray-600">10</span>
+      <span class="py-2 text-gray-600">11</span>
+      <span class="py-2 text-gray-600">12</span>
+      <span class="py-2 text-gray-600">13</span>
+      <span class="py-2 text-dark-600">14</span>
+
+      <span class="py-2 text-gray-600">15</span>
+      <span class="py-2 text-gray-600">16</span>
+      <span class="py-2 text-gray-600">17</span>
+      <span class="py-2 w-8 h-8 mx-auto border border-gold text-gold rounded-full flex items-center justify-center font-normal">18</span>
+      <span class="py-2 text-gray-600">19</span>
+      <span class="py-2 text-gray-600">20</span>
+      <span class="py-2 text-dark-600">21</span>
+
+      <span class="py-2 text-gray-600">22</span>
+      <span class="py-2 text-gray-600">23</span>
+      <span class="py-2 text-gray-600">24</span>
+      <span class="py-2 text-gray-600">25</span>
+      <span class="py-2 text-gray-600">26</span>
+      <span class="py-2 text-gray-600">27</span>
+      <span class="py-2 text-dark-600">28</span>
+
+      <span class="py-2 text-gray-600">29</span>
+      <span class="py-2 text-gray-600">30</span>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="mx-10 border-t border-white/5"></div>
+
+  <!-- Time Slots -->
+  <div class="px-10 py-6">
+    <p class="text-xs text-gray-600 font-light tracking-wider mb-4">Do, 18. Juni</p>
+    <div class="flex flex-wrap gap-2">
+      <button class="px-5 py-2.5 border border-white/10 text-gray-400 text-sm font-light rounded-full hover:border-gold/30 hover:text-gold transition-colors">09:00</button>
+      <button class="px-5 py-2.5 border border-gold text-gold text-sm font-light rounded-full">10:00</button>
+      <button class="px-5 py-2.5 border border-white/10 text-gray-400 text-sm font-light rounded-full hover:border-gold/30 hover:text-gold transition-colors">11:00</button>
+      <button class="px-5 py-2.5 border border-white/10 text-gray-400 text-sm font-light rounded-full">14:00</button>
+      <button class="px-5 py-2.5 border border-white/5 text-dark-600 text-sm font-light rounded-full line-through">15:00</button>
+      <button class="px-5 py-2.5 border border-white/10 text-gray-400 text-sm font-light rounded-full hover:border-gold/30 hover:text-gold transition-colors">16:00</button>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="mx-10 border-t border-white/5"></div>
+
+  <!-- Minimal Booking Form -->
+  <div class="px-10 py-6">
+    <div class="space-y-5">
+      <div>
+        <label class="block text-[10px] tracking-widest uppercase text-gray-700 mb-3 font-light">Name</label>
+        <input type="text" placeholder="Ihr Name" class="w-full bg-transparent border-0 border-b border-white/10 focus:border-gold/40 focus:outline-none text-sm font-light py-2 placeholder:text-dark-600 transition-colors">
+      </div>
+      <div>
+        <label class="block text-[10px] tracking-widest uppercase text-gray-700 mb-3 font-light">Anmerkung</label>
+        <input type="text" placeholder="Optional" class="w-full bg-transparent border-0 border-b border-white/10 focus:border-gold/40 focus:outline-none text-sm font-light py-2 placeholder:text-dark-600 transition-colors">
+      </div>
+      <button class="w-full py-3.5 border border-gold text-gold text-sm font-light tracking-wider mt-4 hover:bg-gold hover:text-dark-900 transition-colors">
+        Bestätigen
+      </button>
+    </div>
+  </div>
+
+  <div class="h-8"></div>
+</body>
+</html>

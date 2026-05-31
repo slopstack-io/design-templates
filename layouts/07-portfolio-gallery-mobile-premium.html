@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Portfolio Premium</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+body { font-family: 'Inter', sans-serif; }
+</style>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#C9A84C',
+        dark: { 900: '#0A0A0A', 800: '#111111', 700: '#1A1A1A', 600: '#222222' }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-dark-900 text-white min-h-screen" style="max-width:430px; margin:0 auto;">
+
+  <!-- Header -->
+  <div class="px-10 pt-14 pb-6 flex items-center justify-between">
+    <div>
+      <p class="text-gold text-xs tracking-[0.3em] font-light uppercase">Kollektion</p>
+      <h1 class="text-xl font-light mt-1 tracking-wide">Portfolio</h1>
+    </div>
+    <svg class="w-5 h-5 text-gold/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+  </div>
+
+  <!-- Divider -->
+  <div class="mx-10 border-t border-white/5"></div>
+
+  <!-- Stats -->
+  <div class="px-10 py-6 flex items-center gap-10">
+    <div>
+      <p class="text-gold text-2xl font-light">248</p>
+      <p class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Werke</p>
+    </div>
+    <div>
+      <p class="text-gold text-2xl font-light">3.2K</p>
+      <p class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Likes</p>
+    </div>
+    <div>
+      <p class="text-gold text-2xl font-light">89</p>
+      <p class="text-[10px] text-gray-600 font-light tracking-wider uppercase">Favoriten</p>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="px-8">
+    <!-- Row 1: Large -->
+    <div class="mb-5">
+      <div class="rounded-sm border border-gold/20 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" class="w-full object-cover" style="height:200px" alt="">
+      </div>
+      <div class="mt-3 px-2 flex justify-between items-center">
+        <p class="text-sm font-light text-gray-300">Alpenpanorama</p>
+        <p class="text-xs text-gold/50 font-light">♥ 128</p>
+      </div>
+    </div>
+
+    <!-- Row 2: Two -->
+    <div class="flex gap-5 mb-5">
+      <div class="flex-1">
+        <div class="rounded-sm border border-gold/15 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&h=240&fit=crop" class="w-full object-cover" style="height:180px" alt="">
+        </div>
+        <p class="mt-2 text-xs font-light text-gray-400">Neonlicht</p>
+      </div>
+      <div class="flex-1">
+        <div class="rounded-sm border border-gold/15 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=200&h=240&fit=crop" class="w-full object-cover" style="height:180px" alt="">
+        </div>
+        <p class="mt-2 text-xs font-light text-gray-400">Bergnacht</p>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="mb-5">
+      <div class="rounded-sm border border-gold/15 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=220&fit=crop" class="w-full object-cover" style="height:160px" alt="">
+      </div>
+      <div class="mt-3 px-2 flex justify-between items-center">
+        <p class="text-sm font-light text-gray-300">Morgentau</p>
+        <p class="text-xs text-gold/50 font-light">♥ 87</p>
+      </div>
+    </div>
+
+    <!-- Row 4: Two -->
+    <div class="flex gap-5 mb-5">
+      <div class="flex-1">
+        <div class="rounded-sm border border-gold/15 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=200&h=200&fit=crop" class="w-full object-cover" style="height:150px" alt="">
+        </div>
+        <p class="mt-2 text-xs font-light text-gray-400">Stadtansicht</p>
+      </div>
+      <div class="flex-1">
+        <div class="rounded-sm border border-gold/15 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=200&h=200&fit=crop" class="w-full object-cover" style="height:150px" alt="">
+        </div>
+        <p class="mt-2 text-xs font-light text-gray-400">Dämmerung</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-10"></div>
+</body>
+</html>

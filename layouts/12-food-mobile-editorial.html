@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Food Editorial Mobile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Lora', serif; background: #FDF6EC; }
+.font-display { font-family: 'Playfair Display', serif; }
+.font-body { font-family: 'Lora', serif; }
+.font-source { font-family: 'Source Serif 4', serif; }
+</style>
+</head>
+<body class="max-w-[430px] mx-auto min-h-screen" style="background:#FDF6EC;">
+
+<!-- Header -->
+<header class="px-6 pt-6 pb-5 border-b border-amber-900/10">
+  <p class="text-[10px] text-amber-900/40 font-source tracking-[0.2em] uppercase mb-1">Küche & Tafel</p>
+  <h1 class="font-display text-2xl font-bold text-amber-950">Rezepte der Saison</h1>
+  <p class="text-xs text-amber-800/50 font-source italic mt-1">Frühling 2026 · Ausgabe 14</p>
+</header>
+
+<!-- Hero Recipe Image Placeholder -->
+<section class="px-6 py-5">
+  <div class="h-52 rounded-xl bg-gradient-to-br from-orange-200 via-amber-200 to-red-200 flex items-center justify-center">
+    <span class="text-7xl">🍝</span>
+  </div>
+  <div class="mt-4">
+    <p class="text-[9px] text-amber-900/40 font-source tracking-[0.2em] uppercase">Hauptgericht · Frühlingsausgabe</p>
+    <h2 class="font-display text-xl font-bold text-amber-950 mt-1">Trüffel-Pappardelle mit frischem Salbei</h2>
+    <p class="text-xs text-amber-800/50 font-source mt-2 italic">Eine Hommage an die toskanische Küche, bereichert durch die Tiefe schwarzer Trüffel.</p>
+  </div>
+</section>
+
+<!-- Recipe as Editorial Prose -->
+<section class="px-6 py-4 border-t border-amber-900/10">
+  <p class="text-[10px] text-amber-900/40 font-source tracking-[0.2em] uppercase mb-3">Zubereitung</p>
+  
+  <div class="space-y-4">
+    <div class="pl-4 border-l-2" style="border-color:#C2694A;">
+      <h3 class="font-display text-sm font-bold text-amber-950 mb-1">Der Teig</h3>
+      <p class="text-xs text-amber-800/60 font-body leading-relaxed">
+        Beginnen Sie mit 400 Gramm Tipo-00-Mehl, das Sie auf einer sauberen Arbeitsfläche zu einem Vulkan formen. In die Mitte geben Sie vier Eier von glücklichen Hühnern, einen Esslöffel Olivenöl und eine Prise Meersalz. Kneten Sie den Teig mindestens zehn Minuten, bis er seidig und elastisch ist. Lassen Sie ihn eine Stunde bei Zimmertemperatur ruhen.
+      </p>
+    </div>
+
+    <div class="pl-4 border-l-2" style="border-color:#C2694A;">
+      <h3 class="font-display text-sm font-bold text-amber-950 mb-1">Die Sauce</h3>
+      <p class="text-xs text-amber-800/60 font-body leading-relaxed">
+        Während der Teig ruht, schälen Sie vorsichtig zwanzig Gramm schwarzen Trüffel und hobeln ihn in hauchdünne Scheiben. In einer breiten Pfanne erwärmen Sie drei Esslöffel besten Butterschmalz bei mittlerer Hitze. Fügen Sie sechs frische Salbeiblätter hinzu und lassen Sie sie knusprig werden — doch Vorsicht, es bedarf nur weniger Sekunden.
+      </p>
+    </div>
+
+    <div class="pl-4 border-l-2" style="border-color:#C2694A;">
+      <h3 class="font-display text-sm font-bold text-amber-950 mb-1">Die Vollendung</h3>
+      <p class="text-xs text-amber-800/60 font-body leading-relaxed">
+        Rollen Sie den Teig hauchdünn aus und schneiden Sie ihn in breite Pappardelle-Streifen. Kochen Sie die Pasta in reichlich gesalzenem Wasser — nicht länger als zwei Minuten. Heben Sie die Pasta direkt aus dem Wasser in die Pfanne mit der Sauce. Fügen Sie eine Kelle Pastawasser hinzu und schwenken Sie alles behutsam. Servieren Sie sofort, garniert mit frisch gehobeltem Trüffel und gehobeltem Parmigiano Reggiano.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Meta Info -->
+<section class="px-6 py-4 border-t border-amber-900/10">
+  <div class="flex items-center gap-6">
+    <div>
+      <p class="text-[9px] text-amber-900/40 font-source tracking-wider uppercase">Zeit</p>
+      <p class="text-xs text-amber-950 font-body mt-0.5">45 Minuten</p>
+    </div>
+    <div>
+      <p class="text-[9px] text-amber-900/40 font-source tracking-wider uppercase">Schwierigkeit</p>
+      <p class="text-xs text-amber-950 font-body mt-0.5">Mittel</p>
+    </div>
+    <div>
+      <p class="text-[9px] text-amber-900/40 font-source tracking-wider uppercase">Portionen</p>
+      <p class="text-xs text-amber-950 font-body mt-0.5">4 Personen</p>
+    </div>
+  </div>
+</section>
+
+<!-- More Recipes -->
+<section class="px-6 py-5 border-t border-amber-900/10">
+  <p class="text-[10px] text-amber-900/40 font-source tracking-[0.2em] uppercase mb-3">Weitere Rezepte</p>
+  <div class="space-y-3">
+    <div class="flex items-center gap-3 py-2 border-b border-amber-900/5">
+      <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-xl flex-shrink-0">🥗</div>
+      <div class="flex-1">
+        <p class="text-sm font-body font-semibold text-amber-950">Cäsar-Salat klassisch</p>
+        <p class="text-[10px] text-amber-800/40 font-source">15 Min. · Leicht</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 py-2 border-b border-amber-900/5">
+      <div class="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center text-xl flex-shrink-0">🥩</div>
+      <div class="flex-1">
+        <p class="text-sm font-body font-semibold text-amber-950">Rinderfilet mit Rosmarin</p>
+        <p class="text-[10px] text-amber-800/40 font-source">60 Min. · Anspruchsvoll</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 py-2">
+      <div class="w-12 h-12 rounded-lg bg-yellow-100 flex items-center justify-center text-xl flex-shrink-0">🍰</div>
+      <div class="flex-1">
+        <p class="text-sm font-body font-semibold text-amber-950">Tiramisu nach Omas Rezept</p>
+        <p class="text-[10px] text-amber-800/40 font-source">30 Min. · Mittel</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="h-16"></div>
+</body>
+</html>

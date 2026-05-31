@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430">
+<title>Social Feed Base Mobile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{font-family:system-ui,-apple-system,sans-serif;max-width:430px;margin:0 auto}</style>
+</head>
+<body class="min-h-screen bg-white pb-20">
+<!-- Compose bar -->
+<header class="px-4 pt-4 pb-2 flex items-center gap-3 border-b border-gray-100">
+<div class="w-9 h-9 rounded-full bg-gray-300 flex-shrink-0"></div>
+<div class="flex-1 bg-gray-100 rounded-full px-4 py-2.5 text-sm text-gray-400">Was beschäftigt dich?</div>
+<div class="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0">
+<svg width="18" height="18" fill="none" stroke="white" stroke-width="2"><path d="M9 3v12M3 9h12"/></svg>
+</div>
+</header>
+
+<!-- Stories -->
+<section class="px-4 py-3 flex gap-3 overflow-x-auto border-b border-gray-100">
+<div class="flex flex-col items-center gap-1 flex-shrink-0">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 p-0.5">
+<div class="w-full h-full rounded-full bg-white p-0.5">
+<div class="w-full h-full rounded-full bg-gray-300 flex items-center justify-center text-xs">Dein</div>
+</div>
+</div>
+<span class="text-[10px] text-gray-500">Deine Story</span>
+</div>
+<div class="flex flex-col items-center gap-1 flex-shrink-0">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-red-500 p-0.5">
+<div class="w-full h-full rounded-full bg-white p-0.5">
+<div class="w-full h-full rounded-full bg-blue-200 flex items-center justify-center text-xs font-bold text-blue-700">MK</div>
+</div>
+</div>
+<span class="text-[10px] text-gray-500">Maria</span>
+</div>
+<div class="flex flex-col items-center gap-1 flex-shrink-0">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-teal-500 p-0.5">
+<div class="w-full h-full rounded-full bg-white p-0.5">
+<div class="w-full h-full rounded-full bg-green-200 flex items-center justify-center text-xs font-bold text-green-700">TS</div>
+</div>
+</div>
+<span class="text-[10px] text-gray-500">Thomas</span>
+</div>
+<div class="flex flex-col items-center gap-1 flex-shrink-0">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 p-0.5">
+<div class="w-full h-full rounded-full bg-white p-0.5">
+<div class="w-full h-full rounded-full bg-orange-200 flex items-center justify-center text-xs font-bold text-orange-700">LW</div>
+</div>
+</div>
+<span class="text-[10px] text-gray-500">Lisa</span>
+</div>
+<div class="flex flex-col items-center gap-1 flex-shrink-0">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-400 to-blue-500 p-0.5">
+<div class="w-full h-full rounded-full bg-white p-0.5">
+<div class="w-full h-full rounded-full bg-indigo-200 flex items-center justify-center text-xs font-bold text-indigo-700">JP</div>
+</div>
+</div>
+<span class="text-[10px] text-gray-500">Jan</span>
+</div>
+</section>
+
+<!-- Feed -->
+<section class="divide-y divide-gray-100">
+<article class="px-4 py-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center text-xs font-bold text-blue-700">MK</div>
+<div>
+<p class="text-sm font-semibold text-gray-900">Maria K.</p>
+<p class="text-[10px] text-gray-400">vor 2 Stunden</p>
+</div>
+</div>
+<p class="text-sm text-gray-700 leading-relaxed mb-3">Mein neues Studio ist fertig! 🎨 Monate der Planung und endlich ist alles an seinem Platz. Was meint ihr zu den Farben?</p>
+<div class="aspect-[4/3] bg-gray-100 rounded-xl mb-3 flex items-center justify-center">
+<span class="text-gray-400 text-sm">📸 Bild</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1.5 text-gray-500">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.5 4.5a2 2 0 0 0-2.83 0L11.5 5.67 10.33 4.5a2 2 0 1 0-2.83 2.83L11.5 11.33l4-4a2 2 0 0 0 0-2.83z"/></svg>
+<span class="text-xs">128</span>
+</div>
+<div class="flex items-center gap-1.5 text-gray-500">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h2l1.5 10h8l2-6H7"/></svg>
+<span class="text-xs">24</span>
+</div>
+<div class="flex items-center gap-1.5 text-gray-500">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l6 6 6-6M9 3v12"/></svg>
+<span class="text-xs">Teilen</span>
+</div>
+</div>
+</article>
+
+<article class="px-4 py-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-green-200 flex items-center justify-center text-xs font-bold text-green-700">TS</div>
+<div>
+<p class="text-sm font-semibold text-gray-900">Thomas S.</p>
+<p class="text-[10px] text-gray-400">vor 5 Stunden</p>
+</div>
+</div>
+<p class="text-sm text-gray-700 leading-relaxed mb-3">Gerade den Entwurf für das neue Projekt abgeschlossen. Minimalismus trifft auf Funktionalität. Was denkt ihr? 🖊️</p>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1.5 text-gray-500">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.5 4.5a2 2 0 0 0-2.83 0L11.5 5.67 10.33 4.5a2 2 0 1 0-2.83 2.83L11.5 11.33l4-4a2 2 0 0 0 0-2.83z"/></svg>
+<span class="text-xs">87</span>
+</div>
+<div class="flex items-center gap-1.5 text-gray-500">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h2l1.5 10h8l2-6H7"/></svg>
+<span class="text-xs">15</span>
+</div>
+<div class="flex items-center gap-1.5 text-gray-500">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l6 6 6-6M9 3v12"/></svg>
+<span class="text-xs">Teilen</span>
+</div>
+</div>
+</article>
+
+<article class="px-4 py-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-orange-200 flex items-center justify-center text-xs font-bold text-orange-700">LW</div>
+<div>
+<p class="text-sm font-semibold text-gray-900">Lisa W.</p>
+<p class="text-[10px] text-gray-400">vor 8 Stunden</p>
+</div>
+</div>
+<p class="text-sm text-gray-700 leading-relaxed mb-3"> Sonniger Tag in München ☀️ Perfekt für einen Spaziergang durch den Englischen Garten.</p>
+<div class="aspect-[4/3] bg-gray-100 rounded-xl mb-3 flex items-center justify-center">
+<span class="text-gray-400 text-sm">📸 Bild</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1.5 text-gray-500">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.5 4.5a2 2 0 0 0-2.83 0L11.5 5.67 10.33 4.5a2 2 0 1 0-2.83 2.83L11.5 11.33l4-4a2 2 0 0 0 0-2.83z"/></svg>
+<span class="text-xs">203</span>
+</div>
+<div class="flex items-center gap-1.5 text-gray-500">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h2l1.5 10h8l2-6H7"/></svg>
+<span class="text-xs">42</span>
+</div>
+<div class="flex items-center gap-1.5 text-gray-500">
+<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l6 6 6-6M9 3v12"/></svg>
+<span class="text-xs">Teilen</span>
+</div>
+</div>
+</article>
+</section>
+
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-gray-100 px-4 py-3 flex justify-around items-center">
+<a href="#" class="flex flex-col items-center gap-1">
+<svg width="22" height="22" fill="#111827" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h3v-5h6v5h3a1 1 0 001-1v-9"/></svg>
+<span class="text-[10px] font-semibold text-gray-900">Home</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<svg width="22" height="22" fill="none" stroke="#9ca3af" stroke-width="1.8"><circle cx="11" cy="11" r="9"/><line x1="11" y1="7" x2="11" y2="15"/><line x1="7" y1="11" x2="15" y2="11"/></svg>
+<span class="text-[10px] text-gray-400">Entdecken</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<div class="w-10 h-7 bg-blue-500 rounded-lg flex items-center justify-center">
+<svg width="18" height="18" fill="none" stroke="white" stroke-width="2.5"><path d="M9 3v12M3 9h12"/></svg>
+</div>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<svg width="22" height="22" fill="none" stroke="#9ca3af" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+<span class="text-[10px] text-gray-400">Nachrichten</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<svg width="22" height="22" fill="none" stroke="#9ca3af" stroke-width="1.8"><circle cx="11" cy="7" r="4"/><path d="M3 20c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+<span class="text-[10px] text-gray-400">Profil</span>
+</a>
+</nav>
+</body>
+</html>

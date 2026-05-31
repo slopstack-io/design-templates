@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Tool Base Mobile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; background: #F5F5F7; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body class="max-w-[430px] mx-auto min-h-screen">
+
+<!-- Header -->
+<header class="px-5 pt-6 pb-4 bg-white">
+  <h1 class="text-xl font-semibold text-gray-900">Entwicklertools</h1>
+  <p class="text-xs text-gray-500 mt-1">Konfiguration & Systemstatus</p>
+</header>
+
+<!-- Code Viewer Card -->
+<section class="px-5 py-4">
+  <div class="rounded-2xl bg-gray-900 p-4 overflow-hidden">
+    <div class="flex items-center gap-2 mb-3">
+      <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+      <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+      <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+      <span class="text-[10px] text-gray-500 ml-2 font-mono">config.yaml</span>
+    </div>
+    <pre class="font-mono text-xs leading-6"><span class="text-purple-400">server</span><span class="text-gray-500">:</span>
+  <span class="text-blue-400">host</span><span class="text-gray-500">:</span> <span class="text-green-400">"0.0.0.0"</span>
+  <span class="text-blue-400">port</span><span class="text-gray-500">:</span> <span class="text-orange-400">8080</span>
+  <span class="text-blue-400">debug</span><span class="text-gray-500">:</span> <span class="text-red-400">true</span>
+
+<span class="text-purple-400">database</span><span class="text-gray-500">:</span>
+  <span class="text-blue-400">driver</span><span class="text-gray-500">:</span> <span class="text-green-400">"postgresql"</span>
+  <span class="text-blue-400">pool_size</span><span class="text-gray-500">:</span> <span class="text-orange-400">10</span></pre>
+  </div>
+</section>
+
+<!-- Config Toggles -->
+<section class="px-5 py-2">
+  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-medium mb-3">Konfiguration</p>
+  
+  <div class="bg-white rounded-2xl divide-y divide-gray-100">
+    <!-- Toggle 1 -->
+    <div class="flex items-center justify-between px-4 py-3.5">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-sm">🔌</div>
+        <div>
+          <p class="text-sm font-medium text-gray-900">API aktivieren</p>
+          <p class="text-[10px] text-gray-400">REST Endpunkte freigeben</p>
+        </div>
+      </div>
+      <div class="w-10 h-6 bg-green-500 rounded-full relative cursor-pointer">
+        <div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1 shadow-sm"></div>
+      </div>
+    </div>
+    <!-- Toggle 2 -->
+    <div class="flex items-center justify-between px-4 py-3.5">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center text-sm">🔒</div>
+        <div>
+          <p class="text-sm font-medium text-gray-900">Authentifizierung</p>
+          <p class="text-[10px] text-gray-400">OAuth 2.0 aktiv</p>
+        </div>
+      </div>
+      <div class="w-10 h-6 bg-green-500 rounded-full relative cursor-pointer">
+        <div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1 shadow-sm"></div>
+      </div>
+    </div>
+    <!-- Toggle 3 -->
+    <div class="flex items-center justify-between px-4 py-3.5">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center text-sm">📊</div>
+        <div>
+          <p class="text-sm font-medium text-gray-900">Logging</p>
+          <p class="text-[10px] text-gray-400">Ausführliche Protokolle</p>
+        </div>
+      </div>
+      <div class="w-10 h-6 bg-gray-200 rounded-full relative cursor-pointer">
+        <div class="w-4 h-4 bg-white rounded-full absolute left-1 top-1 shadow-sm"></div>
+      </div>
+    </div>
+    <!-- Toggle 4 -->
+    <div class="flex items-center justify-between px-4 py-3.5">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-sm">⚡</div>
+        <div>
+          <p class="text-sm font-medium text-gray-900">Cache</p>
+          <p class="text-[10px] text-gray-400">Redis-Cache aktiviert</p>
+        </div>
+      </div>
+      <div class="w-10 h-6 bg-green-500 rounded-full relative cursor-pointer">
+        <div class="w-4 h-4 bg-white rounded-full absolute right-1 top-1 shadow-sm"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Status Indicators -->
+<section class="px-5 py-4">
+  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-medium mb-3">Systemstatus</p>
+  <div class="bg-white rounded-2xl px-4 py-3 space-y-3">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-green-500"></div>
+        <span class="text-sm text-gray-700">Server</span>
+      </div>
+      <span class="text-xs text-green-600 font-medium">Aktiv</span>
+    </div>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-green-500"></div>
+        <span class="text-sm text-gray-700">Datenbank</span>
+      </div>
+      <span class="text-xs text-green-600 font-medium">Verbunden</span>
+    </div>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+        <span class="text-sm text-gray-700">Speicher</span>
+      </div>
+      <span class="text-xs text-yellow-600 font-medium">78% belegt</span>
+    </div>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-green-500"></div>
+        <span class="text-sm text-gray-700">CDN</span>
+      </div>
+      <span class="text-xs text-green-600 font-medium">Online</span>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Section -->
+<section class="px-5 py-4">
+  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-medium mb-3">Funktionen</p>
+  <div class="grid grid-cols-2 gap-3">
+    <div class="bg-white rounded-2xl p-4">
+      <div class="text-2xl mb-2">🔍</div>
+      <p class="text-sm font-medium text-gray-900">Code-Suche</p>
+      <p class="text-[10px] text-gray-400 mt-1">Volltext in Repositories</p>
+    </div>
+    <div class="bg-white rounded-2xl p-4">
+      <div class="text-2xl mb-2">🚀</div>
+      <p class="text-sm font-medium text-gray-900">Deploy</p>
+      <p class="text-[10px] text-gray-400 mt-1">One-Click Bereitstellung</p>
+    </div>
+    <div class="bg-white rounded-2xl p-4">
+      <div class="text-2xl mb-2">📝</div>
+      <p class="text-sm font-medium text-gray-900">Editor</p>
+      <p class="text-[10px] text-gray-400 mt-1">Syntax-Highlighting</p>
+    </div>
+    <div class="bg-white rounded-2xl p-4">
+      <div class="text-2xl mb-2">🔔</div>
+      <p class="text-sm font-medium text-gray-900">Benachrichtigungen</p>
+      <p class="text-[10px] text-gray-400 mt-1">Webhooks & Alerts</p>
+    </div>
+  </div>
+</section>
+
+<div class="h-20"></div>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 w-full max-w-[430px] bg-white border-t border-gray-100 px-5 py-3">
+  <div class="flex justify-around items-center">
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-lg">🛠️</span>
+      <span class="text-[9px] text-gray-900 font-medium">Tools</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-lg">📁</span>
+      <span class="text-[9px] text-gray-400">Dateien</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-lg">📊</span>
+      <span class="text-[9px] text-gray-400">Monitor</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-lg">⚙️</span>
+      <span class="text-[9px] text-gray-400">Einstellungen</span>
+    </div>
+  </div>
+</nav>
+</body>
+</html>

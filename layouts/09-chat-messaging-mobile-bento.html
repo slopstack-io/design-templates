@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Chat Bento</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+body { font-family: 'Inter', sans-serif; }
+</style>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bento: { pink: '#FF6B9D', blue: '#4ECDC4', orange: '#FF8A5C', purple: '#A78BFA', yellow: '#FBBF24', green: '#34D399', rose: '#FB7185', sky: '#38BDF8' }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-white text-gray-900 min-h-screen flex flex-col" style="max-width:430px; margin:0 auto; height:100vh;">
+
+  <!-- Header -->
+  <div class="bg-white px-4 pt-10 pb-2 shrink-0">
+    <div class="flex items-center justify-between mb-3">
+      <h1 class="text-xl font-extrabold">Nachrichten 💬</h1>
+      <button class="w-9 h-9 rounded-full bg-bento-purple/10 flex items-center justify-center">
+        <svg class="w-5 h-5 text-bento-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+      </button>
+    </div>
+
+    <!-- Contact Pills -->
+    <div class="flex gap-2 overflow-x-auto pb-3">
+      <button class="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-bento-pink to-bento-purple rounded-full shrink-0">
+        <div class="w-6 h-6 rounded-full bg-white/30 flex items-center justify-center text-[10px] text-white font-bold">A</div>
+        <span class="text-sm font-semibold text-white">Anna</span>
+        <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+      </button>
+      <button class="flex items-center gap-2 px-4 py-2.5 bg-bento-blue/10 rounded-full shrink-0">
+        <div class="w-6 h-6 rounded-full bg-bento-blue/20 flex items-center justify-center text-[10px] text-bento-blue font-bold">M</div>
+        <span class="text-sm font-medium text-bento-blue">Max</span>
+      </button>
+      <button class="flex items-center gap-2 px-4 py-2.5 bg-bento-green/10 rounded-full shrink-0">
+        <div class="w-6 h-6 rounded-full bg-bento-green/20 flex items-center justify-center text-[10px] text-bento-green font-bold">S</div>
+        <span class="text-sm font-medium text-bento-green">Sophie</span>
+      </button>
+      <button class="flex items-center gap-2 px-4 py-2.5 bg-bento-orange/10 rounded-full shrink-0">
+        <div class="w-6 h-6 rounded-full bg-bento-orange/20 flex items-center justify-center text-[10px] text-bento-orange font-bold">L</div>
+        <span class="text-sm font-medium text-bento-orange">Lukas</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages Area -->
+  <div class="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-gray-50/50">
+
+    <!-- Date -->
+    <div class="text-center">
+      <span class="text-[10px] text-gray-400 bg-white px-3 py-1 rounded-full shadow-sm">Heute</span>
+    </div>
+
+    <!-- Received -->
+    <div class="max-w-[85%]">
+      <div class="bg-gradient-to-br from-bento-purple to-bento-pink rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
+        <p class="text-sm text-white">Hey! Wie läuft das Projekt? 😊</p>
+      </div>
+      <div class="flex items-center gap-2 mt-1.5">
+        <span class="text-[10px] text-gray-400">10:30</span>
+        <!-- Emoji reactions -->
+        <div class="flex gap-1">
+          <button class="bg-white shadow-sm rounded-full px-1.5 py-0.5 text-[11px]">❤️ 2</button>
+          <button class="bg-white shadow-sm rounded-full px-1.5 py-0.5 text-[11px]">👍 1</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sent -->
+    <div class="max-w-[85%] ml-auto">
+      <div class="bg-bento-blue rounded-2xl rounded-br-sm px-4 py-3 shadow-sm">
+        <p class="text-sm text-white">Sehr gut! Bin fast fertig mit dem Design ✨</p>
+      </div>
+      <div class="flex items-center justify-end gap-2 mt-1.5">
+        <div class="flex gap-1">
+          <button class="bg-white shadow-sm rounded-full px-1.5 py-0.5 text-[11px]">🎉 3</button>
+        </div>
+        <span class="text-[10px] text-gray-400">10:32 ✓✓</span>
+      </div>
+    </div>
+
+    <!-- Received -->
+    <div class="max-w-[85%]">
+      <div class="bg-gradient-to-br from-bento-purple to-bento-pink rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
+        <p class="text-sm text-white">Super! Kannst du mir einen Screenshot schicken? 📸</p>
+      </div>
+      <div class="flex items-center gap-2 mt-1.5">
+        <span class="text-[10px] text-gray-400">10:33</span>
+      </div>
+    </div>
+
+    <!-- Sent -->
+    <div class="max-w-[85%] ml-auto">
+      <div class="bg-bento-blue rounded-2xl rounded-br-sm px-4 py-3 shadow-sm">
+        <p class="text-sm text-white">Klar, hier kommt die Vorschau!</p>
+      </div>
+      <span class="text-[10px] text-gray-400 block text-right mt-1.5">10:35 ✓✓</span>
+    </div>
+
+    <!-- Sent Image -->
+    <div class="max-w-[75%] ml-auto">
+      <div class="bg-gradient-to-br from-bento-orange to-bento-yellow rounded-2xl rounded-br-sm overflow-hidden shadow-sm">
+        <div class="w-52 h-32 bg-bento-orange/80 flex items-center justify-center">
+          <span class="text-3xl">🖼️</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-end gap-2 mt-1.5">
+        <button class="bg-white shadow-sm rounded-full px-1.5 py-0.5 text-[11px]">😍 2</button>
+        <span class="text-[10px] text-gray-400">10:35 ✓✓</span>
+      </div>
+    </div>
+
+    <!-- Received -->
+    <div class="max-w-[85%]">
+      <div class="bg-gradient-to-br from-bento-purple to-bento-pink rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm">
+        <p class="text-sm text-white">Das sieht fantastisch aus! 🎉 Genau das hatte ich vorgestellt!</p>
+      </div>
+      <div class="flex items-center gap-2 mt-1.5">
+        <span class="text-[10px] text-gray-400">10:37</span>
+        <div class="flex gap-1">
+          <button class="bg-white shadow-sm rounded-full px-1.5 py-0.5 text-[11px]">❤️ 4</button>
+          <button class="bg-white shadow-sm rounded-full px-1.5 py-0.5 text-[11px]">🔥 2</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sent -->
+    <div class="max-w-[85%] ml-auto">
+      <div class="bg-bento-green rounded-2xl rounded-br-sm px-4 py-3 shadow-sm">
+        <p class="text-sm text-white">Freut mich! Schicke dir heute Abend die finalen Dateien 📦</p>
+      </div>
+      <span class="text-[10px] text-gray-400 block text-right mt-1.5">10:38 ✓✓</span>
+    </div>
+
+    <!-- Typing indicator -->
+    <div class="max-w-[85%]">
+      <div class="bg-gradient-to-br from-bento-purple/20 to-bento-pink/20 rounded-2xl rounded-bl-sm px-4 py-3 shadow-sm inline-block">
+        <div class="flex gap-1">
+          <div class="w-2 h-2 bg-bento-purple rounded-full animate-bounce" style="animation-delay:0ms"></div>
+          <div class="w-2 h-2 bg-bento-purple rounded-full animate-bounce" style="animation-delay:150ms"></div>
+          <div class="w-2 h-2 bg-bento-purple rounded-full animate-bounce" style="animation-delay:300ms"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compose Bar -->
+  <div class="bg-white border-t border-gray-100 px-4 py-3 flex items-center gap-2 shrink-0">
+    <button class="w-10 h-10 rounded-full bg-bento-yellow/10 flex items-center justify-center shrink-0">
+      <span class="text-lg">😀</span>
+    </button>
+    <div class="flex-1 relative">
+      <input type="text" placeholder="Nachricht..." class="w-full px-4 py-2.5 bg-gradient-to-r from-bento-purple/5 to-bento-pink/5 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-bento-purple/20 border border-bento-purple/10">
+    </div>
+    <button class="w-10 h-10 bg-gradient-to-r from-bento-pink to-bento-purple rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-bento-purple/20">
+      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+    </button>
+  </div>
+</body>
+</html>

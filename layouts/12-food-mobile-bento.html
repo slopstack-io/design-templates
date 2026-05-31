@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Food Bento Mobile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; background: #FFFFFF; }
+</style>
+</head>
+<body class="max-w-[430px] mx-auto min-h-screen">
+
+<!-- Header -->
+<header class="px-5 pt-6 pb-4">
+  <h1 class="text-xl font-bold text-gray-900">Rezepte entdecken</h1>
+  <p class="text-xs text-gray-400 mt-1">Kulinarische Inspirationen</p>
+</header>
+
+<!-- Emoji Category Bar -->
+<section class="px-5 py-2">
+  <div class="flex gap-3 overflow-x-auto pb-1">
+    <div class="flex flex-col items-center gap-1 flex-shrink-0">
+      <div class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-xl">🍝</div>
+      <span class="text-[9px] text-gray-500">Pasta</span>
+    </div>
+    <div class="flex flex-col items-center gap-1 flex-shrink-0">
+      <div class="w-12 h-12 rounded-2xl bg-green-100 flex items-center justify-center text-xl">🥗</div>
+      <span class="text-[9px] text-gray-500">Salate</span>
+    </div>
+    <div class="flex flex-col items-center gap-1 flex-shrink-0">
+      <div class="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center text-xl">🥩</div>
+      <span class="text-[9px] text-gray-500">Fleisch</span>
+    </div>
+    <div class="flex flex-col items-center gap-1 flex-shrink-0">
+      <div class="w-12 h-12 rounded-2xl bg-yellow-100 flex items-center justify-center text-xl">🍰</div>
+      <span class="text-[9px] text-gray-500">Desserts</span>
+    </div>
+    <div class="flex flex-col items-center gap-1 flex-shrink-0">
+      <div class="w-12 h-12 rounded-2xl bg-lime-100 flex items-center justify-center text-xl">🥬</div>
+      <span class="text-[9px] text-gray-500">Vegan</span>
+    </div>
+    <div class="flex flex-col items-center gap-1 flex-shrink-0">
+      <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-xl">🐟</div>
+      <span class="text-[9px] text-gray-500">Fisch</span>
+    </div>
+  </div>
+</section>
+
+<!-- Bento Grid -->
+<section class="px-5 py-4">
+  <div class="grid grid-cols-2 gap-3">
+    <!-- Featured - Big Card -->
+    <div class="col-span-2 rounded-2xl p-5 bg-gradient-to-br from-orange-400 via-red-400 to-rose-500 text-white relative overflow-hidden">
+      <div class="absolute top-3 right-3 text-5xl opacity-20">🍝</div>
+      <span class="bg-white/20 rounded-full px-2 py-0.5 text-[9px] font-medium">⭐ Empfehlung</span>
+      <h3 class="text-lg font-bold mt-2">Trüffel-Pappardelle</h3>
+      <p class="text-[10px] text-white/70 mt-1">Hausgemachte Pasta mit schwarzen Trüffeln</p>
+      <div class="flex items-center gap-3 mt-3">
+        <span class="bg-white/20 rounded-full px-2 py-0.5 text-[9px]">⏱ 45 Min.</span>
+        <span class="bg-white/20 rounded-full px-2 py-0.5 text-[9px]">📊 Mittel</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="rounded-2xl p-4 bg-gradient-to-br from-green-400 to-emerald-500 text-white">
+      <span class="text-2xl">🥗</span>
+      <h3 class="text-sm font-semibold mt-2">Cäsar-Salat</h3>
+      <span class="bg-white/20 rounded-full px-2 py-0.5 text-[9px] mt-2 inline-block">⏱ 15 Min.</span>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="rounded-2xl p-4 bg-gradient-to-br from-red-400 to-rose-500 text-white">
+      <span class="text-2xl">🥩</span>
+      <h3 class="text-sm font-semibold mt-2">Rinderfilet</h3>
+      <span class="bg-white/20 rounded-full px-2 py-0.5 text-[9px] mt-2 inline-block">⏱ 60 Min.</span>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="rounded-2xl p-4 bg-gradient-to-br from-yellow-400 to-amber-500 text-white">
+      <span class="text-2xl">🍰</span>
+      <h3 class="text-sm font-semibold mt-2">Tiramisu</h3>
+      <span class="bg-white/20 rounded-full px-2 py-0.5 text-[9px] mt-2 inline-block">⏱ 30 Min.</span>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="rounded-2xl p-4 bg-gradient-to-br from-lime-400 to-green-500 text-white">
+      <span class="text-2xl">🥬</span>
+      <h3 class="text-sm font-semibold mt-2">Buddha-Bowl</h3>
+      <span class="bg-white/20 rounded-full px-2 py-0.5 text-[9px] mt-2 inline-block">⏱ 25 Min.</span>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="rounded-2xl p-4 bg-gradient-to-br from-blue-400 to-cyan-500 text-white">
+      <span class="text-2xl">🐟</span>
+      <h3 class="text-sm font-semibold mt-2">Lachs-Tatar</h3>
+      <span class="bg-white/20 rounded-full px-2 py-0.5 text-[9px] mt-2 inline-block">⏱ 20 Min.</span>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="rounded-2xl p-4 bg-gradient-to-br from-pink-400 to-purple-500 text-white">
+      <span class="text-2xl">🍰</span>
+      <h3 class="text-sm font-semibold mt-2">Panna Cotta</h3>
+      <span class="bg-white/20 rounded-full px-2 py-0.5 text-[9px] mt-2 inline-block">⏱ 35 Min.</span>
+    </div>
+  </div>
+</section>
+
+<div class="h-20"></div>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 w-full max-w-[430px] bg-white border-t border-gray-100 px-5 py-3">
+  <div class="flex justify-around items-center">
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-lg">📖</span>
+      <span class="text-[9px] text-gray-900 font-medium">Rezepte</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-lg">🔍</span>
+      <span class="text-[9px] text-gray-400">Entdecken</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-lg">❤️</span>
+      <span class="text-[9px] text-gray-400">Favoriten</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <span class="text-lg">👤</span>
+      <span class="text-[9px] text-gray-400">Profil</span>
+    </div>
+  </div>
+</nav>
+</body>
+</html>

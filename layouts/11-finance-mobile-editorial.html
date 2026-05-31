@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Finance Editorial Mobile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Lora', serif; background: #FDF6EC; }
+.font-display { font-family: 'Playfair Display', serif; }
+.font-body { font-family: 'Lora', serif; }
+.font-source { font-family: 'Source Serif 4', serif; }
+</style>
+</head>
+<body class="max-w-[430px] mx-auto min-h-screen" style="background:#FDF6EC;">
+
+<!-- Header -->
+<header class="px-6 pt-6 pb-5 border-b border-amber-900/10">
+  <p class="text-[10px] text-amber-900/40 font-source tracking-[0.2em] uppercase mb-1">Finanzbericht</p>
+  <h1 class="font-display text-2xl font-bold text-amber-950">Ihr Vermögen</h1>
+  <p class="text-xs text-amber-800/50 font-source italic mt-1">Stand: 31. Mai 2026</p>
+</header>
+
+<!-- Balance as Serif Headline -->
+<section class="px-6 py-6">
+  <p class="text-[10px] text-amber-900/40 font-source tracking-[0.2em] uppercase mb-2">Gesamtguthaben</p>
+  <p class="font-display text-4xl font-bold text-amber-950">€47.832,56</p>
+  <p class="text-sm text-amber-800/50 font-body mt-2 italic">
+    Ihr Portfolio verzeichnete am heutigen Tag einen Wertanstieg von €1.243,20, was einem Wachstum von 2,67 Prozent entspricht.
+  </p>
+</section>
+
+<!-- Annotated SVG Chart -->
+<section class="px-6 py-3">
+  <p class="text-[10px] text-amber-900/40 font-source tracking-[0.2em] uppercase mb-3">Wertentwicklung · 30 Tage</p>
+  <div class="relative">
+    <svg class="w-full h-40" viewBox="0 0 380 150">
+      <!-- Grid lines -->
+      <line x1="0" y1="30" x2="380" y2="30" stroke="rgba(120,80,30,0.06)" stroke-width="0.5"/>
+      <line x1="0" y1="60" x2="380" y2="60" stroke="rgba(120,80,30,0.06)" stroke-width="0.5"/>
+      <line x1="0" y1="90" x2="380" y2="90" stroke="rgba(120,80,30,0.06)" stroke-width="0.5"/>
+      <line x1="0" y1="120" x2="380" y2="120" stroke="rgba(120,80,30,0.06)" stroke-width="0.5"/>
+      <!-- Area fill -->
+      <path d="M0,120 20,115 40,110 60,112 80,100 100,95 120,98 140,88 160,85 180,90 200,78 220,72 240,75 260,65 280,60 300,62 320,55 340,50 360,48 380,42 L380,150 L0,150 Z" fill="rgba(180,120,50,0.08)"/>
+      <!-- Line -->
+      <polyline fill="none" stroke="#B47832" stroke-width="1.5" points="0,120 20,115 40,110 60,112 80,100 100,95 120,98 140,88 160,85 180,90 200,78 220,72 240,75 260,65 280,60 300,62 320,55 340,50 360,48 380,42"/>
+      <!-- Annotation dot -->
+      <circle cx="260" cy="65" r="4" fill="#B47832"/>
+      <text x="270" y="58" font-size="9" fill="#92400E" font-family="Source Serif 4, serif" font-style="italic">Rally ab 15. Mai</text>
+      <!-- End dot -->
+      <circle cx="380" cy="42" r="3" fill="#B47832"/>
+      <text x="310" y="38" font-size="8" fill="#92400E" font-family="Source Serif 4, serif">Höchststand</text>
+    </svg>
+  </div>
+</section>
+
+<!-- Holdings as Prose -->
+<section class="px-6 py-5">
+  <p class="text-[10px] text-amber-900/40 font-source tracking-[0.2em] uppercase mb-4">Bestände in Prosa</p>
+  
+  <div class="space-y-5">
+    <div class="pl-4 border-l-2 border-orange-400/40">
+      <h3 class="font-display text-base font-bold text-amber-950">Bitcoin</h3>
+      <p class="text-xs text-amber-800/60 font-body leading-relaxed mt-1">
+        Ihre Position von 0,2841 Bitcoin ist derzeit €28.450,00 wert und bildet mit 59,5 Prozent den stärksten Anteil Ihres Portfolios. Die Kryptowährung verzeichnete in den vergangenen sieben Tagen ein Wachstum von 4,21 Prozent.
+      </p>
+      <div class="flex items-center gap-4 mt-2">
+        <span class="text-[10px] text-amber-800/40 font-source">€28.450,00</span>
+        <span class="text-[10px] text-green-700 font-source">↑ +4,21%</span>
+      </div>
+    </div>
+
+    <div class="pl-4 border-l-2 border-blue-400/40">
+      <h3 class="font-display text-base font-bold text-amber-950">Ethereum</h3>
+      <p class="text-xs text-amber-800/60 font-body leading-relaxed mt-1">
+        Mit 3,241 Ethereum im Wert von €12.180,00 halten Sie eine diversifizierte Position im Smart-Contract-Sektor. Der Kursanstieg von 1,87 Prozent spiegelt die wachsende Netzwerkaktivität wider.
+      </p>
+      <div class="flex items-center gap-4 mt-2">
+        <span class="text-[10px] text-amber-800/40 font-source">€12.180,00</span>
+        <span class="text-[10px] text-green-700 font-source">↑ +1,87%</span>
+      </div>
+    </div>
+
+    <div class="pl-4 border-l-2 border-violet-400/40">
+      <h3 class="font-display text-base font-bold text-amber-950">Solana</h3>
+      <p class="text-xs text-amber-800/60 font-body leading-relaxed mt-1">
+        Ihre 32,4 Solana-Token notieren bei €4.562,00 und haben einen leichten Rückgang von 0,93 Prozent erfahren. Die marktkapitalisierungsbedingte Volatilität ist bei diesem Altcoin zu berücksichtigen.
+      </p>
+      <div class="flex items-center gap-4 mt-2">
+        <span class="text-[10px] text-amber-800/40 font-source">€4.562,00</span>
+        <span class="text-[10px] text-red-700 font-source">↓ -0,93%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Transactions -->
+<section class="px-6 py-4 border-t border-amber-900/10">
+  <p class="text-[10px] text-amber-900/40 font-source tracking-[0.2em] uppercase mb-3">Letzte Bewegungen</p>
+  <div class="space-y-3">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-body text-amber-950">Bitcoin gekauft</p>
+        <p class="text-[10px] text-amber-800/40 font-source italic">Heute, 14:32 Uhr</p>
+      </div>
+      <span class="text-xs text-green-700 font-source">+€2.500,00</span>
+    </div>
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-body text-amber-950">Ethereum verkauft</p>
+        <p class="text-[10px] text-amber-800/40 font-source italic">Gestern, 09:15 Uhr</p>
+      </div>
+      <span class="text-xs text-red-700 font-source">-€800,00</span>
+    </div>
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="text-xs font-body text-amber-950">Einzahlung</p>
+        <p class="text-[10px] text-amber-800/40 font-source italic">28. Mai, 10:00 Uhr</p>
+      </div>
+      <span class="text-xs text-green-700 font-source">+€5.000,00</span>
+    </div>
+  </div>
+</section>
+
+<div class="h-16"></div>
+</body>
+</html>

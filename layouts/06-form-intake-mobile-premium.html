@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Formular Premium</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+body { font-family: 'Inter', sans-serif; }
+</style>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#C9A84C',
+        dark: { 900: '#0A0A0A', 800: '#111111', 700: '#1A1A1A', 600: '#222222' }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-dark-900 text-white min-h-screen" style="max-width:430px; margin:0 auto;">
+
+  <!-- Status Bar -->
+  <div class="flex justify-between items-center px-6 pt-3 pb-2 text-xs text-gray-600">
+    <span>21:47</span>
+    <div class="flex gap-1">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0"/></svg>
+      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><rect x="1" y="6" width="18" height="12" rx="2"/><rect x="20" y="9" width="2" height="6" rx="1"/></svg>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="px-10 pt-8 pb-4">
+    <p class="text-gold text-xs tracking-[0.3em] font-light">01 / 04</p>
+    <div class="mt-3 h-px bg-white/5">
+      <div class="h-px bg-gold/50 w-1/4"></div>
+    </div>
+  </div>
+
+  <!-- Question -->
+  <div class="px-10 pt-12 flex-1">
+    <h2 class="text-2xl font-light leading-relaxed text-gray-200 mb-2">
+      Wie lautet<br>
+      <span class="text-white font-normal">Ihr Name?</span>
+    </h2>
+    <p class="text-xs text-gray-600 font-light mb-12">Vor- und Nachname</p>
+
+    <!-- Input -->
+    <div class="mb-8">
+      <input type="text" placeholder="Ihr Name" class="w-full bg-transparent border-0 border-b border-white/10 focus:border-gold/50 focus:outline-none text-xl font-light py-3 placeholder:text-dark-600 transition-colors">
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="px-10 pb-16 pt-20 flex justify-between items-center">
+    <button class="text-gray-600 text-sm font-light tracking-wide hover:text-gray-400 transition-colors">
+      ← Zurück
+    </button>
+    <button class="text-gold text-sm font-light tracking-wide hover:text-gold/80 transition-colors flex items-center gap-2">
+      Weiter
+      <span class="text-gold">→</span>
+    </button>
+  </div>
+
+  <!-- Dots -->
+  <div class="px-10 pb-10 flex items-center gap-3">
+    <div class="w-6 h-0.5 bg-gold rounded-full"></div>
+    <div class="w-6 h-0.5 bg-white/10 rounded-full"></div>
+    <div class="w-6 h-0.5 bg-white/10 rounded-full"></div>
+    <div class="w-6 h-0.5 bg-white/10 rounded-full"></div>
+  </div>
+</body>
+</html>

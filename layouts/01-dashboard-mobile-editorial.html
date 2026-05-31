@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430">
+<title>Dashboard Editorial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{font-family:system-ui,-apple-system,sans-serif;background:#faf8f5;max-width:430px;margin:0 auto}</style>
+</head>
+<body class="min-h-screen pb-20">
+<header class="px-6 pt-8 pb-4">
+<h1 class="text-2xl font-normal" style="font-family:Georgia,serif">Guten Morgen</h1>
+<p class="text-sm text-stone-500 mt-1">Montag, 31. Mai 2026</p>
+</header>
+
+<section class="px-6 py-4">
+<div class="grid grid-cols-2 gap-6">
+<div>
+<p class="text-xs uppercase tracking-widest text-stone-400 mb-1">Umsatz</p>
+<p class="text-4xl" style="font-family:Georgia,serif;color:#3d3229">€12.840</p>
+<p class="text-xs text-stone-400 mt-1">+14% zum Vormonat</p>
+</div>
+<div>
+<p class="text-xs uppercase tracking-widest text-stone-400 mb-1">Besucher</p>
+<p class="text-4xl" style="font-family:Georgia,serif;color:#3d3229">3.241</p>
+<p class="text-xs text-stone-400 mt-1">+8% zum Vormonat</p>
+</div>
+<div>
+<p class="text-xs uppercase tracking-widest text-stone-400 mb-1">Bestellungen</p>
+<p class="text-4xl" style="font-family:Georgia,serif;color:#3d3229">187</p>
+<p class="text-xs text-stone-400 mt-1">+22% zum Vormonat</p>
+</div>
+<div>
+<p class="text-xs uppercase tracking-widest text-stone-400 mb-1">Conversion</p>
+<p class="text-4xl" style="font-family:Georgia,serif;color:#3d3229">5,7%</p>
+<p class="text-xs text-stone-400 mt-1">+1,2% zum Vormonat</p>
+</div>
+</div>
+</section>
+
+<section class="px-6 py-6">
+<h2 class="text-lg mb-4" style="font-family:Georgia,serif;color:#3d3229">Umsatzentwicklung</h2>
+<svg viewBox="0 0 380 160" class="w-full">
+<defs>
+<linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#c0653a" stop-opacity="0.15"/>
+<stop offset="100%" stop-color="#c0653a" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<line x1="0" y1="130" x2="380" y2="130" stroke="#e5ddd3" stroke-width="0.5"/>
+<line x1="0" y1="90" x2="380" y2="90" stroke="#e5ddd3" stroke-width="0.5"/>
+<line x1="0" y1="50" x2="380" y2="50" stroke="#e5ddd3" stroke-width="0.5"/>
+<polyline fill="url(#fill)" stroke="none" points="10,130 10,110 75,95 140,100 205,70 270,55 335,40 370,30 370,130"/>
+<polyline fill="none" stroke="#c0653a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="10,110 75,95 140,100 205,70 270,55 335,40 370,30"/>
+<circle cx="370" cy="30" r="4" fill="#c0653a"/>
+<text x="370" y="22" text-anchor="end" font-family="Georgia,serif" font-size="11" fill="#3d3229">€12.840</text>
+<text x="10" y="148" font-size="9" fill="#a39889">Jan</text>
+<text x="75" y="148" font-size="9" fill="#a39889">Feb</text>
+<text x="140" y="148" font-size="9" fill="#a39889">Mär</text>
+<text x="205" y="148" font-size="9" fill="#a39889">Apr</text>
+<text x="270" y="148" font-size="9" fill="#a39889">Mai</text>
+<text x="335" y="148" font-size="9" fill="#a39889">Jun</text>
+</svg>
+</section>
+
+<section class="px-6 py-4">
+<h2 class="text-lg mb-6" style="font-family:Georgia,serif;color:#3d3229">Letzte Aktivität</h2>
+<div class="relative pl-6">
+<div class="absolute left-[7px] top-2 bottom-2 w-px bg-stone-300"></div>
+<div class="mb-8 relative">
+<div class="absolute left-[-20px] top-1.5 w-2.5 h-2.5 rounded-full bg-stone-400 border-2 border-[#faf8f5]"></div>
+<p class="text-xs text-stone-400 mb-1">31. Mai 2026 — 02:14</p>
+<p class="text-sm text-stone-700">Neue Bestellung #4821 eingegangen — €189,00</p>
+</div>
+<div class="mb-8 relative">
+<div class="absolute left-[-20px] top-1.5 w-2.5 h-2.5 rounded-full bg-stone-400 border-2 border-[#faf8f5]"></div>
+<p class="text-xs text-stone-400 mb-1">30. Mai 2026 — 18:30</p>
+<p class="text-sm text-stone-700">Produkt „Leinwanddruck" veröffentlicht</p>
+</div>
+<div class="mb-8 relative">
+<div class="absolute left-[-20px] top-1.5 w-2.5 h-2.5 rounded-full bg-stone-400 border-2 border-[#faf8f5]"></div>
+<p class="text-xs text-stone-400 mb-1">30. Mai 2026 — 11:45</p>
+<p class="text-sm text-stone-700">Kampagne „Sommer2026" wurde gestartet</p>
+</div>
+<div class="mb-8 relative">
+<div class="absolute left-[-20px] top-1.5 w-2.5 h-2.5 rounded-full bg-stone-400 border-2 border-[#faf8f5]"></div>
+<p class="text-xs text-stone-400 mb-1">29. Mai 2026 — 09:20</p>
+<p class="text-sm text-stone-700">3 neue Kundenbewertungen eingegangen</p>
+</div>
+<div class="relative">
+<div class="absolute left-[-20px] top-1.5 w-2.5 h-2.5 rounded-full bg-stone-400 border-2 border-[#faf8f5]"></div>
+<p class="text-xs text-stone-400 mb-1">28. Mai 2026 — 16:00</p>
+<p class="text-sm text-stone-700">Lagerbestand aktualisiert — 12 Produkte</p>
+</div>
+</div>
+</section>
+
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-[#faf8f5] border-t border-stone-200 px-6 py-3 flex justify-between items-center">
+<a href="#" class="text-xs tracking-wide text-stone-500 hover:text-stone-800">Übersicht</a>
+<a href="#" class="text-xs tracking-wide text-stone-500 hover:text-stone-800">Analyse</a>
+<a href="#" class="text-xs tracking-wide text-stone-500 hover:text-stone-800">Bestellungen</a>
+<a href="#" class="text-xs tracking-wide text-stone-500 hover:text-stone-800">Profil</a>
+</nav>
+</body>
+</html>

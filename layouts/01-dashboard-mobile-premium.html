@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430">
+<title>Dashboard Premium</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0a;max-width:430px;margin:0 auto}</style>
+</head>
+<body class="min-h-screen pb-20 text-white">
+<header class="px-8 pt-10 pb-6">
+<p class="text-xs tracking-[0.3em] text-zinc-500 uppercase">Dashboard</p>
+</header>
+
+<section class="px-8 py-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5">
+<p class="text-[10px] tracking-[0.2em] text-zinc-500 uppercase mb-3">Umsatz</p>
+<p class="text-3xl font-extralight" style="color:#c9a96e">€12.840</p>
+</div>
+<div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5">
+<p class="text-[10px] tracking-[0.2em] text-zinc-500 uppercase mb-3">Besucher</p>
+<p class="text-3xl font-extralight" style="color:#c9a96e">3.241</p>
+</div>
+<div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5">
+<p class="text-[10px] tracking-[0.2em] text-zinc-500 uppercase mb-3">Bestellungen</p>
+<p class="text-3xl font-extralight" style="color:#c9a96e">187</p>
+</div>
+<div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5">
+<p class="text-[10px] tracking-[0.2em] text-zinc-500 uppercase mb-3">Conversion</p>
+<p class="text-3xl font-extralight" style="color:#c9a96e">5,7%</p>
+</div>
+</div>
+</section>
+
+<section class="px-8 py-8">
+<h2 class="text-[10px] tracking-[0.3em] text-zinc-600 uppercase mb-6">Trend</h2>
+<svg viewBox="0 0 370 120" class="w-full">
+<polyline fill="none" stroke="#c9a96e" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" points="10,100 70,85 130,90 200,60 260,45 320,30 370,20"/>
+</svg>
+</section>
+
+<section class="px-8 py-4">
+<h2 class="text-[10px] tracking-[0.3em] text-zinc-600 uppercase mb-8">Aktivität</h2>
+<div class="space-y-0">
+<div class="flex justify-between items-center py-4 border-t border-white/5">
+<span class="text-sm text-zinc-400 font-light">Bestellung #4821</span>
+<span class="text-xs text-zinc-600">02:14</span>
+</div>
+<div class="flex justify-between items-center py-4 border-t border-white/5">
+<span class="text-sm text-zinc-400 font-light">Produkt veröffentlicht</span>
+<span class="text-xs text-zinc-600">Gestern</span>
+</div>
+<div class="flex justify-between items-center py-4 border-t border-white/5">
+<span class="text-sm text-zinc-400 font-light">Kampagne gestartet</span>
+<span class="text-xs text-zinc-600">Gestern</span>
+</div>
+<div class="flex justify-between items-center py-4 border-t border-white/5">
+<span class="text-sm text-zinc-400 font-light">Neue Bewertungen</span>
+<span class="text-xs text-zinc-600">29. Mai</span>
+</div>
+<div class="flex justify-between items-center py-4 border-t border-white/5">
+<span class="text-sm text-zinc-400 font-light">Lager aktualisiert</span>
+<span class="text-xs text-zinc-600">28. Mai</span>
+</div>
+</div>
+</section>
+
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-[#0a0a0a]/90 backdrop-blur border-t border-white/5 px-8 py-4 flex justify-between items-center">
+<a href="#" class="flex flex-col items-center gap-1">
+<svg width="20" height="20" fill="none" stroke="#71717a" stroke-width="1.2"><rect x="2" y="2" width="16" height="16" rx="1"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="2" y1="8" x2="18" y2="8"/></svg>
+<span class="text-[9px] text-zinc-600">Übersicht</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<svg width="20" height="20" fill="none" stroke="#71717a" stroke-width="1.2"><polyline points="2,16 6,8 10,12 14,4 18,10"/></svg>
+<span class="text-[9px] text-zinc-600">Analyse</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<svg width="20" height="20" fill="none" stroke="#71717a" stroke-width="1.2"><rect x="3" y="5" width="14" height="12" rx="1"/><path d="M7 5V3a3 3 0 0 1 6 0v2"/></svg>
+<span class="text-[9px] text-zinc-600">Bestellungen</span>
+</a>
+<a href="#" class="flex flex-col items-center gap-1">
+<svg width="20" height="20" fill="none" stroke="#71717a" stroke-width="1.2"><circle cx="10" cy="6" r="4"/><path d="M3 18c0-4 3.5-7 7-7s7 3 7 7"/></svg>
+<span class="text-[9px] text-zinc-600">Profil</span>
+</a>
+</nav>
+</body>
+</html>

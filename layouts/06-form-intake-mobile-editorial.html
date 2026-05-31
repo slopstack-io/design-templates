@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430, initial-scale=1.0">
+<title>Formular Editorial</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+body { font-family: 'Lora', serif; }
+.heading { font-family: 'Playfair Display', serif; }
+</style>
+</head>
+<body class="bg-[#FAF6F0] text-gray-800 min-h-screen" style="max-width:430px; margin:0 auto;">
+
+  <!-- Header -->
+  <div class="px-8 pt-14 pb-6">
+    <p class="text-xs tracking-[0.3em] uppercase text-[#B8724E] mb-2">Fragebogen</p>
+    <h1 class="heading text-3xl font-medium leading-tight">Erzählen Sie uns<br><em class="text-[#B8724E]">von sich</em></h1>
+    <div class="w-12 h-0.5 bg-[#B8724E] mt-4"></div>
+  </div>
+
+  <!-- Progress -->
+  <div class="px-8 mb-8">
+    <div class="h-0.5 bg-[#E8DDD0] rounded-full">
+      <div class="h-0.5 bg-[#B8724E] rounded-full" style="width:50%"></div>
+    </div>
+    <p class="text-xs text-[#B8724E] mt-2 italic">II. von IV.</p>
+  </div>
+
+  <!-- Section I -->
+  <div class="px-8 mb-8">
+    <div class="mb-6">
+      <span class="heading text-xs tracking-[0.2em] text-[#B8724E]/60 uppercase">I.</span>
+      <h2 class="heading text-lg font-medium mt-1">Persönliche Angaben</h2>
+    </div>
+
+    <div class="space-y-6">
+      <div>
+        <label class="block text-xs tracking-wider uppercase text-[#B8724E]/70 mb-3">Vorname</label>
+        <input type="text" placeholder="Alexander" class="w-full pb-2 text-base bg-transparent border-0 border-b border-[#D4C5B0] focus:outline-none focus:border-[#B8724E] placeholder:text-[#D4C5B0] transition-colors">
+      </div>
+      <div>
+        <label class="block text-xs tracking-wider uppercase text-[#B8724E]/70 mb-3">Nachname</label>
+        <input type="text" placeholder="von Humboldt" class="w-full pb-2 text-base bg-transparent border-0 border-b border-[#D4C5B0] focus:outline-none focus:border-[#B8724E] placeholder:text-[#D4C5B0] transition-colors">
+      </div>
+      <div>
+        <label class="block text-xs tracking-wider uppercase text-[#B8724E]/70 mb-3">E-Mail</label>
+        <input type="email" placeholder="alexander@korrespondenz.de" class="w-full pb-2 text-base bg-transparent border-0 border-b border-[#D4C5B0] focus:outline-none focus:border-[#B8724E] placeholder:text-[#D4C5B0] transition-colors">
+      </div>
+    </div>
+  </div>
+
+  <!-- Section II -->
+  <div class="px-8 mb-8">
+    <div class="mb-6">
+      <span class="heading text-xs tracking-[0.2em] text-[#B8724E]/60 uppercase">II.</span>
+      <h2 class="heading text-lg font-medium mt-1">Ihre Präferenzen</h2>
+    </div>
+
+    <div class="space-y-4">
+      <label class="flex items-center gap-4 cursor-pointer group">
+        <div class="w-5 h-5 rounded-full border-2 border-[#D4C5B0] group-has-[:checked]:border-[#B8724E] group-has-[:checked]:bg-[#B8724E] flex items-center justify-center transition-colors">
+          <input type="radio" name="pref" class="sr-only" checked>
+          <div class="w-2 h-2 rounded-full bg-white"></div>
+        </div>
+        <span class="text-base">Klassische Literatur</span>
+      </label>
+      <label class="flex items-center gap-4 cursor-pointer group">
+        <div class="w-5 h-5 rounded-full border-2 border-[#D4C5B0] group-has-[:checked]:border-[#B8724E] group-has-[:checked]:bg-[#B8724E] flex items-center justify-center transition-colors">
+          <input type="radio" name="pref" class="sr-only">
+          <div class="w-2 h-2 rounded-full bg-white"></div>
+        </div>
+        <span class="text-base">Zeitgenössische Prosa</span>
+      </label>
+      <label class="flex items-center gap-4 cursor-pointer group">
+        <div class="w-5 h-5 rounded-full border-2 border-[#D4C5B0] group-has-[:checked]:border-[#B8724E] group-has-[:checked]:bg-[#B8724E] flex items-center justify-center transition-colors">
+          <input type="radio" name="pref" class="sr-only">
+          <div class="w-2 h-2 rounded-full bg-white"></div>
+        </div>
+        <span class="text-base">Philosophische Essays</span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Section III -->
+  <div class="px-8 mb-10">
+    <div class="mb-6">
+      <span class="heading text-xs tracking-[0.2em] text-[#B8724E]/60 uppercase">III.</span>
+      <h2 class="heading text-lg font-medium mt-1">Ihre Nachricht</h2>
+    </div>
+    <textarea rows="4" placeholder="Schreiben Sie uns ein paar Zeilen..." class="w-full pb-2 text-base bg-transparent border-0 border-b border-[#D4C5B0] focus:outline-none focus:border-[#B8724E] placeholder:text-[#D4C5B0] resize-none transition-colors"></textarea>
+  </div>
+
+  <!-- Submit -->
+  <div class="px-8 pb-12">
+    <button class="w-full py-4 bg-[#B8724E] text-[#FAF6F0] heading text-sm tracking-[0.2em] uppercase font-medium rounded-none hover:bg-[#A5623F] transition-colors">
+      Absenden
+    </button>
+    <p class="text-center text-xs text-[#D4C5B0] mt-4 italic">Ihre Antworten werden vertraulich behandelt</p>
+  </div>
+</body>
+</html>

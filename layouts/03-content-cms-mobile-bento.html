@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=430">
+<title>Content/CMS Bento Mobile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>body{font-family:system-ui,-apple-system,sans-serif;max-width:430px;margin:0 auto}.accent-strip{position:absolute;top:0;left:0;right:0;height:4px;border-radius:8px 8px 0 0}</style>
+</head>
+<body class="min-h-screen bg-white pb-6">
+<header class="px-5 pt-6 pb-2">
+<div class="flex items-center justify-between">
+<h1 class="text-xl font-bold text-gray-900">Entdecken</h1>
+<div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+<svg width="16" height="16" fill="none" stroke="#6b7280" stroke-width="2"><circle cx="7" cy="7" r="5"/><line x1="11" y1="11" x2="14" y2="14"/></svg>
+</div>
+</div>
+</header>
+
+<div class="px-5 py-3 flex gap-2 overflow-x-auto">
+<span class="whitespace-nowrap px-4 py-1.5 bg-gray-900 text-white text-xs rounded-full">🚀 Alle</span>
+<span class="whitespace-nowrap px-4 py-1.5 bg-gray-100 text-gray-600 text-xs rounded-full">💻 Tech</span>
+<span class="whitespace-nowrap px-4 py-1.5 bg-gray-100 text-gray-600 text-xs rounded-full">🎨 Design</span>
+<span class="whitespace-nowrap px-4 py-1.5 bg-gray-100 text-gray-600 text-xs rounded-full">📚 Kultur</span>
+<span class="whitespace-nowrap px-4 py-1.5 bg-gray-100 text-gray-600 text-xs rounded-full">✈️ Reisen</span>
+</div>
+
+<section class="px-5 py-4">
+<div class="grid grid-cols-2 gap-3">
+<!-- Featured - spans 2 cols -->
+<article class="col-span-2 bg-gray-50 rounded-2xl overflow-hidden relative">
+<div class="accent-strip" style="background:linear-gradient(90deg,#6366f1,#8b5cf6)"></div>
+<div class="aspect-[16/9] bg-gray-200 flex items-center justify-center">
+<span class="text-gray-400 text-sm">📸 Hero Bild</span>
+</div>
+<div class="p-4">
+<span class="text-[10px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-medium">Featured</span>
+<h2 class="text-base font-bold text-gray-900 mt-2 leading-snug">Die Zukunft der nachhaltigen Architektur</h2>
+<p class="text-xs text-gray-500 mt-1.5 line-clamp-2">Wie eine neue Generation von Architekten die Städte von morgen gestaltet.</p>
+<div class="flex items-center justify-between mt-3">
+<span class="text-[10px] text-gray-400">Marie Schneider</span>
+<span class="text-[10px] bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full">⏱ 8 Min.</span>
+</div>
+</div>
+</article>
+
+<!-- Small cards -->
+<article class="bg-gray-50 rounded-2xl overflow-hidden relative">
+<div class="accent-strip" style="background:linear-gradient(90deg,#f59e0b,#ef4444)"></div>
+<div class="aspect-[4/3] bg-gray-200 flex items-center justify-center">
+<span class="text-gray-400 text-xs">🎨 Bild</span>
+</div>
+<div class="p-3">
+<span class="text-[10px] bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full">🎨 Design</span>
+<h3 class="text-sm font-semibold text-gray-900 mt-2 leading-snug">Minimalismus im Trend</h3>
+<span class="text-[10px] bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full mt-2 inline-block">⏱ 5 Min.</span>
+</div>
+</article>
+
+<article class="bg-gray-50 rounded-2xl overflow-hidden relative">
+<div class="accent-strip" style="background:linear-gradient(90deg,#10b981,#06b6d4)"></div>
+<div class="aspect-[4/3] bg-gray-200 flex items-center justify-center">
+<span class="text-gray-400 text-xs">💻 Bild</span>
+</div>
+<div class="p-3">
+<span class="text-[10px] bg-green-100 text-green-600 px-2 py-0.5 rounded-full">💻 Tech</span>
+<h3 class="text-sm font-semibold text-gray-900 mt-2 leading-snug">KI in der Musikproduktion</h3>
+<span class="text-[10px] bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full mt-2 inline-block">⏱ 7 Min.</span>
+</div>
+</article>
+
+<article class="bg-gray-50 rounded-2xl overflow-hidden relative">
+<div class="accent-strip" style="background:linear-gradient(90deg,#ec4899,#f43f5e)"></div>
+<div class="aspect-[4/3] bg-gray-200 flex items-center justify-center">
+<span class="text-gray-400 text-xs">📚 Bild</span>
+</div>
+<div class="p-3">
+<span class="text-[10px] bg-pink-100 text-pink-600 px-2 py-0.5 rounded-full">📚 Kultur</span>
+<h3 class="text-sm font-semibold text-gray-900 mt-2 leading-snug">Berlins versteckte Buchläden</h3>
+<span class="text-[10px] bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full mt-2 inline-block">⏱ 4 Min.</span>
+</div>
+</article>
+
+<article class="bg-gray-50 rounded-2xl overflow-hidden relative">
+<div class="accent-strip" style="background:linear-gradient(90deg,#3b82f6,#8b5cf6)"></div>
+<div class="aspect-[4/3] bg-gray-200 flex items-center justify-center">
+<span class="text-gray-400 text-xs">✈️ Bild</span>
+</div>
+<div class="p-3">
+<span class="text-[10px] bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full">✈️ Reisen</span>
+<h3 class="text-sm font-semibold text-gray-900 mt-2 leading-snug">Dolomiten im Sommer</h3>
+<span class="text-[10px] bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full mt-2 inline-block">⏱ 6 Min.</span>
+</div>
+</article>
+
+<!-- Another wide card -->
+<article class="col-span-2 bg-gray-50 rounded-2xl overflow-hidden relative">
+<div class="accent-strip" style="background:linear-gradient(90deg,#f59e0b,#10b981)"></div>
+<div class="flex">
+<div class="w-1/2 aspect-square bg-gray-200 flex items-center justify-center">
+<span class="text-gray-400 text-xs">🔬 Bild</span>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-center">
+<span class="text-[10px] bg-red-100 text-red-600 px-2 py-0.5 rounded-full">🔬 Wissenschaft</span>
+<h3 class="text-sm font-semibold text-gray-900 mt-2 leading-snug">Neue Entdeckungen in der Quantenphysik</h3>
+<span class="text-[10px] bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full mt-2 inline-block">⏱ 10 Min.</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+</body>
+</html>
