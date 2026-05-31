@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>E-Commerce — Mobile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #ffffff; --card: #f8f8f8; --border: #e5e7eb; --text: #1a1a2e; --muted: #6b7280; --accent: #dc2626; --green: #16a34a; }
+    * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); margin: 0; max-width: 430px; margin: 0 auto; min-height: 100vh; }
+    .header { padding: 12px 20px; display: flex; align-items: center; gap: 12px; }
+    .search-bar { flex: 1; background: var(--card); border-radius: 12px; padding: 10px 14px; display: flex; gap: 8px; align-items: center; }
+    .search-bar span { color: var(--muted); font-size: 14px; }
+    .cart-badge { position: relative; font-size: 22px; cursor: pointer; }
+    .cart-badge .count { position: absolute; top: -4px; right: -6px; background: var(--accent); color: white; font-size: 10px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .categories { display: flex; gap: 8px; overflow-x: auto; padding: 0 20px 16px; -webkit-overflow-scrolling: touch; }
+    .cat-chip { white-space: nowrap; padding: 8px 16px; border-radius: 9999px; background: var(--card); font-size: 13px; font-weight: 600; flex-shrink: 0; }
+    .cat-chip.active { background: var(--text); color: white; }
+    .promo { background: linear-gradient(135deg, #dc2626, #f97316); border-radius: 16px; padding: 20px; color: white; margin: 0 20px 20px; }
+    .promo h3 { font-size: 18px; font-weight: 800; margin: 0 0 4px; }
+    .promo p { font-size: 13px; opacity: 0.9; margin: 0 0 12px; }
+    .promo button { background: white; color: var(--accent); border: none; padding: 8px 20px; border-radius: 10px; font-weight: 700; font-size: 13px; }
+    .products { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px 20px; }
+    .product-card { background: white; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .product-img { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .product-info { padding: 10px; }
+    .product-info .name { font-size: 13px; font-weight: 600; margin: 0 0 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .product-info .price-row { display: flex; justify-content: space-between; align-items: center; }
+    .product-info .price { font-size: 14px; font-weight: 700; color: var(--accent); }
+    .add-btn { width: 26px; height: 26px; background: var(--accent); color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .product-info .rating { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .bottom-nav { background: white; border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 10px 0 28px; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 100; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; color: #9ca3af; padding: 4px 12px; }
+    .nav-item.active { color: var(--accent); }
+    .nav-icon { font-size: 22px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="search-bar">
+      <span>🔍</span>
+      <span>Suchen...</span>
+    </div>
+    <div class="cart-badge">🛒<div class="count">3</div></div>
+    <span style="font-size:22px;cursor:pointer;">👤</span>
+  </div>
+
+  <div class="categories">
+    <div class="cat-chip active">🔥 Alle</div>
+    <div class="cat-chip">👗 Kleidung</div>
+    <div class="cat-chip">👟 Schuhe</div>
+    <div class="cat-chip">🏠 Wohnen</div>
+    <div class="cat-chip">💻 Tech</div>
+    <div class="cat-chip">✨ Beauty</div>
+  </div>
+
+  <div class="promo">
+    <h3>Summer Sale 🎉</h3>
+    <p>Bis zu 40% auf ausgewählte Artikel</p>
+    <button>Jetzt entdecken</button>
+  </div>
+
+  <div class="products">
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fde68a,#fbbf24);">👕</div>
+      <div class="product-info">
+        <div class="rating">★★★★★ (128)</div>
+        <div class="name">Premium T-Shirt</div>
+        <div class="price-row"><span class="price">€29,90</span><button class="add-btn">+</button></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#a5b4fc,#6366f1);">👟</div>
+      <div class="product-info">
+        <div class="rating">★★★★☆ (84)</div>
+        <div class="name">Sneaker Classic</div>
+        <div class="price-row"><span class="price">€89,90</span><button class="add-btn">+</button></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#86efac,#22c55e);">🎒</div>
+      <div class="product-info">
+        <div class="rating">★★★★★ (56)</div>
+        <div class="name">Rucksack Urban</div>
+        <div class="price-row"><span class="price">€64,90</span><button class="add-btn">+</button></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#fca5a5,#ef4444);">🎧</div>
+      <div class="product-info">
+        <div class="rating">★★★★★ (203)</div>
+        <div class="name">Wireless Kopfhörer</div>
+        <div class="price-row"><span class="price">€149,00</span><button class="add-btn">+</button></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#f9a8d4,#ec4899);">💄</div>
+      <div class="product-info">
+        <div class="rating">★★★★☆ (91)</div>
+        <div class="name">Lippenstift Velvet</div>
+        <div class="price-row"><span class="price">€19,90</span><button class="add-btn">+</button></div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:linear-gradient(135deg,#93c5fd,#3b82f6);">⌚</div>
+      <div class="product-info">
+        <div class="rating">★★★★★ (167)</div>
+        <div class="name">Smartwatch Pro</div>
+        <div class="price-row"><span class="price">€249,00</span><button class="add-btn">+</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:70px;"></div>
+
+  <div class="bottom-nav">
+    <div class="nav-item active"><span class="nav-icon">🏠</span><span>Home</span></div>
+    <div class="nav-item"><span class="nav-icon">🔍</span><span>Suche</span></div>
+    <div class="nav-item"><span class="nav-icon">🛒</span><span>Warenkorb</span></div>
+    <div class="nav-item"><span class="nav-icon">❤️</span><span>Favoriten</span></div>
+    <div class="nav-item"><span class="nav-icon">👤</span><span>Profil</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>E-Commerce Mobile — Bento</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #ffffff; --text: #1e1b4b; --muted: #6b7280; }
+    * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); margin: 0; max-width: 430px; margin: 0 auto; min-height: 100vh; }
+    .header { padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .header h1 { font-size: 20px; font-weight: 800; margin: 0; }
+    .pills { display: flex; gap: 8px; overflow-x: auto; padding: 0 20px 16px; }
+    .pill { white-space: nowrap; padding: 8px 18px; border-radius: 9999px; font-size: 13px; font-weight: 600; flex-shrink: 0; color: white; }
+    .bento { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px 20px; }
+    .card { border-radius: 20px; padding: 16px; min-height: 120px; color: white; position: relative; overflow: hidden; }
+    .card.span-2 { grid-column: span 2; }
+    .card .emoji { font-size: 32px; margin-bottom: 8px; }
+    .card .name { font-size: 15px; font-weight: 700; margin: 0 0 4px; }
+    .card .price { font-size: 18px; font-weight: 800; }
+    .card .old-price { font-size: 12px; opacity: 0.7; text-decoration: line-through; }
+    .card .add { display: inline-block; background: rgba(255,255,255,0.3); padding: 6px 16px; border-radius: 9999px; font-size: 12px; font-weight: 700; margin-top: 10px; backdrop-filter: blur(4px); }
+    .bottom-nav { background: white; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-around; padding: 10px 0 28px; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 100; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; color: #9ca3af; padding: 4px 12px; }
+    .nav-item.active { color: #7c3aed; }
+    .nav-icon { font-size: 22px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🛍️ ShopBento</h1>
+    <div style="display:flex;gap:12px;">
+      <span style="font-size:20px;">🔍</span>
+      <span style="font-size:20px;">🛒</span>
+    </div>
+  </div>
+
+  <div class="pills">
+    <div class="pill" style="background:linear-gradient(135deg,#7c3aed,#6366f1);">🔥 Alle</div>
+    <div class="pill" style="background:linear-gradient(135deg,#ec4899,#f472b6);">👗 Mode</div>
+    <div class="pill" style="background:linear-gradient(135deg,#3b82f6,#60a5fa);">👟 Schuhe</div>
+    <div class="pill" style="background:linear-gradient(135deg,#22c55e,#34d399);">🌿 Bio</div>
+    <div class="pill" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">💰 Sale</div>
+  </div>
+
+  <div class="bento">
+    <!-- Hero product - spans 2 -->
+    <div class="card span-2" style="background:linear-gradient(135deg,#7c3aed,#ec4899);min-height:160px;">
+      <div style="display:flex;justify-content:space-between;align-items:start;">
+        <div>
+          <div class="emoji">👗</div>
+          <div class="name">Summer Kollektion 2026</div>
+          <div class="price">Ab €39,90</div>
+        </div>
+        <div style="font-size:64px;opacity:0.3;">✨</div>
+      </div>
+      <div class="add">Entdecken →</div>
+    </div>
+    <!-- Product 1 -->
+    <div class="card" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);">
+      <div class="emoji">👕</div>
+      <div class="name">Premium Tee</div>
+      <div class="old-price">€49,90</div>
+      <div class="price">€29,90</div>
+      <div class="add">🛒 Hinzufügen</div>
+    </div>
+    <!-- Product 2 -->
+    <div class="card" style="background:linear-gradient(135deg,#6366f1,#4f46e5);">
+      <div class="emoji">👟</div>
+      <div class="name">Sneaker Pro</div>
+      <div class="price">€89,90</div>
+      <div class="add">🛒 Hinzufügen</div>
+    </div>
+    <!-- Product 3 -->
+    <div class="card" style="background:linear-gradient(135deg,#22c55e,#16a34a);">
+      <div class="emoji">🎒</div>
+      <div class="name">Rucksack Eco</div>
+      <div class="price">€64,90</div>
+      <div class="add">🛒 Hinzufügen</div>
+    </div>
+    <!-- Product 4 -->
+    <div class="card" style="background:linear-gradient(135deg,#f472b6,#ec4899);">
+      <div class="emoji">💄</div>
+      <div class="name">Lip Gloss Set</div>
+      <div class="price">€24,90</div>
+      <div class="add">🛒 Hinzufügen</div>
+    </div>
+    <!-- Wide deal banner -->
+    <div class="card span-2" style="background:linear-gradient(135deg,#ef4444,#f97316);min-height:100px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-size:20px;font-weight:800;">🔥 Flash Sale</div>
+          <div style="font-size:13px;opacity:0.9;margin-top:4px;">Noch 2h 34min · Bis zu 50% Rabatt</div>
+        </div>
+        <div style="font-size:40px;">⚡</div>
+      </div>
+    </div>
+    <!-- Product 5 -->
+    <div class="card" style="background:linear-gradient(135deg,#3b82f6,#2563eb);">
+      <div class="emoji">⌚</div>
+      <div class="name">Smartwatch</div>
+      <div class="price">€249</div>
+      <div class="add">🛒 Hinzufügen</div>
+    </div>
+    <!-- Product 6 -->
+    <div class="card" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);">
+      <div class="emoji">🎧</div>
+      <div class="name">Audio Pro</div>
+      <div class="price">€149</div>
+      <div class="add">🛒 Hinzufügen</div>
+    </div>
+  </div>
+
+  <div style="height:70px;"></div>
+
+  <div class="bottom-nav">
+    <div class="nav-item active"><span class="nav-icon">🏠</span><span>Home</span></div>
+    <div class="nav-item"><span class="nav-icon">🔍</span><span>Suche</span></div>
+    <div class="nav-item"><span class="nav-icon">🛒</span><span>Warenkorb</span></div>
+    <div class="nav-item"><span class="nav-icon">❤️</span><span>Lieblinge</span></div>
+    <div class="nav-item"><span class="nav-icon">👤</span><span>Profil</span></div>
+  </div>
+</body>
+</html>

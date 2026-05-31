@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dashboard — Mobile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #0f172a; --card: #1e293b; --border: #334155; --text: #f1f5f9; --muted: #94a3b8; --accent: #6366f1; --success: #22c55e; --warn: #f59e0b; }
+    * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); margin: 0; max-width: 430px; margin: 0 auto; min-height: 100vh; }
+    .header { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .header h1 { font-size: 20px; font-weight: 800; margin: 0; }
+    .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px 20px; }
+    .kpi-card { background: var(--card); border-radius: 16px; padding: 16px; }
+    .kpi-card .emoji { font-size: 24px; margin-bottom: 8px; }
+    .kpi-card .value { font-size: 22px; font-weight: 800; }
+    .kpi-card .label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .kpi-card .change { font-size: 12px; font-weight: 600; margin-top: 6px; }
+    .chart-card { background: var(--card); border-radius: 16px; margin: 0 20px 20px; padding: 20px; }
+    .chart-card h3 { font-size: 14px; font-weight: 600; margin: 0 0 16px; }
+    .chart-bars { display: flex; align-items: flex-end; gap: 4px; height: 100px; }
+    .chart-bar { flex: 1; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 8px; opacity: 0.7; }
+    .chart-bar.highlight { opacity: 1; }
+    .chart-labels { display: flex; gap: 4px; margin-top: 8px; }
+    .chart-labels span { flex: 1; text-align: center; font-size: 10px; color: var(--muted); }
+    .section { padding: 0 20px 16px; }
+    .section-title { font-size: 16px; font-weight: 700; margin: 0 0 12px; }
+    .activity-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+    .activity-info { flex: 1; }
+    .activity-info .name { font-size: 14px; font-weight: 600; }
+    .activity-info .desc { font-size: 12px; color: var(--muted); }
+    .activity-time { font-size: 11px; color: var(--muted); }
+    .bottom-nav { background: var(--bg); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 10px 0 28px; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; z-index: 100; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10px; color: var(--muted); padding: 4px 12px; }
+    .nav-item.active { color: var(--accent); }
+    .nav-icon { font-size: 22px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>📊 Dashboard</h1>
+    <div style="display:flex;gap:16px;">
+      <span style="font-size:20px;cursor:pointer;">🔍</span>
+      <span style="font-size:20px;cursor:pointer;">🔔</span>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="emoji">💰</div>
+      <div class="value">€84.2k</div>
+      <div class="label">Monatsumsatz</div>
+      <div class="change" style="color:var(--success);">↑ +12.5%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="emoji">👥</div>
+      <div class="value">12.8k</div>
+      <div class="label">Aktive Nutzer</div>
+      <div class="change" style="color:var(--success);">↑ +8.3%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="emoji">🎯</div>
+      <div class="value">4.7%</div>
+      <div class="label">Conversion</div>
+      <div class="change" style="color:var(--success);">↑ +0.3%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="emoji">⭐</div>
+      <div class="value">96.3%</div>
+      <div class="label">Zufriedenheit</div>
+      <div class="change" style="color:var(--success);">↑ +1.2%</div>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Umsatz letzten 7 Tage</h3>
+    <div class="chart-bars">
+      <div class="chart-bar" style="height:45%;"></div>
+      <div class="chart-bar" style="height:62%;"></div>
+      <div class="chart-bar" style="height:55%;"></div>
+      <div class="chart-bar" style="height:78%;"></div>
+      <div class="chart-bar" style="height:70%;"></div>
+      <div class="chart-bar" style="height:85%;"></div>
+      <div class="chart-bar highlight" style="height:92%;"></div>
+    </div>
+    <div class="chart-labels">
+      <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">Letzte Aktivitäten</h3>
+    <div class="activity-item">
+      <div class="activity-avatar" style="background:rgba(99,102,241,0.15);">📦</div>
+      <div class="activity-info"><div class="name">Neue Bestellung #1847</div><div class="desc">Max Mustermann · 3 Artikel</div></div>
+      <div class="activity-time">vor 5 Min</div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-avatar" style="background:rgba(34,197,94,0.15);">👤</div>
+      <div class="activity-info"><div class="name">Neuer Kunde registriert</div><div class="desc">anna.becker@email.de</div></div>
+      <div class="activity-time">vor 12 Min</div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-avatar" style="background:rgba(245,158,11,0.15);">⭐</div>
+      <div class="activity-info"><div class="name">Neue Bewertung (5★)</div><div class="desc">Produkt: Lederhandbag Luxe</div></div>
+      <div class="activity-time">vor 28 Min</div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-avatar" style="background:rgba(99,102,241,0.15);">💳</div>
+      <div class="activity-info"><div class="name">Zahlung eingegangen</div><div class="desc">€249,00 · Rechnung #RE-089</div></div>
+      <div class="activity-time">vor 1 Std</div>
+    </div>
+  </div>
+
+  <div style="height:70px;"></div>
+
+  <div class="bottom-nav">
+    <div class="nav-item active"><span class="nav-icon">📊</span><span>Home</span></div>
+    <div class="nav-item"><span class="nav-icon">📈</span><span>Analytik</span></div>
+    <div class="nav-item"><span class="nav-icon">📋</span><span>Berichte</span></div>
+    <div class="nav-item"><span class="nav-icon">⚙️</span><span>Einstellungen</span></div>
+  </div>
+</body>
+</html>
