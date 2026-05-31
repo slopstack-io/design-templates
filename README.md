@@ -1,6 +1,6 @@
 # 🎨 Design Templates
 
-80 hand-crafted app layouts for the **Frau Holle** pipeline — 20 categories × 4 unique design variants each.
+128 hand-crafted app layouts for the **Frau Holle** pipeline — 20 categories × 4 design variants + mobile equivalents.
 
 ## Design Variants
 
@@ -15,28 +15,55 @@ Each category has 4 completely unique designs — not just color swaps, but fund
 
 ## Categories
 
-| # | Category | Type |
-|---|----------|------|
-| 01 | Dashboard / Analytics | Desktop |
-| 02 | E-Commerce / Product Catalog | Desktop |
-| 03 | Content / CMS / Blog | Desktop |
-| 04 | Landing / Marketing Page | Desktop |
-| 05 | Social Feed / Community | Desktop |
-| 06 | Form / Intake / Survey | Desktop |
-| 07 | Portfolio / Gallery | Desktop |
-| 08 | Scheduling / Booking | Desktop |
-| 09 | Chat / Messaging | Desktop |
-| 10 | Tool / Utility | Desktop |
-| 11 | Finance / Investing | Desktop |
-| 12 | Food / Recipes | Desktop |
-| 13 | Shop Dashboard | Mobile |
-| 14 | Card Manager / Banking | Mobile |
-| 15 | Education / Learning | Mobile |
-| 16 | Smart Home / IoT | Mobile |
-| 17 | Travel / Outdoor | Mobile |
-| 18 | Health / Telehealth | Mobile |
-| 19 | Food Delivery | Mobile |
-| 20 | Crypto / Fintech | Mobile |
+### Desktop (01–12)
+| # | Category |
+|---|----------|
+| 01 | Dashboard / Analytics |
+| 02 | E-Commerce / Product Catalog |
+| 03 | Content / CMS / Blog |
+| 04 | Landing / Marketing Page |
+| 05 | Social Feed / Community |
+| 06 | Form / Intake / Survey |
+| 07 | Portfolio / Gallery |
+| 08 | Scheduling / Booking |
+| 09 | Chat / Messaging |
+| 10 | Tool / Utility |
+| 11 | Finance / Investing |
+| 12 | Food / Recipes |
+
+### Native Mobile (13–20)
+| # | Category |
+|---|----------|
+| 13 | Shop Dashboard |
+| 14 | Card Manager / Banking |
+| 15 | Education / Learning |
+| 16 | Smart Home / IoT |
+| 17 | Travel / Outdoor |
+| 18 | Health / Telehealth |
+| 19 | Food Delivery |
+| 20 | Crypto / Fintech |
+
+## Naming Convention
+```
+{number}-{category}.html              → Base desktop
+{number}-{category}-bento.html        → Bento desktop
+{number}-{category}-editorial.html    → Editorial desktop
+{number}-{category}-premium.html      → Premium desktop
+{number}-{category}-mobile.html       → Base mobile (01–12 only)
+{number}-{category}-mobile-bento.html → Bento mobile (01–12 only)
+{number}-{category}-mobile-editorial.html → Editorial mobile (01–12 only)
+{number}-{category}-mobile-premium.html   → Premium mobile (01–12 only)
+```
+
+## Frau Holle Intake Flow
+
+1. Customer describes their app idea
+2. Frau Holle determines the category (e.g. "E-Commerce")
+3. Shows 4 design variant previews to the customer
+4. Customer picks their preferred style
+5. Solist receives the chosen template reference (e.g. `02-ecommerce-bento`) as starting point
+6. Fetches the HTML template, extracts design language, builds Next.js PWA
+7. Customizes content, branding, and features for the customer
 
 ## Preview
 
@@ -47,29 +74,12 @@ python3 -m http.server 8765
 # Compare: http://localhost:8765/01-dashboard-bento.html
 ```
 
-## Frau Holle Intake Flow
-
-1. Customer describes their app idea
-2. Frau Holle determines the category (e.g. "E-Commerce")
-3. Shows 4 design variant previews to the customer
-4. Customer picks their preferred style
-5. Solist receives the chosen template as starting point
-6. Customizes content, branding, and features
-
-## Naming Convention
-
-```
-{number}-{category}.html              → Base (SaaS/Clean)
-{number}-{category}-bento.html        → Bento (Playful)
-{number}-{category}-editorial.html    → Editorial (Magazine)
-{number}-{category}-premium.html      → Premium (Luxury)
-```
-
 ## Stats
 
-- **80 HTML files** · **797 KB total**
-- **20 categories** × **4 variants** each
-- **12 desktop** + **8 mobile** base layouts
+- **128 HTML files** · ~1.3 MB total
+- **20 categories** × **4 variants** each = 80 layouts
+- **48 mobile equivalents** for desktop categories 01–12
+- **12 desktop** + **8 native mobile** base categories
 - All self-contained, responsive, German content
 
 ## License
